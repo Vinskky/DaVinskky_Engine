@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{746CC4C3-787F-4B0E-AA66-E388FE3FF4F6}</ProjectGuid>
+    <RootNamespace>SDLGame</RootNamespace>
+    <ProjectName>DaVinskky Engine</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)</OutDir>
+    <IntDir>$(SolutionDir)Build\$(Configuration)\Obj\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)</OutDir>
+    <IntDir>$(SolutionDir)Build\$(Configuration)\Obj\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalLibraryDirectories>$(ProjectDir)Source\External\SDL_mixer\libx86;$(ProjectDir)Source\External\SDL\libx86;$(ProjectDir)Source\External\glut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Windows</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalLibraryDirectories>$(ProjectDir)Source\External\SDL_mixer\libx86;$(ProjectDir)Source\External\SDL\libx86;$(ProjectDir)Source\External\glut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="DaVinskky Engine\Source\Application.h" />
+    <ClInclude Include="DaVinskky Engine\Source\Color.h" />
+    <ClInclude Include="DaVinskky Engine\Source\glmath.h" />
+    <ClInclude Include="DaVinskky Engine\Source\Globals.h" />
+    <ClInclude Include="DaVinskky Engine\Source\Light.h" />
+    <ClInclude Include="DaVinskky Engine\Source\Module.h" />
+    <ClInclude Include="DaVinskky Engine\Source\ModuleAudio.h" />
+    <ClInclude Include="DaVinskky Engine\Source\ModuleCamera3D.h" />
+    <ClInclude Include="DaVinskky Engine\Source\ModuleInput.h" />
+    <ClInclude Include="DaVinskky Engine\Source\ModulePhysics3D.h" />
+    <ClInclude Include="DaVinskky Engine\Source\ModuleRenderer3D.h" />
+    <ClInclude Include="DaVinskky Engine\Source\ModuleSceneIntro.h" />
+    <ClInclude Include="DaVinskky Engine\Source\ModuleWindow.h" />
+    <ClInclude Include="DaVinskky Engine\Source\p2DynArray.h" />
+    <ClInclude Include="DaVinskky Engine\Source\p2List.h" />
+    <ClInclude Include="DaVinskky Engine\Source\p2Point.h" />
+    <ClInclude Include="DaVinskky Engine\Source\Primitive.h" />
+    <ClInclude Include="DaVinskky Engine\Source\Timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DaVinskky Engine\Source\Application.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\Color.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\glmath.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\Light.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\log.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\Main.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\ModuleAudio.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\ModuleCamera3D.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\ModuleInput.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\ModulePhysics3D.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\ModuleRenderer3D.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\ModuleSceneIntro.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\ModuleWindow.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\Primitive.cpp" />
+    <ClCompile Include="DaVinskky Engine\Source\Timer.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
