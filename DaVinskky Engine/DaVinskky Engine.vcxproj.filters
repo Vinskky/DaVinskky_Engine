@@ -19,6 +19,15 @@
     <Filter Include="Sources\Modules\Game">
       <UniqueIdentifier>{83f46af7-e02f-40c0-9e56-41d76082527b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependences">
+      <UniqueIdentifier>{5626f9f7-a11e-42a9-9d90-46dc9a50955e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependences\ImGui">
+      <UniqueIdentifier>{77a22a54-2bde-40e5-a2cf-d99bef5bad54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependences\Glew">
+      <UniqueIdentifier>{4f4be507-bb6c-4556-ac86-ca524d8fd714}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">
@@ -72,6 +81,45 @@
     <ClInclude Include="Source\p2Point.h">
       <Filter>Sources\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imconfig.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imgui.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imgui_impl_opengl3.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imgui_impl_sdl.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imgui_internal.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imstb_rectpack.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imstb_textedit.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imstb_truetype.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\Glew\include\eglew.h">
+      <Filter>Dependences\Glew</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\Glew\include\glew.h">
+      <Filter>Dependences\Glew</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\Glew\include\glxew.h">
+      <Filter>Dependences\Glew</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\Glew\include\wglew.h">
+      <Filter>Dependences\Glew</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\ImGui\include\imgui_impl_opengl3_loader.h">
+      <Filter>Dependences\ImGui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -115,6 +163,27 @@
     </ClCompile>
     <ClCompile Include="Source\glmath.cpp">
       <Filter>Sources\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\ImGui\include\imgui.cpp">
+      <Filter>Dependences\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\ImGui\include\imgui_demo.cpp">
+      <Filter>Dependences\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\ImGui\include\imgui_draw.cpp">
+      <Filter>Dependences\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\ImGui\include\imgui_impl_opengl3.cpp">
+      <Filter>Dependences\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\ImGui\include\imgui_impl_sdl.cpp">
+      <Filter>Dependences\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\ImGui\include\imgui_tables.cpp">
+      <Filter>Dependences\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\ImGui\include\imgui_widgets.cpp">
+      <Filter>Dependences\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

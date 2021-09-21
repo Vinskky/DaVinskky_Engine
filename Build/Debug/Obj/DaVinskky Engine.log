@@ -1,2 +1,40 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(438,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  DaVinskky Engine.vcxproj -> C:\Users\sebastiandv\Documents\GitHub\DaVinskky_Engine\Build\Debug\DaVinskky Engine.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Application.cpp
+  Color.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_impl_sdl.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  glmath.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(12,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(27,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(43,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(53,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(53,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(72,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(87,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(103,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(600,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(618,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(618,33): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(758,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(778,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(778,33): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Light.cpp
+  log.cpp
+  Main.cpp
+  ModuleAudio.cpp
+  ModuleCamera3D.cpp
+  ModuleInput.cpp
+  ModuleRenderer3D.cpp
+  ModuleSceneIntro.cpp
+  ModuleWindow.cpp
+  Primitive.cpp
+  Generating Code...
+  Compiling...
+  Timer.cpp
+  Generating Code...
+  DaVinskky Engine.vcxproj -> D:\Documentos\Github\DaVinskky_Engine\Build\Debug\DaVinskky Engine.exe
