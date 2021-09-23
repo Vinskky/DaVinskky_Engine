@@ -120,6 +120,12 @@
     <ClInclude Include="Source\External\ImGui\include\imgui_impl_opengl3_loader.h">
       <Filter>Dependences\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ModuleEditor.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\OpenGL.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -184,6 +190,9 @@
     </ClCompile>
     <ClCompile Include="Source\External\ImGui\include\imgui_widgets.cpp">
       <Filter>Dependences\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModuleEditor.cpp">
+      <Filter>Sources\Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
