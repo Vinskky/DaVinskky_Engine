@@ -1,11 +1,13 @@
-#pragma once
+#ifndef _MODULE_SCENE_INTRO_H_
+#define _MODULE_SCENE_INTRO_H_
+
 #include "Module.h"
 #include "Globals.h"
 
 class ModuleSceneIntro : public Module
 {
 public:
-	ModuleSceneIntro(Application* app, bool start_enabled = true);
+	ModuleSceneIntro(Application* app, bool startEnabled = true);
 	~ModuleSceneIntro();
 
 	bool Start();
@@ -14,3 +16,7 @@ public:
 
 public:
 };
+
+#endif // !_MODULE_SCENE_INTRO_H_
+
+

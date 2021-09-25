@@ -9,7 +9,7 @@
 class ModuleEditor : public Module
 {
 public:
-	ModuleEditor(Application* app, bool start_enabled = true);
+	ModuleEditor(Application* app, bool startEnabled = true);
 	~ModuleEditor();
 
 	bool Start();
@@ -23,9 +23,9 @@ public:
 
 public:
 	
-	bool show_demo_window;
-	bool show_another_window;
-	ImVec4 clear_color;
+	bool showDemoWindow;
+	bool showAnotherWindow;
+	ImVec4 clearColor;
 
 	float f;
 	int counter;

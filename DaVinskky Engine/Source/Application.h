@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _APPLICATION_H_
+#define _APPLICATION_H_
 
 #include <vector>
 #include "Globals.h"
@@ -23,7 +24,7 @@ public:
 
 private:
 
-	Timer	ms_timer;
+	Timer	msTimer;
 	float	dt;
 	std::vector<Module*> modules;
 
@@ -42,3 +43,6 @@ private:
 	void PrepareUpdate();
 	void FinishUpdate();
 };
+
+#endif // !_APPLICATION_H_
+

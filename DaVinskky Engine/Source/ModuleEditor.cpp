@@ -10,7 +10,7 @@
 #include "imgui_impl_sdl.h"
 
 
-ModuleEditor::ModuleEditor(Application* app,  bool start_enabled): Module(app, start_enabled)
+ModuleEditor::ModuleEditor(Application* app,  bool startEnabled): Module(app, startEnabled)
 {
 }
 
@@ -39,8 +39,8 @@ update_status ModuleEditor::Update(float dt)
     ImGuiIO& io = ImGui::GetIO();
     (void)io;
 
-    if (show_demo_window)
-        ImGui::ShowDemoWindow(&show_demo_window);
+    if (showDemoWindow)
+        ImGui::ShowDemoWindow(&showDemoWindow);
 
     // 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
     {
@@ -50,11 +50,11 @@ update_status ModuleEditor::Update(float dt)
         ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 
         ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-        ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-        ImGui::Checkbox("Another Window", &show_another_window);
+        ImGui::Checkbox("Demo Window", &showDemoWindow);      // Edit bools storing our window open/close state
+        ImGui::Checkbox("Another Window", &showAnotherWindow);
 
         ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-        ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+        ImGui::ColorEdit3("clear color", (float*)&clearColor); // Edit 3 floats representing a color
 
         if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
             counter++;
@@ -66,12 +66,12 @@ update_status ModuleEditor::Update(float dt)
     }
 
     // 3. Show another simple window.
-    if (show_another_window)
+    if (showAnotherWindow)
     {
-        ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+        ImGui::Begin("Another Window", &showAnotherWindow);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
         ImGui::Text("Hello from another window!");
         if (ImGui::Button("Close Me"))
-            show_another_window = false;
+            showAnotherWindow = false;
         ImGui::End();
     }
     
@@ -99,7 +99,7 @@ update_status ModuleEditor::PostUpdate(float dt)
     (void)io;
     ImGui::Render();
     glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
-    glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
+    glClearColor(clearColor.x * clearColor.w, clearColor.y * clearColor.w, clearColor.z * clearColor.w, clearColor.w);
     glClear(GL_COLOR_BUFFER_BIT);
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     SDL_GL_SwapWindow(App->window->window);

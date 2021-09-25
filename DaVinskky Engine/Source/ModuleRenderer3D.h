@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _MODULE_RENDER_3D_H_
+#define _MODULE_RENDER_3D_H_
+
 #include "Module.h"
 #include "Globals.h"
 #include "glmath.h"
@@ -9,7 +11,7 @@
 class ModuleRenderer3D : public Module
 {
 public:
-	ModuleRenderer3D(Application* app, bool start_enabled = true);
+	ModuleRenderer3D(Application* app, bool startEnabled = true);
 	~ModuleRenderer3D();
 
 	bool Init();
@@ -23,6 +25,9 @@ public:
 
 	Light lights[MAX_LIGHTS];
 	SDL_GLContext context;
-	mat3x3 NormalMatrix;
-	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
+	mat3x3 normalMatrix;
+	mat4x4 modelMatrix, viewMatrix, projectionMatrix;
 };
+
+#endif // !_MODULE_RENDER_3D_H_
+

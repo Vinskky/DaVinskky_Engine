@@ -59,15 +59,15 @@ bool Application::Init()
 		++item;
 	}
 	
-	ms_timer.Start();
+	msTimer.Start();
 	return ret;
 }
 
 // ---------------------------------------------
 void Application::PrepareUpdate()
 {
-	dt = (float)ms_timer.Read() / 1000.0f;
-	ms_timer.Start();
+	dt = (float)msTimer.Read() / 1000.0f;
+	msTimer.Start();
 }
 
 // ---------------------------------------------
@@ -111,9 +111,9 @@ update_status Application::Update()
 bool Application::CleanUp()
 {
 	bool ret = true;
-	std::vector<Module*>::iterator item = modules.begin();
+	std::vector<Module*>::reverse_iterator item = modules.rbegin();
 
-	while(item != modules.end() && ret == true)
+	while(item != modules.rend() && ret == true)
 	{
 		ret = (*item)->CleanUp();
 		++item;
