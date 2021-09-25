@@ -8,27 +8,25 @@
   ModuleSceneIntro.cpp
   ModuleWindow.cpp
   Generating Code...
-Timer.obj : warning LNK4099: PDB 'vc142.pdb' was not found with 'Timer.obj' or at 'D:\Documentos\Github\DaVinskky_Engine\Build\Debug\vc142.pdb'; linking object as if no debug info
-log.obj : warning LNK4099: PDB 'vc142.pdb' was not found with 'log.obj' or at 'D:\Documentos\Github\DaVinskky_Engine\Build\Debug\vc142.pdb'; linking object as if no debug info
-Light.obj : warning LNK4099: PDB 'vc142.pdb' was not found with 'Light.obj' or at 'D:\Documentos\Github\DaVinskky_Engine\Build\Debug\vc142.pdb'; linking object as if no debug info
+Timer.obj : warning LNK4099: PDB '' was not found with 'Timer.obj' or at ''; linking object as if no debug info
 glmath.obj : warning LNK4099: PDB 'vc142.pdb' was not found with 'glmath.obj' or at 'D:\Documentos\Github\DaVinskky_Engine\Build\Debug\vc142.pdb'; linking object as if no debug info
-LIBCMTD.lib(std_type_info_static.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-LIBCMTD.lib(initializers.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libcpmtd.lib(uncaught_exception.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libcpmtd.lib(StlLCMapStringW.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libcpmtd.lib(syserror.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 libcpmtd.lib(wlocale.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libcpmtd.lib(xlocale.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libcpmtd.lib(xlocale.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libcpmtd.lib(xtowlower.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libcpmtd.lib(xwctomb.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libvcruntimed.lib(strstr.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libcpmtd.lib(xdateord.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libcpmtd.lib(xstoul.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libcpmtd.lib(xthrow.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+LIBCMTD.lib(llmul.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+LIBCMTD.lib(ullrem.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+LIBCMTD.lib(fltused.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libucrtd.lib(fpctrl.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libucrtd.lib(atan_table.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 libucrtd.lib(umask.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libucrtd.lib(read.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libucrtd.lib(initcon.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libucrtd.lib(tan_impl.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libucrtd.lib(sin_impl.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libucrtd.lib(87tran.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libucrtd.lib(per_thread_data.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-libucrtd.lib(strtod.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libucrtd.lib(osfinfo.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libucrtd.lib(splitpath.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libucrtd.lib(genexcep.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libucrtd.lib(initctype.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
+libucrtd.lib(debug_heap_hook.obj) : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 LINK : warning LNK4020: a type record in 'd:\documentos\github\davinskky_engine\build\debug\obj\vc142.pdb' is corrupted; some symbols and types may not be accessible from the debugger

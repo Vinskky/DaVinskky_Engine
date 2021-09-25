@@ -1,6 +1,6 @@
 #pragma once
 
-#include "p2List.h"
+#include <vector>
 #include "Globals.h"
 #include "Timer.h"
 #include "Module.h"
@@ -14,18 +14,18 @@
 class Application
 {
 public:
-	ModuleWindow* window;
-	ModuleInput* input;
-	ModuleSceneIntro* scene_intro;
-	ModuleRenderer3D* renderer3D;
-	ModuleCamera3D* camera;
-	ModuleEditor* editor;
+	ModuleWindow* window = nullptr;
+	ModuleInput* input = nullptr;
+	ModuleSceneIntro* sceneIntro = nullptr;
+	ModuleRenderer3D* renderer3D = nullptr;
+	ModuleCamera3D* camera = nullptr;
+	ModuleEditor* editor = nullptr;
 
 private:
 
 	Timer	ms_timer;
 	float	dt;
-	p2List<Module*> list_modules;
+	std::vector<Module*> modules;
 
 public:
 
