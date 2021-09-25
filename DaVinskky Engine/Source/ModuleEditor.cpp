@@ -128,7 +128,8 @@ bool ModuleEditor::InitImGui() const
 	ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
     (void)io;
-    
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
 	ImGui::StyleColorsDark();
 
 	ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
