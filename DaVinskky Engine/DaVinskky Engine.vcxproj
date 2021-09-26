@@ -91,6 +91,7 @@
   <ItemGroup>
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Color.h" />
+    <ClInclude Include="Source\Editor.h" />
     <ClInclude Include="Source\External\Glew\include\eglew.h" />
     <ClInclude Include="Source\External\Glew\include\glew.h" />
     <ClInclude Include="Source\External\Glew\include\glxew.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Source\External\MathGeoLib\include\Math\TransformOps.h" />
     <ClInclude Include="Source\External\MathGeoLib\include\Math\vec2d.h" />
     <ClInclude Include="Source\External\MathGeoLib\include\Time\Clock.h" />
+    <ClInclude Include="Source\E_TestPanel.h" />
     <ClInclude Include="Source\glmath.h" />
     <ClInclude Include="Source\Globals.h" />
     <ClInclude Include="Source\Light.h" />
@@ -245,6 +247,7 @@
     <ClCompile Include="Source\External\MathGeoLib\include\Math\SSEMath.cpp" />
     <ClCompile Include="Source\External\MathGeoLib\include\Math\TransformOps.cpp" />
     <ClCompile Include="Source\External\MathGeoLib\include\Time\Clock.cpp" />
+    <ClCompile Include="Source\E_TestPanel.cpp" />
     <ClCompile Include="Source\glmath.cpp" />
     <ClCompile Include="Source\Light.cpp" />
     <ClCompile Include="Source\log.cpp" />

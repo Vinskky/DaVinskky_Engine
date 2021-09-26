@@ -4,7 +4,10 @@
 #include "Module.h"
 #include "Globals.h"
 #include "imgui.h"
+#include <vector>
 
+class Editor;
+class ETestPanel;
 
 class ModuleEditor : public Module
 {
@@ -20,6 +23,9 @@ public:
 
 public:
 	bool InitImGui()const;
+	void AddEditorPanel(Editor* panel);
+
+	bool RenderEditorPanels()const;
 
 public:
 	
@@ -29,6 +35,11 @@ public:
 
 	float f;
 	int counter;
+
+public:
+	std::vector<Editor*> editorPanels;
+
+	ETestPanel* testPanel;
 };
 
 
