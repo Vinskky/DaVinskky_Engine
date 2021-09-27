@@ -46,7 +46,6 @@ update_status ModuleEditor::Update(float dt)
 {
     update_status ret = update_status::UPDATE_CONTINUE;
 
-
     return ret;
 }
 
@@ -60,7 +59,7 @@ update_status ModuleEditor::PostUpdate(float dt)
 
     //Start Dear ImGui's frame
     ImGui_ImplOpenGL3_NewFrame();
-    ImGui_ImplSDL2_NewFrame(App->window->window);
+    ImGui_ImplSDL2_NewFrame();
     ImGui::NewFrame();
 
     bool draw = true;
@@ -79,7 +78,6 @@ update_status ModuleEditor::PostUpdate(float dt)
 
         }
     }
-    //ImGui::End();
 
     return ret;
 }
@@ -104,8 +102,18 @@ bool ModuleEditor::InitImGui() const
     (void)io;
 
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;											// Enable Docking
-
+    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;                                         // Enable Multi-Viewport / Platform Windows
+    
+    // Setup Dear ImGui style
 	ImGui::StyleColorsDark();
+
+    // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
+    ImGuiStyle& style = ImGui::GetStyle();
+    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    {
+        style.WindowRounding = 0.0f;
+        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+    }
 
 	ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
     ImGui_ImplOpenGL3_Init(0);
@@ -130,7 +138,17 @@ bool ModuleEditor::RenderEditorPanels() const
     glClearColor(clearColor.x * clearColor.w, clearColor.y * clearColor.w, clearColor.z * clearColor.w, clearColor.w);
     glClear(GL_COLOR_BUFFER_BIT);
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-    SDL_GL_SwapWindow(App->window->window);
+    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    {
+        SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
+        SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
+        ImGui::UpdatePlatformWindows();
+        ImGui::RenderPlatformWindowsDefault();
+        SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
+    }
+
+    //This line was making the window render bad
+    //SDL_GL_SwapWindow(App->window->window); 
 
     return true;
 }
