@@ -5,7 +5,7 @@
 
 #include "E_TestPanel.h"
 
-ETestPanel::ETestPanel(const char* name, bool isActive): Editor("Test")
+ETestPanel::ETestPanel(Application* app,const char* name, bool isActive): Editor(app, "Test")
 {
 }
 
@@ -26,7 +26,7 @@ bool ETestPanel::Draw(ImGuiIO& io)
 	TestWindowOptionsMenu();
 	TestWidgetsMenu();
 	//Buttons and checkboxes
-
+	
 	if (ImGui::Button("Button")){}
 	if (ImGui::Checkbox("checkbox",&checkBox)) {}
 	ImGui::Separator();

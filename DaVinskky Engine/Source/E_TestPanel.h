@@ -7,7 +7,7 @@
 class ETestPanel : public Editor
 {
 public:
-	ETestPanel(const char* name, bool isActive = true);
+	ETestPanel(Application* app, const char* name, bool isActive = true);
 	~ETestPanel();
 
 	bool Draw(ImGuiIO& io)override;

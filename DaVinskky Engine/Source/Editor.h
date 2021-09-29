@@ -11,12 +11,14 @@
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
 
+class Application;
 
 class Editor
 {
 public:
+	Application* App;
 
-	Editor(const char* name, bool isActive = true): name(name),isActive(isActive)
+	Editor(Application* parent, const char* name, bool isActive = true): App(parent),name(name),isActive(isActive)
 	{}
 
 	virtual ~Editor()
