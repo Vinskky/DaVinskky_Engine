@@ -375,6 +375,9 @@
     <ClInclude Include="Source\E_MainMenuBar.h">
       <Filter>Sources\2. Editor</Filter>
     </ClInclude>
+    <ClInclude Include="Source\E_Configuration.h">
+      <Filter>Sources\2. Editor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -570,6 +573,9 @@
       <Filter>Sources\2. Editor</Filter>
     </ClCompile>
     <ClCompile Include="Source\E_MainMenuBar.cpp">
+      <Filter>Sources\2. Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\E_Configuration.cpp">
       <Filter>Sources\2. Editor</Filter>
     </ClCompile>
   </ItemGroup>

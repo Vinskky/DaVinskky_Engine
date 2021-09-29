@@ -13,7 +13,7 @@ public:
 	bool CleanUp()override;
 
 private:
-	bool FileMenu();
+	update_status FileMenu();
 	bool ViewMenu();
 	bool HelpMenu();
 

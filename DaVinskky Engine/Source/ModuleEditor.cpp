@@ -8,6 +8,7 @@
 #include "Editor.h"
 #include "E_TestPanel.h"
 #include "E_MainMenuBar.h"
+#include "E_Configuration.h"
 
 #include "imgui.h"
 #include "imgui_internal.h"
@@ -17,10 +18,12 @@
 
 ModuleEditor::ModuleEditor(Application* app, bool startEnabled) : Module(app, startEnabled),
 testPanel(new ETestPanel(app,"ImGui Test")),
-mainMenu(new E_MainMenuBar(app, "Main Menu"))
+mainMenuPanel(new E_MainMenuBar(app, "Main Menu")),
+configPanel(new E_Configuration(app, "Main Menu"))
 {
     AddEditorPanel(testPanel);
-    AddEditorPanel(mainMenu);
+    AddEditorPanel(mainMenuPanel);
+    AddEditorPanel(configPanel);
 }
 
 ModuleEditor::~ModuleEditor()

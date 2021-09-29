@@ -36,15 +36,15 @@ bool E_MainMenuBar::CleanUp()
 	return ret;
 }
 
-bool E_MainMenuBar::FileMenu()
+update_status E_MainMenuBar::FileMenu()
 {
-	bool ret = true;
+	update_status ret = update_status::UPDATE_CONTINUE;
 	
 	if (ImGui::BeginMenu("File"))
 	{
 		if (ImGui::MenuItem("Quit", "ESC"))
 		{
-			
+			ret = update_status::UPDATE_STOP;
 		}
 			
 		ImGui::EndMenu();
