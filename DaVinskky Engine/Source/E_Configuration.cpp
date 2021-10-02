@@ -7,6 +7,7 @@ E_Configuration::E_Configuration(Application* app, const char* name, bool isActi
 {
 	appName = TITLE;
 	orgName = "Organization";
+	fps = 0;
 }
 
 E_Configuration::~E_Configuration()
@@ -29,6 +30,17 @@ bool E_Configuration::CleanUp()
 	bool ret = true;
 
 	return ret;
+}
+
+void E_Configuration::UpdateFrameData(int frames, int ms)
+{
+	for (uint i = 0; i < (MAX_HISTOGRAM_SIZE - 1); ++i)
+	{
+		fpsData[i] = fpsData[i + 1];
+		msData[i] = msData[i + 1];
+	}
+	fpsData[MAX_HISTOGRAM_SIZE - 1] = (float)frames;
+	msData[MAX_HISTOGRAM_SIZE - 1] = (float)ms;
 }
 
 bool E_Configuration::OptionsPanel()
@@ -63,7 +75,7 @@ bool E_Configuration::ApplicationHeader()
 	if (ImGui::CollapsingHeader("Application"))
 	{
 		char buffer[128];
-		strcpy_s(buffer, TITLE);
+		strcpy_s(buffer, appName);
 		if (ImGui::InputText("Engine Name", buffer, IM_ARRAYSIZE(buffer), ImGuiInputTextFlags_EnterReturnsTrue))
 		{
 			//modify variable
@@ -71,12 +83,28 @@ bool E_Configuration::ApplicationHeader()
 		//ImGui::SameLine();
 		//ImGui::Text("App Name");
 
-		ImGui::InputText("", orgName, IM_ARRAYSIZE(str1));
-		ImGui::SameLine();
-		ImGui::Text("Organization");
+		char bufferOrg[128];
+		strcpy_s(bufferOrg, orgName);
+		if (ImGui::InputText("Organization", bufferOrg, IM_ARRAYSIZE(bufferOrg), ImGuiInputTextFlags_EnterReturnsTrue))
+		{
+			//modify variable
+		}
+
+		ImGui::SliderInt("Max FPS", &fps, 0, 144);
+		ImGui::Text("Limit Framerate: %d", fps);
+		//Plots
+		PlotFrameHistogram();
+		
 	}
 
 	return ret;
+}
+
+bool E_Configuration::PlotFrameHistogram()
+{
+	ImGui::PlotHistogram("FPS", fpsData, IM_ARRAYSIZE(fpsData), 0, NULL, 0.0f, 144.0f, ImVec2(0, 80));
+	ImGui::PlotHistogram("MS", msData, IM_ARRAYSIZE(msData), 0, NULL, 0.0f, 40.0f, ImVec2(0, 80));
+	return false;
 }
 
 bool E_Configuration::WindowHeader()

@@ -3,6 +3,8 @@
 
 #include "Editor.h"
 
+#define MAX_HISTOGRAM_SIZE 100
+
 class E_Configuration : public Editor
 {
 public:
@@ -12,9 +14,12 @@ public:
 	bool Draw(ImGuiIO& io)override;
 	bool CleanUp()override;
 
+	void UpdateFrameData(int frames, int ms);
+
 private:
 	bool OptionsPanel();
 	bool ApplicationHeader();
+	bool PlotFrameHistogram();
 	bool WindowHeader();
 	bool FileSystemHeader();
 	bool InputHeader();
@@ -22,10 +27,12 @@ private:
 
 private:
 
+	float fpsData[MAX_HISTOGRAM_SIZE];
+	float msData[MAX_HISTOGRAM_SIZE];
+
 	char* appName = nullptr;
 	char* orgName = nullptr;
-	static char str0[128];
-	static char str1[128];
+	int fps;
 };
 
 #endif // !_E_CONFIGURATION_H_

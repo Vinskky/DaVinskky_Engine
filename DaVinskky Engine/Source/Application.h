@@ -24,8 +24,18 @@ public:
 
 private:
 
+	//CAP FPS
+	int maxFPS = 0;
+	float framMsCap = 0.0f;
+
 	Timer	msTimer;
 	float	dt;
+
+	//FPS
+	Timer secondCount;
+	int frameCount;
+	int lastFps;
+
 	std::vector<Module*> modules;
 
 public:
@@ -38,6 +48,8 @@ public:
 	bool CleanUp();
 
 	void RequestBrowser(const char* url)const;
+
+	void UpdateFrameData(float frames, float ms);
 
 private:
 

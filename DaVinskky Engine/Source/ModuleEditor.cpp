@@ -159,3 +159,8 @@ bool ModuleEditor::RenderEditorPanels() const
     return true;
 }
 
+void ModuleEditor::UpdateFrameData(float frames, float ms)
+{
+    configPanel->UpdateFrameData(frames, ms);
+}
+

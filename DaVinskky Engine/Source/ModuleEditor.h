@@ -29,6 +29,8 @@ public:
 
 	bool RenderEditorPanels()const;
 
+	void UpdateFrameData(float frames, float ms);
+
 public:
 	
 	bool showDemoWindow;

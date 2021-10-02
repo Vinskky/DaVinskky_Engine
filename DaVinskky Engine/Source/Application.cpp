@@ -1,4 +1,5 @@
 #include "Application.h"
+#include <time.h>
 
 Application::Application()
 {
@@ -63,6 +64,11 @@ bool Application::Init()
 	return ret;
 }
 
+void Application::UpdateFrameData(float frames, float ms)
+{
+	editor->UpdateFrameData(frames, ms);
+}
+
 // ---------------------------------------------
 void Application::PrepareUpdate()
 {
@@ -73,6 +79,22 @@ void Application::PrepareUpdate()
 // ---------------------------------------------
 void Application::FinishUpdate()
 {
+	/* Whenever I want to fix frame rate acording config slider
+	float frameMs = msTimer.Read();
+	if (frameMs > 0 && frameMs < framMsCap)
+	{
+		SDL_Delay(framMsCap - frameMs);
+	}*/
+
+	frameCount++;
+	if (secondCount.Read() >= 1000)
+	{
+		secondCount.Start();
+		lastFps = frameCount;
+		frameCount = 0;
+	}
+
+	UpdateFrameData(lastFps, (float)msTimer.Read());
 }
 
 // Call PreUpdate, Update and PostUpdate on all modules
