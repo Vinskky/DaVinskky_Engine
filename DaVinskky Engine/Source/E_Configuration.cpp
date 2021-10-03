@@ -8,6 +8,11 @@ E_Configuration::E_Configuration(Application* app, const char* name, bool isActi
 	appName = TITLE;
 	orgName = "Organization";
 	fps = 0;
+	width = SCREEN_WIDTH;
+	height = SCREEN_HEIGHT;
+	checkResizable = WIN_RESIZABLE;
+	checkBorderless = WIN_BORDERLESS;
+	checkFullDesktop = WIN_FULLSCREEN_DESKTOP;
 }
 
 E_Configuration::~E_Configuration()
@@ -18,8 +23,13 @@ bool E_Configuration::Draw(ImGuiIO& io)
 {
 	bool ret = true;
 	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_MenuBar);
+	
 	OptionsPanel();
 	ApplicationHeader();
+	WindowHeader();
+	FileSystemHeader();
+	InputHeader();
+	HardwareHeader();
 
 	ImGui::End();
 	return ret;
@@ -104,12 +114,41 @@ bool E_Configuration::PlotFrameHistogram()
 {
 	ImGui::PlotHistogram("FPS", fpsData, IM_ARRAYSIZE(fpsData), 0, NULL, 0.0f, 144.0f, ImVec2(0, 80));
 	ImGui::PlotHistogram("MS", msData, IM_ARRAYSIZE(msData), 0, NULL, 0.0f, 40.0f, ImVec2(0, 80));
-	return false;
+	return true;
 }
 
 bool E_Configuration::WindowHeader()
 {
 	bool ret = true;
+
+	if (ImGui::CollapsingHeader("Window"))
+	{
+		if (ImGui::Checkbox("Active",&checkActive ))
+		{
+			//activate / deactivate window??
+			checkActive = !checkActive;
+		}
+		ImGui::Text("Icon: %s", iconStr);
+		ImGui::SliderFloat("Brightness", &brightness, 0.000f, 1.000f);
+		ImGui::SliderInt("Width", &width, 720, 2560);
+		ImGui::SliderInt("Height", &height, 480, 1440);
+		ImGui::Text("Refresh rate: %d", fps);
+
+		if (ImGui::Checkbox("Fullscreen", &checkFullscreen))
+			checkFullscreen = !checkFullscreen;
+
+		ImGui::SameLine();
+		if (ImGui::Checkbox("Resizable", &checkResizable))
+			checkResizable = !checkResizable;
+
+		if (ImGui::Checkbox("Borderless", &checkBorderless))
+			checkBorderless = !checkBorderless;
+		
+		ImGui::SameLine();
+		if (ImGui::Checkbox("Full Desktop", &checkFullDesktop))
+			checkFullDesktop = !checkFullDesktop;
+	}
+	
 
 	return ret;
 }
@@ -117,20 +156,45 @@ bool E_Configuration::WindowHeader()
 bool E_Configuration::FileSystemHeader()
 {
 	bool ret = true;
+	if (ImGui::CollapsingHeader("File System"))
+	{
+		if (ImGui::Checkbox("Active", &ckActiveFS))
+			ckActiveFS = !ckActiveFS;
 
+		ImGui::Text("Base Path: \n %s", basePath);
+		ImGui::Text("Read Path: \n %s", readPath);
+		ImGui::Text("Write Path: \n %s", writePath);
+
+	}
 	return ret;
 }
 
 bool E_Configuration::InputHeader()
 {
 	bool ret = true;
-
+	if (ImGui::CollapsingHeader("Input"))
+	{
+		if (ImGui::Checkbox("Active", &ckActiveInput))
+			ckActiveInput = !ckActiveInput;
+		
+		ImGui::Text("Mouse Position: %i, %i", App->input->GetMouseX(), App->input->GetMouseY());
+		ImGui::Text("Mouse Motion: %i, %i", App->input->GetMouseXMotion(), App->input->GetMouseYMotion());
+		ImGui::Text("Mouse wheel: %i", App->input->GetMouseZ());
+		ImGui::Separator();
+		
+		ImGui::BeginChild("Input Log");
+		ImGui::TextUnformatted(logInputText.begin());
+		ImGui::SetScrollHereY(1.0f);
+		ImGui::EndChild();
+	}
 	return ret;
 }
 
 bool E_Configuration::HardwareHeader()
 {
 	bool ret = true;
-
+	if (ImGui::CollapsingHeader("Hardware"))
+	{
+	}
 	return ret;
 }

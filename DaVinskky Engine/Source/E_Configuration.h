@@ -27,12 +27,36 @@ private:
 
 private:
 
+	//Histogram Variables
 	float fpsData[MAX_HISTOGRAM_SIZE];
 	float msData[MAX_HISTOGRAM_SIZE];
-
+	int fps;
+	
+	//Engine data variables
 	char* appName = nullptr;
 	char* orgName = nullptr;
-	int fps;
+	
+	//Windows variables
+	bool checkActive = true;
+	char* iconStr = "*default*";
+	float brightness = 1.000f;
+	int width;
+	int height;
+	bool checkFullscreen;
+	bool checkResizable;
+	bool checkBorderless;
+	bool checkFullDesktop;
+	
+	//FileSystem Variables
+	bool ckActiveFS = true;
+	char* basePath = "C:\...";
+	char* readPath = ".";
+	char* writePath = ".";
+
+	//Input variables
+	bool ckActiveInput = true;
+	ImGuiTextBuffer logInputText;
+
 };
 
 #endif // !_E_CONFIGURATION_H_
