@@ -16,9 +16,11 @@ private:
 	update_status FileMenu();
 	bool ViewMenu();
 	bool HelpMenu();
+	bool AboutPopUp();
 
 private:
 	bool showcase = false;
+	bool aboutWindow = true;
 };
 
 

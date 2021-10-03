@@ -22,7 +22,7 @@ E_Configuration::~E_Configuration()
 bool E_Configuration::Draw(ImGuiIO& io)
 {
 	bool ret = true;
-	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_MenuBar);
+	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_None);
 	
 	OptionsPanel();
 	ApplicationHeader();
@@ -195,6 +195,24 @@ bool E_Configuration::HardwareHeader()
 	bool ret = true;
 	if (ImGui::CollapsingHeader("Hardware"))
 	{
+		int major, minor, patch;
+		App->GetSDLVer(major, minor, patch);
+		ImGui::Text("SDL Version: %d.%d.%d", major, minor, patch);
+		ImGui::Separator();
+		int count, size;
+		App->GetCPU(count, size);
+		ImGui::Text("CPUs: %d (%dKb)", count, size);
+		float ram = App->GetRAM();
+		ImGui::Text("RAM: %.2fGb", ram);
+		ImGui::Separator();
+		bool threeD, altiVec, avx, avx2, mmx, rdtsc, sse, sse2, sse3, sse41, sse42;
+		App->GetCaps(threeD, altiVec, avx, avx2, mmx, rdtsc, sse, sse2, sse3, sse41, sse42);
+		ImGui::Text("Caps: %s%s%s%s%s%s", threeD ? "3DNow, " : "", altiVec ? "AltiVec, " : "", avx ? "AVX, " : "", avx2 ? "AVX2, " : "", mmx ? "MMX, " : "", rdtsc ? "RDTSC, " : "");
+		ImGui::Text("", "%s%s%s%s%s", sse ? "SSE, " : "", sse2 ? "SSE2, " : "", sse3 ? "SSE3, " : "", sse41 ? "SSE41, " : "", sse42 ? "SSE42" : "");
+
+		ImGui::Separator();
+
+		//Missing GPU
 	}
 	return ret;
 }

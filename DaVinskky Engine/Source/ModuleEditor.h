@@ -10,6 +10,7 @@ class Editor;
 class ETestPanel;
 class E_MainMenuBar;
 class E_Configuration;
+class E_Console;
 
 class ModuleEditor : public Module
 {
@@ -43,10 +44,10 @@ public:
 public:
 	std::vector<Editor*> editorPanels;
 
-	ETestPanel* testPanel = nullptr;
+	//ETestPanel* testPanel = nullptr;
 	E_MainMenuBar* mainMenuPanel = nullptr;
 	E_Configuration* configPanel = nullptr;
-
+	E_Console* consolePanel = nullptr;
 };
 
 

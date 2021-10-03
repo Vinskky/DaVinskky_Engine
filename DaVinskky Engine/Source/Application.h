@@ -37,6 +37,7 @@ private:
 	int lastFps;
 
 	std::vector<Module*> modules;
+	
 
 public:
 
@@ -51,11 +52,17 @@ public:
 
 	void UpdateFrameData(float frames, float ms);
 
+	void GetSDLVer(int& major, int& minor, int& patch);
+	void GetCPU(int& count, int& size);
+	float GetRAM();
+	void GetCaps(bool& threeD, bool& altiVec, bool& avx, bool& avx2, bool& mmx, bool& rdtsc, bool& sse, bool& sse2, bool& sse3, bool& sse41, bool& sse42);
+	void GetGPU();
 private:
 
 	void AddModule(Module* mod);
 	void PrepareUpdate();
 	void FinishUpdate();
+	
 };
 
 #endif // !_APPLICATION_H_

@@ -181,6 +181,7 @@
     <ClInclude Include="Source\External\MathGeoLib\include\Math\vec2d.h" />
     <ClInclude Include="Source\External\MathGeoLib\include\Time\Clock.h" />
     <ClInclude Include="Source\E_Configuration.h" />
+    <ClInclude Include="Source\E_Console.h" />
     <ClInclude Include="Source\E_MainMenuBar.h" />
     <ClInclude Include="Source\E_TestPanel.h" />
     <ClInclude Include="Source\glmath.h" />
@@ -250,6 +251,7 @@
     <ClCompile Include="Source\External\MathGeoLib\include\Math\TransformOps.cpp" />
     <ClCompile Include="Source\External\MathGeoLib\include\Time\Clock.cpp" />
     <ClCompile Include="Source\E_Configuration.cpp" />
+    <ClCompile Include="Source\E_Console.cpp" />
     <ClCompile Include="Source\E_MainMenuBar.cpp" />
     <ClCompile Include="Source\E_TestPanel.cpp" />
     <ClCompile Include="Source\glmath.cpp" />
