@@ -3,6 +3,7 @@
 
 #include "Globals.h"
 
+class Config;
 class Application;
 
 class Module
@@ -48,6 +49,13 @@ public:
 	{ 
 		return true; 
 	}
+
+	virtual void SaveConfig(Config& root) const
+	{}
+
+	virtual void LoadConfig(Config& root)
+	{}
+
 };
 
 #endif // !_MODULE_H_

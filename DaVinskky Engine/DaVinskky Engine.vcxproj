@@ -55,7 +55,7 @@
       <SDLCheck>false</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\Glew\include;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\parson\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\Glew\include;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -75,7 +75,7 @@
       <SDLCheck>false</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\Glew\include;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\parson\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\Glew\include;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -90,6 +90,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h" />
+    <ClInclude Include="Source\Config.h" />
     <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\Editor.h" />
     <ClInclude Include="Source\External\Glew\include\eglew.h" />
@@ -180,6 +181,7 @@
     <ClInclude Include="Source\External\MathGeoLib\include\Math\TransformOps.h" />
     <ClInclude Include="Source\External\MathGeoLib\include\Math\vec2d.h" />
     <ClInclude Include="Source\External\MathGeoLib\include\Time\Clock.h" />
+    <ClInclude Include="Source\External\parson\include\parson.h" />
     <ClInclude Include="Source\E_Configuration.h" />
     <ClInclude Include="Source\E_Console.h" />
     <ClInclude Include="Source\E_MainMenuBar.h" />
@@ -201,6 +203,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Color.cpp" />
+    <ClCompile Include="Source\Config.cpp" />
     <ClCompile Include="Source\External\ImGui\include\imgui.cpp" />
     <ClCompile Include="Source\External\ImGui\include\imgui_demo.cpp" />
     <ClCompile Include="Source\External\ImGui\include\imgui_draw.cpp" />
@@ -250,6 +253,7 @@
     <ClCompile Include="Source\External\MathGeoLib\include\Math\SSEMath.cpp" />
     <ClCompile Include="Source\External\MathGeoLib\include\Math\TransformOps.cpp" />
     <ClCompile Include="Source\External\MathGeoLib\include\Time\Clock.cpp" />
+    <ClCompile Include="Source\External\parson\include\parson.c" />
     <ClCompile Include="Source\E_Configuration.cpp" />
     <ClCompile Include="Source\E_Console.cpp" />
     <ClCompile Include="Source\E_MainMenuBar.cpp" />

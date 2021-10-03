@@ -55,6 +55,9 @@
     <Filter Include="Sources\Tools\Includes">
       <UniqueIdentifier>{c4ea0b64-db7f-4b46-8830-cc1e02dca21c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependences\parson">
+      <UniqueIdentifier>{a717e352-a178-42ef-8910-ad6ee6b85262}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Timer.h">
@@ -381,6 +384,12 @@
     <ClInclude Include="Source\E_Console.h">
       <Filter>Sources\2. Editor</Filter>
     </ClInclude>
+    <ClInclude Include="Source\External\parson\include\parson.h">
+      <Filter>Dependences\parson</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Config.h">
+      <Filter>Sources\Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -583,6 +592,12 @@
     </ClCompile>
     <ClCompile Include="Source\E_Console.cpp">
       <Filter>Sources\2. Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\parson\include\parson.c">
+      <Filter>Dependences\parson</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Config.cpp">
+      <Filter>Sources\Containers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
