@@ -8,6 +8,8 @@
 
 #define MAX_LIGHTS 8
 
+
+
 class ModuleRenderer3D : public Module
 {
 public:
@@ -16,10 +18,12 @@ public:
 
 	bool Init();
 	update_status PreUpdate(float dt);
+	update_status Update(float dt);
 	update_status PostUpdate(float dt);
 	bool CleanUp();
 
 	void OnResize(int width, int height);
+
 
 public:
 
@@ -27,6 +31,8 @@ public:
 	SDL_GLContext context;
 	mat3x3 normalMatrix;
 	mat4x4 modelMatrix, viewMatrix, projectionMatrix;
+	
+	bool wireframe = false;
 };
 
 #endif // !_MODULE_RENDER_3D_H_

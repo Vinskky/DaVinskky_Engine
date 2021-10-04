@@ -55,13 +55,6 @@ update_status ModuleEditor::Update(float dt)
 {
     update_status ret = update_status::UPDATE_CONTINUE;
 
-    return ret;
-}
-
-update_status ModuleEditor::PostUpdate(float dt)
-{
-    update_status ret = update_status::UPDATE_CONTINUE;
-
     //iterate all different editor panels stored in vector of editorPanels to be able to draw them.
     ImGuiIO& io = ImGui::GetIO();
     (void)io;
@@ -88,6 +81,15 @@ update_status ModuleEditor::PostUpdate(float dt)
         }
     }
 
+    return ret;
+}
+
+update_status ModuleEditor::PostUpdate(float dt)
+{
+    update_status ret = update_status::UPDATE_CONTINUE;
+
+    RenderEditorPanels();
+    
     return ret;
 }
 
@@ -142,22 +144,20 @@ bool ModuleEditor::RenderEditorPanels() const
     // Rendering
     ImGuiIO& io = ImGui::GetIO();
     (void)io;
+
     ImGui::Render();
-    glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
-    glClearColor(clearColor.x * clearColor.w, clearColor.y * clearColor.w, clearColor.z * clearColor.w, clearColor.w);
-    glClear(GL_COLOR_BUFFER_BIT);
+    
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
     {
         SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
         SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
+    
         ImGui::UpdatePlatformWindows();
         ImGui::RenderPlatformWindowsDefault();
+    
         SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
     }
-
-    //This line was making the window render bad
-    //SDL_GL_SwapWindow(App->window->window); 
 
     return true;
 }

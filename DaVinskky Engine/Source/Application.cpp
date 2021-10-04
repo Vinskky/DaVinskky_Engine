@@ -20,11 +20,11 @@ Application::Application()
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);
-	AddModule(editor);
 	// Scenes
 	AddModule(sceneIntro);
 
 	// Renderer last!
+	AddModule(editor);
 	AddModule(renderer3D);
 }
 
