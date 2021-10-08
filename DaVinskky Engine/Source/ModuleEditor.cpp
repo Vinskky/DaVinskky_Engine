@@ -17,12 +17,13 @@
 #include "imgui_impl_sdl.h"
 
 
-ModuleEditor::ModuleEditor(Application* app, bool startEnabled) : Module(app, startEnabled),
+ModuleEditor::ModuleEditor() : Module(),
 //testPanel(new ETestPanel(app,"ImGui Test")),
 mainMenuPanel(new E_MainMenuBar(app, "Main Menu")),
 configPanel(new E_Configuration(app, "Configuration")),
 consolePanel(new E_Console(app, "Configuration"))
 {
+    SetName("Editor");
     //AddEditorPanel(testPanel);
     AddEditorPanel(mainMenuPanel);
     AddEditorPanel(configPanel);
@@ -126,7 +127,7 @@ bool ModuleEditor::InitImGui() const
         style.Colors[ImGuiCol_WindowBg].w = 1.0f;
     }
 
-	ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
+	ImGui_ImplSDL2_InitForOpenGL(app->window->window, app->renderer3D->context);
     ImGui_ImplOpenGL3_Init(0);
 
 

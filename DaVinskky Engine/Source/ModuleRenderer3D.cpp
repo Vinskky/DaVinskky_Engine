@@ -10,8 +10,9 @@
 #pragma comment (lib, "glu32.lib")    /* link OpenGL Utility lib     */
 #pragma comment (lib, "opengl32.lib") /* link Microsoft OpenGL lib   */
 
-ModuleRenderer3D::ModuleRenderer3D(Application* app, bool startEnabled) : Module(app, startEnabled)
+ModuleRenderer3D::ModuleRenderer3D()
 {
+	SetName("Renderer");
 }
 
 // Destructor
@@ -32,7 +33,7 @@ bool ModuleRenderer3D::Init()
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 	//Create context
-	context = SDL_GL_CreateContext(App->window->window);
+	context = SDL_GL_CreateContext(app->window->window);
 	if(context == NULL)
 	{
 		LOG("OpenGL context could not be created! SDL_Error: %s\n", SDL_GetError());
@@ -134,10 +135,10 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf(App->camera->GetViewMatrix());
+	glLoadMatrixf(app->camera->GetViewMatrix());
 
 	// light 0 on cam pos
-	lights[0].SetPos(App->camera->position.x, App->camera->position.y, App->camera->position.z);
+	lights[0].SetPos(app->camera->position.x, app->camera->position.y, app->camera->position.z);
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
@@ -149,7 +150,7 @@ update_status ModuleRenderer3D::Update(float dt)
 {
 	update_status ret = update_status::UPDATE_CONTINUE;
 
-	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
+	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 	{
 		wireframe = !wireframe;
 
@@ -175,7 +176,7 @@ update_status ModuleRenderer3D::Update(float dt)
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 
-	SDL_GL_SwapWindow(App->window->window);
+	SDL_GL_SwapWindow(app->window->window);
 	//App->editor->RenderEditorPanels();
 	return UPDATE_CONTINUE;
 }

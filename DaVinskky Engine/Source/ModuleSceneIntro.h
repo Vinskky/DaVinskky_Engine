@@ -7,7 +7,7 @@
 class ModuleSceneIntro : public Module
 {
 public:
-	ModuleSceneIntro(Application* app, bool startEnabled = true);
+	ModuleSceneIntro();
 	~ModuleSceneIntro();
 
 	bool Start();

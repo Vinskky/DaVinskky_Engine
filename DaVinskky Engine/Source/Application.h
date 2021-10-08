@@ -23,7 +23,8 @@ public:
 	ModuleEditor* editor = nullptr;
 
 private:
-
+	int argc;
+	char** argv;
 	//CAP FPS
 	int maxFPS = 0;
 	float framMsCap = 0.0f;
@@ -41,7 +42,7 @@ private:
 
 public:
 
-	Application();
+	Application(int argc, char** args);
 	~Application();
 
 	bool Init();
@@ -64,6 +65,8 @@ private:
 	void FinishUpdate();
 	
 };
+
+extern Application* app;
 
 #endif // !_APPLICATION_H_
 

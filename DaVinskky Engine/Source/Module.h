@@ -2,19 +2,19 @@
 #define _MODULE_H_
 
 #include "Globals.h"
-
+#include <string>
 class Config;
 class Application;
 
 class Module
 {
 private :
+
 	bool enabled;
-
+	char* name;
 public:
-	Application* App;
 
-	Module(Application* parent, bool startEnabled = true) : App(parent)
+	Module(): enabled(false)
 	{}
 
 	virtual ~Module()
@@ -22,6 +22,7 @@ public:
 
 	virtual bool Init() 
 	{
+		enabled = true;
 		return true; 
 	}
 
@@ -56,6 +57,14 @@ public:
 	virtual void LoadConfig(Config& root)
 	{}
 
+	virtual void SetName(char* str)
+	{
+		name = str;
+	}
+	virtual char* GetName()const
+	{
+		return name;
+	}
 };
 
 #endif // !_MODULE_H_

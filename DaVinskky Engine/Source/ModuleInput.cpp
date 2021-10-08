@@ -4,8 +4,9 @@
 
 #define MAX_KEYS 300
 
-ModuleInput::ModuleInput(Application* app, bool startEnabled) : Module(app, startEnabled)
+ModuleInput::ModuleInput()
 {
+	SetName("Input");
 	keyboard = new KEY_STATE[MAX_KEYS];
 	memset(keyboard, KEY_IDLE, sizeof(KEY_STATE) * MAX_KEYS);
 }
@@ -108,7 +109,7 @@ update_status ModuleInput::PreUpdate(float dt)
 			case SDL_WINDOWEVENT:
 			{
 				if(e.window.event == SDL_WINDOWEVENT_RESIZED)
-					App->renderer3D->OnResize(e.window.data1, e.window.data2);
+					app->renderer3D->OnResize(e.window.data1, e.window.data2);
 			}
 		}
 	}

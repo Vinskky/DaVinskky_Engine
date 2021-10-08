@@ -4,8 +4,9 @@
 #include "Primitive.h"
 #include "OpenGL.h"
 
-ModuleSceneIntro::ModuleSceneIntro(Application* app, bool startEnabled) : Module(app, startEnabled)
+ModuleSceneIntro::ModuleSceneIntro()
 {
+	SetName("Scene");
 }
 
 ModuleSceneIntro::~ModuleSceneIntro()
@@ -16,8 +17,8 @@ bool ModuleSceneIntro::Start()
 {
 	LOG("Loading Intro assets");
 	bool ret = true;
-	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
-	App->camera->LookAt(vec3(0, 0, 0));
+	app->camera->Move(vec3(1.0f, 1.0f, 0.0f));
+	app->camera->LookAt(vec3(0, 0, 0));
 	return ret;
 }
 

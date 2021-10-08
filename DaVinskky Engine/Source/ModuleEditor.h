@@ -15,7 +15,7 @@ class E_Console;
 class ModuleEditor : public Module
 {
 public:
-	ModuleEditor(Application* app, bool startEnabled = true);
+	ModuleEditor();
 	~ModuleEditor();
 
 	bool Start();

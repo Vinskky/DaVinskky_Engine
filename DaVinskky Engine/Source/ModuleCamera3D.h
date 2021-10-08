@@ -8,7 +8,7 @@
 class ModuleCamera3D : public Module
 {
 public:
-	ModuleCamera3D(Application* app, bool startEnabled = true);
+	ModuleCamera3D();
 	~ModuleCamera3D();
 
 	bool Start();

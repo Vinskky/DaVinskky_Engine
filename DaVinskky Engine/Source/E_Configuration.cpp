@@ -177,9 +177,9 @@ bool E_Configuration::InputHeader()
 		if (ImGui::Checkbox("Active", &ckActiveInput))
 			ckActiveInput = !ckActiveInput;
 		
-		ImGui::Text("Mouse Position: %i, %i", App->input->GetMouseX(), App->input->GetMouseY());
-		ImGui::Text("Mouse Motion: %i, %i", App->input->GetMouseXMotion(), App->input->GetMouseYMotion());
-		ImGui::Text("Mouse wheel: %i", App->input->GetMouseZ());
+		ImGui::Text("Mouse Position: %i, %i", app->input->GetMouseX(), app->input->GetMouseY());
+		ImGui::Text("Mouse Motion: %i, %i", app->input->GetMouseXMotion(), app->input->GetMouseYMotion());
+		ImGui::Text("Mouse wheel: %i", app->input->GetMouseZ());
 		ImGui::Separator();
 		
 		ImGui::BeginChild("Input Log");

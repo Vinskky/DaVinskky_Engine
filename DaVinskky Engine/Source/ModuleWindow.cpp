@@ -2,8 +2,9 @@
 #include "Application.h"
 #include "ModuleWindow.h"
 
-ModuleWindow::ModuleWindow(Application* app, bool startEnabled) : Module(app, startEnabled)
+ModuleWindow::ModuleWindow()
 {
+	SetName("Window");
 	window = NULL;
 	screenSurface = NULL;
 }
