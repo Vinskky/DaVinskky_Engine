@@ -5,7 +5,7 @@
 
 #include "E_TestPanel.h"
 
-ETestPanel::ETestPanel(Application* app,const char* name, bool isActive): Editor(app, "Test")
+ETestPanel::ETestPanel(const char* name, bool isActive): Editor("Test")
 {
 }
 

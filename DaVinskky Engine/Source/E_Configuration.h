@@ -8,7 +8,7 @@
 class E_Configuration : public Editor
 {
 public:
-	E_Configuration(Application* app, const char* name, bool isActive = true);
+	E_Configuration( const char* name, bool isActive = true);
 	~E_Configuration();
 
 	bool Draw(ImGuiIO& io)override;

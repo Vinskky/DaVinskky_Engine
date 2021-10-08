@@ -6,7 +6,7 @@
 class E_MainMenuBar : public Editor
 {
 public:
-	E_MainMenuBar(Application* app, const char* name, bool isActive = true);
+	E_MainMenuBar(const char* name, bool isActive = true);
 	~E_MainMenuBar();
 
 	bool Draw(ImGuiIO& io)override;

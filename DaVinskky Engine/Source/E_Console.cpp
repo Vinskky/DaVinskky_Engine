@@ -1,7 +1,7 @@
 #include "Application.h"
 #include "E_Console.h"
 
-E_Console::E_Console(Application* app, const char* name, bool isActive): Editor(app,"Console")
+E_Console::E_Console( const char* name, bool isActive): Editor("Console")
 {
 }
 

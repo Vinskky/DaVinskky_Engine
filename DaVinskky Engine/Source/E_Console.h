@@ -6,7 +6,7 @@
 class E_Console : public Editor
 {
 public:
-	E_Console(Application* app, const char* name, bool isActive = true);
+	E_Console(const char* name, bool isActive = true);
 	~E_Console();
 
 	bool Draw(ImGuiIO& io)override;

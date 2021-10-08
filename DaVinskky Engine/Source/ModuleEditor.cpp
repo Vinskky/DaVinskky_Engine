@@ -19,9 +19,9 @@
 
 ModuleEditor::ModuleEditor() : Module(),
 //testPanel(new ETestPanel(app,"ImGui Test")),
-mainMenuPanel(new E_MainMenuBar(app, "Main Menu")),
-configPanel(new E_Configuration(app, "Configuration")),
-consolePanel(new E_Console(app, "Configuration"))
+mainMenuPanel(new E_MainMenuBar("Main Menu")),
+configPanel(new E_Configuration("Configuration")),
+consolePanel(new E_Console("Configuration"))
 {
     SetName("Editor");
     //AddEditorPanel(testPanel);

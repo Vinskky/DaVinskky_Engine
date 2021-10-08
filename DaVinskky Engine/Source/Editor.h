@@ -16,9 +16,9 @@ class Application;
 class Editor
 {
 public:
-	Application* App;
+	
 
-	Editor(Application* parent, const char* name, bool isActive = true): App(parent),name(name),isActive(isActive)
+	Editor( const char* name, bool isActive = true): name(name),isActive(isActive)
 	{}
 
 	virtual ~Editor()

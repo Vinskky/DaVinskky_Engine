@@ -3,7 +3,7 @@
 #include "imgui.h"
 #include "E_Configuration.h"
 
-E_Configuration::E_Configuration(Application* app, const char* name, bool isActive): Editor(app,"Configuration")
+E_Configuration::E_Configuration( const char* name, bool isActive): Editor("Configuration")
 {
 	appName = TITLE;
 	orgName = "Organization";
@@ -196,17 +196,17 @@ bool E_Configuration::HardwareHeader()
 	if (ImGui::CollapsingHeader("Hardware"))
 	{
 		int major, minor, patch;
-		App->GetSDLVer(major, minor, patch);
+		app->GetSDLVer(major, minor, patch);
 		ImGui::Text("SDL Version: %d.%d.%d", major, minor, patch);
 		ImGui::Separator();
 		int count, size;
-		App->GetCPU(count, size);
+		app->GetCPU(count, size);
 		ImGui::Text("CPUs: %d (%dKb)", count, size);
-		float ram = App->GetRAM();
+		float ram = app->GetRAM();
 		ImGui::Text("RAM: %.2fGb", ram);
 		ImGui::Separator();
 		bool threeD, altiVec, avx, avx2, mmx, rdtsc, sse, sse2, sse3, sse41, sse42;
-		App->GetCaps(threeD, altiVec, avx, avx2, mmx, rdtsc, sse, sse2, sse3, sse41, sse42);
+		app->GetCaps(threeD, altiVec, avx, avx2, mmx, rdtsc, sse, sse2, sse3, sse41, sse42);
 		ImGui::Text("Caps: %s%s%s%s%s%s", threeD ? "3DNow, " : "", altiVec ? "AltiVec, " : "", avx ? "AVX, " : "", avx2 ? "AVX2, " : "", mmx ? "MMX, " : "", rdtsc ? "RDTSC, " : "");
 		ImGui::Text("", "%s%s%s%s%s", sse ? "SSE, " : "", sse2 ? "SSE2, " : "", sse3 ? "SSE3, " : "", sse41 ? "SSE41, " : "", sse42 ? "SSE42" : "");
 
