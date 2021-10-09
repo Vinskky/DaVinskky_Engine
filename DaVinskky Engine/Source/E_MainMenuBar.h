@@ -12,6 +12,7 @@ public:
 	bool Draw(ImGuiIO& io)override;
 	bool CleanUp()override;
 
+	bool GetAboutWindowState()const;
 private:
 	update_status FileMenu();
 	bool ViewMenu();
@@ -20,7 +21,9 @@ private:
 
 private:
 	bool showcase = false;
-	bool aboutWindow = true;
+	bool aboutWindow = false;
+	bool showConsole = true;
+	bool showConfig = true;
 };
 
 

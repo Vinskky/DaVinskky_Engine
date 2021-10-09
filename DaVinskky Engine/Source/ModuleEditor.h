@@ -11,6 +11,8 @@ class ETestPanel;
 class E_MainMenuBar;
 class E_Configuration;
 class E_Console;
+class E_About;
+
 
 class ModuleEditor : public Module
 {
@@ -51,6 +53,7 @@ public:
 	E_MainMenuBar* mainMenuPanel = nullptr;
 	E_Configuration* configPanel = nullptr;
 	E_Console* consolePanel = nullptr;
+	E_About* aboutPanel = nullptr;
 };
 
 

@@ -10,6 +10,7 @@
 #include "E_MainMenuBar.h"
 #include "E_Configuration.h"
 #include "E_Console.h"
+#include "E_About.h"
 
 #include "imgui.h"
 #include "imgui_internal.h"
@@ -21,13 +22,15 @@ ModuleEditor::ModuleEditor() : Module(),
 //testPanel(new ETestPanel(app,"ImGui Test")),
 mainMenuPanel(new E_MainMenuBar("Main Menu")),
 configPanel(new E_Configuration("Configuration")),
-consolePanel(new E_Console("Configuration"))
+consolePanel(new E_Console("Configuration")),
+aboutPanel(new E_About("About"))
 {
     SetName("Editor");
     //AddEditorPanel(testPanel);
     AddEditorPanel(mainMenuPanel);
     AddEditorPanel(configPanel);
     AddEditorPanel(consolePanel);
+    AddEditorPanel(aboutPanel);
 }
 
 ModuleEditor::~ModuleEditor()
@@ -170,10 +173,13 @@ void ModuleEditor::UpdateFrameData(float frames, float ms)
 
 void ModuleEditor::AddLogFromEditor(const char* str)
 {
-    if (consolePanel != nullptr)
+    if (app->quit == false && app->editor != nullptr)
     {
-        consolePanel->AddLogConsole(str);
+        if (consolePanel != nullptr)
+        {
+            consolePanel->AddLogConsole(str);
+        }
     }
-
+    
 }
 

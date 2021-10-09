@@ -103,6 +103,12 @@ void Application::FinishUpdate()
 update_status Application::Update()
 {
 	update_status ret = UPDATE_CONTINUE;
+
+	if (quit)
+	{
+		ret = UPDATE_STOP;
+	}
+
 	PrepareUpdate();
 	std::vector<Module*>::iterator item = modules.begin();
 

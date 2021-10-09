@@ -22,6 +22,8 @@ public:
 	ModuleCamera3D* camera = nullptr;
 	ModuleEditor* editor = nullptr;
 
+	bool quit = false;
+
 private:
 	int argc;
 	char** argv;
