@@ -168,3 +168,12 @@ void ModuleEditor::UpdateFrameData(float frames, float ms)
     configPanel->UpdateFrameData(frames, ms);
 }
 
+void ModuleEditor::AddLogFromEditor(const char* str)
+{
+    if (consolePanel != nullptr)
+    {
+        consolePanel->AddLogConsole(str);
+    }
+
+}
+

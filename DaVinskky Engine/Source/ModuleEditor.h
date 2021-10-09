@@ -32,6 +32,9 @@ public:
 
 	void UpdateFrameData(float frames, float ms);
 
+	//Log Console editor function
+	void AddLogFromEditor(const char* str);
+
 public:
 	
 	bool showDemoWindow;
