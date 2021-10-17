@@ -40,6 +40,7 @@ void log(const char file[], int line, const char* format, ...);
 
 
 typedef unsigned int uint;
+typedef unsigned __int64 uint64;
 
 enum update_status
 {
@@ -58,7 +59,13 @@ enum update_status
 #define WIN_FULLSCREEN_DESKTOP false
 #define VSYNC true
 #define TITLE "DaVinskky Engine"
+#define ORGANIZATION "UPC"
 
 
+//Paths
+
+#define LIBRARY_PATH "Library/"
+#define TEXTURES_PATH "Library/Textures/"
+#define MODELS_PATH "Library/Models/"
 
 

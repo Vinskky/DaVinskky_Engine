@@ -58,6 +58,9 @@
     <Filter Include="Dependences\parson">
       <UniqueIdentifier>{a717e352-a178-42ef-8910-ad6ee6b85262}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\3. Importers">
+      <UniqueIdentifier>{41c82439-5b26-4b88-a7db-b8a2e74121df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Timer.h">
@@ -393,6 +396,18 @@
     <ClInclude Include="Source\E_About.h">
       <Filter>Sources\2. Editor</Filter>
     </ClInclude>
+    <ClInclude Include="Source\I_Scene.h">
+      <Filter>Sources\3. Importers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\I_Mesh.h">
+      <Filter>Sources\3. Importers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ModuleFileSystem.h">
+      <Filter>Sources\1. Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PathNode.h">
+      <Filter>Sources\Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -604,6 +619,15 @@
     </ClCompile>
     <ClCompile Include="Source\E_About.cpp">
       <Filter>Sources\2. Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\I_Scene.cpp">
+      <Filter>Sources\3. Importers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\I_Mesh.cpp">
+      <Filter>Sources\3. Importers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModuleFileSystem.cpp">
+      <Filter>Sources\1. Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

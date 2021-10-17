@@ -16,7 +16,7 @@ public:
 	ModuleRenderer3D();
 	~ModuleRenderer3D();
 
-	bool Init();
+	bool Init(Config& config)override;
 	update_status PreUpdate(float dt);
 	update_status Update(float dt);
 	update_status PostUpdate(float dt);

@@ -1,22 +1,25 @@
 #include "Application.h"
+#include "Config.h"
 #include <shellapi.h>
 #include <string>
 #include <time.h>
 
 Application::Application(int argc, char** argv) : argc(argc), argv(argv)
 {
+	fileSystem = new M_FileSystem();
 	window = new ModuleWindow();
 	input = new ModuleInput();
 	sceneIntro = new ModuleSceneIntro();
 	renderer3D = new ModuleRenderer3D();
 	camera = new ModuleCamera3D();
 	editor = new ModuleEditor();
-
+	
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
 	// They will CleanUp() in reverse order
 
 	// Main Modules
+	AddModule(fileSystem);
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);
@@ -26,6 +29,9 @@ Application::Application(int argc, char** argv) : argc(argc), argv(argv)
 	// Renderer last!
 	AddModule(editor);
 	AddModule(renderer3D);
+
+	title = TITLE;
+	organization = ORGANIZATION;
 }
 
 Application::~Application()
@@ -42,13 +48,28 @@ Application::~Application()
 bool Application::Init()
 {
 	bool ret = true;
+	char* buffer = nullptr;
 
+	uint size = fileSystem->Load("Engine/Settings.JSON", &buffer);
+
+	if (size <= 0)
+	{
+		uint defSize = fileSystem->Load("Engine/DefaultSettings.JSON", &buffer);
+		if (defSize <= 0)
+		{
+			LOG("[error] failed to load project settings");
+			return false;
+		}
+	}
+
+	Config config(buffer);
+	Config node = config.GetNode("EditorState");
 	// Call Init() in all modules
 	std::vector<Module*>::iterator item = modules.begin();
 
 	while(item != modules.end() && ret == true)
 	{
-		ret = (*item)->Init();
+		ret = (*item)->Init(node.GetNode((*item)->GetName()));
 		++item;
 	}
 
@@ -215,5 +236,15 @@ void Application::AddLogFromApp(const char* str)
 
 		editor->AddLogFromEditor(short_log.c_str());
 	}
+}
+
+const char* Application::GetTitleName() const
+{
+	return title.c_str();
+}
+
+const char* Application::GetOrganizationName() const
+{
+	return organization.c_str();
 }
 

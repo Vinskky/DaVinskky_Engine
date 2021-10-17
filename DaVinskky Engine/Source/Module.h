@@ -20,7 +20,7 @@ public:
 	virtual ~Module()
 	{}
 
-	virtual bool Init() 
+	virtual bool Init(Config& config) 
 	{
 		enabled = true;
 		return true; 

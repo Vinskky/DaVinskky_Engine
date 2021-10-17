@@ -11,6 +11,7 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
 #include "ModuleEditor.h"
+#include "ModuleFileSystem.h"
 
 class Application
 {
@@ -21,6 +22,7 @@ public:
 	ModuleRenderer3D* renderer3D = nullptr;
 	ModuleCamera3D* camera = nullptr;
 	ModuleEditor* editor = nullptr;
+	M_FileSystem* fileSystem = nullptr;
 
 	bool quit = false;
 
@@ -41,6 +43,8 @@ private:
 
 	std::vector<Module*> modules;
 	
+	std::string title;
+	std::string organization;
 
 public:
 
@@ -63,6 +67,11 @@ public:
 
 	//Log editor function
 	void AddLogFromApp(const char* str);
+
+	//GetTitle & Org
+	const char* GetTitleName() const;
+	const char* GetOrganizationName() const;
+
 private:
 
 	void AddModule(Module* mod);
