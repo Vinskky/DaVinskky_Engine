@@ -61,6 +61,9 @@
     <Filter Include="Sources\3. Importers">
       <UniqueIdentifier>{41c82439-5b26-4b88-a7db-b8a2e74121df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependences\DevIL">
+      <UniqueIdentifier>{eeeec3a7-551a-4ad0-8946-98b755d0152e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Timer.h">
@@ -408,6 +411,30 @@
     <ClInclude Include="Source\PathNode.h">
       <Filter>Sources\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="Source\External\DevIL\include\config.h">
+      <Filter>Dependences\DevIL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\DevIL\include\devil_internal_exports.h">
+      <Filter>Dependences\DevIL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\DevIL\include\il.h">
+      <Filter>Dependences\DevIL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\DevIL\include\il_wrap.h">
+      <Filter>Dependences\DevIL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\DevIL\include\ilu.h">
+      <Filter>Dependences\DevIL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\DevIL\include\ilu_region.h">
+      <Filter>Dependences\DevIL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\DevIL\include\ilut.h">
+      <Filter>Dependences\DevIL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\DevIL\include\ilut_config.h">
+      <Filter>Dependences\DevIL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -642,6 +669,9 @@
     </None>
     <None Include="Source\External\MathGeoLib\include\Geometry\QuadTree.inl">
       <Filter>Dependences\MathGeoLib\Geometry</Filter>
+    </None>
+    <None Include="Source\External\DevIL\include\config.h.win">
+      <Filter>Dependences\DevIL</Filter>
     </None>
   </ItemGroup>
 </Project>

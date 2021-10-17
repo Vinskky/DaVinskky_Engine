@@ -2,6 +2,377 @@
   Application.cpp
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Application.cpp(120,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Color.cpp
+  Config.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(212,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(213,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(214,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(224,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(225,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(226,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(227,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(237,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(238,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(239,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Config.cpp(240,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_impl_sdl.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  GJK.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(197,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(198,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(203,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(204,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  GJK2D.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  LCG.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  SAT.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  AABB.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB.cpp(1207,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Capsule.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Capsule.cpp(457,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Capsule.cpp(479,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Circle.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Circle.cpp(257,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Circle2D.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Circle2D.cpp(292,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Frustum.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Frustum.cpp(1117,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Line.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Line.cpp(363,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Generating Code...
+  Compiling...
+  LineSegment.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(197,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(198,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(203,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(204,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\LineSegment.cpp(459,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  LineSegment2D.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\LineSegment2D.cpp(512,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  OBB.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(197,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(198,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(203,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(204,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\OBB.cpp(2810,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  PBVolume.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Plane.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Plane.cpp(920,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Plane.cpp(939,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Polygon.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Polyhedron.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(197,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(198,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(203,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(204,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(882,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(850): message : while compiling class template member function 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,const unsigned int,const _Ty &)'
+          with
+          [
+              _Ty=std::vector<int,std::allocator<int>>
+          ]
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Polyhedron.cpp(2135): message : see reference to function template instantiation 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,const unsigned int,const _Ty &)' being compiled
+          with
+          [
+              _Ty=std::vector<int,std::allocator<int>>
+          ]
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Polyhedron.cpp(354): message : see reference to class template instantiation 'std::vector<std::vector<int,std::allocator<int>>,std::allocator<std::vector<int,std::allocator<int>>>>' being compiled
+  Ray.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Ray.cpp(368,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Sphere.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Sphere.cpp(1382,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Sphere.cpp(1402,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Triangle.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(197,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(198,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(203,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(204,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Triangle.cpp(1956,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Triangle2D.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\Triangle2D.cpp(1699,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  TriangleMesh.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  BitOps.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Callstack.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  float2.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float2.cpp(219,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  float3.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float3.cpp(216,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  float3x3.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float3x3.cpp(1397,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float3x3.cpp(1425,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  float3x4.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float3x4.cpp(1545,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float3x4.cpp(1576,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  float4.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4.cpp(508,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  float4d.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(197,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(198,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(203,3): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.h(204,10): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4d.cpp(35,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Generating Code...
+  Compiling...
+  float4x4.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4x4.cpp(1998,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\float4x4.cpp(2034,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  grisu3_cpp.cpp
+  MathFunc.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\MathFunc.cpp(639,18): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\MathFunc.cpp(656,11): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  MathLog.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  MathOps.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  MiniFloat.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Polynomial.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Quat.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\Quat.cpp(792,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\Quat.cpp(802,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  SSEMath.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  TransformOps.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\TransformOps.cpp(77,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\TransformOps.cpp(293,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
+  Clock.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
   E_About.cpp
   E_Configuration.cpp
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\E_Configuration.h(52,19): warning C4129: '.': unrecognized character escape sequence
@@ -9,8 +380,27 @@ D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\E_Configuration.h(
   E_MainMenuBar.cpp
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\E_Configuration.h(52,19): warning C4129: '.': unrecognized character escape sequence
   E_TestPanel.cpp
+  glmath.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(12,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(27,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(43,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(53,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(53,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(72,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(87,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(103,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(600,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(618,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(618,33): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(758,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(778,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\glmath.cpp(778,33): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   I_Mesh.cpp
-D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  I_Scene.cpp
+  Light.cpp
+  Generating Code...
+  Compiling...
+  log.cpp
   Main.cpp
   ModuleCamera3D.cpp
   ModuleEditor.cpp
@@ -19,13 +409,29 @@ D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\ModuleEditor.cpp(1
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\ModuleEditor.cpp(171,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   ModuleFileSystem.cpp
   The contents of <filesystem> are available only with C++17 or later.
-D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\ModuleFileSystem.cpp(245,20): warning C4018: '<': signed/unsigned mismatch
   ModuleInput.cpp
   ModuleRenderer3D.cpp
-D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   ModuleSceneIntro.cpp
   ModuleWindow.cpp
-  log.cpp
+  Primitive.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(195,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(196,52): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(196,35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(205,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(206,53): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(206,36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(214,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(216,52): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(216,35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(217,52): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Primitive.cpp(217,35): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Timer.cpp
+  Generating Code...
+  grisu3.c
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\grisu3.c(323,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\grisu3.c(348,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\grisu3.c(365,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  parson.c
   Generating Code...
   DaVinskky Engine.vcxproj -> D:\Documentos\Github\DaVinskky_Engine\Build\Debug\DaVinskky Engine.exe

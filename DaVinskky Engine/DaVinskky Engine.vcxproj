@@ -55,15 +55,15 @@
       <SDLCheck>false</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\PhysFS\include;$(ProjectDir)Source\External\Assimp\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\External\parson\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\DevIL\include;$(ProjectDir)Source\External\PhysFS\include;$(ProjectDir)Source\External\Assimp\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\External\parson\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalLibraryDirectories>$(ProjectDir)Source\External\PhysFS\libx86;$(ProjectDir)Source\External\Assimp\libx86;$(ProjectDir)Source\External\Glew\libx86;$(ProjectDir)Source\External\SDL_mixer\libx86;$(ProjectDir)Source\External\SDL\libx86;$(ProjectDir)Source\External\glut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>physfs.lib;assimp.lib;glew32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Source\External\DevIL\libx86;$(ProjectDir)Source\External\PhysFS\libx86;$(ProjectDir)Source\External\Assimp\libx86;$(ProjectDir)Source\External\Glew\libx86;$(ProjectDir)Source\External\SDL_mixer\libx86;$(ProjectDir)Source\External\SDL\libx86;$(ProjectDir)Source\External\glut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DevIL.lib;ILU.lib;ILUT.lib;physfs.lib;assimp.lib;glew32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -75,7 +75,7 @@
       <SDLCheck>false</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\PhysFS\include;$(ProjectDir)Source\External\Assimp\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\External\parson\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\DevIL\include;$(ProjectDir)Source\External\PhysFS\include;$(ProjectDir)Source\External\Assimp\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\External\parson\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -84,8 +84,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalLibraryDirectories>$(ProjectDir)Source\External\PhysFS\libx86;$(ProjectDir)Source\External\Assimp\libx86;$(ProjectDir)Source\External\Glew\libx86;$(ProjectDir)Source\External\SDL_mixer\libx86;$(ProjectDir)Source\External\SDL\libx86;$(ProjectDir)Source\External\glut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>physfs.lib;assimp.lib;glew32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Source\External\DevIL\libx86;$(ProjectDir)Source\External\PhysFS\libx86;$(ProjectDir)Source\External\Assimp\libx86;$(ProjectDir)Source\External\Glew\libx86;$(ProjectDir)Source\External\SDL_mixer\libx86;$(ProjectDir)Source\External\SDL\libx86;$(ProjectDir)Source\External\glut;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>DevIL.lib;ILU.lib;ILUT.lib;physfs.lib;assimp.lib;glew32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -93,6 +93,14 @@
     <ClInclude Include="Source\Config.h" />
     <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\Editor.h" />
+    <ClInclude Include="Source\External\DevIL\include\config.h" />
+    <ClInclude Include="Source\External\DevIL\include\devil_internal_exports.h" />
+    <ClInclude Include="Source\External\DevIL\include\il.h" />
+    <ClInclude Include="Source\External\DevIL\include\ilu.h" />
+    <ClInclude Include="Source\External\DevIL\include\ilut.h" />
+    <ClInclude Include="Source\External\DevIL\include\ilut_config.h" />
+    <ClInclude Include="Source\External\DevIL\include\ilu_region.h" />
+    <ClInclude Include="Source\External\DevIL\include\il_wrap.h" />
     <ClInclude Include="Source\External\Glew\include\eglew.h" />
     <ClInclude Include="Source\External\Glew\include\glew.h" />
     <ClInclude Include="Source\External\Glew\include\glxew.h" />
@@ -281,6 +289,7 @@
     <ClCompile Include="Source\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Source\External\DevIL\include\config.h.win" />
     <None Include="Source\External\MathGeoLib\include\Geometry\KDTree.inl" />
     <None Include="Source\External\MathGeoLib\include\Geometry\QuadTree.inl" />
     <None Include="Source\External\MathGeoLib\include\Math\float2.inl" />
