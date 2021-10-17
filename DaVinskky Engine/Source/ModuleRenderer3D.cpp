@@ -2,8 +2,10 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleEditor.h"
+#include "I_Mesh.h"
 #include "External/Glew/include/glew.h"
 #include "External\SDL\include\SDL_opengl.h"
+#include "External/MathGeoLib/include/Math/float4x4.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
@@ -13,6 +15,7 @@
 ModuleRenderer3D::ModuleRenderer3D()
 {
 	SetName("Renderer");
+	myMesh = new Mesh();
 }
 
 // Destructor
@@ -24,7 +27,7 @@ bool ModuleRenderer3D::Init(Config& config)
 {
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
-	
+
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
@@ -39,7 +42,6 @@ bool ModuleRenderer3D::Init(Config& config)
 		LOG("OpenGL context could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
-	
 	
 
 	if(ret == true)
@@ -57,6 +59,9 @@ bool ModuleRenderer3D::Init(Config& config)
 			LOG("Renderer: %s", glGetString(GL_RENDERER));
 			LOG("OpenGL version supported %s", glGetString(GL_VERSION));
 			LOG("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
+			//Meshes stuff
+			myMesh->InitMesh();
+			ret = myMesh->LoadMesh();
 		}
 		//Use Vsync
 		if(VSYNC && SDL_GL_SetSwapInterval(1) < 0)
@@ -177,6 +182,7 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 
 	SDL_GL_SwapWindow(app->window->window);
+	
 	//App->editor->RenderEditorPanels();
 	return UPDATE_CONTINUE;
 }
@@ -184,6 +190,7 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 // Called before quitting
 bool ModuleRenderer3D::CleanUp()
 {
+	myMesh->CleanUp();
 	LOG("Destroying 3D Renderer");
 
 	SDL_GL_DeleteContext(context);
@@ -203,6 +210,45 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+}
+
+void ModuleRenderer3D::DrawMesh()
+{
+	if (myMesh == nullptr)
+	{
+		LOG("Error, Renderer 3D: Could not render Mesh, Mesh* was nullptr");
+		return;
+	}
+
+	glPushMatrix();
+	glMultMatrixf((GLfloat*)float4x4::identity.Transposed().ptr());
+
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_NORMAL_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	glBindBuffer(GL_ARRAY_BUFFER, myMesh->TBO);
+	glTexCoordPointer(2, GL_FLOAT, 0, nullptr);
+
+	glBindBuffer(GL_ARRAY_BUFFER, myMesh->NBO);
+	glNormalPointer(GL_FLOAT, 0, nullptr);
+
+	glBindBuffer(GL_ARRAY_BUFFER, myMesh->VBO);
+	glVertexPointer(3, GL_FLOAT, 0, nullptr);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, myMesh->IBO);
+	glDrawElements(GL_TRIANGLES, myMesh->mIndex.size(), GL_UNSIGNED_INT, nullptr);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	glDisableClientState(GL_VERTEX_ARRAY);
+	glDisableClientState(GL_NORMAL_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	glPopMatrix();
+
 }
 
 

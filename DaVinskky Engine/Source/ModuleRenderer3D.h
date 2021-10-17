@@ -8,7 +8,7 @@
 
 #define MAX_LIGHTS 8
 
-
+class Mesh;
 
 class ModuleRenderer3D : public Module
 {
@@ -24,6 +24,7 @@ public:
 
 	void OnResize(int width, int height);
 
+	void DrawMesh();
 
 public:
 
@@ -33,6 +34,8 @@ public:
 	mat4x4 modelMatrix, viewMatrix, projectionMatrix;
 	
 	bool wireframe = false;
+
+	Mesh* myMesh;
 };
 
 #endif // !_MODULE_RENDER_3D_H_

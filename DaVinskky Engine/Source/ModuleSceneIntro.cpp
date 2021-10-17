@@ -37,6 +37,8 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
+	app->renderer3D->DrawMesh();
+
 	return UPDATE_CONTINUE;
 }
 
