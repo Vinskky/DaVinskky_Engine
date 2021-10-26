@@ -435,6 +435,9 @@
     <ClInclude Include="Source\External\DevIL\include\ilut_config.h">
       <Filter>Dependences\DevIL</Filter>
     </ClInclude>
+    <ClInclude Include="Source\I_Texture.h">
+      <Filter>Sources\3. Importers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -655,6 +658,9 @@
     </ClCompile>
     <ClCompile Include="Source\ModuleFileSystem.cpp">
       <Filter>Sources\1. Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\I_Texture.cpp">
+      <Filter>Sources\3. Importers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
