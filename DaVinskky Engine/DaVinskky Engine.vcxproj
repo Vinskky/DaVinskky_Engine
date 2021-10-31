@@ -90,8 +90,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h" />
+    <ClInclude Include="Source\Component.h" />
     <ClInclude Include="Source\Config.h" />
     <ClInclude Include="Source\Color.h" />
+    <ClInclude Include="Source\C_Transform.h" />
     <ClInclude Include="Source\Editor.h" />
     <ClInclude Include="Source\External\DevIL\include\config.h" />
     <ClInclude Include="Source\External\DevIL\include\devil_internal_exports.h" />
@@ -195,6 +197,7 @@
     <ClInclude Include="Source\E_Console.h" />
     <ClInclude Include="Source\E_MainMenuBar.h" />
     <ClInclude Include="Source\E_TestPanel.h" />
+    <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\glmath.h" />
     <ClInclude Include="Source\Globals.h" />
     <ClInclude Include="Source\I_Mesh.h" />
@@ -218,6 +221,7 @@
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Color.cpp" />
     <ClCompile Include="Source\Config.cpp" />
+    <ClCompile Include="Source\C_Transform.cpp" />
     <ClCompile Include="Source\External\ImGui\include\imgui.cpp" />
     <ClCompile Include="Source\External\ImGui\include\imgui_demo.cpp" />
     <ClCompile Include="Source\External\ImGui\include\imgui_draw.cpp" />
@@ -273,6 +277,7 @@
     <ClCompile Include="Source\E_Console.cpp" />
     <ClCompile Include="Source\E_MainMenuBar.cpp" />
     <ClCompile Include="Source\E_TestPanel.cpp" />
+    <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\glmath.cpp" />
     <ClCompile Include="Source\I_Mesh.cpp" />
     <ClCompile Include="Source\I_Scene.cpp" />

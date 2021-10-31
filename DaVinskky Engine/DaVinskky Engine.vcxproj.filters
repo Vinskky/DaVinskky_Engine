@@ -64,6 +64,9 @@
     <Filter Include="Dependences\DevIL">
       <UniqueIdentifier>{eeeec3a7-551a-4ad0-8946-98b755d0152e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\4. Components">
+      <UniqueIdentifier>{fbe2d0e0-1cd9-45e6-bc7d-f8a3757de11b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Timer.h">
@@ -438,6 +441,15 @@
     <ClInclude Include="Source\I_Texture.h">
       <Filter>Sources\3. Importers</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GameObject.h">
+      <Filter>Sources\4. Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Component.h">
+      <Filter>Sources\4. Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\C_Transform.h">
+      <Filter>Sources\4. Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -661,6 +673,12 @@
     </ClCompile>
     <ClCompile Include="Source\I_Texture.cpp">
       <Filter>Sources\3. Importers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject.cpp">
+      <Filter>Sources\4. Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\C_Transform.cpp">
+      <Filter>Sources\4. Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

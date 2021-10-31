@@ -40,8 +40,9 @@ void I_Texture::CleanUp()
 bool I_Texture::Load()
 {
 	bool ret = true;
-
+	
 	//creating procedurally a checker texture
+	GLubyte checkerImage[CHECKERS_HEIGHT][CHECKERS_WIDTH][4];
 	for (int i = 0; i < CHECKERS_HEIGHT; i++) {
 		for (int j = 0; j < CHECKERS_WIDTH; j++) {
 			int c = ((((i & 0x8) == 0) ^ (((j & 0x8)) == 0))) * 255;
@@ -63,6 +64,7 @@ bool I_Texture::Load()
 		0, GL_RGBA, GL_UNSIGNED_BYTE, checkerImage);
 
 
+		
 	return ret;
 }
 

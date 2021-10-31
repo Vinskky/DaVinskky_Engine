@@ -96,8 +96,9 @@
 			#pragma comment(lib, "ILUT.lib")
 		#endif
 	#endif
+	
 
-	#include "DevIL/include/ilut_config.h"
+	#include "External/DevIL/include/ilut_config.h"
 #endif
 
 

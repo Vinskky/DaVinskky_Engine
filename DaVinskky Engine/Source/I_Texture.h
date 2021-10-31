@@ -52,7 +52,7 @@ private:
 	TEXTURE_FORMAT format;
 	bool compressed;		//indicator for the use of filters dds
 
-	GLubyte checkerImage[CHECKERS_HEIGHT][CHECKERS_WIDTH][4];
+	
 };
 
 
