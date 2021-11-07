@@ -4,6 +4,7 @@
 #include "Primitive.h"
 #include "OpenGL.h"
 #include "I_Scene.h"
+#include "I_Texture.h"
 #include "GameObject.h"
 
 ModuleSceneIntro::ModuleSceneIntro()

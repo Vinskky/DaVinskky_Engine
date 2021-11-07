@@ -15,6 +15,8 @@
 #include "R_Material.h"
 #include "R_Texture.h"
 
+#include <string>
+
 void Importer::Scene::Import(const char* path, std::vector<GameObject*>& gameObjects)
 {
 	if (path == nullptr)
@@ -151,7 +153,10 @@ void Importer::Scene::Private::ImportTexture(const aiMaterial* aimaterial, C_Mat
 	if (aimaterial->GetTexture(aiTextureType_DIFFUSE, 0, &textPath) == AI_SUCCESS)
 	{
 		R_Texture* rtexture = new R_Texture();
-		bool ret = Importer::Texture::Import(textPath.C_Str(), rtexture);
+
+		std::string finalPath = ASSET_TEXTURES_PATH;
+		finalPath += textPath.C_Str();
+		bool ret = Importer::Texture::Import(finalPath.c_str(), rtexture);
 		
 		if (ret)
 		{

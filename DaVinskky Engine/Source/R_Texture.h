@@ -2,9 +2,6 @@
 #define _R_TEXTURE_H_
 
 #include "Globals.h"
-#define CHECKERS_HEIGHT 128
-#define CHECKERS_WIDTH 128
-
 
 enum class TEXTURE_FORMAT
 {
@@ -24,12 +21,12 @@ public:
 	R_Texture(uint id, uint width, uint height, uint depth, uint bpp, uint bytes, TEXTURE_FORMAT format, bool compressed);
 	~R_Texture();
 
-	void Init();
+	
 	void CleanUp();
 
-	bool Load();
-
 	uint CreateTexture();
+
+	void SetTextureData(uint id, uint width, uint height, uint depth, uint bpp, uint bytes, TEXTURE_FORMAT format, bool compressed = true);
 
 public:
 	//Get Private parameters

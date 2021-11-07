@@ -33,6 +33,8 @@ public:
 
 	bool IsActive()const { return active; }
 
+	GameObject* GetOwner()const { return owner; }
+
 private:
 	COMPONENT_TYPE type;
 	bool active;

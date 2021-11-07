@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "GameObject.h"
 #include "ModuleRenderer3D.h"
 #include "C_Mesh.h"
 #include "C_Material.h"
@@ -18,7 +19,7 @@ void C_Mesh::Enable()
 
 void C_Mesh::Update()
 {
-	app->renderer3D->DrawMesh(this->rmesh);
+	app->renderer3D->DrawMesh(this->rmesh, this->GetOwner()->GetComponent<C_Material>());
 }
 
 void C_Mesh::Disable()

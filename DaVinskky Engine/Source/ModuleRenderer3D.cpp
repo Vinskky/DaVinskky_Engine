@@ -2,7 +2,9 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleEditor.h"
+#include "I_Texture.h"
 #include "R_Mesh.h"
+#include "C_Material.h"
 #include "External/Glew/include/glew.h"
 #include "External\SDL\include\SDL_opengl.h"
 #include "External/MathGeoLib/include/Math/float4x4.h"
@@ -15,7 +17,6 @@
 ModuleRenderer3D::ModuleRenderer3D()
 {
 	SetName("Renderer");
-	//myMesh = new R_Mesh();
 }
 
 // Destructor
@@ -128,6 +129,9 @@ bool ModuleRenderer3D::Init(Config& config)
 	// Projection matrix for
 	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
+	Importer::Texture::Init();
+	LoadDebugTexture();
+
 	return ret;
 }
 
@@ -181,7 +185,6 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 
 	SDL_GL_SwapWindow(app->window->window);
 	
-	//App->editor->RenderEditorPanels();
 	return UPDATE_CONTINUE;
 }
 
@@ -190,6 +193,8 @@ bool ModuleRenderer3D::CleanUp()
 {
 	
 	LOG("Destroying 3D Renderer");
+
+	Importer::Texture::CleanUp();
 
 	SDL_GL_DeleteContext(context);
 
@@ -210,7 +215,7 @@ void ModuleRenderer3D::OnResize(int width, int height)
 	glLoadIdentity();
 }
 
-void ModuleRenderer3D::DrawMesh(R_Mesh* rmesh)
+void ModuleRenderer3D::DrawMesh(R_Mesh* rmesh, C_Material* cmaterial)
 {
 	if (rmesh == nullptr)
 	{
@@ -220,6 +225,30 @@ void ModuleRenderer3D::DrawMesh(R_Mesh* rmesh)
 
 	glPushMatrix();
 	glMultMatrixf((GLfloat*)float4x4::identity.Transposed().ptr());
+
+
+	if (cmaterial != nullptr)
+	{
+		if (!cmaterial->IsActive())
+		{
+			glDisable(GL_TEXTURE_2D);
+		}
+
+		if (cmaterial->GetTexture() == nullptr)                                                        // If the Material Component does not have a Texture Resource.
+		{
+			Color color = cmaterial->GetMaterialColour();
+			glColor4f(color.r, color.g, color.b, color.a);                                                // Apply the diffuse color to the mesh.
+		}
+		else if (cmaterial->UseDefaultTexture())                                                        // If the default texture is set to be used (bool use_default_texture)
+		{
+			glBindTexture(GL_TEXTURE_2D, debugTextureId);                            // Binding the texture that will be rendered. Index = 0 means we are clearing the binding.
+		}
+		else
+		{
+			glBindTexture(GL_TEXTURE_2D, cmaterial->GetTextureID());                                    // Binding the texture_id in the Texture Resource of the Material Component.
+		}
+	}
+
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
@@ -247,6 +276,30 @@ void ModuleRenderer3D::DrawMesh(R_Mesh* rmesh)
 
 	glPopMatrix();
 
+}
+
+void ModuleRenderer3D::LoadDebugTexture()
+{
+	GLubyte checkerImage[CHECKERS_HEIGHT][CHECKERS_WIDTH][4];
+	for (int i = 0; i < CHECKERS_HEIGHT; i++) {
+		for (int j = 0; j < CHECKERS_WIDTH; j++) {
+			int c = ((((i & 0x8) == 0) ^ (((j & 0x8)) == 0))) * 255;
+			checkerImage[i][j][0] = (GLubyte)c;
+			checkerImage[i][j][1] = (GLubyte)c;
+			checkerImage[i][j][2] = (GLubyte)c;
+			checkerImage[i][j][3] = (GLubyte)255;
+		}
+	}
+
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	glGenTextures(1, &debugTextureId);
+	glBindTexture(GL_TEXTURE_2D, debugTextureId);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, CHECKERS_WIDTH, CHECKERS_HEIGHT,
+		0, GL_RGBA, GL_UNSIGNED_BYTE, checkerImage);
 }
 
 

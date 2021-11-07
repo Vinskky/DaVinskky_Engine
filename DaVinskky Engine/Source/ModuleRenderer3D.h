@@ -7,8 +7,11 @@
 #include "Light.h"
 
 #define MAX_LIGHTS 8
+#define CHECKERS_HEIGHT 128
+#define CHECKERS_WIDTH 128
 
 class R_Mesh;
+class C_Material;
 
 class ModuleRenderer3D : public Module
 {
@@ -24,7 +27,9 @@ public:
 
 	void OnResize(int width, int height);
 
-	void DrawMesh(R_Mesh* rmesh);
+	void DrawMesh(R_Mesh* rmesh, C_Material* cmaterial);
+
+	void LoadDebugTexture();
 
 public:
 
@@ -35,6 +40,7 @@ public:
 	
 	bool wireframe = false;
 
+	uint debugTextureId;
 };
 
 #endif // !_MODULE_RENDER_3D_H_
