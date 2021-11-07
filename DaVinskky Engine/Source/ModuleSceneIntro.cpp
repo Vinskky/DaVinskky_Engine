@@ -11,6 +11,7 @@ ModuleSceneIntro::ModuleSceneIntro()
 {
 	SetName("Scene");
 	sceneRoot = new GameObject();
+	sceneRoot->SetName("sceneRoot");
 	sceneGameObjects.push_back(sceneRoot);
 }
 

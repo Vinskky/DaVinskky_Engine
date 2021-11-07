@@ -12,6 +12,7 @@ class E_MainMenuBar;
 class E_Configuration;
 class E_Console;
 class E_About;
+class E_Hierarchy;
 
 
 class ModuleEditor : public Module
@@ -54,6 +55,7 @@ public:
 	E_Configuration* configPanel = nullptr;
 	E_Console* consolePanel = nullptr;
 	E_About* aboutPanel = nullptr;
+	E_Hierarchy* hierarchy = nullptr;
 };
 
 

@@ -11,6 +11,7 @@
 #include "E_Configuration.h"
 #include "E_Console.h"
 #include "E_About.h"
+#include "E_Hierarchy.h"
 
 #include "imgui.h"
 #include "imgui_internal.h"
@@ -23,7 +24,8 @@ ModuleEditor::ModuleEditor() : Module(),
 mainMenuPanel(new E_MainMenuBar("Main Menu")),
 configPanel(new E_Configuration("Configuration")),
 consolePanel(new E_Console("Configuration")),
-aboutPanel(new E_About("About"))
+aboutPanel(new E_About("About")),
+hierarchy(new E_Hierarchy("Hierarchy"))
 {
     SetName("Editor");
     //AddEditorPanel(testPanel);
@@ -31,6 +33,7 @@ aboutPanel(new E_About("About"))
     AddEditorPanel(configPanel);
     AddEditorPanel(consolePanel);
     AddEditorPanel(aboutPanel);
+    AddEditorPanel(hierarchy);
 }
 
 ModuleEditor::~ModuleEditor()

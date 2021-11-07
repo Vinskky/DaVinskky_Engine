@@ -76,6 +76,9 @@
     <Filter Include="Dependences\Assimp">
       <UniqueIdentifier>{31db85ca-e54f-44c7-a846-777d705e1e94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\2. Editor\Popouts">
+      <UniqueIdentifier>{e18a68d6-8520-4d28-8e4d-0ecfe473c024}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Timer.h">
@@ -408,9 +411,6 @@
     <ClInclude Include="Source\Config.h">
       <Filter>Sources\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\E_About.h">
-      <Filter>Sources\2. Editor</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ModuleFileSystem.h">
       <Filter>Sources\1. Modules</Filter>
     </ClInclude>
@@ -491,6 +491,12 @@
     </ClInclude>
     <ClInclude Include="Source\I_Texture.h">
       <Filter>Sources\3. Importers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\E_About.h">
+      <Filter>Sources\2. Editor\Popouts</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\E_Hierarchy.h">
+      <Filter>Sources\2. Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -701,9 +707,6 @@
     <ClCompile Include="Source\Config.cpp">
       <Filter>Sources\Containers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\E_About.cpp">
-      <Filter>Sources\2. Editor</Filter>
-    </ClCompile>
     <ClCompile Include="Source\ModuleFileSystem.cpp">
       <Filter>Sources\1. Modules</Filter>
     </ClCompile>
@@ -739,6 +742,12 @@
     </ClCompile>
     <ClCompile Include="Source\I_Texture.cpp">
       <Filter>Sources\3. Importers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\E_About.cpp">
+      <Filter>Sources\2. Editor\Popouts</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\E_Hierarchy.cpp">
+      <Filter>Sources\2. Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
