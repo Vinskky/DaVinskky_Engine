@@ -35,7 +35,6 @@ public:
 	
 	bool wireframe = false;
 
-	R_Mesh* myMesh = nullptr;
 };
 
 #endif // !_MODULE_RENDER_3D_H_

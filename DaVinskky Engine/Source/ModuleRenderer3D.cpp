@@ -59,9 +59,7 @@ bool ModuleRenderer3D::Init(Config& config)
 			LOG("Renderer: %s", glGetString(GL_RENDERER));
 			LOG("OpenGL version supported %s", glGetString(GL_VERSION));
 			LOG("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
-			//Meshes stuff
-			//myMesh->InitMesh();
-			//ret = myMesh->LoadMesh();
+
 		}
 		//Use Vsync
 		if(VSYNC && SDL_GL_SetSwapInterval(1) < 0)
@@ -190,7 +188,7 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 // Called before quitting
 bool ModuleRenderer3D::CleanUp()
 {
-	myMesh->CleanUp();
+	
 	LOG("Destroying 3D Renderer");
 
 	SDL_GL_DeleteContext(context);

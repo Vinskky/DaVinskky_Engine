@@ -10,11 +10,6 @@ namespace Importer
 	namespace Material
 	{
 		bool Import(const aiMaterial* aimat, R_Material* rmat);
-
-		namespace Private
-		{
-
-		}
 	}
 }
 #endif // !_I_MATERIAL_H_

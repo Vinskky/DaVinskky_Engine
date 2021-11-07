@@ -35,6 +35,7 @@ public:
 				return (T*)components[i];
 			}
 		}
+		return nullptr;
 	}
 
 	void SetName(const char* str);

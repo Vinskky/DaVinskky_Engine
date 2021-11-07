@@ -22,8 +22,10 @@ void C_Material::Disable()
 
 void C_Material::SetMaterial(R_Material* rmaterial)
 {
+	this->rmaterial = rmaterial;
 }
 
 void C_Material::SetTexture(R_Texture* rtexture)
 {
+	this->rtexture = rtexture;
 }
