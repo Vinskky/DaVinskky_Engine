@@ -4,6 +4,10 @@
 #include "Module.h"
 #include "Globals.h"
 
+#include <vector>
+
+class GameObject;
+
 class ModuleSceneIntro : public Module
 {
 public:
@@ -15,6 +19,7 @@ public:
 	bool CleanUp();
 
 public:
+	std::vector<GameObject*> sceneGameObjects;
 };
 
 #endif // !_MODULE_SCENE_INTRO_H_

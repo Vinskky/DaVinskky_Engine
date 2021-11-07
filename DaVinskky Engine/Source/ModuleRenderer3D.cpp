@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleEditor.h"
-#include "I_Mesh.h"
+#include "R_Mesh.h"
 #include "External/Glew/include/glew.h"
 #include "External\SDL\include\SDL_opengl.h"
 #include "External/MathGeoLib/include/Math/float4x4.h"
@@ -15,7 +15,7 @@
 ModuleRenderer3D::ModuleRenderer3D()
 {
 	SetName("Renderer");
-	myMesh = new Mesh();
+	myMesh = new R_Mesh();
 }
 
 // Destructor

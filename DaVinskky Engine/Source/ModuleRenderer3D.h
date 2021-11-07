@@ -8,7 +8,7 @@
 
 #define MAX_LIGHTS 8
 
-class Mesh;
+class R_Mesh;
 
 class ModuleRenderer3D : public Module
 {
@@ -35,7 +35,7 @@ public:
 	
 	bool wireframe = false;
 
-	Mesh* myMesh;
+	R_Mesh* myMesh;
 };
 
 #endif // !_MODULE_RENDER_3D_H_

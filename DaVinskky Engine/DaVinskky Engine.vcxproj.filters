@@ -64,8 +64,17 @@
     <Filter Include="Dependences\DevIL">
       <UniqueIdentifier>{eeeec3a7-551a-4ad0-8946-98b755d0152e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\4. Components">
+    <Filter Include="Sources\4. GameObjects">
       <UniqueIdentifier>{fbe2d0e0-1cd9-45e6-bc7d-f8a3757de11b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\4. GameObjects\Components">
+      <UniqueIdentifier>{705143d9-3ebe-49b0-9ad0-c96b7a42957d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\5. Resources">
+      <UniqueIdentifier>{fac1b213-7f34-4b47-bd99-6dd250a564ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependences\Assimp">
+      <UniqueIdentifier>{31db85ca-e54f-44c7-a846-777d705e1e94}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -402,12 +411,6 @@
     <ClInclude Include="Source\E_About.h">
       <Filter>Sources\2. Editor</Filter>
     </ClInclude>
-    <ClInclude Include="Source\I_Scene.h">
-      <Filter>Sources\3. Importers</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\I_Mesh.h">
-      <Filter>Sources\3. Importers</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ModuleFileSystem.h">
       <Filter>Sources\1. Modules</Filter>
     </ClInclude>
@@ -438,17 +441,56 @@
     <ClInclude Include="Source\External\DevIL\include\ilut_config.h">
       <Filter>Dependences\DevIL</Filter>
     </ClInclude>
-    <ClInclude Include="Source\I_Texture.h">
-      <Filter>Sources\3. Importers</Filter>
-    </ClInclude>
     <ClInclude Include="Source\GameObject.h">
-      <Filter>Sources\4. Components</Filter>
+      <Filter>Sources\4. GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Component.h">
-      <Filter>Sources\4. Components</Filter>
+    <ClInclude Include="Source\C_Material.h">
+      <Filter>Sources\4. GameObjects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\C_Mesh.h">
+      <Filter>Sources\4. GameObjects\Components</Filter>
     </ClInclude>
     <ClInclude Include="Source\C_Transform.h">
-      <Filter>Sources\4. Components</Filter>
+      <Filter>Sources\4. GameObjects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Component.h">
+      <Filter>Sources\4. GameObjects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\R_Texture.h">
+      <Filter>Sources\5. Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\R_Mesh.h">
+      <Filter>Sources\5. Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\I_Mesh.h">
+      <Filter>Sources\3. Importers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AssimpInc.h">
+      <Filter>Sources\Tools\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\I_Scene.h">
+      <Filter>Sources\3. Importers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MathGeoInc.h">
+      <Filter>Sources\Tools\Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\Assimp\include\cimport.h">
+      <Filter>Dependences\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\Assimp\include\postprocess.h">
+      <Filter>Dependences\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\Assimp\include\scene.h">
+      <Filter>Dependences\Assimp</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\I_Material.h">
+      <Filter>Sources\3. Importers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\R_Material.h">
+      <Filter>Sources\5. Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\I_Texture.h">
+      <Filter>Sources\3. Importers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -662,23 +704,41 @@
     <ClCompile Include="Source\E_About.cpp">
       <Filter>Sources\2. Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Source\I_Scene.cpp">
-      <Filter>Sources\3. Importers</Filter>
+    <ClCompile Include="Source\ModuleFileSystem.cpp">
+      <Filter>Sources\1. Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject.cpp">
+      <Filter>Sources\4. GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\C_Material.cpp">
+      <Filter>Sources\4. GameObjects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\C_Mesh.cpp">
+      <Filter>Sources\4. GameObjects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\C_Transform.cpp">
+      <Filter>Sources\4. GameObjects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\R_Texture.cpp">
+      <Filter>Sources\5. Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\R_Mesh.cpp">
+      <Filter>Sources\5. Resources</Filter>
     </ClCompile>
     <ClCompile Include="Source\I_Mesh.cpp">
       <Filter>Sources\3. Importers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ModuleFileSystem.cpp">
-      <Filter>Sources\1. Modules</Filter>
+    <ClCompile Include="Source\I_Scene.cpp">
+      <Filter>Sources\3. Importers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\I_Material.cpp">
+      <Filter>Sources\3. Importers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\R_Material.cpp">
+      <Filter>Sources\5. Resources</Filter>
     </ClCompile>
     <ClCompile Include="Source\I_Texture.cpp">
       <Filter>Sources\3. Importers</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameObject.cpp">
-      <Filter>Sources\4. Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\C_Transform.cpp">
-      <Filter>Sources\4. Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

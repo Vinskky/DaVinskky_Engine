@@ -8,7 +8,7 @@
 class C_Transform: public Component
 {
 public:
-	C_Transform();
+	C_Transform(GameObject* owner);
 	~C_Transform();
 
 	void Enable()override;
@@ -16,16 +16,18 @@ public:
 	void Disable()override;
 
 	float3 GetPosition()const;
-	float3 GetRotation()const;
+	Quat GetRotation()const;
 	float3 GetScale()const;
 
 	void SetPosition(float x, float y, float z);
-	void SetRotation(float x, float y, float z);
+	void SetRotation(float x, float y, float z, float w);
 	void SetScale(float x, float y, float z);
+
+	static inline COMPONENT_TYPE GetType() { return COMPONENT_TYPE::TRANSFORM; }
 
 private:
 	float3 position;
-	float3 rotation;
+	Quat rotation;
 	float3 scale;
 
 };

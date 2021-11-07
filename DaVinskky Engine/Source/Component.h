@@ -3,17 +3,18 @@
 
 class GameObject;
 
-enum COMPONENT_TYPE 
+enum class COMPONENT_TYPE 
 {
-	C_TRANSFORM = 1,
-	C_MESH,
-	C_MATERIAL
+	NONE,
+	TRANSFORM,
+	MESH,
+	MATERIAL
 };
 
 class Component
 {
 public:
-	Component():active(false)
+	Component(GameObject* owner,COMPONENT_TYPE type, bool active = true): owner(owner), type(type),active(active)
 	{}
 	virtual ~Component()
 	{}
@@ -24,6 +25,11 @@ public:
 	{}
 	virtual void Disable()
 	{}
+	
+	virtual inline COMPONENT_TYPE GetType()const
+	{
+		return type;
+	}
 
 private:
 	COMPONENT_TYPE type;

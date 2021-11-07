@@ -1,7 +1,11 @@
 #include "C_Transform.h"
 
-C_Transform::C_Transform()
+
+C_Transform::C_Transform(GameObject* owner): Component(owner, COMPONENT_TYPE::TRANSFORM)
 {
+	position = float3::zero;
+	scale = float3::one;
+	rotation = Quat::identity;
 }
 
 C_Transform::~C_Transform()
@@ -25,7 +29,7 @@ float3 C_Transform::GetPosition() const
 	return position;
 }
 
-float3 C_Transform::GetRotation() const
+Quat C_Transform::GetRotation() const
 {
 	return rotation;
 }
@@ -40,9 +44,9 @@ void C_Transform::SetPosition(float x, float y, float z)
 	position.Set(x, y, z);
 }
 
-void C_Transform::SetRotation(float x, float y, float z)
+void C_Transform::SetRotation(float x, float y, float z, float w)
 {
-	rotation.Set(x, y, z);
+	rotation.Set(x, y, z, w);
 }
 
 void C_Transform::SetScale(float x, float y, float z)

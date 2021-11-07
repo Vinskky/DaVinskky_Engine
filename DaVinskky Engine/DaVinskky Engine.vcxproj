@@ -90,11 +90,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h" />
+    <ClInclude Include="Source\AssimpInc.h" />
     <ClInclude Include="Source\Component.h" />
     <ClInclude Include="Source\Config.h" />
     <ClInclude Include="Source\Color.h" />
+    <ClInclude Include="Source\C_Material.h" />
+    <ClInclude Include="Source\C_Mesh.h" />
     <ClInclude Include="Source\C_Transform.h" />
     <ClInclude Include="Source\Editor.h" />
+    <ClInclude Include="Source\External\Assimp\include\cimport.h" />
+    <ClInclude Include="Source\External\Assimp\include\postprocess.h" />
+    <ClInclude Include="Source\External\Assimp\include\scene.h" />
     <ClInclude Include="Source\External\DevIL\include\config.h" />
     <ClInclude Include="Source\External\DevIL\include\devil_internal_exports.h" />
     <ClInclude Include="Source\External\DevIL\include\il.h" />
@@ -200,9 +206,14 @@
     <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\glmath.h" />
     <ClInclude Include="Source\Globals.h" />
+    <ClInclude Include="Source\I_Material.h" />
     <ClInclude Include="Source\I_Mesh.h" />
     <ClInclude Include="Source\I_Scene.h" />
     <ClInclude Include="Source\I_Texture.h" />
+    <ClInclude Include="Source\MathGeoInc.h" />
+    <ClInclude Include="Source\R_Material.h" />
+    <ClInclude Include="Source\R_Mesh.h" />
+    <ClInclude Include="Source\R_Texture.h" />
     <ClInclude Include="Source\Light.h" />
     <ClInclude Include="Source\Module.h" />
     <ClInclude Include="Source\ModuleCamera3D.h" />
@@ -221,6 +232,8 @@
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Color.cpp" />
     <ClCompile Include="Source\Config.cpp" />
+    <ClCompile Include="Source\C_Material.cpp" />
+    <ClCompile Include="Source\C_Mesh.cpp" />
     <ClCompile Include="Source\C_Transform.cpp" />
     <ClCompile Include="Source\External\ImGui\include\imgui.cpp" />
     <ClCompile Include="Source\External\ImGui\include\imgui_demo.cpp" />
@@ -279,9 +292,13 @@
     <ClCompile Include="Source\E_TestPanel.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\glmath.cpp" />
+    <ClCompile Include="Source\I_Material.cpp" />
     <ClCompile Include="Source\I_Mesh.cpp" />
     <ClCompile Include="Source\I_Scene.cpp" />
     <ClCompile Include="Source\I_Texture.cpp" />
+    <ClCompile Include="Source\R_Material.cpp" />
+    <ClCompile Include="Source\R_Mesh.cpp" />
+    <ClCompile Include="Source\R_Texture.cpp" />
     <ClCompile Include="Source\Light.cpp" />
     <ClCompile Include="Source\log.cpp" />
     <ClCompile Include="Source\Main.cpp" />
