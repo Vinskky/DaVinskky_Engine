@@ -14,7 +14,10 @@ namespace Importer
 
 		namespace Private
 		{
-
+			void GetVertices(const aiMesh* aimesh, R_Mesh* rmesh);
+			void GetNormals(const aiMesh* aimesh, R_Mesh* rmesh);
+			void GetTextCoords(const aiMesh* aimesh, R_Mesh* rmesh);
+			void GetIndices(const aiMesh* aimesh, R_Mesh* rmesh);
 		}
 
 	}

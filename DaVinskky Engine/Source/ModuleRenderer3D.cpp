@@ -15,7 +15,7 @@
 ModuleRenderer3D::ModuleRenderer3D()
 {
 	SetName("Renderer");
-	myMesh = new R_Mesh();
+	//myMesh = new R_Mesh();
 }
 
 // Destructor
@@ -60,8 +60,8 @@ bool ModuleRenderer3D::Init(Config& config)
 			LOG("OpenGL version supported %s", glGetString(GL_VERSION));
 			LOG("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
 			//Meshes stuff
-			myMesh->InitMesh();
-			ret = myMesh->LoadMesh();
+			//myMesh->InitMesh();
+			//ret = myMesh->LoadMesh();
 		}
 		//Use Vsync
 		if(VSYNC && SDL_GL_SetSwapInterval(1) < 0)
@@ -212,9 +212,9 @@ void ModuleRenderer3D::OnResize(int width, int height)
 	glLoadIdentity();
 }
 
-void ModuleRenderer3D::DrawMesh()
+void ModuleRenderer3D::DrawMesh(R_Mesh* rmesh)
 {
-	if (myMesh == nullptr)
+	if (rmesh == nullptr)
 	{
 		LOG("Error, Renderer 3D: Could not render Mesh, Mesh* was nullptr");
 		return;
@@ -227,17 +227,17 @@ void ModuleRenderer3D::DrawMesh()
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-	glBindBuffer(GL_ARRAY_BUFFER, myMesh->TBO);
+	glBindBuffer(GL_ARRAY_BUFFER, rmesh->TBO);
 	glTexCoordPointer(2, GL_FLOAT, 0, nullptr);
 
-	glBindBuffer(GL_ARRAY_BUFFER, myMesh->NBO);
+	glBindBuffer(GL_ARRAY_BUFFER, rmesh->NBO);
 	glNormalPointer(GL_FLOAT, 0, nullptr);
 
-	glBindBuffer(GL_ARRAY_BUFFER, myMesh->VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, rmesh->VBO);
 	glVertexPointer(3, GL_FLOAT, 0, nullptr);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, myMesh->IBO);
-	glDrawElements(GL_TRIANGLES, myMesh->mIndex.size(), GL_UNSIGNED_INT, nullptr);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, rmesh->IBO);
+	glDrawElements(GL_TRIANGLES, rmesh->mIndex.size(), GL_UNSIGNED_INT, nullptr);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

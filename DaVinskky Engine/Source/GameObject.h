@@ -10,7 +10,7 @@ class C_Transform;
 class GameObject
 {
 public:
-	GameObject();
+	GameObject(bool active = true);
 	~GameObject();
 
 	void Update();
@@ -40,8 +40,10 @@ public:
 	void SetName(const char* str);
 	const char* GetName()const;
 	
+	bool IsActive()const;
 private:
 	std::string name;
+	bool active;
 
 public:
 	C_Transform* transform = nullptr;

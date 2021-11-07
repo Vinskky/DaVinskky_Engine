@@ -4,7 +4,7 @@
 #include "C_Mesh.h"
 #include "Globals.h"
 
-GameObject::GameObject()
+GameObject::GameObject(bool active):active(active)
 {
     transform = (C_Transform*)CreateComponent(COMPONENT_TYPE::TRANSFORM);
 }
@@ -15,6 +15,14 @@ GameObject::~GameObject()
 
 void GameObject::Update()
 {
+    //auto -> avoids std::vector iterator.... line
+    for (auto component = components.begin(); component != components.end(); ++component)
+    {
+        if ((*component)->IsActive())
+        {
+            (*component)->Update();
+        }
+    }
 }
 
 Component* GameObject::CreateComponent(COMPONENT_TYPE type)
@@ -60,4 +68,9 @@ void GameObject::SetName(const char* str)
 const char* GameObject::GetName() const
 {
     return name.c_str();
+}
+
+bool GameObject::IsActive() const
+{
+    return active;
 }

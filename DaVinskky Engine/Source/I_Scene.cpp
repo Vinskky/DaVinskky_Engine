@@ -43,7 +43,8 @@ void Importer::Scene::Private::ProcessNode(const aiScene* aiscene, const aiNode*
 	GameObject* gameObj = new GameObject();
 
 	//Import Transform with dummies
-	node = Importer::Scene::Private::ImportTransform(node, *gameObj);
+	node = Private::ImportTransform(node, gameObj);
+	Private::ImportMeshesAndMaterial(aiscene, node, gameObj);
 
 	gameObj->SetName(node->mName.C_Str());
 	LOG("ProcessNode node name: %s", gameObj->GetName());
@@ -55,7 +56,7 @@ void Importer::Scene::Private::ProcessNode(const aiScene* aiscene, const aiNode*
 	}
 }
 
-const aiNode* Importer::Scene::Private::ImportTransform(const aiNode* ainode, GameObject& gameObj)
+const aiNode* Importer::Scene::Private::ImportTransform(const aiNode* ainode, GameObject* gameObj)
 {
 	aiTransform aiT;
 	mathTransform maT;
@@ -83,15 +84,15 @@ const aiNode* Importer::Scene::Private::ImportTransform(const aiNode* ainode, Ga
 		maT.scale = { maT.scale.x * aiT.scale.x,maT.scale.y * aiT.scale.y ,maT.scale.z * aiT.scale.z };
 	}
 	
-	gameObj.transform->SetPosition(maT.position.x, maT.position.y, maT.position.z);
-	gameObj.transform->SetRotation(maT.rotation.x, maT.rotation.y, maT.rotation.z, maT.rotation.w);
-	gameObj.transform->SetScale(maT.position.x, maT.position.y, maT.position.z);
+	gameObj->transform->SetPosition(maT.position.x, maT.position.y, maT.position.z);
+	gameObj->transform->SetRotation(maT.rotation.x, maT.rotation.y, maT.rotation.z, maT.rotation.w);
+	gameObj->transform->SetScale(maT.position.x, maT.position.y, maT.position.z);
 
 
 	return ainode;
 }
 
-void Importer::Scene::Private::ImportMeshesAndMaterial(const aiScene* aiscene, const aiNode* node, GameObject& gameObj)
+void Importer::Scene::Private::ImportMeshesAndMaterial(const aiScene* aiscene, const aiNode* node, GameObject* gameObj)
 {
 	if (aiscene == nullptr || node == nullptr)
 		return;
@@ -114,19 +115,19 @@ void Importer::Scene::Private::ImportMeshesAndMaterial(const aiScene* aiscene, c
 	}
 }
 
-void Importer::Scene::Private::ImportMesh(const aiMesh* aimesh, GameObject& gameObj)
+void Importer::Scene::Private::ImportMesh(const aiMesh* aimesh, GameObject* gameObj)
 {
 	R_Mesh* rmesh = new R_Mesh();
 	bool res = Importer::Mesh::Import(aimesh, rmesh);
 
 	if (res)
 	{
-		C_Mesh* compMesh = (C_Mesh*)gameObj.CreateComponent(COMPONENT_TYPE::MESH);
+		C_Mesh* compMesh = (C_Mesh*)gameObj->CreateComponent(COMPONENT_TYPE::MESH);
 		compMesh->SetMesh(rmesh);
 	}
 }
 
-void Importer::Scene::Private::ImportMaterial(const aiMesh* aimesh, const aiScene* aiscene, GameObject& gameObj)
+void Importer::Scene::Private::ImportMaterial(const aiMesh* aimesh, const aiScene* aiscene, GameObject* gameObj)
 {
 	if (aimesh->mMaterialIndex >= 0)
 	{
@@ -135,7 +136,7 @@ void Importer::Scene::Private::ImportMaterial(const aiMesh* aimesh, const aiScen
 		bool res = Importer::Material::Import(aimat, rmat);
 		if (res)
 		{
-			C_Material* compMaterial = (C_Material*)gameObj.CreateComponent(COMPONENT_TYPE::MATERIAL);
+			C_Material* compMaterial = (C_Material*)gameObj->CreateComponent(COMPONENT_TYPE::MATERIAL);
 			compMaterial->SetMaterial(rmat);
 
 			//Componet Material Has materials and textures inside.

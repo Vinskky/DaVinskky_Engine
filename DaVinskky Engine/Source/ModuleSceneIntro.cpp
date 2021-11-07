@@ -4,6 +4,7 @@
 #include "Primitive.h"
 #include "OpenGL.h"
 #include "I_Scene.h"
+#include "GameObject.h"
 
 ModuleSceneIntro::ModuleSceneIntro()
 {
@@ -39,7 +40,13 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
-	app->renderer3D->DrawMesh();
+	for (auto gameobjs = sceneGameObjects.begin(); gameobjs != sceneGameObjects.end(); ++gameobjs)
+	{
+		if ((*gameobjs)->IsActive())
+		{
+			(*gameobjs)->Update();
+		}
+	}
 
 	return UPDATE_CONTINUE;
 }

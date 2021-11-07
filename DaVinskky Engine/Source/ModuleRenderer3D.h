@@ -24,7 +24,7 @@ public:
 
 	void OnResize(int width, int height);
 
-	void DrawMesh();
+	void DrawMesh(R_Mesh* rmesh);
 
 public:
 
@@ -35,7 +35,7 @@ public:
 	
 	bool wireframe = false;
 
-	R_Mesh* myMesh;
+	R_Mesh* myMesh = nullptr;
 };
 
 #endif // !_MODULE_RENDER_3D_H_

@@ -31,6 +31,8 @@ public:
 		return type;
 	}
 
+	bool IsActive()const { return active; }
+
 private:
 	COMPONENT_TYPE type;
 	bool active;

@@ -1,3 +1,5 @@
+#include "Application.h"
+#include "ModuleRenderer3D.h"
 #include "C_Mesh.h"
 #include "C_Material.h"
 
@@ -16,6 +18,7 @@ void C_Mesh::Enable()
 
 void C_Mesh::Update()
 {
+	app->renderer3D->DrawMesh(this->rmesh);
 }
 
 void C_Mesh::Disable()
@@ -24,5 +27,5 @@ void C_Mesh::Disable()
 
 void C_Mesh::SetMesh(R_Mesh* rmesh)
 {
-
+	this->rmesh = rmesh;
 }

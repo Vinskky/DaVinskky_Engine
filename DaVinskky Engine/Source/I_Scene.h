@@ -28,11 +28,11 @@ namespace Importer
 		{
 			void ProcessNode(const aiScene* aiscene, const aiNode* node, std::vector<GameObject*>& gameObjects);
 
-			const aiNode* ImportTransform(const aiNode* ainode, GameObject& gameObj);
-			void ImportMeshesAndMaterial(const aiScene* aiscene, const aiNode* node, GameObject& gameObj);
+			const aiNode* ImportTransform(const aiNode* ainode, GameObject* gameObj);
+			void ImportMeshesAndMaterial(const aiScene* aiscene, const aiNode* node, GameObject* gameObj);
 
-			void ImportMesh(const aiMesh* aimesh, GameObject& gameObj);
-			void ImportMaterial(const aiMesh* aimesh, const aiScene* aiscene, GameObject& gameObj);
+			void ImportMesh(const aiMesh* aimesh, GameObject* gameObj);
+			void ImportMaterial(const aiMesh* aimesh, const aiScene* aiscene, GameObject* gameObj);
 			void ImportTexture(const aiMaterial* aimaterial, C_Material* compMaterial);
 
 			bool IsDummyNode(const aiNode& node);
