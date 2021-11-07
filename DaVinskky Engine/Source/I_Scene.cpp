@@ -35,15 +35,15 @@ void Importer::Scene::Import(const char* path, std::vector<GameObject*>& gameObj
 
 	if (scene == nullptr || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 		return;
-
-	Importer::Scene::Private::ProcessNode(scene, scene->mRootNode, gameObjects);
+	
+	Importer::Scene::Private::ProcessNode(scene, scene->mRootNode, gameObjects, gameObjects[0]);
 
 }
 
-void Importer::Scene::Private::ProcessNode(const aiScene* aiscene, const aiNode* node, std::vector<GameObject*>& gameObjects)
+void Importer::Scene::Private::ProcessNode(const aiScene* aiscene, const aiNode* node, std::vector<GameObject*>& gameObjects, GameObject* parent)
 {
 	GameObject* gameObj = new GameObject();
-
+	gameObj->SetParent(parent);
 	//Import Transform with dummies
 	node = Private::ImportTransform(node, gameObj);
 	Private::ImportMeshesAndMaterial(aiscene, node, gameObj);
@@ -54,7 +54,7 @@ void Importer::Scene::Private::ProcessNode(const aiScene* aiscene, const aiNode*
 
 	for (uint i = 0; i < node->mNumChildren; ++i)
 	{
-		Importer::Scene::Private::ProcessNode(aiscene, node->mChildren[i], gameObjects);
+		Importer::Scene::Private::ProcessNode(aiscene, node->mChildren[i], gameObjects, gameObj);
 	}
 }
 

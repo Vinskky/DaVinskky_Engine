@@ -20,6 +20,7 @@ public:
 
 public:
 	std::vector<GameObject*> sceneGameObjects;
+	GameObject* sceneRoot;
 };
 
 #endif // !_MODULE_SCENE_INTRO_H_

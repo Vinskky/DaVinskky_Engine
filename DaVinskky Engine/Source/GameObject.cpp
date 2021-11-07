@@ -74,3 +74,14 @@ bool GameObject::IsActive() const
 {
     return active;
 }
+
+void GameObject::SetParent(GameObject* parent)
+{
+    this->parent = parent;
+    parent->AddChild(this);
+}
+
+void GameObject::AddChild(GameObject* child)
+{
+    children.push_back(child);
+}

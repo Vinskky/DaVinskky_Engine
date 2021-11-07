@@ -42,6 +42,10 @@ public:
 	const char* GetName()const;
 	
 	bool IsActive()const;
+
+	void SetParent(GameObject* parent);
+	void AddChild(GameObject* child);
+
 private:
 	std::string name;
 	bool active;

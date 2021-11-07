@@ -10,6 +10,8 @@
 ModuleSceneIntro::ModuleSceneIntro()
 {
 	SetName("Scene");
+	sceneRoot = new GameObject();
+	sceneGameObjects.push_back(sceneRoot);
 }
 
 ModuleSceneIntro::~ModuleSceneIntro()

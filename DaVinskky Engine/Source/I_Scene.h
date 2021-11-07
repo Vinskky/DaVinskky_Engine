@@ -26,7 +26,7 @@ namespace Importer
 
 		namespace Private
 		{
-			void ProcessNode(const aiScene* aiscene, const aiNode* node, std::vector<GameObject*>& gameObjects);
+			void ProcessNode(const aiScene* aiscene, const aiNode* node, std::vector<GameObject*>& gameObjects, GameObject* parent);
 
 			const aiNode* ImportTransform(const aiNode* ainode, GameObject* gameObj);
 			void ImportMeshesAndMaterial(const aiScene* aiscene, const aiNode* node, GameObject* gameObj);
