@@ -43,6 +43,11 @@ bool C_Material::UseDefaultTexture()
 	return debugTextEnabled;
 }
 
+void C_Material::SetDefaultTexture(bool text)
+{
+	debugTextEnabled = text;
+}
+
 Color C_Material::GetMaterialColour()
 {
 	if (rmaterial != nullptr)

@@ -46,8 +46,14 @@ void E_Hierarchy::DrawGameObjects(GameObject* rootGO)
 void E_Hierarchy::ProcessRoot(GameObject* objs)
 {
 	ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_DefaultOpen || ImGuiTreeNodeFlags_OpenOnArrow || ImGuiTreeNodeFlags_SpanAvailWidth;
+
 	if (ImGui::TreeNodeEx(objs->GetName(), flags))
 	{
+		if (ImGui::IsItemClicked(ImGuiMouseButton_Left))
+		{
+			app->sceneIntro->selectedGameObj = objs;
+		}
+		
 		if (!objs->children.empty())
 		{
 			for (uint i = 0; i < objs->children.size(); ++i)

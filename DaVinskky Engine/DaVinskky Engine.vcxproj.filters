@@ -498,6 +498,9 @@
     <ClInclude Include="Source\E_Hierarchy.h">
       <Filter>Sources\2. Editor</Filter>
     </ClInclude>
+    <ClInclude Include="Source\E_Inspector.h">
+      <Filter>Sources\2. Editor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -747,6 +750,9 @@
       <Filter>Sources\2. Editor\Popouts</Filter>
     </ClCompile>
     <ClCompile Include="Source\E_Hierarchy.cpp">
+      <Filter>Sources\2. Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\E_Inspector.cpp">
       <Filter>Sources\2. Editor</Filter>
     </ClCompile>
   </ItemGroup>

@@ -202,6 +202,7 @@
     <ClInclude Include="Source\E_Configuration.h" />
     <ClInclude Include="Source\E_Console.h" />
     <ClInclude Include="Source\E_Hierarchy.h" />
+    <ClInclude Include="Source\E_Inspector.h" />
     <ClInclude Include="Source\E_MainMenuBar.h" />
     <ClInclude Include="Source\E_TestPanel.h" />
     <ClInclude Include="Source\GameObject.h" />
@@ -290,6 +291,7 @@
     <ClCompile Include="Source\E_Configuration.cpp" />
     <ClCompile Include="Source\E_Console.cpp" />
     <ClCompile Include="Source\E_Hierarchy.cpp" />
+    <ClCompile Include="Source\E_Inspector.cpp" />
     <ClCompile Include="Source\E_MainMenuBar.cpp" />
     <ClCompile Include="Source\E_TestPanel.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />

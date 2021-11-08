@@ -15,6 +15,7 @@ public:
 	void Disable()override;
 
 	void SetMesh(R_Mesh* rmesh);
+	void GetMeshData(uint& numVertices, uint& numNormals, uint& numTexCoords, uint& numIndices);
 
 	static inline COMPONENT_TYPE GetType() { return COMPONENT_TYPE::MESH; }
 private:

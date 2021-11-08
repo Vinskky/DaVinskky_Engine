@@ -13,6 +13,7 @@ class E_Configuration;
 class E_Console;
 class E_About;
 class E_Hierarchy;
+class E_Inspector;
 
 
 class ModuleEditor : public Module
@@ -38,6 +39,9 @@ public:
 	//Log Console editor function
 	void AddLogFromEditor(const char* str);
 
+	bool BeginRootWindow(ImGuiIO& io, const char* window_id, bool docking, ImGuiWindowFlags window_flags = ImGuiWindowFlags_None);                            // Generates a root window for docking.
+	void BeginDockspace(ImGuiIO& io, const char* dockspace_id, ImGuiDockNodeFlags docking_flags = ImGuiDockNodeFlags_None, ImVec2 size = { 0.0f, 0.0f });    // Generates a new dockspace.
+
 public:
 	
 	bool showDemoWindow;
@@ -56,6 +60,7 @@ public:
 	E_Console* consolePanel = nullptr;
 	E_About* aboutPanel = nullptr;
 	E_Hierarchy* hierarchy = nullptr;
+	E_Inspector* inspector = nullptr;
 };
 
 

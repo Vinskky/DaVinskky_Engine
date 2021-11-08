@@ -21,6 +21,7 @@ public:
 public:
 	std::vector<GameObject*> sceneGameObjects;
 	GameObject* sceneRoot;
+	GameObject* selectedGameObj;
 };
 
 #endif // !_MODULE_SCENE_INTRO_H_

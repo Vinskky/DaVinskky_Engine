@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "GameObject.h"
 #include "ModuleRenderer3D.h"
+#include "R_Mesh.h"
 #include "C_Mesh.h"
 #include "C_Material.h"
 
@@ -29,4 +30,12 @@ void C_Mesh::Disable()
 void C_Mesh::SetMesh(R_Mesh* rmesh)
 {
 	this->rmesh = rmesh;
+}
+
+void C_Mesh::GetMeshData(uint& numVertices, uint& numNormals, uint& numTexCoords, uint& numIndices)
+{
+	numVertices = rmesh->mVertices.size();
+	numNormals = rmesh->mNormals.size();
+	numTexCoords = rmesh->mTextureCoords.size();
+	numIndices = rmesh->mIndex.size();
 }

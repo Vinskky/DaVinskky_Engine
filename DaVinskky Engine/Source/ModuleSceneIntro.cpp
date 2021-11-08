@@ -12,6 +12,7 @@ ModuleSceneIntro::ModuleSceneIntro()
 	SetName("Scene");
 	sceneRoot = new GameObject();
 	sceneRoot->SetName("sceneRoot");
+	selectedGameObj = sceneRoot;
 	sceneGameObjects.push_back(sceneRoot);
 }
 
@@ -22,6 +23,7 @@ ModuleSceneIntro::~ModuleSceneIntro()
 bool ModuleSceneIntro::Start()
 {
 	Importer::Scene::Import("Assets/Models/BakerHouse.fbx", sceneGameObjects);
+	//Importer::Scene::Import("Assets/Models/warrior.fbx", sceneGameObjects);
 	LOG("Loading Intro assets");
 	bool ret = true;
 	app->camera->Move(vec3(1.0f, 1.0f, 0.0f));

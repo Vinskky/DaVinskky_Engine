@@ -32,6 +32,7 @@ public:
 	}
 
 	bool IsActive()const { return active; }
+	void SetIsActive(bool act) { active = act; };
 
 	GameObject* GetOwner()const { return owner; }
 

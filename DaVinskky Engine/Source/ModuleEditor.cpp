@@ -12,6 +12,7 @@
 #include "E_Console.h"
 #include "E_About.h"
 #include "E_Hierarchy.h"
+#include "E_Inspector.h"
 
 #include "imgui.h"
 #include "imgui_internal.h"
@@ -25,7 +26,8 @@ mainMenuPanel(new E_MainMenuBar("Main Menu")),
 configPanel(new E_Configuration("Configuration")),
 consolePanel(new E_Console("Configuration")),
 aboutPanel(new E_About("About")),
-hierarchy(new E_Hierarchy("Hierarchy"))
+hierarchy(new E_Hierarchy("Hierarchy")),
+inspector(new E_Inspector("Inspector"))
 {
     SetName("Editor");
     //AddEditorPanel(testPanel);
@@ -34,6 +36,7 @@ hierarchy(new E_Hierarchy("Hierarchy"))
     AddEditorPanel(consolePanel);
     AddEditorPanel(aboutPanel);
     AddEditorPanel(hierarchy);
+    AddEditorPanel(inspector);
 }
 
 ModuleEditor::~ModuleEditor()
@@ -62,6 +65,14 @@ update_status ModuleEditor::Update(float dt)
 {
     update_status ret = update_status::UPDATE_CONTINUE;
 
+
+    return ret;
+}
+
+update_status ModuleEditor::PostUpdate(float dt)
+{
+    update_status ret = update_status::UPDATE_CONTINUE;
+
     //iterate all different editor panels stored in vector of editorPanels to be able to draw them.
     ImGuiIO& io = ImGui::GetIO();
     (void)io;
@@ -71,29 +82,26 @@ update_status ModuleEditor::Update(float dt)
     ImGui_ImplSDL2_NewFrame();
     ImGui::NewFrame();
 
-    bool draw = true;
-    for (uint i = 0; i < editorPanels.size(); ++i)
+    if (BeginRootWindow(io,"rootWindow",true,ImGuiWindowFlags_MenuBar))
     {
-        if (editorPanels[i]->IsActive())
+        bool draw = true;
+        for (uint i = 0; i < editorPanels.size(); ++i)
         {
-            draw = editorPanels[i]->Draw(io);
-
-            if (!draw)
+            if (editorPanels[i]->IsActive())
             {
-                ret = update_status::UPDATE_STOP;
-                LOG("[EDITOR] Exited through %s Panel", editorPanels[i]->GetName());
-                break;
+                draw = editorPanels[i]->Draw(io);
+
+                if (!draw)
+                {
+                    ret = update_status::UPDATE_STOP;
+                    LOG("[EDITOR] Exited through %s Panel", editorPanels[i]->GetName());
+                    break;
+                }
+
             }
-
         }
+        ImGui::End();
     }
-
-    return ret;
-}
-
-update_status ModuleEditor::PostUpdate(float dt)
-{
-    update_status ret = update_status::UPDATE_CONTINUE;
 
     RenderEditorPanels();
     
@@ -184,5 +192,43 @@ void ModuleEditor::AddLogFromEditor(const char* str)
         }
     }
     
+}
+
+bool ModuleEditor::BeginRootWindow(ImGuiIO& io, const char* window_id, bool docking, ImGuiWindowFlags window_flags)
+{
+    bool ret = true;
+
+    ImGuiViewport* viewport = ImGui::GetWindowViewport();
+
+    ImGui::SetNextWindowPos(viewport->Pos);
+    ImGui::SetNextWindowSize(viewport->Size);
+    ImGui::SetNextWindowViewport(viewport->ID);
+
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+
+    window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove
+        | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus
+        | ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoBackground;
+
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+    ret = ImGui::Begin(window_id, &ret, window_flags);
+    ImGui::PopStyleVar(3);
+
+    if (docking)
+    {
+        BeginDockspace(io, window_id, ImGuiDockNodeFlags_PassthruCentralNode);
+    }
+
+    return ret;
+}
+
+void ModuleEditor::BeginDockspace(ImGuiIO& io, const char* dockspace_id, ImGuiDockNodeFlags docking_flags, ImVec2 size)
+{
+    if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
+    {
+        ImGuiID dckspace_id = ImGui::GetID(dockspace_id);
+        ImGui::DockSpace(dckspace_id, size, docking_flags);
+    }
 }
 

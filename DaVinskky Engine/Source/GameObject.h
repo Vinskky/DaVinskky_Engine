@@ -57,6 +57,7 @@ public:
 	std::vector<Component*> components;
 
 	std::vector<GameObject*> children;
+
 };
 
 

@@ -23,6 +23,7 @@ public:
 
 	R_Texture* GetTexture()const;
 	bool UseDefaultTexture();
+	void SetDefaultTexture(bool text);
 	Color GetMaterialColour();
 	uint GetTextureID();
 
