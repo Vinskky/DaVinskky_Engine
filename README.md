@@ -38,10 +38,10 @@ It has been coded from scratch in C and C++ along with the following libraries:
 ### Engine Features
 
 * **Main Menu Toolbar:** Allows to show/hide some editor panels, go to URL links, and close the application.
-* **Configuration Panel:** Allow us to modify some parameters from of existing modules.
-* **Hierarchy Panel:** Shows all GameObjects on the scene with the parenting working as a ImGui TreeNode.
-* **Console Panel:** Help us with to identify what is going on in the engine throught messages.
-* **Inspector Panel:** Once selected a GameObject on Hierarchy panel, allow us to see if the GameObject selected has certain components. (For the moment is only visual)
+* **Configuration Panel:** Allow us to modify some parameters from existing modules.
+* **Hierarchy Panel:** Shows all GameObjects on the scene with the parenting working as an ImGui TreeNode.
+* **Console Panel:** Help us to identify what is going on in the engine through messages.
+* **Inspector Panel:** Once selected a GameObject on the Hierarchy panel, allow us to see if the GameObject selected has certain components. (For the moment is only visual)
 
 
 ****
