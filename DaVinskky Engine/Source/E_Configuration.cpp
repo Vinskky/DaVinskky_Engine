@@ -5,8 +5,6 @@
 
 E_Configuration::E_Configuration( const char* name, bool isActive): Editor("Configuration")
 {
-	appName = TITLE;
-	orgName = "Organization";
 	fps = 0;
 	width = SCREEN_WIDTH;
 	height = SCREEN_HEIGHT;
@@ -85,23 +83,26 @@ bool E_Configuration::ApplicationHeader()
 	if (ImGui::CollapsingHeader("Application"))
 	{
 		char buffer[128];
-		strcpy_s(buffer, appName);
+		strcpy_s(buffer, app->GetTitleName());
 		if (ImGui::InputText("Engine Name", buffer, IM_ARRAYSIZE(buffer), ImGuiInputTextFlags_EnterReturnsTrue))
 		{
 			//modify variable
+			app->SetTitleName(buffer);
 		}
 		//ImGui::SameLine();
 		//ImGui::Text("App Name");
 
 		char bufferOrg[128];
-		strcpy_s(bufferOrg, orgName);
+		strcpy_s(bufferOrg, app->GetOrganizationName());
 		if (ImGui::InputText("Organization", bufferOrg, IM_ARRAYSIZE(bufferOrg), ImGuiInputTextFlags_EnterReturnsTrue))
 		{
 			//modify variable
+			app->SetOrganizationName(bufferOrg);
 		}
-
-		ImGui::SliderInt("Max FPS", &fps, 0, 144);
+		fps = app->GetMaxFPS();
+		ImGui::SliderInt("Max FPS", &fps , 0, 144);
 		ImGui::Text("Limit Framerate: %d", fps);
+		app->SetMaxFPS(fps);
 		//Plots
 		PlotFrameHistogram();
 		

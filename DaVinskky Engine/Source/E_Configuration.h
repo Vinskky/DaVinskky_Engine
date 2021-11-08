@@ -32,10 +32,6 @@ private:
 	float msData[MAX_HISTOGRAM_SIZE];
 	int fps;
 	
-	//Engine data variables
-	char* appName = nullptr;
-	char* orgName = nullptr;
-	
 	//Windows variables
 	bool checkActive = true;
 	char* iconStr = "*default*";

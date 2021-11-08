@@ -102,12 +102,14 @@ void Application::PrepareUpdate()
 // ---------------------------------------------
 void Application::FinishUpdate()
 {
-	/* Whenever I want to fix frame rate acording config slider
+	if (maxFPS > 0)
+		framMsCap = 1000 / (float)maxFPS;
+
 	float frameMs = msTimer.Read();
-	if (frameMs > 0 && frameMs < framMsCap)
+	if (frameMs > 0 && frameMs < framMsCap && maxFPS != 0)
 	{
 		SDL_Delay(framMsCap - frameMs);
-	}*/
+	}
 
 	frameCount++;
 	if (secondCount.Read() >= 1000)
@@ -246,5 +248,25 @@ const char* Application::GetTitleName() const
 const char* Application::GetOrganizationName() const
 {
 	return organization.c_str();
+}
+
+void Application::SetTitleName(char* str)
+{
+	title = str;
+}
+
+void Application::SetOrganizationName(char* str)
+{
+	organization = str;
+}
+
+int Application::GetMaxFPS() const
+{
+	return maxFPS;
+}
+
+void Application::SetMaxFPS(int value)
+{
+	maxFPS = value;
 }
 

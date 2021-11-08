@@ -72,6 +72,12 @@ public:
 	const char* GetTitleName() const;
 	const char* GetOrganizationName() const;
 
+	void SetTitleName(char* str);
+	void SetOrganizationName(char* str);
+
+	int GetMaxFPS()const;
+	void SetMaxFPS(int value);
+
 private:
 
 	void AddModule(Module* mod);
