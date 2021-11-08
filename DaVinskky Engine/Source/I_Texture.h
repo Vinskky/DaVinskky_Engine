@@ -3,6 +3,7 @@
 #include "Globals.h"
 
 class R_Texture;
+class GameObject;
 
 namespace Importer
 {
@@ -12,6 +13,7 @@ namespace Importer
 		void CleanUp();
 
 		bool Import(const char* path, R_Texture* rtexture);
+		
 
 		namespace Private
 		{

@@ -1,7 +1,12 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleInput.h"
+#include "GameObject.h"
+#include "R_Texture.h"
+#include "R_Material.h"
 #include "I_Scene.h"
+#include "I_Texture.h"
+#include "C_Material.h"
 #include <string>
 
 #define MAX_KEYS 300
@@ -130,6 +135,31 @@ update_status ModuleInput::PreUpdate(float dt)
 					if (extStr == "fbx" || extStr == "FBX")
 					{
 						Importer::Scene::Import(normStr.c_str(), app->sceneIntro->sceneGameObjects);
+					}
+					if (extStr == "PNG" || extStr == "png" || extStr == "DDS" || extStr == "dds")
+					{
+						//Checks if selected gameobject has a component material created.
+						C_Material* tmp = app->sceneIntro->selectedGameObj->GetComponent<C_Material>();
+						if (tmp == nullptr)
+						{
+							C_Material* mat = (C_Material*)app->sceneIntro->selectedGameObj->CreateComponent(COMPONENT_TYPE::MATERIAL);
+							R_Material* rmat = new R_Material();
+							mat->SetMaterial(rmat);
+							R_Texture* textMat = new R_Texture();
+							mat->SetTexture(textMat);
+							Importer::Texture::Import(normStr.c_str(), textMat);
+						}
+						else
+						{
+							if(tmp->GetTexture() != nullptr)
+								Importer::Texture::Import(normStr.c_str(), tmp->GetTexture());
+							else
+							{
+								R_Texture* textMat = new R_Texture();
+								tmp->SetTexture(textMat);
+								Importer::Texture::Import(normStr.c_str(), tmp->GetTexture());
+							}
+						}
 					}
 				}
 				else

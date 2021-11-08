@@ -114,6 +114,7 @@ bool Importer::Texture::Import(const char* path, R_Texture* rtexture)
 	return ret;
 }
 
+
 uint Importer::Texture::Private::CreateTexture(const void* data, uint width, uint height, uint target, int filter, int wrapping, int internal_format, uint format)
 {
 	uint texId = 0;

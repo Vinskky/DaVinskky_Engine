@@ -233,7 +233,6 @@ void ModuleRenderer3D::DrawMesh(R_Mesh* rmesh, C_Material* cmaterial)
 		{
 			glDisable(GL_TEXTURE_2D);
 		}
-
 		if (cmaterial->GetTexture() == nullptr)                                                        // If the Material Component does not have a Texture Resource.
 		{
 			Color color = cmaterial->GetMaterialColour();
