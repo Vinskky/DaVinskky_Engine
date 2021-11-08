@@ -2,6 +2,7 @@
   Application.cpp
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Application.cpp(120,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  C_Material.cpp
   C_Mesh.cpp
   E_About.cpp
   E_Configuration.cpp
@@ -19,6 +20,14 @@ D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLi
   E_MainMenuBar.cpp
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\E_Configuration.h(52,19): warning C4129: '.': unrecognized character escape sequence
   E_TestPanel.cpp
+  GameObject.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(411,1): warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\ostream(404): message : while compiling class template member function 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(126): message : see reference to function template instantiation 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\istream(711): message : see reference to class template instantiation 'std::basic_ostream<char,std::char_traits<char>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\sstream(790): message : see reference to class template instantiation 'std::basic_iostream<char,std::char_traits<char>>' being compiled
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Math\assume.h(113): message : see reference to class template instantiation 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' being compiled
   I_Scene.cpp
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   I_Texture.cpp
@@ -35,10 +44,10 @@ D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\ModuleEditor.cpp(1
   The contents of <filesystem> are available only with C++17 or later.
 D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\ModuleFileSystem.cpp(262,20): warning C4018: '<': signed/unsigned mismatch
   ModuleInput.cpp
-  ModuleRenderer3D.cpp
-  ModuleSceneIntro.cpp
   Generating Code...
   Compiling...
+  ModuleRenderer3D.cpp
+  ModuleSceneIntro.cpp
   ModuleWindow.cpp
   Generating Code...
   DaVinskky Engine.vcxproj -> D:\Documentos\Github\DaVinskky_Engine\Build\Debug\DaVinskky Engine.exe

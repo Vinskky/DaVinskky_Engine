@@ -20,7 +20,7 @@ public:
 	void LoadBuffers();
 
 public:
-
+	
 	std::vector<float> mVertices;
 	std::vector<float> mNormals;
 	std::vector<float> mTextureCoords;

@@ -20,7 +20,7 @@ void C_Mesh::Enable()
 
 void C_Mesh::Update()
 {
-	app->renderer3D->DrawMesh(this->rmesh, this->GetOwner()->GetComponent<C_Material>());
+	app->renderer3D->DrawMesh(this, this->GetOwner()->GetComponent<C_Material>());
 }
 
 void C_Mesh::Disable()
@@ -30,6 +30,21 @@ void C_Mesh::Disable()
 void C_Mesh::SetMesh(R_Mesh* rmesh)
 {
 	this->rmesh = rmesh;
+}
+
+R_Mesh* C_Mesh::GetMesh() const
+{
+	return rmesh;
+}
+
+bool C_Mesh::GetDrawNormals() const
+{
+	return drawNormals;
+}
+
+void C_Mesh::SetDrawNormals(bool debugDraw)
+{
+	drawNormals = debugDraw;
 }
 
 void C_Mesh::GetMeshData(uint& numVertices, uint& numNormals, uint& numTexCoords, uint& numIndices)

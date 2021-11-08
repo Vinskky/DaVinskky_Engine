@@ -90,7 +90,13 @@ void E_Inspector::InspectorMesh(C_Mesh* comp)
 		ImGui::Text("Triangles: %i",nVertices/3);
 		ImGui::Text("Indices: %i",nIndices);
 		ImGui::Text("Vertices: %i",nVertices);
+		ImGui::Separator();
 		//checkers: show vertex && normals.
+		bool debug = comp->GetDrawNormals();
+		if (ImGui::Checkbox("Draw Normals", &debug))
+		{
+			comp->SetDrawNormals(debug);
+		}
 	}
 }
 
@@ -104,6 +110,6 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 		{
 			comp->SetDefaultTexture(dftText);
 		}
-
+		
 	}
 }

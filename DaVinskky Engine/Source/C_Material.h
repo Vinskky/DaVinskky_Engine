@@ -21,6 +21,8 @@ public:
 	void SetMaterial(R_Material* rmaterial);
 	void SetTexture(R_Texture* rtexture);
 
+	
+
 	R_Texture* GetTexture()const;
 	bool UseDefaultTexture();
 	void SetDefaultTexture(bool text);
@@ -33,6 +35,7 @@ private:
 	R_Material* rmaterial = nullptr;
 	R_Texture* rtexture = nullptr;
 	bool debugTextEnabled;
+	
 };
 
 

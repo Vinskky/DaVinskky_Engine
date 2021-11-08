@@ -33,6 +33,7 @@ void C_Material::SetTexture(R_Texture* rtexture)
 	this->rtexture = rtexture;
 }
 
+
 R_Texture* C_Material::GetTexture() const
 {
 	return rtexture;

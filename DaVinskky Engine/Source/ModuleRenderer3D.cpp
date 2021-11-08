@@ -5,6 +5,7 @@
 #include "I_Texture.h"
 #include "R_Mesh.h"
 #include "C_Material.h"
+#include "C_Mesh.h"
 #include "External/Glew/include/glew.h"
 #include "External\SDL\include\SDL_opengl.h"
 #include "External/MathGeoLib/include/Math/float4x4.h"
@@ -215,8 +216,9 @@ void ModuleRenderer3D::OnResize(int width, int height)
 	glLoadIdentity();
 }
 
-void ModuleRenderer3D::DrawMesh(R_Mesh* rmesh, C_Material* cmaterial)
+void ModuleRenderer3D::DrawMesh(C_Mesh* mesh, C_Material* cmaterial)
 {
+	R_Mesh* rmesh = mesh->GetMesh();
 	if (rmesh == nullptr)
 	{
 		LOG("Error, Renderer 3D: Could not render Mesh, Mesh* was nullptr");
@@ -273,8 +275,30 @@ void ModuleRenderer3D::DrawMesh(R_Mesh* rmesh, C_Material* cmaterial)
 	glDisableClientState(GL_NORMAL_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
+	//Debug Draw Normals
+	if (mesh->GetDrawNormals())
+	{
+		DebugDrawNormals(rmesh);
+	}
 	glPopMatrix();
 
+}
+
+void ModuleRenderer3D::DebugDrawNormals(R_Mesh* mesh)
+{
+	glBegin(GL_LINES);
+
+	glColor4f(1.0f, 1.0f, 0.0f, 1.0f);
+
+	for (uint i = 0; i < mesh->mVertices.size(); i += 3)
+	{
+		glVertex3f(mesh->mVertices[i], mesh->mVertices[i + 1], mesh->mVertices[i + 2]);
+		glVertex3f(mesh->mVertices[i] + mesh->mNormals[i], mesh->mVertices[i + 1] + mesh->mNormals[i + 1], mesh->mVertices[i + 2] + mesh->mNormals[i + 2]);
+	}
+
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+
+	glEnd();
 }
 
 void ModuleRenderer3D::LoadDebugTexture()

@@ -11,6 +11,7 @@
 #define CHECKERS_WIDTH 128
 
 class R_Mesh;
+class C_Mesh;
 class C_Material;
 
 class ModuleRenderer3D : public Module
@@ -27,8 +28,9 @@ public:
 
 	void OnResize(int width, int height);
 
-	void DrawMesh(R_Mesh* rmesh, C_Material* cmaterial);
+	void DrawMesh(C_Mesh* mesh, C_Material* cmaterial);
 
+	void DebugDrawNormals(R_Mesh* mesh);
 	void LoadDebugTexture();
 
 public:
