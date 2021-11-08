@@ -232,3 +232,7 @@ void ModuleEditor::BeginDockspace(ImGuiIO& io, const char* dockspace_id, ImGuiDo
     }
 }
 
+bool ModuleEditor::GetEvent(SDL_Event* event)
+{
+    return ImGui_ImplSDL2_ProcessEvent(event);
+}
