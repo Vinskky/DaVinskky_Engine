@@ -12,7 +12,15 @@ E_Console::~E_Console()
 bool E_Console::Draw(ImGuiIO& io)
 {
 	bool ret = true;
+
+	//Checks hover to avoid unnecesary inputs
+	
+
 	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_None);
+	
+	if (app->editor->hoveringEditor == false)
+		app->editor->hoveringEditor = ImGui::IsWindowHovered();
+
 	for (uint i = 0; i < logs.size(); ++i)
 	{
 		ImGui::TextUnformatted(logs[i]);

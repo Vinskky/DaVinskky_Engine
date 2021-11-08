@@ -41,6 +41,11 @@ update_status ModuleCamera3D::Update(float dt)
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
 
+	//avoid doing movement and stuff when mouse is in other editor panels
+	if(app->editor->hoveringEditor == true)
+		return UPDATE_CONTINUE;
+
+
 	vec3 newPos(0,0,0);
 	float speed = 10.0f * dt;
 	if(app->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
@@ -63,6 +68,7 @@ update_status ModuleCamera3D::Update(float dt)
 	reference += newPos;
 
 	// Mouse motion ----------------
+	//Mouse Rotation using LeftAlt + LefClick mouse button
 	if (app->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT)
 	{
 		if (app->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT)

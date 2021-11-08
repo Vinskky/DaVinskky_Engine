@@ -21,7 +21,14 @@ E_Configuration::~E_Configuration()
 bool E_Configuration::Draw(ImGuiIO& io)
 {
 	bool ret = true;
+
+	//Checks hover to avoid unnecesary inputs
+	
+
 	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_None);
+	
+	if (app->editor->hoveringEditor == false)
+		app->editor->hoveringEditor = ImGui::IsWindowHovered();
 	
 	OptionsPanel();
 	ApplicationHeader();
@@ -58,6 +65,10 @@ bool E_Configuration::OptionsPanel()
 
 	if (ImGui::BeginMenu("Options"))
 	{
+		//specific hover fix for this menu
+		if (app->editor->hoveringEditor == false)
+			app->editor->hoveringEditor = ImGui::IsWindowHovered();
+
 		if (ImGui::MenuItem("Default Settings"))
 		{
 			//Reset to default values

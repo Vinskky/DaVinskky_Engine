@@ -72,11 +72,13 @@ update_status ModuleEditor::Update(float dt)
 update_status ModuleEditor::PostUpdate(float dt)
 {
     update_status ret = update_status::UPDATE_CONTINUE;
+    
+    hoveringEditor = false;
 
     //iterate all different editor panels stored in vector of editorPanels to be able to draw them.
     ImGuiIO& io = ImGui::GetIO();
     (void)io;
-
+   
     //Start Dear ImGui's frame
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplSDL2_NewFrame();
@@ -97,7 +99,6 @@ update_status ModuleEditor::PostUpdate(float dt)
                     LOG("[EDITOR] Exited through %s Panel", editorPanels[i]->GetName());
                     break;
                 }
-
             }
         }
         ImGui::End();

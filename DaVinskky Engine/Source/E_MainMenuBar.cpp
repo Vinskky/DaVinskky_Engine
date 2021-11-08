@@ -18,7 +18,13 @@ bool E_MainMenuBar::Draw(ImGuiIO& io)
 {
 	bool ret = true;
 	
+	
+
 	ImGui::BeginMainMenuBar();
+
+	//Checks hover to avoid unnecesary inputs
+	if (app->editor->hoveringEditor == false)
+		app->editor->hoveringEditor = ImGui::IsWindowHovered();
 
 	FileMenu();
 	ViewMenu();

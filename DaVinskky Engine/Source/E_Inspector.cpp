@@ -21,7 +21,14 @@ bool E_Inspector::Draw(ImGuiIO& io)
 {
 	bool ret = true;
 
+	
+
 	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_None);
+	
+	//Checks hover to avoid unnecesary inputs
+	if (app->editor->hoveringEditor == false)
+		app->editor->hoveringEditor = ImGui::IsWindowHovered();
+
 	if (app->sceneIntro->selectedGameObj != nullptr)
 	{
 		GameObject* tmp = app->sceneIntro->selectedGameObj;

@@ -64,6 +64,8 @@ public:
 	E_About* aboutPanel = nullptr;
 	E_Hierarchy* hierarchy = nullptr;
 	E_Inspector* inspector = nullptr;
+
+	bool hoveringEditor = false;
 };
 
 

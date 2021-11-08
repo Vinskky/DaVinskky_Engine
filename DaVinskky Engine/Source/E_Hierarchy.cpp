@@ -17,8 +17,14 @@ bool E_Hierarchy::Draw(ImGuiIO& io)
 {
 	bool ret = true;
 
-	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_None);
+	
 
+	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_None);
+	
+	//Checks hover to avoid unnecesary inputs
+	if (app->editor->hoveringEditor == false)
+		app->editor->hoveringEditor = ImGui::IsWindowHovered();
+	
 	DrawGameObjects(app->sceneIntro->sceneRoot);
 
 	ImGui::End();
