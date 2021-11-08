@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "Globals.h"
+#include "ModuleWindow.h"
 #include "imgui.h"
 #include "E_Configuration.h"
 
@@ -54,7 +55,7 @@ void E_Configuration::UpdateFrameData(int frames, int ms)
 bool E_Configuration::OptionsPanel()
 {
 	bool ret = true;
-	
+
 	if (ImGui::BeginMenu("Options"))
 	{
 		if (ImGui::MenuItem("Default Settings"))
@@ -64,14 +65,14 @@ bool E_Configuration::OptionsPanel()
 		if (ImGui::MenuItem("Load"))
 		{
 			//Parser + JSON
-		}	
+		}
 		if (ImGui::MenuItem("Save"))
 		{
 			//Parser + JSON
-		}	
+		}
 		ImGui::EndMenu();
 	}
-	
+
 
 	return ret;
 }
@@ -100,12 +101,12 @@ bool E_Configuration::ApplicationHeader()
 			app->SetOrganizationName(bufferOrg);
 		}
 		fps = app->GetMaxFPS();
-		ImGui::SliderInt("Max FPS", &fps , 0, 144);
+		ImGui::SliderInt("Max FPS", &fps, 0, 144);
 		ImGui::Text("Limit Framerate: %d", fps);
 		app->SetMaxFPS(fps);
 		//Plots
 		PlotFrameHistogram();
-		
+
 	}
 
 	return ret;
@@ -124,16 +125,21 @@ bool E_Configuration::WindowHeader()
 
 	if (ImGui::CollapsingHeader("Window"))
 	{
-		if (ImGui::Checkbox("Active",&checkActive ))
+		brightness = app->window->GetBrightness();
+		if (ImGui::SliderFloat("Brightness", &brightness, 0.000f, 1.000f))
 		{
-			//activate / deactivate window??
-			checkActive = !checkActive;
+			app->window->SetBrightness(brightness);
 		}
-		ImGui::Text("Icon: %s", iconStr);
-		ImGui::SliderFloat("Brightness", &brightness, 0.000f, 1.000f);
-		ImGui::SliderInt("Width", &width, 720, 2560);
-		ImGui::SliderInt("Height", &height, 480, 1440);
-		ImGui::Text("Refresh rate: %d", fps);
+
+		app->window->GetWindowsSize(app->window->window, width, height);
+		if(ImGui::SliderInt("Width", &width, 720, 2560))
+		{
+			app->window->SetWindowSize(width, height);
+		}
+		if (ImGui::SliderInt("Height", &height, 480, 1440))
+		{
+			app->window->SetWindowSize(width, height);
+		}
 
 		if (ImGui::Checkbox("Fullscreen", &checkFullscreen))
 			checkFullscreen = !checkFullscreen;

@@ -33,8 +33,6 @@ private:
 	int fps;
 	
 	//Windows variables
-	bool checkActive = true;
-	char* iconStr = "*default*";
 	float brightness = 1.000f;
 	int width;
 	int height;

@@ -1,7 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Application.cpp
-D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\External\MathGeoLib\include\Geometry\AABB2D.h(135,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Application.cpp(108,16): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Application.cpp(111,23): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\Application.cpp(122,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  E_Configuration.cpp
+D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\E_Configuration.h(46,19): warning C4129: '.': unrecognized character escape sequence
   DaVinskky Engine.vcxproj -> D:\Documentos\Github\DaVinskky_Engine\Build\Debug\DaVinskky Engine.exe
