@@ -129,6 +129,23 @@ void M_FileSystem::DiscoverFiles(const char* directory, std::vector<std::string>
 	PHYSFS_freeList(rc);
 }
 
+std::string M_FileSystem::GetFileExtension(const char* path)
+{
+	std::string full_path = path;
+	std::string extension = "";
+
+	size_t dot_position = full_path.find_last_of(".");
+
+	extension = full_path.substr(dot_position + 1);
+
+	if (extension == "")
+	{
+		LOG("[WARNING] Path %s does not have any file extension!", path);
+	}
+
+	return extension;
+}
+
 void M_FileSystem::GetAllFilesWithExtension(const char* directory, const char* extension, std::vector<std::string>& file_list) const
 {
 	std::vector<std::string> files;

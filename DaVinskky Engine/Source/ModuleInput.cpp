@@ -1,6 +1,8 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleInput.h"
+#include "I_Scene.h"
+#include <string>
 
 #define MAX_KEYS 300
 
@@ -111,6 +113,32 @@ update_status ModuleInput::PreUpdate(float dt)
 				if(e.window.event == SDL_WINDOWEVENT_RESIZED)
 					app->renderer3D->OnResize(e.window.data1, e.window.data2);
 			}
+			break;
+			case SDL_DROPFILE:
+			{
+				//DRAG & DROP:
+				if (e.drop.file != nullptr)
+				{
+					const char* tmp = e.drop.file;
+					
+					std::string normStr = app->fileSystem->NormalizePath(tmp);
+
+					normStr = normStr.substr(normStr.find_last_of("A"), normStr.size());
+
+					std::string extStr = app->fileSystem->GetFileExtension(normStr.c_str());
+
+					if (extStr == "fbx" || extStr == "FBX")
+					{
+						Importer::Scene::Import(normStr.c_str(), app->sceneIntro->sceneGameObjects);
+					}
+				}
+				else
+				{
+					LOG("ERROR on Input module: String from SDL_DROPFILE even was nullptr");
+				}
+				SDL_free(e.drop.file);
+			}
+			break;
 		}
 	}
 

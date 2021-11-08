@@ -1,4 +1,3 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  ModuleCamera3D.cpp
-D:\Documentos\Github\DaVinskky_Engine\DaVinskky Engine\Source\ModuleCamera3D.cpp(57,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  ModuleInput.cpp
   DaVinskky Engine.vcxproj -> D:\Documentos\Github\DaVinskky_Engine\Build\Debug\DaVinskky Engine.exe
