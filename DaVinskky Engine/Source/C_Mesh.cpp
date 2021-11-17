@@ -27,6 +27,13 @@ void C_Mesh::Disable()
 {
 }
 
+bool C_Mesh::CleanUp()
+{
+	RELEASE(rmesh);
+	rmesh = nullptr;
+	return true;
+}
+
 void C_Mesh::SetMesh(R_Mesh* rmesh)
 {
 	this->rmesh = rmesh;

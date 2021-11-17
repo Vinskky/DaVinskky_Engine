@@ -17,6 +17,7 @@ public:
 	void Enable()override;
 	void Update()override;
 	void Disable()override;
+	bool CleanUp()override;
 
 	void SetMaterial(R_Material* rmaterial);
 	void SetTexture(R_Texture* rtexture);

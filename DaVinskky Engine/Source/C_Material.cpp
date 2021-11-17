@@ -23,6 +23,15 @@ void C_Material::Disable()
 {
 }
 
+bool C_Material::CleanUp()
+{
+	RELEASE(rmaterial);
+	rmaterial = nullptr;
+	RELEASE(rtexture);
+	rtexture = nullptr;
+	return true;
+}
+
 void C_Material::SetMaterial(R_Material* rmaterial)
 {
 	this->rmaterial = rmaterial;

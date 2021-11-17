@@ -46,6 +46,12 @@ public:
 	void SetParent(GameObject* parent);
 	void AddChild(GameObject* child);
 
+	void Clear();
+
+	void DeleteComponents();
+	void DeleteChildren();
+	bool DeleteChild(GameObject* obj);
+
 private:
 	std::string name;
 	bool active;

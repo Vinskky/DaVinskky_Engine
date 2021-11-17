@@ -85,3 +85,60 @@ void GameObject::AddChild(GameObject* child)
 {
     children.push_back(child);
 }
+
+void GameObject::Clear()
+{
+    DeleteComponents();
+    DeleteChildren();
+}
+
+void GameObject::DeleteComponents()
+{
+    transform = nullptr;
+    
+    for (uint i = 0; i < components.size(); ++i)
+    {
+        components[i]->CleanUp();
+        RELEASE(components[i]);
+    }
+
+    components.clear();
+}
+
+void GameObject::DeleteChildren()
+{
+    if (parent != nullptr)
+    {
+        //deletes this game object from the children list of its parent
+        parent->DeleteChild(this); 
+    }
+
+    for (uint i = 0; i < children.size(); ++i)
+    {
+        if (children[i] != nullptr)
+        {
+            children[i]->parent = nullptr;
+            //Recursive cleaning each child
+            children[i]->Clear();
+        }
+    }
+
+    children.clear();
+}
+
+bool GameObject::DeleteChild(GameObject* obj)
+{
+    bool ret = false;
+
+    for (uint i = 0; i < children.size(); ++i)
+    {
+        if (children[i] == obj)
+        {
+            children.erase(children.begin() + i);
+            ret = true;
+            break;
+        }
+    }
+
+    return ret;
+}

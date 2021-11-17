@@ -14,6 +14,7 @@ public:
 	void Enable()override;
 	void Update()override;
 	void Disable()override;
+	bool CleanUp()override;
 
 	float3 GetPosition()const;
 	Quat GetRotation()const;

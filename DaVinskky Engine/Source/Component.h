@@ -26,6 +26,9 @@ public:
 	virtual void Disable()
 	{}
 	
+	virtual bool CleanUp()
+	{}
+
 	virtual inline COMPONENT_TYPE GetType()const
 	{
 		return type;

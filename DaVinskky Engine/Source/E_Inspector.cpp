@@ -32,8 +32,6 @@ bool E_Inspector::Draw(ImGuiIO& io)
 	if (app->sceneIntro->selectedGameObj != nullptr)
 	{
 		GameObject* tmp = app->sceneIntro->selectedGameObj;
-		
-		ImGui::Text("Name: %s", tmp->GetName());
 
 		for (uint i = 0; i < tmp->components.size(); ++i)
 		{
@@ -63,6 +61,12 @@ void E_Inspector::InspectorTransform(C_Transform* comp)
 {
 	if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		char buffer[128];
+		strcpy_s(buffer, comp->GetOwner()->GetName());
+		if (ImGui::InputText("Name",buffer, IM_ARRAYSIZE(buffer), ImGuiInputTextFlags_EnterReturnsTrue))
+		{
+			comp->GetOwner()->SetName(buffer);
+		}
 		if (ImGui::DragFloat3("position",(float*) &comp->GetPosition()))
 		{
 

@@ -24,6 +24,11 @@ void C_Transform::Disable()
 {
 }
 
+bool C_Transform::CleanUp()
+{
+	return true;
+}
+
 float3 C_Transform::GetPosition() const
 {
 	return position;

@@ -19,6 +19,10 @@ private:
 	//Functionality for herarchy
 	void DrawGameObjects(GameObject* rootGO);
 	void ProcessRoot(GameObject* objs);
+	void DragAndDrop(GameObject* objs);
+
+	GameObject* draggedObj;
+	const char* payload; 
 };
 
 

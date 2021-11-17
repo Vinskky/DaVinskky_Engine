@@ -13,6 +13,7 @@ public:
 	void Enable()override;
 	void Update()override;
 	void Disable()override;
+	bool CleanUp()override;
 
 	void SetMesh(R_Mesh* rmesh);
 	R_Mesh* GetMesh()const;
