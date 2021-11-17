@@ -27,7 +27,9 @@ public:
 	{}
 	
 	virtual bool CleanUp()
-	{}
+	{
+		return true;
+	}
 
 	virtual inline COMPONENT_TYPE GetType()const
 	{
