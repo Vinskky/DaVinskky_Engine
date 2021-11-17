@@ -52,6 +52,8 @@ public:
 	void DeleteChildren();
 	bool DeleteChild(GameObject* obj);
 
+	void CreateEmptyChild(GameObject* parent);
+
 private:
 	std::string name;
 	bool active;

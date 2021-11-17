@@ -67,6 +67,16 @@ void E_Inspector::InspectorTransform(C_Transform* comp)
 		{
 			comp->GetOwner()->SetName(buffer);
 		}
+		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.0f, 0.0f, 0.25f));
+		if (ImGui::Button("Delete"))
+		{
+			comp->GetOwner()->Clear();
+		}
+		ImGui::PopStyleColor();
+		if (ImGui::Button("Add Children"))
+		{
+			comp->GetOwner()->CreateEmptyChild(comp->GetOwner());
+		}
 		if (ImGui::DragFloat3("position",(float*) &comp->GetPosition()))
 		{
 

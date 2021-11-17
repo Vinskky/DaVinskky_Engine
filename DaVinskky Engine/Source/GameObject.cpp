@@ -1,3 +1,5 @@
+#include "Application.h"
+#include "ModuleSceneIntro.h"
 #include "GameObject.h"
 #include "C_Transform.h"
 #include "C_Material.h"
@@ -141,4 +143,12 @@ bool GameObject::DeleteChild(GameObject* obj)
     }
 
     return ret;
+}
+
+void GameObject::CreateEmptyChild(GameObject* parent)
+{
+    GameObject* child = new GameObject();
+    child->SetName("new Object");
+    child->SetParent(parent);
+    app->sceneIntro->sceneGameObjects.push_back(child);
 }
