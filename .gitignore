@@ -386,13 +386,3 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
-.vs/DaVinskky Engine/v16/.suo
-.vs/DaVinskky Engine/v16/.suo
-.vs/DaVinskky Engine/v16/Browse.VC.db
-Build/Debug/DaVinskky Engine.pdb
-Build/Debug/Obj/DaVinskky Engine.ilk
-Build/Debug/Obj/DaVinskky Engine.log
-Build/Debug/Obj/DaVinskky Engine.tlog/CL.read.1.tlog
-Build/Debug/Obj/DaVinskky Engine.tlog/link.read.1.tlog
-Build/Debug/Obj/vc142.idb
-Build/Debug/Obj/vc142.pdb
