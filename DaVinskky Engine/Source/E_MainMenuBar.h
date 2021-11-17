@@ -14,10 +14,10 @@ public:
 
 	bool GetAboutWindowState()const;
 private:
-	update_status FileMenu();
+	bool FileMenu();
 	bool ViewMenu();
 	bool HelpMenu();
-	bool AboutPopUp();
+	bool CreateMenu();
 
 private:
 	bool showcase = false;

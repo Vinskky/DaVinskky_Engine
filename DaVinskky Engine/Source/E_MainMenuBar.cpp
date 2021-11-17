@@ -1,10 +1,12 @@
 #include "Application.h"
 #include "Globals.h"
 #include "ModuleEditor.h"
+#include "ModuleSceneIntro.h"
 #include "E_Console.h"
 #include "E_MainMenuBar.h"
 #include "E_Configuration.h"
 #include "E_About.h"
+#include "GameObject.h"
 
 E_MainMenuBar::E_MainMenuBar(const char* name, bool isActive): Editor("Main Menu")
 {
@@ -29,6 +31,7 @@ bool E_MainMenuBar::Draw(ImGuiIO& io)
 	FileMenu();
 	ViewMenu();
 	HelpMenu();
+	CreateMenu();
 
 	ImGui::EndMainMenuBar();
 	
@@ -52,9 +55,9 @@ bool E_MainMenuBar::GetAboutWindowState() const
 
 
 
-update_status E_MainMenuBar::FileMenu()
+bool E_MainMenuBar::FileMenu()
 {
-	update_status ret = update_status::UPDATE_CONTINUE;
+	bool ret = true;
 	
 	if (ImGui::BeginMenu("File"))
 	{
@@ -143,39 +146,25 @@ bool E_MainMenuBar::HelpMenu()
 	return ret;
 }
 
-bool E_MainMenuBar::AboutPopUp()
+bool E_MainMenuBar::CreateMenu()
 {
-	if (ImGui::Begin("About", &aboutWindow, ImGuiWindowFlags_None))
-	{
-		ImGui::Text("DaVinskky Engine V0.1\n");
-		ImGui::Text("Created by Sebastian Delgado\n");
-		ImGui::Separator();
-		ImGui::Text("3rd Party Libraries used:\n");
-		ImGui::BulletText("SDL 2.06\n");
-		ImGui::BulletText("Glew 2.0.0\n");
-		ImGui::BulletText("ImGui\n");
-		ImGui::BulletText("MathGeoLib\n");
+	bool ret = true;
 
-		ImGui::Separator();
-		ImGui::Text("License:\n");
-		ImGui::Text("MIT License\n");
-		ImGui::Text("Copyright (c) 2021 DaVinskky Engine\n"
-			"Permission is hereby granted, free of charge, to any person obtaining a copy\n"
-			"of this software and associated documentation files(the ""Software""), to deal\n"
-			"in the Software without restriction, including without limitation the rights\n"
-			"to use, copy, modify, merge, publish, distribute, sublicense, and /or sell\n"
-			"copies of the Software, and to permit persons to whom the Software is\n"
-			"furnished to do so, subject to the following conditions :\n\n"
-			"The above copyright noticeand this permission notice shall be included in all\n"
-			"copies or substantial portions of the Software.\n\n"
-			"THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n"
-			"IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n"
-			"FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE\n"
-			"AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n"
-			"LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n"
-			"OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n"
-			"SOFTWARE.");
+	if (ImGui::BeginMenu("Create"))
+	{
+		if (ImGui::MenuItem("Empty Game Object"))
+		{
+			//Creating a game object empty means that only will have Component transform.
+			//We should keep in mind the parent. (rootscene or game object selected?)
+			GameObject* emptyObj = new GameObject();
+			emptyObj->SetName("Empty");
+			emptyObj->SetParent(app->sceneIntro->sceneRoot);
+			app->sceneIntro->sceneGameObjects.push_back(emptyObj);
+		}
+
+		ImGui::EndMenu();
 	}
-	ImGui::End();
-	return true;
+
+
+	return ret;
 }
