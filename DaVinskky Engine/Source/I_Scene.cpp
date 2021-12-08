@@ -35,7 +35,7 @@ void Importer::Scene::Import(const char* path, std::vector<GameObject*>& gameObj
 
 	if (scene == nullptr || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 		return;
-	
+
 	Importer::Scene::Private::ProcessNode(scene, scene->mRootNode, gameObjects, gameObjects[0]);
 
 }
@@ -110,17 +110,23 @@ void Importer::Scene::Private::ImportMeshesAndMaterial(const aiScene* aiscene, c
 
 		if (aimesh != nullptr && aimesh->HasFaces())
 		{
-			ImportMesh(aimesh, gameObj);
+			ImportMesh(aimesh, gameObj, i);
 
 			ImportMaterial(aimesh, aiscene, gameObj);
 		}
 	}
 }
 
-void Importer::Scene::Private::ImportMesh(const aiMesh* aimesh, GameObject* gameObj)
+void Importer::Scene::Private::ImportMesh(const aiMesh* aimesh, GameObject* gameObj, uint meshId)
 {
 	R_Mesh* rmesh = new R_Mesh();
+
 	bool res = Importer::Mesh::Import(aimesh, rmesh);
+	
+	std::string path("Library/Models/mesh" + std::to_string(meshId) + ".mesh");
+
+	Importer::Mesh::Save(rmesh, path.c_str());
+	//rmesh = Importer::Mesh::Load(path.c_str());
 
 	if (res)
 	{
@@ -165,8 +171,6 @@ void Importer::Scene::Private::ImportTexture(const aiMaterial* aimaterial, C_Mat
 	}
 
 }
-
-
 
 bool Importer::Scene::Private::IsDummyNode(const aiNode& node)
 {

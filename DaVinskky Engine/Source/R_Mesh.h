@@ -32,6 +32,10 @@ public:
 	uint TBO;						//Texture Buffer Object
 	uint IBO;						//Index Buffer Object
 
+	unsigned vertexSizeBytes;
+	unsigned normalSizeBytes;
+	unsigned indexSizeBytes;
+	unsigned textCoordSizeBytes;
 };
 
 #endif // !_I_MESH_H_

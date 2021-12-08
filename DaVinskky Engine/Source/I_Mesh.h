@@ -5,12 +5,15 @@ struct aiMesh;
 
 class R_Mesh;
 
+#define NUM_HEADER_CATEGORIES 4
 
 namespace Importer
 {
 	namespace Mesh
 	{
 		bool Import(const aiMesh* aimesh, R_Mesh* rmesh);
+		bool Save(const R_Mesh* rmesh, const char* path);
+		R_Mesh* Load(const char* path);
 
 		namespace Private
 		{
@@ -19,10 +22,7 @@ namespace Importer
 			void GetTextCoords(const aiMesh* aimesh, R_Mesh* rmesh);
 			void GetIndices(const aiMesh* aimesh, R_Mesh* rmesh);
 		}
-
 	}
 }
 
-
 #endif // !_I_MESH_H_
-

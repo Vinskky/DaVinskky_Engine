@@ -10,6 +10,11 @@ R_Mesh::R_Mesh()
 	IBO = 0;
 	NBO = 0;
 	TBO = 0;
+
+	vertexSizeBytes = 0;
+	normalSizeBytes = 0;
+	indexSizeBytes = 0;
+	textCoordSizeBytes = 0;
 }
 
 R_Mesh::~R_Mesh()
