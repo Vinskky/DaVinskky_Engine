@@ -110,23 +110,25 @@ void Importer::Scene::Private::ImportMeshesAndMaterial(const aiScene* aiscene, c
 
 		if (aimesh != nullptr && aimesh->HasFaces())
 		{
-			ImportMesh(aimesh, gameObj, i);
+			ImportMesh(aimesh, gameObj, node->mName.C_Str());
 
 			ImportMaterial(aimesh, aiscene, gameObj);
 		}
 	}
 }
 
-void Importer::Scene::Private::ImportMesh(const aiMesh* aimesh, GameObject* gameObj, uint meshId)
+void Importer::Scene::Private::ImportMesh(const aiMesh* aimesh, GameObject* gameObj, const char* name)
 {
 	R_Mesh* rmesh = new R_Mesh();
 
-	bool res = Importer::Mesh::Import(aimesh, rmesh);
-	
-	std::string path("Library/Models/mesh" + std::to_string(meshId) + ".mesh");
+	bool res;
 
-	Importer::Mesh::Save(rmesh, path.c_str());
-	//rmesh = Importer::Mesh::Load(path.c_str());
+	//res = Importer::Mesh::Import(aimesh, rmesh);
+
+	std::string path("Library/Models/" + std::string(name) + ".DaVMesh");
+
+	res = Importer::Mesh::Load(path.c_str(), rmesh);
+	//res = Importer::Mesh::Save(rmesh, path.c_str());
 
 	if (res)
 	{

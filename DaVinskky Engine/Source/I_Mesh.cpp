@@ -47,35 +47,43 @@ bool Importer::Mesh::Save(const R_Mesh* rmesh, const char* path)
 	return ret;
 }
 
-R_Mesh* Importer::Mesh::Load(const char* path)
+bool Importer::Mesh::Load(const char* path, R_Mesh* rmesh)
 {
+	bool ret = true;
+
 	std::ifstream myMeshFile;
 	myMeshFile.open(path, std::ios::binary);
 
 	if (myMeshFile.is_open())
 	{
-		R_Mesh* rmesh = new R_Mesh();
+		// Reads Header
+		myMeshFile.read((char*)rmesh, NUM_HEADER_CATEGORIES * sizeof(unsigned));
 
-		myMeshFile.read((char*)rmesh, NUM_HEADER_CATEGORIES * sizeof(unsigned)); // Reads Header
+		size_t bufferSize = rmesh->vertexSizeBytes / sizeof(float);
+		rmesh->mVertices.resize(bufferSize);
+		myMeshFile.read((char*)&rmesh->mVertices[0], rmesh->vertexSizeBytes);
 
-		rmesh->mVertices.resize(rmesh->vertexSizeBytes);
-		myMeshFile.read((char*)rmesh->mVertices.data(), rmesh->vertexSizeBytes);
+		bufferSize = rmesh->normalSizeBytes / sizeof(float);
+		rmesh->mNormals.resize(bufferSize);
+		myMeshFile.read((char*)&rmesh->mNormals[0], rmesh->normalSizeBytes);
 
-		rmesh->mNormals.resize(rmesh->normalSizeBytes);
-		myMeshFile.read((char*)rmesh->mNormals.data(), rmesh->normalSizeBytes);
+		bufferSize = rmesh->textCoordSizeBytes / sizeof(float);
+		rmesh->mTextureCoords.resize(bufferSize);
+		myMeshFile.read((char*)&rmesh->mTextureCoords[0], rmesh->textCoordSizeBytes);
 
-		rmesh->mTextureCoords.resize(rmesh->textCoordSizeBytes);
-		myMeshFile.read((char*)rmesh->mTextureCoords.data(), rmesh->textCoordSizeBytes);
-
-		rmesh->mIndex.resize(rmesh->indexSizeBytes);
-		myMeshFile.read((char*)rmesh->mIndex.data(), rmesh->indexSizeBytes);
+		bufferSize = rmesh->indexSizeBytes / sizeof(uint);
+		rmesh->mIndex.resize(bufferSize);
+		myMeshFile.read((char*)&rmesh->mIndex[0], rmesh->indexSizeBytes);
 
 		myMeshFile.close();
-
-		return rmesh;
+		ret = true;
 	}
 	else
-		return nullptr;
+		ret = false;
+
+	rmesh->LoadBuffers();
+
+	return ret;
 }
 
 void Importer::Mesh::Private::GetVertices(const aiMesh* aimesh, R_Mesh* rmesh)
@@ -138,7 +146,7 @@ void Importer::Mesh::Private::GetIndices(const aiMesh* aimesh, R_Mesh* rmesh)
 		return;
 	}
 
-	rmesh->indexSizeBytes = aimesh->mNumFaces * sizeof(unsigned) * 3;
+	rmesh->indexSizeBytes = aimesh->mNumFaces * sizeof(uint) * 3;
 
 	rmesh->mIndex.resize(aimesh->mNumFaces * 3);
 	for (uint i = 0; i < aimesh->mNumFaces; ++i)

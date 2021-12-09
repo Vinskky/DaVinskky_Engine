@@ -13,7 +13,7 @@ namespace Importer
 	{
 		bool Import(const aiMesh* aimesh, R_Mesh* rmesh);
 		bool Save(const R_Mesh* rmesh, const char* path);
-		R_Mesh* Load(const char* path);
+		bool Load(const char* path, R_Mesh* rmesh); 
 
 		namespace Private
 		{

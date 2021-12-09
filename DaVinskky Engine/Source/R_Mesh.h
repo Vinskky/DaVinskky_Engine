@@ -21,6 +21,11 @@ public:
 
 public:
 	
+	unsigned vertexSizeBytes;
+	unsigned normalSizeBytes;
+	unsigned indexSizeBytes;
+	unsigned textCoordSizeBytes;
+
 	std::vector<float> mVertices;
 	std::vector<float> mNormals;
 	std::vector<float> mTextureCoords;
@@ -31,11 +36,6 @@ public:
 	uint NBO;						//Normal Buffer Object
 	uint TBO;						//Texture Buffer Object
 	uint IBO;						//Index Buffer Object
-
-	unsigned vertexSizeBytes;
-	unsigned normalSizeBytes;
-	unsigned indexSizeBytes;
-	unsigned textCoordSizeBytes;
 };
 
 #endif // !_I_MESH_H_

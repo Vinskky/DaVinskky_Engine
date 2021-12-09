@@ -31,7 +31,7 @@ namespace Importer
 			const aiNode* ImportTransform(const aiNode* ainode, GameObject* gameObj);
 			void ImportMeshesAndMaterial(const aiScene* aiscene, const aiNode* node, GameObject* gameObj);
 
-			void ImportMesh(const aiMesh* aimesh, GameObject* gameObj, uint meshId);
+			void ImportMesh(const aiMesh* aimesh, GameObject* gameObj, const char* name);
 			void ImportMaterial(const aiMesh* aimesh, const aiScene* aiscene, GameObject* gameObj);
 			void ImportTexture(const aiMaterial* aimaterial, C_Material* compMaterial);
 
