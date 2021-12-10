@@ -55,9 +55,6 @@
     <Filter Include="Sources\Tools\Includes">
       <UniqueIdentifier>{c4ea0b64-db7f-4b46-8830-cc1e02dca21c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Dependences\parson">
-      <UniqueIdentifier>{a717e352-a178-42ef-8910-ad6ee6b85262}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\3. Importers">
       <UniqueIdentifier>{41c82439-5b26-4b88-a7db-b8a2e74121df}</UniqueIdentifier>
     </Filter>
@@ -404,9 +401,6 @@
     </ClInclude>
     <ClInclude Include="Source\E_Console.h">
       <Filter>Sources\2. Editor</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\External\parson\include\parson.h">
-      <Filter>Dependences\parson</Filter>
     </ClInclude>
     <ClInclude Include="Source\Config.h">
       <Filter>Sources\Containers</Filter>

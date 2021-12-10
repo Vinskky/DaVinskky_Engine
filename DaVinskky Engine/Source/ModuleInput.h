@@ -21,7 +21,7 @@ public:
 	ModuleInput();
 	~ModuleInput();
 
-	bool Init(Config& config)override;
+	bool Init()override;
 	update_status PreUpdate(float dt);
 	bool CleanUp();
 

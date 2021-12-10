@@ -37,7 +37,7 @@ M_FileSystem::~M_FileSystem()
 }
 
 // Called before render is available
-bool M_FileSystem::Init(Config& config)
+bool M_FileSystem::Init()
 {
 	LOG("Loading File System");
 	bool ret = true;

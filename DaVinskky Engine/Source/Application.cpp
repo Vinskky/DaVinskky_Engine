@@ -48,28 +48,29 @@ Application::~Application()
 bool Application::Init()
 {
 	bool ret = true;
-	char* buffer = nullptr;
+	//char* buffer = nullptr;
 
-	uint size = fileSystem->Load("Engine/Settings.JSON", &buffer);
+	//uint size = fileSystem->Load("Engine/Settings.JSON", &buffer);
 
-	if (size <= 0)
-	{
-		uint defSize = fileSystem->Load("Engine/DefaultSettings.JSON", &buffer);
-		if (defSize <= 0)
-		{
-			LOG("[error] failed to load project settings");
-			return false;
-		}
-	}
+	//if (size <= 0)
+	//{
+	//	uint defSize = fileSystem->Load("Engine/DefaultSettings.JSON", &buffer);
+	//	if (defSize <= 0)
+	//	{
+	//		LOG("[error] failed to load project settings");
+	//		return false;
+	//	}
+	//}
 
-	Config config(buffer);
-	Config node = config.GetNode("EditorState");
+	//Config config(buffer);
+	//Config node = config.GetNode("EditorState");
+	
 	// Call Init() in all modules
 	std::vector<Module*>::iterator item = modules.begin();
 
 	while(item != modules.end() && ret == true)
 	{
-		ret = (*item)->Init(node.GetNode((*item)->GetName()));
+		ret = (*item)->Init();
 		++item;
 	}
 

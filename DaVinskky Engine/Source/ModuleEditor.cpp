@@ -59,8 +59,6 @@ bool ModuleEditor::Start()
 	return ret;
 }
 
-
-
 update_status ModuleEditor::Update(float dt)
 {
     update_status ret = update_status::UPDATE_CONTINUE;

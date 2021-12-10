@@ -23,7 +23,7 @@ public:
 	~M_FileSystem();
 
 	// Called before render is available
-	bool Init(Config& config) override;
+	bool Init() override;
 
 	// Called before quitting
 	bool CleanUp() override;
