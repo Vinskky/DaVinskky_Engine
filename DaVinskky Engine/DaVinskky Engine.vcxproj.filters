@@ -402,7 +402,7 @@
     <ClInclude Include="Source\E_Console.h">
       <Filter>Sources\2. Editor</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Config.h">
+    <ClInclude Include="Source\JsonFile.h">
       <Filter>Sources\Containers</Filter>
     </ClInclude>
     <ClInclude Include="Source\ModuleFileSystem.h">
@@ -702,6 +702,7 @@
       <Filter>Sources\2. Editor</Filter>
     </ClCompile>
     <ClCompile Include="Source\Config.cpp">
+    <ClCompile Include="Source\JsonFile.cpp">
       <Filter>Sources\Containers</Filter>
     </ClCompile>
     <ClCompile Include="Source\ModuleFileSystem.cpp">

@@ -42,7 +42,6 @@ void C_Material::SetTexture(R_Texture* rtexture)
 	this->rtexture = rtexture;
 }
 
-
 R_Texture* C_Material::GetTexture() const
 {
 	return rtexture;
@@ -75,4 +74,14 @@ uint C_Material::GetTextureID()
 	}
 	
 	return 0;
+}
+
+void C_Material::SetTexturePath(const char* path)
+{
+	_path = path;
+}
+
+const char* C_Material::GetTexturePath() const
+{
+	return _path.c_str();
 }

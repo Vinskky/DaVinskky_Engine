@@ -61,3 +61,13 @@ void C_Mesh::GetMeshData(uint& numVertices, uint& numNormals, uint& numTexCoords
 	numTexCoords = rmesh->mTextureCoords.size();
 	numIndices = rmesh->mIndex.size();
 }
+
+void C_Mesh::SetMeshPath(const char* path)
+{
+	_path = path;
+}
+
+const char* C_Mesh::GetMeshPath() const
+{
+	return _path.c_str();
+}

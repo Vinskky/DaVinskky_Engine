@@ -22,12 +22,17 @@ ModuleSceneIntro::~ModuleSceneIntro()
 // Load assets
 bool ModuleSceneIntro::Start()
 {
+	bool ret = false;
+
 	Importer::Scene::Import("Assets/Models/BakerHouse.fbx", sceneGameObjects);
+	ret = Importer::Scene::Save("SampleScene", sceneGameObjects);
 	//Importer::Scene::Import("Assets/Models/warrior.fbx", sceneGameObjects);
+
 	LOG("Loading Intro assets");
-	bool ret = true;
+
 	app->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	app->camera->LookAt(vec3(0, 0, 0));
+
 	return ret;
 }
 

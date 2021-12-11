@@ -55,7 +55,7 @@
       <SDLCheck>false</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\DevIL\include;$(ProjectDir)Source\External\PhysFS\include;$(ProjectDir)Source\External\Assimp\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\DevIL\include;$(ProjectDir)Source\External\PhysFS\include;$(ProjectDir)Source\External\Assimp\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\SDL\include;$(ProjectDir)Source\External\nlohmann json\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -75,7 +75,7 @@
       <SDLCheck>false</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\DevIL\include;$(ProjectDir)Source\External\PhysFS\include;$(ProjectDir)Source\External\Assimp\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\External\DevIL\include;$(ProjectDir)Source\External\PhysFS\include;$(ProjectDir)Source\External\Assimp\include;$(ProjectDir)Source\External\ImGui\include;$(ProjectDir)Source\;$(ProjectDir)Source\External\SDL\include;$(ProjectDir)Source\External\nlohmann json\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -92,7 +92,7 @@
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\AssimpInc.h" />
     <ClInclude Include="Source\Component.h" />
-    <ClInclude Include="Source\Config.h" />
+    <ClInclude Include="Source\JsonFile.h" />
     <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\C_Camera.h" />
     <ClInclude Include="Source\C_Material.h" />
@@ -235,6 +235,7 @@
     <ClCompile Include="Source\Color.cpp" />
     <ClCompile Include="Source\Config.cpp" />
     <ClCompile Include="Source\C_Camera.cpp" />
+    <ClCompile Include="Source\JsonFile.cpp" />
     <ClCompile Include="Source\C_Material.cpp" />
     <ClCompile Include="Source\C_Mesh.cpp" />
     <ClCompile Include="Source\C_Transform.cpp" />

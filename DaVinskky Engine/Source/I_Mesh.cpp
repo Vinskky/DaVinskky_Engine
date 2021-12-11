@@ -23,7 +23,10 @@ bool Importer::Mesh::Import(const aiMesh* aimesh, R_Mesh* rmesh)
 
 bool Importer::Mesh::Save(const R_Mesh* rmesh, const char* path)
 {
-	bool ret = true;
+	bool ret = false;
+
+	if (rmesh == nullptr || path == nullptr)
+		return false;
 
 	// Our header size is 4 (or NUM_HEADER_CATEGORIES) * sizeof(unsigned) = 16 bytes
 
@@ -50,7 +53,10 @@ bool Importer::Mesh::Save(const R_Mesh* rmesh, const char* path)
 
 bool Importer::Mesh::Load(const char* path, R_Mesh* rmesh)
 {
-	bool ret = true;
+	bool ret = false;
+
+	if (rmesh == nullptr || path == nullptr)
+		return false;
 
 	std::ifstream myMeshFile;
 	myMeshFile.open(path, std::ios::binary);

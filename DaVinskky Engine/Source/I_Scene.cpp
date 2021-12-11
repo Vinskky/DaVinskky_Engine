@@ -14,6 +14,7 @@
 #include "R_Mesh.h"
 #include "R_Material.h"
 #include "R_Texture.h"
+#include "JsonFile.h"
 
 #include <string>
 
@@ -38,6 +39,80 @@ void Importer::Scene::Import(const char* path, std::vector<GameObject*>& gameObj
 
 	Importer::Scene::Private::ProcessNode(scene, scene->mRootNode, gameObjects, gameObjects[0]);
 
+}
+
+bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObjects)
+{
+	bool ret = false;
+
+	JsonFile sceneJson;
+	// We start setting gameobjects, including the object for the root scene:
+	sceneJson.file["Game Objects"] = json::array(); // Start filling the array for it (as the slides explain)
+	for (std::vector<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end(); goIt++)
+	{
+		json jsonGO;
+		jsonGO["name"] = (*goIt)->GetName();
+		jsonGO["active"] = (*goIt)->IsActive();
+
+		// We start setting its components in another array:
+		jsonGO["Components"] = json::array();
+		for (std::vector<Component*>::iterator componentIt = (*goIt)->components.begin(); componentIt != (*goIt)->components.end(); componentIt++)
+		{
+			Component* component = (*componentIt);
+
+			json jsonComp;
+			jsonComp["active"] = (*componentIt)->IsActive();
+			switch ((*componentIt)->GetType())
+			{
+			case COMPONENT_TYPE::NONE:
+				jsonComp["type"] = "NONE";
+				break;
+			case COMPONENT_TYPE::TRANSFORM:
+			{
+				C_Transform transformComp = *(C_Transform*)component;
+				jsonComp["type"] = "Transform";
+				jsonComp["position"] = { transformComp.GetPosition().x, transformComp.GetPosition().y, transformComp.GetPosition().z };
+				jsonComp["rotation"] = { transformComp.GetRotation().x, transformComp.GetRotation().y, transformComp.GetRotation().z, transformComp.GetRotation().w };
+				jsonComp["position"] = { transformComp.GetScale().x, transformComp.GetScale().y, transformComp.GetScale().z };
+			}
+			break;
+			case COMPONENT_TYPE::MESH:
+			{
+				C_Mesh meshComp = *(C_Mesh*)component;
+				jsonComp["type"] = "Mesh";
+				jsonComp["path"] = meshComp.GetMeshPath();
+
+			}
+			break;
+			case COMPONENT_TYPE::MATERIAL:
+			{
+				C_Material materialComp = *(C_Material*)component;
+				jsonComp["type"] = "Material";
+				jsonComp["ID"] = materialComp.GetTextureID();
+				jsonComp["path"] = materialComp.GetTexturePath();
+			}
+			break;
+			default:
+				break;
+			}
+			jsonGO["Components"].push_back(jsonComp);
+		}
+		sceneJson.file["Game Objects"].push_back(jsonGO);
+	}
+
+	std::string path = SCENES_PATH + std::string(name) + ".json";
+	ret = sceneJson.Save(path.c_str());
+
+	return ret;
+}
+
+bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjects)
+{
+	bool ret = false;
+
+	JsonFile sceneJson;
+
+	return ret;
 }
 
 void Importer::Scene::Private::ProcessNode(const aiScene* aiscene, const aiNode* node, std::vector<GameObject*>& gameObjects, GameObject* parent)
@@ -125,15 +200,16 @@ void Importer::Scene::Private::ImportMesh(const aiMesh* aimesh, GameObject* game
 
 	//res = Importer::Mesh::Import(aimesh, rmesh);
 
-	std::string path("Library/Models/" + std::string(name) + ".DaVMesh");
+	std::string path(MESHES_PATH + std::string(name) + ".DaVMesh");
 
-	res = Importer::Mesh::Load(path.c_str(), rmesh);
 	//res = Importer::Mesh::Save(rmesh, path.c_str());
+	res = Importer::Mesh::Load(path.c_str(), rmesh);
 
 	if (res)
 	{
 		C_Mesh* compMesh = (C_Mesh*)gameObj->CreateComponent(COMPONENT_TYPE::MESH);
 		compMesh->SetMesh(rmesh);
+		compMesh->SetMeshPath(path.c_str());
 	}
 }
 
@@ -162,13 +238,14 @@ void Importer::Scene::Private::ImportTexture(const aiMaterial* aimaterial, C_Mat
 	{
 		R_Texture* rtexture = new R_Texture();
 
-		std::string finalPath = ASSET_TEXTURES_PATH;
+		std::string finalPath = ASSETS_TEXTURES_PATH;
 		finalPath += textPath.C_Str();
 		bool ret = Importer::Texture::Import(finalPath.c_str(), rtexture);
 		
 		if (ret)
 		{
 			compMaterial->SetTexture(rtexture);
+			compMaterial->SetTexturePath(finalPath.c_str());
 		}
 	}
 

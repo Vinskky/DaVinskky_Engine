@@ -4,6 +4,8 @@
 #include <string>
 #include <time.h>
 
+#include "JsonFile.h"
+
 Application::Application(int argc, char** argv) : argc(argc), argv(argv)
 {
 	fileSystem = new M_FileSystem();
@@ -83,7 +85,7 @@ bool Application::Init()
 		ret = (*item)->Start();
 		++item;
 	}
-	
+
 	msTimer.Start();
 	return ret;
 }
