@@ -5,6 +5,7 @@
 #include "cimport.h"
 #include "scene.h"
 #include "postprocess.h"
+#include "External/MathGeoLib/include/Geometry/AABB.h"
 
 #include <vector>
 
@@ -18,6 +19,8 @@ public:
 
 	//LoadBuffer to been able to draw
 	void LoadBuffers();
+
+	void SetAABB();
 
 public:
 	
@@ -36,6 +39,9 @@ public:
 	uint NBO;						//Normal Buffer Object
 	uint TBO;						//Texture Buffer Object
 	uint IBO;						//Index Buffer Object
+
+	//AABB
+	AABB aabb;
 };
 
 #endif // !_I_MESH_H_

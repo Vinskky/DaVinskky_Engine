@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include "Component.h"
+#include "External/MathGeoLib/include/Geometry/AABB.h"
+#include "External/MathGeoLib/include/Geometry/OBB.h"
 
 class C_Transform;
 
@@ -38,6 +40,21 @@ public:
 		return nullptr;
 	}
 
+	template <typename T>
+	bool GetComponents(std::vector<T*>& componentType)
+	{
+		COMPONENT_TYPE type = T::GetType();
+		for (uint i = 0; i < components.size(); ++i)
+		{
+			if (components[i]->GetType() == type)
+			{
+				componentType.push_back((T*)components[i]);
+			}
+		}
+
+		return  (componentType.empty()) ? false : true;
+	}
+
 	void SetName(const char* str);
 	const char* GetName()const;
 	
@@ -54,6 +71,8 @@ public:
 
 	void CreateEmptyChild(GameObject* parent);
 
+	void UpdateBoundingBoxes();
+
 private:
 	std::string name;
 	bool active;
@@ -65,7 +84,9 @@ public:
 	std::vector<Component*> components;
 
 	std::vector<GameObject*> children;
-
+	//Bounding boxes
+	AABB aabb;
+	OBB obb;
 };
 
 

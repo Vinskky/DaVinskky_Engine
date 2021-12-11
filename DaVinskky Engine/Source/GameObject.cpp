@@ -4,11 +4,14 @@
 #include "C_Transform.h"
 #include "C_Material.h"
 #include "C_Mesh.h"
+#include "R_Mesh.h"
 #include "Globals.h"
 
 GameObject::GameObject(bool active):active(active)
 {
     transform = (C_Transform*)CreateComponent(COMPONENT_TYPE::TRANSFORM);
+    aabb.SetNegativeInfinity();
+    obb.SetNegativeInfinity();
 }
 
 GameObject::~GameObject()
@@ -25,6 +28,9 @@ void GameObject::Update()
             (*component)->Update();
         }
     }
+
+    //Bounding boxes Update
+
 }
 
 Component* GameObject::CreateComponent(COMPONENT_TYPE type)
@@ -151,4 +157,25 @@ void GameObject::CreateEmptyChild(GameObject* parent)
     child->SetName("new Object");
     child->SetParent(parent);
     app->sceneIntro->sceneGameObjects.push_back(child);
+}
+
+void GameObject::UpdateBoundingBoxes()
+{
+    std::vector<C_Mesh*> cMeshes;
+    GetComponents<C_Mesh>(cMeshes); //fills std vector with components meshes that has this game object
+
+    for (uint i = 0; i < cMeshes.size(); ++i)
+    {
+        if (cMeshes[i] == nullptr || cMeshes[i]->GetMesh() == nullptr)
+            continue;
+
+        obb = cMeshes[i]->GetMesh()->aabb;
+        obb.Transform(GetComponent<C_Transform>()->GetWorldTransform());
+
+        aabb.SetNegativeInfinity();
+        aabb.Enclose(obb);
+
+    }
+
+    cMeshes.clear();
 }

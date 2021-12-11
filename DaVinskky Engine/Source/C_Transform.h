@@ -20,6 +20,9 @@ public:
 	Quat GetRotation()const;
 	float3 GetScale()const;
 
+	float4x4 GetWorldTransform()const;
+	float4x4 GetLocalTransform()const;
+
 	void SetPosition(float x, float y, float z);
 	void SetRotation(float x, float y, float z, float w);
 	void SetScale(float x, float y, float z);
@@ -31,6 +34,10 @@ private:
 	Quat rotation;
 	float3 scale;
 
+	float4x4 localTransform;
+	float4x4 worldTransform;
+
+	float3 localEulerRotation;
 };
 
 

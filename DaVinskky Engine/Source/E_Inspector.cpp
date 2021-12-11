@@ -77,15 +77,15 @@ void E_Inspector::InspectorTransform(C_Transform* comp)
 		{
 			comp->GetOwner()->CreateEmptyChild(comp->GetOwner());
 		}
-		if (ImGui::DragFloat3("position",(float*) &comp->GetPosition()))
+		if (ImGui::DragFloat3("position",(float*) &position))
 		{
-
+			comp->SetPosition(position.x, position.y, position.y);
 		}
-		if (ImGui::DragFloat3("rotation", (float*)&comp->GetRotation()))
+		if (ImGui::DragFloat3("rotation", (float*)&rotation))
 		{
-
+			//comp->set
 		}
-		if (ImGui::DragFloat3("scale", (float*)&comp->GetScale()))
+		if (ImGui::DragFloat3("scale", (float*)&scale))
 		{
 
 		}

@@ -44,6 +44,16 @@ float3 C_Transform::GetScale() const
 	return scale;
 }
 
+float4x4 C_Transform::GetWorldTransform() const
+{
+	return worldTransform;
+}
+
+float4x4 C_Transform::GetLocalTransform() const
+{
+	return localTransform;
+}
+
 void C_Transform::SetPosition(float x, float y, float z)
 {
 	position.Set(x, y, z);

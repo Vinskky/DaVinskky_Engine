@@ -70,3 +70,9 @@ void R_Mesh::LoadBuffers()
 
 
 }
+
+void R_Mesh::SetAABB()
+{
+	aabb.SetNegativeInfinity();
+	aabb.Enclose((float3*)&mVertices[0], mVertices.size() / 3);
+}

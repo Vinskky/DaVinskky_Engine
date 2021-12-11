@@ -16,6 +16,7 @@ bool Importer::Mesh::Import(const aiMesh* aimesh, R_Mesh* rmesh)
 	Private::GetIndices(aimesh,rmesh);
 
 	rmesh->LoadBuffers();
+	rmesh->SetAABB();
 
 	return ret;
 }
@@ -82,6 +83,7 @@ bool Importer::Mesh::Load(const char* path, R_Mesh* rmesh)
 		ret = false;
 
 	rmesh->LoadBuffers();
+	rmesh->SetAABB();
 
 	return ret;
 }

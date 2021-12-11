@@ -495,6 +495,9 @@
     <ClInclude Include="Source\E_Inspector.h">
       <Filter>Sources\2. Editor</Filter>
     </ClInclude>
+    <ClInclude Include="Source\C_Camera.h">
+      <Filter>Sources\4. GameObjects\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -698,9 +701,6 @@
     <ClCompile Include="Source\E_Console.cpp">
       <Filter>Sources\2. Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Source\External\parson\include\parson.c">
-      <Filter>Dependences\parson</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Config.cpp">
       <Filter>Sources\Containers</Filter>
     </ClCompile>
@@ -748,6 +748,9 @@
     </ClCompile>
     <ClCompile Include="Source\E_Inspector.cpp">
       <Filter>Sources\2. Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\C_Camera.cpp">
+      <Filter>Sources\4. GameObjects\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
