@@ -701,7 +701,6 @@
     <ClCompile Include="Source\E_Console.cpp">
       <Filter>Sources\2. Editor</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Config.cpp">
     <ClCompile Include="Source\JsonFile.cpp">
       <Filter>Sources\Containers</Filter>
     </ClCompile>

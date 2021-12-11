@@ -233,7 +233,6 @@
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Color.cpp" />
-    <ClCompile Include="Source\Config.cpp" />
     <ClCompile Include="Source\C_Camera.cpp" />
     <ClCompile Include="Source\JsonFile.cpp" />
     <ClCompile Include="Source\C_Material.cpp" />

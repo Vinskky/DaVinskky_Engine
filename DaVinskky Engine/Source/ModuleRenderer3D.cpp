@@ -5,7 +5,9 @@
 #include "I_Texture.h"
 #include "R_Mesh.h"
 #include "C_Material.h"
+#include "C_Transform.h"
 #include "C_Mesh.h"
+#include "GameObject.h"
 #include "External/Glew/include/glew.h"
 #include "External\SDL\include\SDL_opengl.h"
 #include "External/MathGeoLib/include/Math/float4x4.h"
@@ -225,7 +227,8 @@ void ModuleRenderer3D::DrawMesh(C_Mesh* mesh, C_Material* cmaterial)
 	}
 
 	glPushMatrix();
-	glMultMatrixf((GLfloat*)float4x4::identity.Transposed().ptr());
+	
+	glMultMatrixf((GLfloat*) mesh->GetOwner()->GetComponent<C_Transform>()->GetWorldTransform().Transposed().ptr());
 
 
 	if (cmaterial != nullptr)
