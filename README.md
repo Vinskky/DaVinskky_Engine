@@ -18,9 +18,11 @@ It has been coded from scratch in C and C++ along with the following libraries:
 
 ****
 
-## Developed by: Sebastián Delgado Vargas
+## Developed by: Sebastián Delgado Vargas, Abraham David Diaz Garcia, Yeray Tarifa Mateo
 
-* Github: Vinskky (https://github.com/Vinskky)
+* Github Sebastián: Vinskky (https://github.com/Vinskky)
+* Github Abraham: Theran1 (https://github.com/Theran1)
+* Github Yeray: Yeray (https://github.com/yeraytm)
 * Repository: https://github.com/Vinskky/DaVinskky_Engine
 
 **Implemented features**
