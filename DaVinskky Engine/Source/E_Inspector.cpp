@@ -85,9 +85,9 @@ void E_Inspector::InspectorTransform(C_Transform* comp)
 		}
 
 		float3 rotation = RadToDeg(comp->GetLocalEulerRotation());
-		if (ImGui::DragFloat3("Rotation", (float*)&rotation, 0.05f, 0.0f, 0.0f, "%.3f", NULL))
+		if (ImGui::DragFloat3("Rotation", (float*)&rotation, 1.0f, 0.0f, 0.0f, "%.3f", NULL))
 		{
-			comp->SetLocalEulerRotation(DegToRad(rotation));
+			comp->SetLocalEulerRotation(rotation);
 		}
 
 		float3 scale = comp->GetScale();
