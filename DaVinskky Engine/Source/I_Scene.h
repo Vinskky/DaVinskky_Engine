@@ -20,9 +20,8 @@ namespace Importer
 	{
 		void Import(const char* path, std::vector<GameObject*>& gameObjects);
 
-		//Later when serialization...
-		//uint Save();
-		//bool Load();
+		bool Save(const char* name, std::vector<GameObject*> gameObjects);
+		bool Load(const char* name, std::vector<GameObject*>& gameObjects);
 
 		namespace Private
 		{

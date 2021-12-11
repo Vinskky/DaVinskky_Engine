@@ -66,7 +66,7 @@ void M_FileSystem::CreateLibraryDirectories()
 {
 	CreateDir(LIBRARY_PATH);
 	CreateDir(TEXTURES_PATH);
-	CreateDir(MODELS_PATH);
+	CreateDir(MESHES_PATH);
 }
 
 // Add a new zip file or folder

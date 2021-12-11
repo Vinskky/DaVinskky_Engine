@@ -23,12 +23,15 @@ public:
 
 	void GetMeshData(uint& numVertices, uint& numNormals, uint& numTexCoords, uint& numIndices);
 
+	void SetMeshPath(const char* path);
+	const char* GetMeshPath() const;
+
 	static inline COMPONENT_TYPE GetType() { return COMPONENT_TYPE::MESH; }
 private:
 	R_Mesh* rmesh = nullptr;
 	bool drawNormals = false;
+
+	std::string _path;
 };
 
-
 #endif // !_C_MESH_H_
-

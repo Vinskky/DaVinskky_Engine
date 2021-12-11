@@ -5,6 +5,8 @@
 #include "Globals.h"
 #include "Color.h"
 
+#include <string>
+
 class R_Texture;
 class R_Material;
 
@@ -22,13 +24,14 @@ public:
 	void SetMaterial(R_Material* rmaterial);
 	void SetTexture(R_Texture* rtexture);
 
-	
-
 	R_Texture* GetTexture()const;
 	bool UseDefaultTexture();
 	void SetDefaultTexture(bool text);
 	Color GetMaterialColour();
 	uint GetTextureID();
+
+	void SetTexturePath(const char* path);
+	const char* GetTexturePath() const;
 
 	static inline COMPONENT_TYPE GetType() { return COMPONENT_TYPE::MATERIAL; }
 private:
@@ -36,7 +39,7 @@ private:
 	R_Material* rmaterial = nullptr;
 	R_Texture* rtexture = nullptr;
 	bool debugTextEnabled;
-	
+	std::string _path;
 };
 
 

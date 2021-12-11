@@ -1,0 +1,110 @@
+{
+    "Game Objects": [
+        {
+            "name": "sceneRoot",
+            "active": true,
+            "Components": [
+                {
+                    "active": true,
+                    "type": "Transform",
+                    "position": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "rotation": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "RootNode",
+            "active": true,
+            "Components": [
+                {
+                    "active": true,
+                    "type": "Transform",
+                    "position": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "rotation": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Chimney",
+            "active": true,
+            "Components": [
+                {
+                    "active": true,
+                    "type": "Transform",
+                    "position": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "rotation": [
+                        -0.7071068286895752,
+                        0.0,
+                        0.0,
+                        0.7071067094802856
+                    ]
+                },
+                {
+                    "active": true,
+                    "type": "Mesh",
+                    "path": "Library/Meshes/Chimney.DaVMesh"
+                },
+                {
+                    "active": true,
+                    "type": "Material",
+                    "ID": 2,
+                    "path": "Assets/Textures/Baker_house.png"
+                }
+            ]
+        },
+        {
+            "name": "Baker_house",
+            "active": true,
+            "Components": [
+                {
+                    "active": true,
+                    "type": "Transform",
+                    "position": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "rotation": [
+                        -0.7071068286895752,
+                        0.0,
+                        0.0,
+                        0.7071067094802856
+                    ]
+                },
+                {
+                    "active": true,
+                    "type": "Mesh",
+                    "path": "Library/Meshes/Baker_house.DaVMesh"
+                },
+                {
+                    "active": true,
+                    "type": "Material",
+                    "ID": 3,
+                    "path": "Assets/Textures/Baker_house.png"
+                }
+            ]
+        }
+    ]
+}

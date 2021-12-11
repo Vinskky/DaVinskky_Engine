@@ -38,7 +38,6 @@ void log(const char file[], int line, const char* format, ...);
 #define RADTODEG 57.295779513082320876f
 #define HAVE_M_PI
 
-
 typedef unsigned int uint;
 typedef unsigned __int64 uint64;
 
@@ -61,12 +60,10 @@ enum update_status
 #define TITLE "DaVinskky Engine"
 #define ORGANIZATION "UPC"
 
-
-//Paths
-
+// Paths
 #define LIBRARY_PATH "Library/"
 #define TEXTURES_PATH "Library/Textures/"
-#define MODELS_PATH "Library/Models/"
-#define ASSET_TEXTURES_PATH "Assets/Textures/"
-
-
+#define MESHES_PATH "Library/Meshes/"
+#define SCENES_PATH "Library/Scenes/"
+#define ASSETS_MODELS_PATH "Assets/Models/"
+#define ASSETS_TEXTURES_PATH "Assets/Textures/"
