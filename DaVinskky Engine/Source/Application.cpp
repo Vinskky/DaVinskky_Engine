@@ -1,6 +1,5 @@
 #include "Application.h"
 #include "Config.h"
-#include "Globals.h"
 #include <shellapi.h>
 #include <string>
 #include <time.h>
@@ -84,7 +83,6 @@ bool Application::Init()
 	while(item != modules.end() && ret == true)
 	{
 		ret = (*item)->Start();
-		LOG("Ret = %d module: %s", ret, (*item)->GetName());
 		++item;
 	}
 

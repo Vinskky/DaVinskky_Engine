@@ -18,7 +18,10 @@
 #pragma comment (lib, "glu32.lib")    /* link OpenGL Utility lib     */
 #pragma comment (lib, "opengl32.lib") /* link Microsoft OpenGL lib   */
 
-ModuleRenderer3D::ModuleRenderer3D()
+ModuleRenderer3D::ModuleRenderer3D():Module(),
+wireframe(false),
+context(NULL),
+debugTextureId(0)
 {
 	SetName("Renderer");
 }

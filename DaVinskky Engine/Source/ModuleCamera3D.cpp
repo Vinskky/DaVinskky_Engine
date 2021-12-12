@@ -389,7 +389,7 @@ void ModuleCamera3D::Orbit(float dt)
 	float2 mouseMotion;
 	mouseMotion.x = app->input->GetMouseXMotion() * 10.0f;
 	mouseMotion.y = app->input->GetMouseYMotion() * 10.0f;
-	LOG("MouseX: %f MouseY: %f", mouseMotion.x, mouseMotion.y);
+	//LOG("MouseX: %f MouseY: %f", mouseMotion.x, mouseMotion.y);
 	float sensitivity = rotationSpeed * dt;
 
 	float3 newZ = frustum.Pos() - reference;
@@ -408,7 +408,7 @@ void ModuleCamera3D::Orbit(float dt)
 
 	float3 newPosition = newZ + reference;
 
-	LOG("NEW POS: { %.3f, %.3f, %.3f }", newPosition.x, newPosition.y, newPosition.z);
+	//LOG("NEW POS: { %.3f, %.3f, %.3f }", newPosition.x, newPosition.y, newPosition.z);
 
 	PointAt(newPosition, reference, true);
 }

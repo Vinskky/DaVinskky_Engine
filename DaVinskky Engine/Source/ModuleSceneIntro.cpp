@@ -21,7 +21,10 @@ cullingCamera(nullptr)
 }
 
 ModuleSceneIntro::~ModuleSceneIntro()
-{}
+{
+	sceneRoot->Clear();
+	RELEASE(sceneRoot);
+}
 
 // Load assets
 bool ModuleSceneIntro::Start()

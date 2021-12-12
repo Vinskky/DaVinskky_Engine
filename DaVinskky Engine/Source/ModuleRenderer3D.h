@@ -44,7 +44,7 @@ public:
 	mat3x3 normalMatrix;
 	mat4x4 modelMatrix, viewMatrix, projectionMatrix;
 	
-	bool wireframe = false;
+	bool wireframe;
 
 	uint debugTextureId;
 };
