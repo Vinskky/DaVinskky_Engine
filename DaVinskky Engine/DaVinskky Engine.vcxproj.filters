@@ -498,6 +498,12 @@
     <ClInclude Include="Source\C_Camera.h">
       <Filter>Sources\4. GameObjects\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Source\E_Load.h">
+      <Filter>Sources\2. Editor\Popouts</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\E_Save.h">
+      <Filter>Sources\2. Editor\Popouts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -751,6 +757,12 @@
     </ClCompile>
     <ClCompile Include="Source\C_Camera.cpp">
       <Filter>Sources\4. GameObjects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\E_Load.cpp">
+      <Filter>Sources\2. Editor\Popouts</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\E_Save.cpp">
+      <Filter>Sources\2. Editor\Popouts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

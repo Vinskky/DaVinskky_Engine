@@ -13,6 +13,8 @@ public:
 	bool CleanUp()override;
 
 	bool GetAboutWindowState()const;
+	bool GetSaveWindowState()const;
+	bool GetLoadWindowState()const;
 private:
 	bool FileMenu();
 	bool ViewMenu();
@@ -22,6 +24,8 @@ private:
 private:
 	bool showcase = false;
 	bool aboutWindow = false;
+	bool saveWindow = false;
+	bool loadWindow = false;
 	bool showConsole = true;
 	bool showConfig = true;
 };

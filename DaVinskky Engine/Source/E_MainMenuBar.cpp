@@ -6,7 +6,10 @@
 #include "E_MainMenuBar.h"
 #include "E_Configuration.h"
 #include "E_About.h"
+#include "E_Save.h"
+#include "E_Load.h"
 #include "GameObject.h"
+#include "I_Scene.h"
 
 E_MainMenuBar::E_MainMenuBar(const char* name, bool isActive): Editor("Main Menu")
 {
@@ -54,6 +57,18 @@ bool E_MainMenuBar::GetAboutWindowState() const
 }
 
 
+bool E_MainMenuBar::GetSaveWindowState() const
+{
+	return saveWindow;
+}
+
+
+bool E_MainMenuBar::GetLoadWindowState() const
+{
+	return loadWindow;
+}
+
+
 
 bool E_MainMenuBar::FileMenu()
 {
@@ -61,6 +76,33 @@ bool E_MainMenuBar::FileMenu()
 	
 	if (ImGui::BeginMenu("File"))
 	{
+
+		if (ImGui::MenuItem("Save Scene", "", saveWindow, true))
+		{
+			if (saveWindow)
+			{
+				app->editor->savePanel->Disable();
+			}
+			else
+			{
+				app->editor->savePanel->Enable();
+
+			}
+			saveWindow = !saveWindow;
+		}
+		if (ImGui::MenuItem("Load Scene", "", loadWindow, true))
+		{
+			if (loadWindow)
+			{
+				app->editor->loadPanel->Disable();
+			}
+			else
+			{
+				app->editor->loadPanel->Enable();
+
+			}
+			loadWindow = !loadWindow;
+		}
 		if (ImGui::MenuItem("Quit", "ESC"))
 		{
 			app->quit = true;

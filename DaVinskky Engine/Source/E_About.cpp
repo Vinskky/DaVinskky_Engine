@@ -34,7 +34,7 @@ bool E_About::CleanUp()
 bool E_About::AboutWindow()
 {
 	ImGui::Text("DaVinskky Engine V0.1\n");
-	ImGui::Text("Created by Sebastián Delgado\n");
+	ImGui::Text("Created by Sebastián Delgado, Abraham Diaz, Yeray Tarifa\n");
 	ImGui::Separator();
 	ImGui::Text("3rd Party Libraries used:\n");
 	ImGui::BulletText("SDL 2.06\n");

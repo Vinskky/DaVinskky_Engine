@@ -11,6 +11,8 @@
 #include "E_Configuration.h"
 #include "E_Console.h"
 #include "E_About.h"
+#include "E_Save.h"
+#include "E_Load.h"
 #include "E_Hierarchy.h"
 #include "E_Inspector.h"
 
@@ -26,6 +28,8 @@ mainMenuPanel(new E_MainMenuBar("Main Menu")),
 configPanel(new E_Configuration("Configuration")),
 consolePanel(new E_Console("Configuration")),
 aboutPanel(new E_About("About")),
+savePanel(new E_Save("Save Scene")),
+loadPanel(new E_Load("Load Scene")),
 hierarchy(new E_Hierarchy("Hierarchy")),
 inspector(new E_Inspector("Inspector"))
 {
@@ -35,6 +39,8 @@ inspector(new E_Inspector("Inspector"))
     AddEditorPanel(configPanel);
     AddEditorPanel(consolePanel);
     AddEditorPanel(aboutPanel);
+    AddEditorPanel(savePanel);
+    AddEditorPanel(loadPanel);
     AddEditorPanel(hierarchy);
     AddEditorPanel(inspector);
 }

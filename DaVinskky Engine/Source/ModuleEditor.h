@@ -13,6 +13,8 @@ class E_MainMenuBar;
 class E_Configuration;
 class E_Console;
 class E_About;
+class E_Save;
+class E_Load;
 class E_Hierarchy;
 class E_Inspector;
 
@@ -62,6 +64,8 @@ public:
 	E_Configuration* configPanel = nullptr;
 	E_Console* consolePanel = nullptr;
 	E_About* aboutPanel = nullptr;
+	E_Save* savePanel = nullptr;
+	E_Load* loadPanel = nullptr;
 	E_Hierarchy* hierarchy = nullptr;
 	E_Inspector* inspector = nullptr;
 
