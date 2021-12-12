@@ -11,9 +11,9 @@ It has been coded from scratch in C and C++ along with the following libraries:
 - [ImGui v1.83 (Docking Branch)](<https://github.com/ocornut/imgui/tree/docking>)
 - [MatGeoLib v1.5](<https://github.com/juj/MathGeoLib>)
 - [PhysFS v3.0.2](<https://icculus.org/physfs/>)
-- [Parson v1.1.0](<https://github.com/kgabis/parson>)
 - [Assimp v3.1.1](<http://www.assimp.org/index.php/downloads>)
 - [DevIL v1.8.0](<http://openil.sourceforge.net/download.php>)
+- [JSON for Modern C++ version 3.10.4(Single Include)](https://github.com/nlohmann/json/tree/develop/single_include/nlohmann)
 
 
 ****
@@ -34,6 +34,16 @@ It has been coded from scratch in C and C++ along with the following libraries:
 * Image Import
 * Drag & Drop Models and textures from a directory (Specifically those inside the Assets folder).
 * GameObject and Components structure
+
+**New**
+* You can Edit Values of GameObjects in the Inspector
+* Use of Hierarchy: You are able to delete, reparent, create empty and create children of the current Game Object
+* Use of Transform: translate, rotate and scale Game Objects.
+* Camera: A master camera is created by deafault, you are able to create a camera different from the Master Camera, edit its transform and position values and enable and disable "show frustum" and "frustum culling". 
+* Added the option to see an objects Bounding Box (AABB as well as OBB)
+* Meshes are saved as our own format (.DavMesh for meshes) under “Library/Meshes” folder
+* Serialization: You can Save And Load the Scene, It is Saved as a serialized Json File
+
 
 ****
 
