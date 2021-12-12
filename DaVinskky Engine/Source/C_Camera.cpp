@@ -4,6 +4,8 @@
 #include "C_Transform.h"
 #include "GameObject.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 #define NUM_FRUSTUM_PLANES 6
 #define NUM_FRUSTUM_VERTICES 8
 
@@ -27,8 +29,8 @@ updateMatrix(false)
 
 C_Camera::~C_Camera()
 {
-	delete[] frustumPlanes;
-	delete[] frustumVertices;
+	RELEASE_ARRAY(frustumPlanes);
+	RELEASE_ARRAY(frustumVertices);
 }
 
 void C_Camera::Update()

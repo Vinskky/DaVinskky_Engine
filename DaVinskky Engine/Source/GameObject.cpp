@@ -10,6 +10,9 @@
 #include "R_Mesh.h"
 #include "Globals.h"
 
+#include "External/mmgr/include/mmgr.h"
+
+
 GameObject::GameObject(bool active) :active(active)
 {
     transform = (C_Transform*)CreateComponent(COMPONENT_TYPE::TRANSFORM);
@@ -40,8 +43,8 @@ GameObject::GameObject(UINT32 uuid, bool active) :active(active)
 
 GameObject::~GameObject()
 {
-    delete[] aabbVertices;
-    delete[] obbVertices;
+    RELEASE_ARRAY(aabbVertices);
+    RELEASE_ARRAY(obbVertices);
 }
 
 void GameObject::Update()
@@ -188,7 +191,8 @@ void GameObject::DeleteChildren()
         {
             children[i]->parent = nullptr;
             //Recursive cleaning each child
-            children[i]->Clear();
+            children[i]->Clear(); 
+            RELEASE(children[i]);
         }
     }
 

@@ -76,6 +76,9 @@
     <Filter Include="Sources\2. Editor\Popouts">
       <UniqueIdentifier>{e18a68d6-8520-4d28-8e4d-0ecfe473c024}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependences\mmgr">
+      <UniqueIdentifier>{d4bcf5f0-e188-44e0-ad0d-0800a0db72db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Timer.h">
@@ -504,6 +507,12 @@
     <ClInclude Include="Source\E_Save.h">
       <Filter>Sources\2. Editor\Popouts</Filter>
     </ClInclude>
+    <ClInclude Include="Source\External\mmgr\include\mmgr.h">
+      <Filter>Dependences\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\mmgr\include\nommgr.h">
+      <Filter>Dependences\mmgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -763,6 +772,9 @@
     </ClCompile>
     <ClCompile Include="Source\E_Save.cpp">
       <Filter>Sources\2. Editor\Popouts</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\mmgr\include\mmgr.cpp">
+      <Filter>Dependences\mmgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -34,6 +34,8 @@ void Importer::Scene::Import(const char* path, std::vector<GameObject*>& gameObj
 
 	const aiScene* scene = aiImportFileFromMemory((const char*)buffer, read, aiProcessPreset_TargetRealtime_MaxQuality, nullptr);
 
+	RELEASE_ARRAY(buffer);
+
 	if (scene == nullptr || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 		return;
 

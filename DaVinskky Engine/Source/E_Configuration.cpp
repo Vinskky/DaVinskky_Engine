@@ -4,6 +4,8 @@
 #include "imgui.h"
 #include "E_Configuration.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 E_Configuration::E_Configuration( const char* name, bool isActive): Editor("Configuration")
 {
 	fps = 0;

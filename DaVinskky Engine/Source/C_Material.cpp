@@ -2,6 +2,9 @@
 #include "R_Material.h"
 #include "R_Texture.h"
 
+#include "External/mmgr/include/mmgr.h"
+
+
 C_Material::C_Material(GameObject* owner, bool debugTextEnabled): Component(owner,COMPONENT_TYPE::MATERIAL)
 {
 	this->debugTextEnabled = debugTextEnabled;

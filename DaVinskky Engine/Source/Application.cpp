@@ -6,6 +6,8 @@
 
 #include "JsonFile.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 Application::Application(int argc, char** argv) : argc(argc), argv(argv)
 {
 	fileSystem = new M_FileSystem();

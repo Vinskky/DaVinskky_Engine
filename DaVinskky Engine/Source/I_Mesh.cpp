@@ -4,6 +4,8 @@
 #include "R_Mesh.h"
 #include <fstream>
 
+#include "External/mmgr/include/mmgr.h"
+
 bool Importer::Mesh::Import(const aiMesh* aimesh, R_Mesh* rmesh)
 {
 	bool ret = true;

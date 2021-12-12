@@ -10,6 +10,8 @@
 #include "cfileio.h"
 #include "types.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 //#pragma comment( lib, "PhysFS/libx86/physfs.lib" )
 
 M_FileSystem::M_FileSystem(bool start_enabled) : Module()

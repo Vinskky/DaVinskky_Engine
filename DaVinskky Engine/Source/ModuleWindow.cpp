@@ -2,6 +2,9 @@
 #include "Application.h"
 #include "ModuleWindow.h"
 
+#include "External/mmgr/include/mmgr.h"
+
+
 ModuleWindow::ModuleWindow()
 {
 	SetName("Window");

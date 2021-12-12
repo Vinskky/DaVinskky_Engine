@@ -3,6 +3,8 @@
 #include "Globals.h"
 #include "GameObject.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 C_Transform::C_Transform(GameObject* owner): Component(owner, COMPONENT_TYPE::TRANSFORM)
 {
 	updateWorld = false;

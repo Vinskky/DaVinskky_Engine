@@ -6,6 +6,8 @@
 #include "External/DevIL/include/ilut.h"
 #include "R_Texture.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 void Importer::Texture::Init()
 {
 	if (ilGetInteger(IL_VERSION_NUM) < IL_VERSION || ilGetInteger(ILU_VERSION_NUM) < ILU_VERSION || ilGetInteger(ILUT_VERSION_NUM) < ILUT_VERSION)
@@ -110,6 +112,8 @@ bool Importer::Texture::Import(const char* path, R_Texture* rtexture)
 	}
 
 	ilDeleteImages(1, &ilImage);
+
+	RELEASE_ARRAY(buffer);
 
 	return ret;
 }

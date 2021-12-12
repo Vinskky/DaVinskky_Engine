@@ -5,6 +5,8 @@
 #include "ModuleSceneIntro.h"
 #include <vector>
 
+#include "External/mmgr/include/mmgr.h"
+
 E_Hierarchy::E_Hierarchy(const char* name, bool isActive): Editor("Hierachy")
 {
 	payload = "DraggedNode";

@@ -7,6 +7,8 @@
 #include "C_Material.h"
 #include "C_Camera.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 E_Inspector::E_Inspector(const char* name, bool isActive):Editor("Inspector"),
 componentType(0)
 {

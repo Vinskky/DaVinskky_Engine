@@ -1,6 +1,8 @@
 #include "Application.h"
 #include "E_Console.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 E_Console::E_Console( const char* name, bool isActive): Editor("Console")
 {
 }

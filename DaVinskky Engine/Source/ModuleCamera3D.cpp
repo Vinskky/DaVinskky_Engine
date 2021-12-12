@@ -9,6 +9,8 @@
 #include "C_Transform.h"
 #include "GameObject.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 #define MOVEMENT_SPEED 24.0f
 #define ROTATION_SPEED 0.05f
 #define ZOOM_SPEED 300.0f

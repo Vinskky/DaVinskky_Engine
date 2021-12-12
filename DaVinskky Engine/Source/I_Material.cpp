@@ -3,6 +3,8 @@
 #include "I_Material.h"
 #include "R_Material.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 bool Importer::Material::Import(const aiMaterial* aimat, R_Material* rmat)
 {
 	if (aimat == nullptr)

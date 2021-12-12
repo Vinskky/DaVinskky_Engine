@@ -9,6 +9,8 @@
 #include "C_Material.h"
 #include <string>
 
+#include "External/mmgr/include/mmgr.h"
+
 #define MAX_KEYS 300
 
 ModuleInput::ModuleInput()

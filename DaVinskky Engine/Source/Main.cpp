@@ -2,6 +2,8 @@
 #include "Application.h"
 #include "Globals.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 #include "External/SDL/include/SDL.h"
 //#pragma comment( lib, "Source/External/SDL/libx86/SDL2.lib" )
 //#pragma comment( lib, "Source/External/SDL/libx86/SDL2main.lib" )

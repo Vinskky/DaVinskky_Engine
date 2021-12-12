@@ -24,6 +24,7 @@ ModuleSceneIntro::~ModuleSceneIntro()
 {
 	sceneRoot->Clear();
 	RELEASE(sceneRoot);
+	sceneGameObjects.clear();
 }
 
 // Load assets
