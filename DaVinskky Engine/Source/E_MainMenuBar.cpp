@@ -15,6 +15,13 @@
 
 E_MainMenuBar::E_MainMenuBar(const char* name, bool isActive): Editor("Main Menu")
 {
+	saveWindow = false;
+	loadWindow = false;
+
+	showcase = false;
+	aboutWindow = false;
+	showConsole = true;
+	showConfig = true;
 }
 
 E_MainMenuBar::~E_MainMenuBar()
@@ -24,8 +31,6 @@ E_MainMenuBar::~E_MainMenuBar()
 bool E_MainMenuBar::Draw(ImGuiIO& io)
 {
 	bool ret = true;
-	
-	
 
 	ImGui::BeginMainMenuBar();
 
@@ -58,19 +63,15 @@ bool E_MainMenuBar::GetAboutWindowState() const
 	return aboutWindow;
 }
 
-
 bool E_MainMenuBar::GetSaveWindowState() const
 {
 	return saveWindow;
 }
 
-
 bool E_MainMenuBar::GetLoadWindowState() const
 {
 	return loadWindow;
 }
-
-
 
 bool E_MainMenuBar::FileMenu()
 {
@@ -201,12 +202,9 @@ bool E_MainMenuBar::CreateMenu()
 			//Creating a game object empty means that only will have Component transform.
 			//We should keep in mind the parent. (rootscene or game object selected?)
 			app->sceneIntro->CreateGameObject("Empty", app->sceneIntro->sceneRoot);
-			
 		}
-
 		ImGui::EndMenu();
 	}
-
 
 	return ret;
 }

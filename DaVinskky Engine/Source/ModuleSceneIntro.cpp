@@ -16,7 +16,7 @@ cullingCamera(nullptr)
 {
 	SetName("Scene");
 	sceneRoot = new GameObject(0, true);
-	sceneRoot->SetName("sceneRoot");
+	sceneRoot->SetName("MainScene");
 	sceneRoot->SetParentUUID(sceneRoot->GetUUID());
 	selectedGameObj = sceneRoot;
 	sceneGameObjects.push_back(sceneRoot);

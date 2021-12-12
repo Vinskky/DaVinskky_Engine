@@ -21,11 +21,13 @@ private:
 	bool HelpMenu();
 	bool CreateMenu();
 
+public:
+	bool saveWindow = false;
+	bool loadWindow = false;
+
 private:
 	bool showcase = false;
 	bool aboutWindow = false;
-	bool saveWindow = false;
-	bool loadWindow = false;
 	bool showConsole = true;
 	bool showConfig = true;
 };
