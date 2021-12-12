@@ -6,6 +6,8 @@
 class C_Transform;
 class C_Mesh;
 class C_Material;
+class C_Camera;
+class GameObject;
 
 class E_Inspector : public Editor
 {
@@ -20,12 +22,17 @@ private:
 	void InspectorTransform(C_Transform* comp);
 	void InspectorMesh(C_Mesh* comp);
 	void InspectorMaterialTexture(C_Material* comp);
+	void InspectorCamera(C_Camera* comp);
+
+	void AddComponentComboBox(GameObject* selectedObj);
 
 public:
 	float3 position;
 	float3 rotation;
 	float3 scale;
 
+private:
+	int componentType;
 };
 
 #endif

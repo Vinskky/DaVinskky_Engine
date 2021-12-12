@@ -1,3 +1,5 @@
+#include "Application.h"
+#include "ModuleRenderer3D.h"
 #include "C_Camera.h"
 #include "C_Transform.h"
 #include "GameObject.h"
@@ -32,6 +34,8 @@ C_Camera::~C_Camera()
 void C_Camera::Update()
 {
 	this->GetOwner()->transform->GetWorldTransform();
+	if (hideFrustum)
+		app->renderer3D->DrawCuboid(this->frustumVertices, Color(0.0f, 0.0f, 1.0f, 1.0f));
 }
 
 bool C_Camera::CleanUp()

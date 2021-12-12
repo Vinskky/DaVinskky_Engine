@@ -14,7 +14,7 @@ private :
 	char* name;
 public:
 
-	Module(): enabled(false)
+	Module(): enabled(false),name(nullptr)
 	{}
 
 	virtual ~Module()

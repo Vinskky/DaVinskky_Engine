@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "ModuleSceneIntro.h"
+#include "ModuleRenderer3D.h"
 #include "GameObject.h"
 #include "C_Transform.h"
 #include "C_Material.h"
@@ -17,6 +18,10 @@ GameObject::GameObject(bool active) :active(active)
     LCG randomGen;
     uuid = randomGen.Int();
     LOG("%d", uuid);
+
+    showBoundingBoxes = false;
+    obbVertices = new float3[8];
+    aabbVertices = new float3[8];
 }
 
 GameObject::GameObject(UINT32 uuid, bool active) :active(active)
@@ -25,11 +30,17 @@ GameObject::GameObject(UINT32 uuid, bool active) :active(active)
     aabb.SetNegativeInfinity();
     obb.SetNegativeInfinity();
 
+    showBoundingBoxes = false;
+    obbVertices = new float3[8];
+    aabbVertices = new float3[8];
+
     this->uuid = uuid;
 }
 
 GameObject::~GameObject()
 {
+    delete[] aabbVertices;
+    delete[] obbVertices;
 }
 
 void GameObject::Update()
@@ -44,7 +55,16 @@ void GameObject::Update()
     }
 
     //Bounding boxes Update
+    if (showBoundingBoxes)
+    {
+        UpdateBoundingBoxes();
 
+        obb.GetCornerPoints(obbVertices);
+        aabb.GetCornerPoints(aabbVertices);
+
+        app->renderer3D->DrawCuboid(obbVertices, Color(1.0f, 0.0f, 0.0f, 1.0f));
+        app->renderer3D->DrawCuboid(aabbVertices, Color(0.0f, 1.0f, 0.0f, 1.0f));
+    }
 }
 
 Component* GameObject::CreateComponent(COMPONENT_TYPE type)

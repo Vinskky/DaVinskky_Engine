@@ -37,6 +37,8 @@ public:
 
 	void DrawWorldGrid(int nGrids);
 
+	void DrawCuboid(float3* vertex, Color color);
+
 public:
 
 	Light lights[MAX_LIGHTS];

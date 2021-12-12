@@ -5,8 +5,10 @@
 #include "C_Transform.h"
 #include "C_Mesh.h"
 #include "C_Material.h"
+#include "C_Camera.h"
 
-E_Inspector::E_Inspector(const char* name, bool isActive):Editor("Inspector")
+E_Inspector::E_Inspector(const char* name, bool isActive):Editor("Inspector"),
+componentType(0)
 {
 	position = float3::zero;
 	rotation = float3::zero;
@@ -41,10 +43,15 @@ bool E_Inspector::Draw(ImGuiIO& io)
 			case COMPONENT_TYPE::TRANSFORM: { InspectorTransform((C_Transform*)tComp); }break;
 			case COMPONENT_TYPE::MESH: { InspectorMesh((C_Mesh*)tComp); }break;
 			case COMPONENT_TYPE::MATERIAL: {InspectorMaterialTexture((C_Material*)tComp); }break;
+			case COMPONENT_TYPE::CAMERA: {InspectorCamera((C_Camera*)tComp); }break;
 			default:
 				break;
 			}
 		}
+		
+		ImGui::Separator();
+
+		AddComponentComboBox(tmp);
 	}
 
 	ImGui::End();
@@ -114,15 +121,24 @@ void E_Inspector::InspectorMesh(C_Mesh* comp)
 			comp->SetIsActive(active);
 		}
 		ImGui::Separator();
+
 		ImGui::Text("Triangles: %i",nVertices/3);
 		ImGui::Text("Indices: %i",nIndices);
 		ImGui::Text("Vertices: %i",nVertices);
+
 		ImGui::Separator();
 		//checkers: show vertex && normals.
 		bool debug = comp->GetDrawNormals();
 		if (ImGui::Checkbox("Draw Normals", &debug))
 		{
 			comp->SetDrawNormals(debug);
+		}
+
+		ImGui::Separator();
+		bool drawBoundingBox = comp->GetOwner()->showBoundingBoxes;
+		if (ImGui::Checkbox("Draw BoundingBox", &drawBoundingBox))
+		{
+			comp->GetOwner()->showBoundingBoxes = drawBoundingBox;
 		}
 	}
 }
@@ -138,5 +154,91 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 			comp->SetDefaultTexture(dftText);
 		}
 		
+	}
+}
+
+void E_Inspector::InspectorCamera(C_Camera* comp)
+{
+	if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_DefaultOpen))
+	{
+		if (comp != nullptr)
+		{
+			bool cameraIsActive = comp->IsActive();
+			if (ImGui::Checkbox("Active", &cameraIsActive))
+			{
+				comp->SetIsActive(cameraIsActive);
+			}
+
+			ImGui::Separator();
+
+			ImGui::TextColored(ImVec4(0.0f, 1.0f, 1.0f, 1.0f), "Camera Flags:");
+
+			bool cameraIsCulling = comp->IsCulling();
+			if (ImGui::Checkbox("Culling", &cameraIsCulling))
+			{
+				comp->SetIsCulling(cameraIsCulling);
+			}
+
+			bool frustumIsHidden = comp->FrustumIsHidden();
+			if (ImGui::Checkbox("Show Frustum", &frustumIsHidden))
+			{
+				comp->SetFrustumIsHidden(frustumIsHidden);
+			}
+
+			ImGui::Separator();
+
+			ImGui::TextColored(ImVec4(0.0f, 1.0f, 1.0f, 1.0f), "Frustum Settings:");
+
+			float nearPlaneDistance = comp->GetNearPlaneDistance();
+			if (ImGui::SliderFloat("Near Plane", &nearPlaneDistance, 0.1f, 1000.0f, "%.3f", 0))
+			{
+				comp->SetNearPlaneDistance(nearPlaneDistance);
+			}
+
+			float farPlaneDistance = comp->GetFarPlaneDistance();
+			if (ImGui::SliderFloat("Far Plane", &farPlaneDistance, 0.1f, 1000.0f, "%.3f", 0))
+			{
+				comp->SetFarPlaneDistance(farPlaneDistance);
+			}
+
+			int fov = (int)comp->GetVerticalFOV();
+			uint minFov = 0;
+			uint maxFov = 0;
+			comp->GetMinMaxFOV(minFov, maxFov);
+			if (ImGui::SliderInt("FOV", &fov, minFov, maxFov, "%d"))
+			{
+				comp->SetVerticalFOV((float)fov);
+			}
+
+			ImGui::Separator();
+
+			ImGui::TextColored(ImVec4(0.0f, 1.0f, 1.0f, 1.0f), "Camera Selection:");
+
+			if (ImGui::Button("Set as Current Camera"))
+			{
+				app->camera->SetCurrentCamera(comp);
+			}
+
+			/*if (ImGui::Button("Return to Master Camera"))
+			{
+				app->camera->SetMasterAsCurrentCam();
+			}*/
+
+		}
+	}
+}
+
+void E_Inspector::AddComponentComboBox(GameObject* selectedObj)
+{
+	ImGui::Combo("##", &componentType, "Add Component\0Transform\0Mesh\0Material\0Camera");
+
+	ImGui::SameLine();
+
+	if ((ImGui::Button("ADD")))
+	{
+		if (componentType != (int)COMPONENT_TYPE::NONE)
+		{
+			selectedObj->CreateComponent((COMPONENT_TYPE)componentType);
+		}
 	}
 }

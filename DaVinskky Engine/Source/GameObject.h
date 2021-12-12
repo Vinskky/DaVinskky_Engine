@@ -94,6 +94,10 @@ public:
 	//Bounding boxes
 	AABB aabb;
 	OBB obb;
+	bool showBoundingBoxes;
+	float3* obbVertices;
+	float3* aabbVertices;
+
 };
 
 
