@@ -16,16 +16,17 @@ It has been coded from scratch in C and C++ along with the following libraries:
 - [PhysFS v3.0.2](<https://icculus.org/physfs/>)
 - [JSON for Modern C++ version 3.10.4 (Single Include)](https://github.com/nlohmann/json/tree/develop/single_include/nlohmann)
 
+****
+
+## Developed by: 
+* Sebastián Delgado Vargas: Vinskky (https://github.com/Vinskky)
+* Abraham David Diaz Garcia: Theran1 (https://github.com/Theran1)
+* Yeray Tarifa Mateo: yeraytm (https://github.com/yeraytm)
+* Repository: https://github.com/Vinskky/DaVinskky_Engine
 
 ****
 
-## Developed by: Sebastián Delgado Vargas, Abraham David Diaz Garcia, Yeray Tarifa Mateo
-
-* Github Sebastián: Vinskky (https://github.com/Vinskky)
-* Github Abraham: Theran1 (https://github.com/Theran1)
-* Github Yeray: Yeray (https://github.com/yeraytm)
-* Repository: https://github.com/Vinskky/DaVinskky_Engine
-
+## Overview
 **Implemented features**
 
 * Library Integrations.
@@ -45,17 +46,12 @@ It has been coded from scratch in C and C++ along with the following libraries:
 * Meshes are saved as our own format (.DavMesh for meshes) under “Library/Meshes” folder
 * Serialization: You can Save And Load the Scene, It is Saved as a serialized Json File
 
-
-****
-
-### Engine Features
-
+**Engine Features**
 * **Main Menu Toolbar:** Allows to show/hide some editor panels, go to URL links, and close the application.
 * **Configuration Panel:** Allow us to modify some parameters from existing modules.
 * **Hierarchy Panel:** Shows all GameObjects on the scene with the parenting working as an ImGui TreeNode.
 * **Console Panel:** Help us to identify what is going on in the engine through messages.
 * **Inspector Panel:** Once selected a GameObject on the Hierarchy panel, allow us to see if the GameObject selected has certain components. (For the moment is only visual)
-
 
 ****
 
@@ -66,16 +62,20 @@ It has been coded from scratch in C and C++ along with the following libraries:
 No previous installation is required. Download the latest [RELEASE](<https://github.com/Vinskky/DaVinskky_Engine/releases>) from the repository and execute the 
 "DaVinskky Engine.exe" executable, which you will find in the "DaVinskky Engine" folder.
 
+### Input Text Box
+When writting text into a Text Box, you must have selected the box itself and press ENTER whenever you want to set that text. Once ENTER has been pressed, the corresponding text will be saved successfully.
 
+#### Loading & Saving Scenes
+Whenever you want to load or save an scene, just write the name of the .json file you want to set. The extension will be used properly by the engine.
 
 ### Camera Controls
 
-#### **MOUSE**
+#### MOUSE
 
 * **Mouse Wheel:** Moves the camera forwards or backwards in its X axis.
 * **Left Alt + Left Click**: Rotate around a reference point.
 
-**KEYBOARD**
+#### KEYBOARD
 
 * **W Key:** Moves the camera forwards.
 * **A Key:** Strafes the camera to the left.
@@ -84,5 +84,3 @@ No previous installation is required. Download the latest [RELEASE](<https://git
 * **Q Key:** Moves the camera vertically.
 * **E Key:** Moves the camera vertically.
 * **SHIFT Key:** Increase the camera's movement speed.
-
-
