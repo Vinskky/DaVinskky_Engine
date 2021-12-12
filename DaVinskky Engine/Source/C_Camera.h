@@ -49,7 +49,7 @@ public:
 public:
 	//FRUSTUM SETTINGS
 	float GetAspectRatio()const;
-	void SetApectRatio(float aspectRatio);
+	void SetAspectRatio(float aspectRatio);
 
 	float GetNearPlaneDistance()const;
 	float GetFarPlaneDistance()const;

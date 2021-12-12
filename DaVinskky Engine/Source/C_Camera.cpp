@@ -31,6 +31,7 @@ C_Camera::~C_Camera()
 
 void C_Camera::Update()
 {
+	this->GetOwner()->transform->GetWorldTransform();
 }
 
 bool C_Camera::CleanUp()
@@ -130,12 +131,12 @@ void C_Camera::Rotate(const float3x3& rotationMatrix)
 
 void C_Camera::SetPosition(const float3& position)
 {
-	this->GetOwner()->GetComponent<C_Transform>()->SetPosition(position.x, position.y, position.z);
+	this->GetOwner()->GetComponent<C_Transform>()->SetWorldPosition(position);
 }
 
 bool C_Camera::IsCulling() const
 {
-	return IsCulling;
+	return this->isCulling;
 }
 
 bool C_Camera::FrustumIsHidden() const
@@ -244,7 +245,7 @@ float C_Camera::GetAspectRatio() const
 	return frustum.AspectRatio();
 }
 
-void C_Camera::SetApectRatio(float aspectRatio)
+void C_Camera::SetAspectRatio(float aspectRatio)
 {
 	frustum.SetHorizontalFovAndAspectRatio(frustum.HorizontalFov(), aspectRatio);
 

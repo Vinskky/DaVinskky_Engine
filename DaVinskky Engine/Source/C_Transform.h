@@ -43,6 +43,11 @@ public:
 
 	void SetChildsAsDirty();
 
+	void SetWorldPosition(const float3& new_position);
+	void SetWorldRotation(const Quat& new_rotation);
+	void SetWorldRotation(const float3& new_rotation);
+	void SetWorldScale(const float3& new_scale);
+
 private:
 	void UpdateLocalTransform();
 	void UpdateWorldTransform();

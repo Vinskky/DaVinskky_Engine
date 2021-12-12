@@ -27,6 +27,7 @@ public:
 	void GetWindowsSize(SDL_Window* window, int& width, int& height);
 	void SetWindowSize(uint width, uint height);
 
+
 public:
 	//The window we'll be rendering to
 	SDL_Window* window;

@@ -6,6 +6,7 @@
 #include "R_Mesh.h"
 #include "C_Material.h"
 #include "C_Transform.h"
+#include "C_Camera.h"
 #include "C_Mesh.h"
 #include "GameObject.h"
 #include "External/Glew/include/glew.h"
@@ -130,7 +131,7 @@ bool ModuleRenderer3D::Init()
 	}
 
 	// Projection matrix for
-	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
+	OnResize();
 
 	Importer::Texture::Init();
 	LoadDebugTexture();
@@ -145,10 +146,22 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf(app->camera->GetViewMatrix());
+	
+	C_Camera* currentCam = app->camera->GetCurrentCamera();
+	if (currentCam != nullptr)
+	{
+		if (currentCam->updateMatrix)
+		{
+			RecalculateProjectionMatrix();
+			currentCam->updateMatrix = false;
+		}
+	}
+
+	glLoadMatrixf((GLfloat*)app->camera->GetCurrentCamera()->GetOpenGLViewMatrix());
 
 	// light 0 on cam pos
-	lights[0].SetPos(app->camera->position.x, app->camera->position.y, app->camera->position.z);
+	float3 camPosition = (app->camera->GetCurrentCamera() != nullptr) ? app->camera->GetPosition() : float3(0.0f, 20.0f, 0.0f);
+	lights[0].SetPos(camPosition.x, camPosition.y, camPosition.z);
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
@@ -159,6 +172,8 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 update_status ModuleRenderer3D::Update(float dt)
 {
 	update_status ret = update_status::UPDATE_CONTINUE;
+
+	DrawWorldGrid(64);
 
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 	{
@@ -185,9 +200,11 @@ update_status ModuleRenderer3D::Update(float dt)
 // PostUpdate present buffer to screen
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
-
+	
+	
 	SDL_GL_SwapWindow(app->window->window);
 	
+
 	return UPDATE_CONTINUE;
 }
 
@@ -204,17 +221,27 @@ bool ModuleRenderer3D::CleanUp()
 	return true;
 }
 
-void ModuleRenderer3D::OnResize(int width, int height)
+void ModuleRenderer3D::OnResize()
 {
-	glViewport(0, 0, width, height);
+	int winWidth;
+	int winHeight;
+	
+	app->window->GetWindowsSize(app->window->window, winWidth, winHeight);
 
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	projectionMatrix = perspective(60.0f, (float)width / (float)height, 0.125f, 512.0f);
-	glLoadMatrixf(&projectionMatrix);
 
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	glViewport(0, 0, (GLsizei)winWidth, (GLsizei)winHeight);
+
+	if (app->camera->GetCurrentCamera() != nullptr)
+	{
+		app->camera->GetCurrentCamera()->SetAspectRatio((float)winWidth / (float)winHeight);
+	}
+	else
+	{
+		LOG("Renderer 3D: Could not recalculate aspect ratio!! Error: Current camera was nullptr");
+	}
+
+	RecalculateProjectionMatrix();
+
 }
 
 void ModuleRenderer3D::DrawMesh(C_Mesh* mesh, C_Material* cmaterial)
@@ -325,6 +352,45 @@ void ModuleRenderer3D::LoadDebugTexture()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, CHECKERS_WIDTH, CHECKERS_HEIGHT,
 		0, GL_RGBA, GL_UNSIGNED_BYTE, checkerImage);
+}
+
+void ModuleRenderer3D::RecalculateProjectionMatrix()
+{
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	if (app->camera->GetCurrentCamera() != nullptr)
+	{
+		glLoadMatrixf((GLfloat*)app->camera->GetCurrentCamera()->GetOpenGLProjectionMatrix());
+	}
+	else
+	{
+		LOG("Renderer 3D: Could not recalculate aspect ratio!! Error: Current camera was nullptr");
+	}
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+
+void ModuleRenderer3D::DrawWorldGrid(int nGrids)
+{
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	glLineWidth(2.0f);
+	glBegin(GL_LINES);
+
+	float destination = (float)nGrids;
+
+	for (float origin = -destination; origin <= destination; origin += 1.0f)
+	{
+		glVertex3f(origin, 0.0f, -destination);
+		glVertex3f(origin, 0.0f, destination);
+		glVertex3f(-destination, 0.0f, origin);
+		glVertex3f(destination, 0.0f, origin);
+	}
+
+	glEnd();
+	glLineWidth(1.0f);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
 

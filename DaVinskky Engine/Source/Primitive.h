@@ -84,7 +84,7 @@ public:
 };
 
 // ============================================
-class Plane : public Primitive
+/*class Plane : public Primitive
 {
 public:
 	Plane();
@@ -93,7 +93,7 @@ public:
 public:
 	vec3 normal;
 	float constant;
-};
+};*/
 
 #endif // !_PRIMITIVE_H_
 

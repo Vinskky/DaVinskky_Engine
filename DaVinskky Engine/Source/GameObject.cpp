@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "C_Transform.h"
 #include "C_Material.h"
+#include "C_Camera.h"
 #include "C_Mesh.h"
 #include "R_Mesh.h"
 #include "Globals.h"
@@ -70,6 +71,8 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type)
     case COMPONENT_TYPE::MESH: { component = new C_Mesh(this); }
         break;
     case COMPONENT_TYPE::MATERIAL: { component = new C_Material(this); }
+        break;
+    case COMPONENT_TYPE::CAMERA: { component = new C_Camera(this); }
         break;
     default:
         break;

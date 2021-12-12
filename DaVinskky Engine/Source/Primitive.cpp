@@ -245,7 +245,7 @@ void Line::InnerRender() const
 }
 
 // PLANE ==================================================
-Plane::Plane() : Primitive(), normal(0, 1, 0), constant(1)
+/*Plane::Plane() : Primitive(), normal(0, 1, 0), constant(1)
 {
 	type = PrimitiveTypes::Primitive_Plane;
 }
@@ -272,4 +272,4 @@ void Plane::InnerRender() const
 	}
 
 	glEnd();
-}
+}*/

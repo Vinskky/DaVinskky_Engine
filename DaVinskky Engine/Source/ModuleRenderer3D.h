@@ -26,12 +26,16 @@ public:
 	update_status PostUpdate(float dt);
 	bool CleanUp();
 
-	void OnResize(int width, int height);
+	void OnResize();
 
 	void DrawMesh(C_Mesh* mesh, C_Material* cmaterial);
 
 	void DebugDrawNormals(R_Mesh* mesh);
 	void LoadDebugTexture();
+
+	void RecalculateProjectionMatrix();
+
+	void DrawWorldGrid(int nGrids);
 
 public:
 

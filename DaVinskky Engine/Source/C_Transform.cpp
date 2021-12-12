@@ -1,4 +1,5 @@
 #include "C_Transform.h"
+#include "C_Camera.h"
 #include "Globals.h"
 #include "GameObject.h"
 
@@ -142,6 +143,43 @@ void C_Transform::SetChildsAsDirty()
 	}
 }
 
+void C_Transform::SetWorldPosition(const float3& newPosition)
+{
+	worldTransform.SetTranslatePart(newPosition);
+
+	SyncLocalToWorld();
+}
+
+void C_Transform::SetWorldRotation(const Quat& newRotation)
+{
+	worldTransform.SetRotatePart(newRotation);
+
+	SyncLocalToWorld();
+}
+
+void C_Transform::SetWorldRotation(const float3& new_rotation)
+{
+	worldTransform.SetRotatePart(Quat::FromEulerXYZ(new_rotation.x, new_rotation.y, new_rotation.z));
+
+	SyncLocalToWorld();
+}
+
+void C_Transform::SetWorldScale(const float3& newScale)
+{
+	worldTransform.Scale(worldTransform.GetScale().Neg());
+
+	if (newScale.x == 0.0f || newScale.y == 0.0f || newScale.z == 0.0f)
+	{
+		worldTransform.Scale(float3(0.1f, 0.1f, 0.1f));
+	}
+	else
+	{
+		worldTransform.Scale(newScale);
+	}
+
+	SyncLocalToWorld();
+}
+
 void C_Transform::UpdateLocalTransform()
 {
 	localTransform = float4x4::FromTRS(position, rotation, scale);
@@ -159,11 +197,11 @@ void C_Transform::UpdateWorldTransform()
 
 	updateWorld = false;
 
-	/*C_Camera* c_camera = owner->GetComponent<C_Camera>();
+	C_Camera* c_camera = owner->GetComponent<C_Camera>();
 	if (c_camera != nullptr)
 	{
 		c_camera->UpdateFrustumTransform();
-	}*/
+	}
 }
 
 void C_Transform::SyncLocalToWorld()
@@ -176,11 +214,11 @@ void C_Transform::SyncLocalToWorld()
 
 	SetChildsAsDirty();
 
-	/*C_Camera* cCamera = owner->GetComponent<C_Camera>();
+	C_Camera* cCamera = owner->GetComponent<C_Camera>();
 	if (cCamera != nullptr)
 	{
 		cCamera->UpdateFrustumTransform();
-	}*/
+	}
 
 }
 
