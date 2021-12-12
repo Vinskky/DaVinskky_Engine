@@ -6,6 +6,7 @@
 #include "External/MathGeoLib/include/Math/float3x3.h"
 #include "External/MathGeoLib/include/Math/float3.h"
 #include "External/MathGeoLib/include/Math/Quat.h"
+#include "External/MathGeoLib/include/Algorithm/Random/LCG.h"
 
 struct mathTransform
 {

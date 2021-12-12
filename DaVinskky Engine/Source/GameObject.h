@@ -13,6 +13,7 @@ class GameObject
 {
 public:
 	GameObject(bool active = true);
+	GameObject(UINT32 uuid, bool active = true);
 	~GameObject();
 
 	void Update();
@@ -57,7 +58,11 @@ public:
 
 	void SetName(const char* str);
 	const char* GetName()const;
-	
+
+	UINT32 GetUUID() const;
+	UINT32 GetParentUUID() const;
+	void SetParentUUID(UINT32 uuid);
+
 	bool IsActive()const;
 
 	void SetParent(GameObject* parent);
@@ -76,6 +81,8 @@ public:
 private:
 	std::string name;
 	bool active;
+	UINT32 uuid;
+	UINT32 parentUUID;
 
 public:
 	C_Transform* transform = nullptr;

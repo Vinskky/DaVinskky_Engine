@@ -12,6 +12,7 @@ ModuleSceneIntro::ModuleSceneIntro()
 	SetName("Scene");
 	sceneRoot = new GameObject();
 	sceneRoot->SetName("sceneRoot");
+	sceneRoot->SetParentUUID(sceneRoot->GetUUID());
 	selectedGameObj = sceneRoot;
 	sceneGameObjects.push_back(sceneRoot);
 }
@@ -25,7 +26,8 @@ bool ModuleSceneIntro::Start()
 	bool ret = false;
 
 	Importer::Scene::Import("Assets/Models/BakerHouse.fbx", sceneGameObjects);
-	ret = Importer::Scene::Save("SampleScene", sceneGameObjects);
+	//ret = Importer::Scene::Save("SampleScene", sceneGameObjects);
+	//ret = Importer::Scene::Load("SampleScene", sceneGameObjects, sceneGameObjects[0]);
 	//Importer::Scene::Import("Assets/Models/warrior.fbx", sceneGameObjects);
 
 	LOG("Loading Intro assets");

@@ -48,11 +48,14 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 	JsonFile sceneJson;
 	// We start setting gameobjects, including the object for the root scene:
 	sceneJson.file["Game Objects"] = json::array(); // Start filling the array for it (as the slides explain)
-	for (std::vector<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end(); goIt++)
+	for (std::vector<GameObject*>::iterator goIt = gameObjects.begin() + 1; goIt != gameObjects.end(); goIt++)
 	{
 		json jsonGO;
 		jsonGO["name"] = (*goIt)->GetName();
+		const char* name = (*goIt)->GetName();
 		jsonGO["active"] = (*goIt)->IsActive();
+		jsonGO["uuid"] = (*goIt)->GetUUID();
+		jsonGO["parentUUID"] = (*goIt)->GetParentUUID();
 
 		// We start setting its components in another array:
 		jsonGO["Components"] = json::array();
@@ -73,7 +76,7 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 				jsonComp["type"] = "Transform";
 				jsonComp["position"] = { transformComp.GetPosition().x, transformComp.GetPosition().y, transformComp.GetPosition().z };
 				jsonComp["rotation"] = { transformComp.GetRotation().x, transformComp.GetRotation().y, transformComp.GetRotation().z, transformComp.GetRotation().w };
-				jsonComp["position"] = { transformComp.GetScale().x, transformComp.GetScale().y, transformComp.GetScale().z };
+				jsonComp["scale"] = { transformComp.GetScale().x, transformComp.GetScale().y, transformComp.GetScale().z };
 			}
 			break;
 			case COMPONENT_TYPE::MESH:
@@ -82,13 +85,16 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 				jsonComp["type"] = "Mesh";
 				jsonComp["path"] = meshComp.GetMeshPath();
 
+				std::string path(MESHES_PATH + std::string(name) + ".DaVMesh");
+				Importer::Mesh::Save(meshComp.GetMesh(), path.c_str());
+
 			}
 			break;
 			case COMPONENT_TYPE::MATERIAL:
 			{
 				C_Material materialComp = *(C_Material*)component;
 				jsonComp["type"] = "Material";
-				jsonComp["ID"] = materialComp.GetTextureID();
+				jsonComp["color"] = { materialComp.GetMaterialColour().r, materialComp.GetMaterialColour().g, materialComp.GetMaterialColour().b, materialComp.GetMaterialColour().a };
 				jsonComp["path"] = materialComp.GetTexturePath();
 			}
 			break;
@@ -106,11 +112,84 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 	return ret;
 }
 
-bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjects)
+bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjects, GameObject* parent)
 {
 	bool ret = false;
 
 	JsonFile sceneJson;
+	std::string path = SCENES_PATH + std::string(name) + ".json";
+	sceneJson.Load(path.c_str());
+
+	if (!sceneJson.file.is_null())
+	{
+		json jsonGameObjects = sceneJson.file["Game Objects"];
+
+		for (auto goIt = jsonGameObjects.begin(); goIt != jsonGameObjects.end(); ++goIt)
+		{
+			// We store all values of the different keys in variables to then set the gameobject
+			std::string name = (*goIt)["name"];
+			bool active = (*goIt)["active"];
+			UINT32 uuid = (*goIt)["uuid"];
+			UINT32 parentUUID = (*goIt)["parentUUID"];
+
+			GameObject* gameObj = new GameObject(uuid, active);
+			gameObj->SetName(name.c_str());
+
+			if (parentUUID == parent->GetUUID())
+			{
+				gameObj->SetParent(parent);
+			}
+
+			json jsonComp = (*goIt)["Components"];
+			for (auto componentIt = jsonComp.begin(); componentIt != jsonComp.end(); ++componentIt)
+			{
+				// We store all values of the different keys as we set the components
+				bool active = (*componentIt)["active"];
+				gameObj->transform->SetIsActive(active);
+
+				std::string strType = (*componentIt)["type"];
+
+				if (strType == "Transform")
+				{
+					float posX = (*componentIt)["position"][0];
+					float posY = (*componentIt)["position"][1];
+					float posZ = (*componentIt)["position"][2];
+					gameObj->transform->SetPosition(posX, posY, posZ);
+					float rotX = (*componentIt)["rotation"][0];
+					float rotY = (*componentIt)["rotation"][1];
+					float rotZ = (*componentIt)["rotation"][2];
+					float rotW = (*componentIt)["rotation"][3];
+					gameObj->transform->SetRotation(rotX, rotY, rotZ, rotW);
+					float scaleX = (*componentIt)["scale"][0];
+					float scaleY = (*componentIt)["scale"][1];
+					float scaleZ = (*componentIt)["scale"][2];
+					gameObj->transform->SetScale(scaleX, scaleY, scaleZ);
+				}
+				if (strType == "Mesh")
+				{
+					std::string path = (*componentIt)["path"];
+
+					R_Mesh* rmesh = new R_Mesh();
+
+					bool res = Importer::Mesh::Load(path.c_str(), rmesh);
+
+					if (res)
+					{
+						C_Mesh* compMesh = (C_Mesh*)gameObj->CreateComponent(COMPONENT_TYPE::MESH);
+						compMesh->SetMesh(rmesh);
+						compMesh->SetMeshPath(path.c_str());
+					}
+				}
+				if (strType == "Material")
+				{
+
+				}
+			}
+		}
+		ret = true;
+	}
+	else
+		ret = false;
 
 	return ret;
 }

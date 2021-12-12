@@ -31,7 +31,7 @@ bool Importer::Mesh::Save(const R_Mesh* rmesh, const char* path)
 	// Our header size is 4 (or NUM_HEADER_CATEGORIES) * sizeof(unsigned) = 16 bytes
 
 	std::ofstream myMeshFile;
-	myMeshFile.open(path, std::ios::in | std::ios::app | std::ios::binary);
+	myMeshFile.open(path, std::ios::in | std::ios::trunc | std::ios::binary);
 
 	if (myMeshFile.is_open())
 	{

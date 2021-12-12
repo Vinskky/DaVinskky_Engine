@@ -7,11 +7,24 @@
 #include "R_Mesh.h"
 #include "Globals.h"
 
-GameObject::GameObject(bool active):active(active)
+GameObject::GameObject(bool active) :active(active)
 {
     transform = (C_Transform*)CreateComponent(COMPONENT_TYPE::TRANSFORM);
     aabb.SetNegativeInfinity();
     obb.SetNegativeInfinity();
+
+    LCG randomGen;
+    uuid = randomGen.Int();
+    LOG("%d", uuid);
+}
+
+GameObject::GameObject(UINT32 uuid, bool active) :active(active)
+{
+    transform = (C_Transform*)CreateComponent(COMPONENT_TYPE::TRANSFORM);
+    aabb.SetNegativeInfinity();
+    obb.SetNegativeInfinity();
+
+    this->uuid = uuid;
 }
 
 GameObject::~GameObject()
@@ -78,6 +91,21 @@ const char* GameObject::GetName() const
     return name.c_str();
 }
 
+UINT32 GameObject::GetUUID() const
+{
+    return uuid;
+}
+
+UINT32 GameObject::GetParentUUID() const
+{
+    return parentUUID;
+}
+
+void GameObject::SetParentUUID(UINT32 uuid)
+{
+    parentUUID = uuid;
+}
+
 bool GameObject::IsActive() const
 {
     return active;
@@ -86,6 +114,8 @@ bool GameObject::IsActive() const
 void GameObject::SetParent(GameObject* parent)
 {
     this->parent = parent;
+    this->parentUUID = parent->uuid;
+
     parent->AddChild(this);
 }
 

@@ -1,29 +1,10 @@
 {
     "Game Objects": [
         {
-            "name": "sceneRoot",
-            "active": true,
-            "Components": [
-                {
-                    "active": true,
-                    "type": "Transform",
-                    "position": [
-                        1.0,
-                        1.0,
-                        1.0
-                    ],
-                    "rotation": [
-                        0.0,
-                        0.0,
-                        0.0,
-                        1.0
-                    ]
-                }
-            ]
-        },
-        {
             "name": "RootNode",
             "active": true,
+            "uuid": 886370522,
+            "parentUUID": 412132153,
             "Components": [
                 {
                     "active": true,
@@ -38,6 +19,11 @@
                         0.0,
                         0.0,
                         1.0
+                    ],
+                    "scale": [
+                        0.5,
+                        0.5,
+                        0.5
                     ]
                 }
             ]
@@ -45,6 +31,8 @@
         {
             "name": "Chimney",
             "active": true,
+            "uuid": 1090847399,
+            "parentUUID": 886370522,
             "Components": [
                 {
                     "active": true,
@@ -59,6 +47,11 @@
                         0.0,
                         0.0,
                         0.7071067094802856
+                    ],
+                    "scale": [
+                        0.5,
+                        0.5,
+                        0.5
                     ]
                 },
                 {
@@ -69,7 +62,12 @@
                 {
                     "active": true,
                     "type": "Material",
-                    "ID": 2,
+                    "color": [
+                        0.47040000557899475,
+                        0.47040000557899475,
+                        0.47040000557899475,
+                        1.0
+                    ],
                     "path": "Assets/Textures/Baker_house.png"
                 }
             ]
@@ -77,6 +75,8 @@
         {
             "name": "Baker_house",
             "active": true,
+            "uuid": 1258397074,
+            "parentUUID": 886370522,
             "Components": [
                 {
                     "active": true,
@@ -91,6 +91,11 @@
                         0.0,
                         0.0,
                         0.7071067094802856
+                    ],
+                    "scale": [
+                        0.5,
+                        0.5,
+                        0.5
                     ]
                 },
                 {
@@ -101,7 +106,12 @@
                 {
                     "active": true,
                     "type": "Material",
-                    "ID": 3,
+                    "color": [
+                        0.47040000557899475,
+                        0.47040000557899475,
+                        0.47040000557899475,
+                        1.0
+                    ],
                     "path": "Assets/Textures/Baker_house.png"
                 }
             ]
