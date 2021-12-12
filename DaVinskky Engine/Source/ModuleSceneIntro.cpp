@@ -9,6 +9,8 @@
 #include "C_Camera.h"
 #include "GameObject.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 ModuleSceneIntro::ModuleSceneIntro():Module(),
 cullingCamera(nullptr)
 {
@@ -63,15 +65,14 @@ GameObject* ModuleSceneIntro::CreateGameObject(const char* name, GameObject* par
 		return sceneRoot;
 	}
 
-	GameObject* gameObject = new GameObject(name);
+	GameObject* gameObject = new GameObject();
+	gameObject->SetName(name);
 
 	if (gameObject != nullptr)
 	{
 		if (parent != nullptr)
 		{
 			gameObject->SetParent(parent);
-
-			// parent->AddChild(game_object);
 		}
 
 		sceneGameObjects.push_back(gameObject);
@@ -131,9 +132,6 @@ bool ModuleSceneIntro::GameObjectIsInsideCullingCamera(GameObject* obj)
 // Update: draw background
 update_status ModuleSceneIntro::Update(float dt)
 {
-	//Plane p(0, 1, 0, 0);
-	//p.axis = true;
-	//p.Render();
 
 	for (auto gameobjs = sceneGameObjects.begin(); gameobjs != sceneGameObjects.end(); ++gameobjs)
 	{

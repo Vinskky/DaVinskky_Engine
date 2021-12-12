@@ -5,6 +5,8 @@
 #include "E_MainMenuBar.h"
 #include "I_Scene.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 E_Load::E_Load(const char* name, bool isActive) : Editor("Load Window")
 {
 

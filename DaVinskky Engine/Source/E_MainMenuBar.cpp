@@ -11,6 +11,8 @@
 #include "GameObject.h"
 #include "I_Scene.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 E_MainMenuBar::E_MainMenuBar(const char* name, bool isActive): Editor("Main Menu")
 {
 }
@@ -198,10 +200,8 @@ bool E_MainMenuBar::CreateMenu()
 		{
 			//Creating a game object empty means that only will have Component transform.
 			//We should keep in mind the parent. (rootscene or game object selected?)
-			GameObject* emptyObj = new GameObject();
-			emptyObj->SetName("Empty");
-			emptyObj->SetParent(app->sceneIntro->sceneRoot);
-			app->sceneIntro->sceneGameObjects.push_back(emptyObj);
+			app->sceneIntro->CreateGameObject("Empty", app->sceneIntro->sceneRoot);
+			
 		}
 
 		ImGui::EndMenu();

@@ -45,6 +45,7 @@ GameObject::~GameObject()
 {
     RELEASE_ARRAY(aabbVertices);
     RELEASE_ARRAY(obbVertices);
+    
 }
 
 void GameObject::Update()
@@ -218,10 +219,7 @@ bool GameObject::DeleteChild(GameObject* obj)
 
 void GameObject::CreateEmptyChild(GameObject* parent)
 {
-    GameObject* child = new GameObject();
-    child->SetName("new Object");
-    child->SetParent(parent);
-    app->sceneIntro->sceneGameObjects.push_back(child);
+    app->sceneIntro->CreateGameObject("Empty", parent);
 }
 
 void GameObject::UpdateBoundingBoxes()

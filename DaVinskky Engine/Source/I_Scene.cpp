@@ -18,6 +18,8 @@
 
 #include <string>
 
+#include "External/mmgr/include/mmgr.h"
+
 void Importer::Scene::Import(const char* path, std::vector<GameObject*>& gameObjects)
 {
 	if (path == nullptr)

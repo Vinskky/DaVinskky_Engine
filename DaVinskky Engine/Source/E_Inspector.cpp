@@ -1,4 +1,5 @@
 #include "E_Inspector.h"
+#include "Globals.h"
 #include "Application.h"
 #include "GameObject.h"
 #include "ModuleSceneIntro.h"
@@ -79,7 +80,20 @@ void E_Inspector::InspectorTransform(C_Transform* comp)
 		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.0f, 0.0f, 0.25f));
 		if (ImGui::Button("Delete"))
 		{
-			comp->GetOwner()->Clear();
+			GameObject* go = comp->GetOwner();
+			go->Clear();
+			
+			//Clear from vector game object erased befor release memory
+			for (uint i = 0; i < app->sceneIntro->sceneGameObjects.size(); ++i)
+			{
+				if (app->sceneIntro->sceneGameObjects[i] == go)
+				{
+					app->sceneIntro->sceneGameObjects.erase(app->sceneIntro->sceneGameObjects.begin() + i);
+					break;
+				}
+			}
+
+			RELEASE(go);
 		}
 		ImGui::PopStyleColor();
 		if (ImGui::Button("Add Children"))

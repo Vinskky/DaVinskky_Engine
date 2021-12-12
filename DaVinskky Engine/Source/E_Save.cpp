@@ -5,6 +5,8 @@
 #include "E_MainMenuBar.h"
 #include "I_Scene.h"
 
+#include "External/mmgr/include/mmgr.h"
+
 E_Save::E_Save(const char* name, bool isActive) : Editor("Save Window")
 {
 
