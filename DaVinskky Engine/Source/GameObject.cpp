@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleRenderer3D.h"
+#include "ModuleCamera3D.h"
 #include "GameObject.h"
 #include "C_Transform.h"
 #include "C_Material.h"
@@ -159,6 +160,13 @@ void GameObject::DeleteComponents()
     
     for (uint i = 0; i < components.size(); ++i)
     {
+        if (components[i]->GetType() == COMPONENT_TYPE::CAMERA)
+        {
+            if (((C_Camera*)components[i]) == app->camera->currentCamera)
+            {
+                app->camera->SetMasterAsCurrentCam();
+            }
+        }
         components[i]->CleanUp();
         RELEASE(components[i]);
     }

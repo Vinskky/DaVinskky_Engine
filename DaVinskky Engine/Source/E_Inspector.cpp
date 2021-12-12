@@ -219,10 +219,10 @@ void E_Inspector::InspectorCamera(C_Camera* comp)
 				app->camera->SetCurrentCamera(comp);
 			}
 
-			/*if (ImGui::Button("Return to Master Camera"))
+			if (ImGui::Button("Return to Master Camera"))
 			{
 				app->camera->SetMasterAsCurrentCam();
-			}*/
+			}
 
 		}
 	}

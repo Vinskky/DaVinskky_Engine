@@ -185,13 +185,13 @@ void ModuleCamera3D::SetMasterAsCurrentCam()
 		CreateMasterCamera();
 	}
 
-	C_Camera* cam = currentCamera->GetOwner()->GetComponent<C_Camera>();
+	C_Camera* cam = masterCamera->GetComponent<C_Camera>();
 	if (cam == nullptr)
 	{
 		LOG("[ERROR] Camera: Could not set the master camera as the current camera! Error: Master Camera did not have a Camera Component.");
 		LOG("[WARNING] Camera: Created a new Camera Component for the Master Camera. Reason: Master Camera did not have a Camera Component!");
 
-		currentCamera->GetOwner()->CreateComponent(COMPONENT_TYPE::CAMERA);
+		masterCamera->CreateComponent(COMPONENT_TYPE::CAMERA);
 	}
 
 	currentCamera = cam;
