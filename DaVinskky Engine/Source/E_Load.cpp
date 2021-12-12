@@ -9,8 +9,8 @@
 
 E_Load::E_Load(const char* name, bool isActive) : Editor("Load Window")
 {
-
 }
+
 E_Load::~E_Load()
 {
 }
@@ -37,18 +37,18 @@ bool E_Load::CleanUp()
 
 bool E_Load::LoadWindow()
 {
-
 	std::string sceneName;
 	char buffer[128];
 	strcpy_s(buffer, app->sceneIntro->sceneGameObjects[0]->GetName());
-	if (ImGui::InputText("Name", buffer, IM_ARRAYSIZE(buffer), ImGuiInputTextFlags_EnterReturnsTrue))
+	if (ImGui::InputText("Name (.json)", buffer, IM_ARRAYSIZE(buffer), ImGuiInputTextFlags_EnterReturnsTrue))
 	{
 		sceneName = buffer;
 
 		Importer::Scene::Load(sceneName.c_str(), app->sceneIntro->sceneGameObjects);
 
+		app->editor->loadPanel->Disable();
+		app->editor->mainMenuPanel->loadWindow = false;
 	}
-
 
 	return true;
 }

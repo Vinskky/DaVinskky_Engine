@@ -115,13 +115,15 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 	return ret;
 }
 
-bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjects)
+bool Importer::Scene::Load(const char* nameScene, std::vector<GameObject*>& gameObjects)
 {
 	bool ret = false;
 
 	JsonFile sceneJson;
-	std::string path = SCENES_PATH + std::string(name) + ".json";
+	std::string path = SCENES_PATH + std::string(nameScene) + ".json";
 	sceneJson.Load(path.c_str());
+
+	gameObjects[0]->SetName(nameScene);
 
 	if (!sceneJson.file.is_null())
 	{
@@ -136,7 +138,9 @@ bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjec
 			UINT32 parentUUID = (*goIt)["parentUUID"];
 
 			GameObject* gameObj = new GameObject(uuid, active);
+
 			gameObj->SetName(name.c_str());
+
 			gameObj->SetParentUUID(parentUUID);
 
 			json jsonComp = (*goIt)["Components"];
@@ -216,7 +220,7 @@ bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjec
 	{
 		for (std::vector<GameObject*>::iterator childrengoIt = gameObjects.begin() + 1; childrengoIt != gameObjects.end(); childrengoIt++)
 		{
-			if ((*childrengoIt)->GetParentUUID() == (*goIt)->GetUUID())
+			if ((*childrengoIt)->GetParentUUID() == (*goIt)->GetUUID() && (*childrengoIt)->GetUUID() != 0)
 			{
 				(*goIt)->AddChild((*childrengoIt));
 			}
