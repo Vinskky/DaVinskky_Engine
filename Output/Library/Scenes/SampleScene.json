@@ -3,8 +3,8 @@
         {
             "name": "RootNode",
             "active": true,
-            "uuid": 886370522,
-            "parentUUID": 412132153,
+            "uuid": 853250262,
+            "parentUUID": 0,
             "Components": [
                 {
                     "active": true,
@@ -31,8 +31,8 @@
         {
             "name": "Chimney",
             "active": true,
-            "uuid": 1090847399,
-            "parentUUID": 886370522,
+            "uuid": 990125148,
+            "parentUUID": 853250262,
             "Components": [
                 {
                     "active": true,
@@ -75,8 +75,8 @@
         {
             "name": "Baker_house",
             "active": true,
-            "uuid": 1258397074,
-            "parentUUID": 886370522,
+            "uuid": 1033262096,
+            "parentUUID": 853250262,
             "Components": [
                 {
                     "active": true,

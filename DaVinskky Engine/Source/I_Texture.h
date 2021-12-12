@@ -13,7 +13,6 @@ namespace Importer
 		void CleanUp();
 
 		bool Import(const char* path, R_Texture* rtexture);
-		
 
 		namespace Private
 		{

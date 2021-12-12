@@ -5,7 +5,6 @@
 #include "C_Mesh.h"
 #include "C_Material.h"
 
-
 C_Mesh::C_Mesh(GameObject* owner): Component(owner, COMPONENT_TYPE::MESH)
 {
 }

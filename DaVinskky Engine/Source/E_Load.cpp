@@ -43,7 +43,7 @@ bool E_Load::LoadWindow()
 	{
 		sceneName = buffer;
 
-		Importer::Scene::Load(sceneName.c_str(), app->sceneIntro->sceneGameObjects, app->sceneIntro->sceneGameObjects[0]);
+		Importer::Scene::Load(sceneName.c_str(), app->sceneIntro->sceneGameObjects);
 
 	}
 

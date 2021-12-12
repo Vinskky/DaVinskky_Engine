@@ -21,7 +21,7 @@ namespace Importer
 		void Import(const char* path, std::vector<GameObject*>& gameObjects);
 
 		bool Save(const char* name, std::vector<GameObject*> gameObjects);
-		bool Load(const char* name, std::vector<GameObject*>& gameObjects, GameObject* parent);
+		bool Load(const char* name, std::vector<GameObject*>& gameObjects);
 
 		namespace Private
 		{

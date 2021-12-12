@@ -87,7 +87,6 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 
 				std::string path(MESHES_PATH + std::string(name) + ".DaVMesh");
 				Importer::Mesh::Save(meshComp.GetMesh(), path.c_str());
-
 			}
 			break;
 			case COMPONENT_TYPE::MATERIAL:
@@ -112,7 +111,7 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 	return ret;
 }
 
-bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjects, GameObject* parent)
+bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjects)
 {
 	bool ret = false;
 
@@ -134,11 +133,7 @@ bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjec
 
 			GameObject* gameObj = new GameObject(uuid, active);
 			gameObj->SetName(name.c_str());
-
-			if (parentUUID == parent->GetUUID())
-			{
-				gameObj->SetParent(parent);
-			}
+			gameObj->SetParentUUID(parentUUID);
 
 			json jsonComp = (*goIt)["Components"];
 			for (auto componentIt = jsonComp.begin(); componentIt != jsonComp.end(); ++componentIt)
@@ -182,14 +177,47 @@ bool Importer::Scene::Load(const char* name, std::vector<GameObject*>& gameObjec
 				}
 				if (strType == "Material")
 				{
+					R_Material* rmat = new R_Material();
+
+					float r = (*componentIt)["color"][0];
+					float g = (*componentIt)["color"][1];
+					float b = (*componentIt)["color"][2];
+					float a = (*componentIt)["color"][3];
+					rmat->diffuseColor = { r,g, b, a };
+
+					std::string path = (*componentIt)["path"];
+
+					C_Material* compMaterial = (C_Material*)gameObj->CreateComponent(COMPONENT_TYPE::MATERIAL);
+					compMaterial->SetMaterial(rmat);
+
+					R_Texture* rtexture = new R_Texture();
+					bool ret = Importer::Texture::Import(path.c_str(), rtexture);
+
+					if (ret)
+					{
+						compMaterial->SetTexture(rtexture);
+						compMaterial->SetTexturePath(path.c_str());
+					}
 
 				}
 			}
+			gameObjects.push_back(gameObj);
 		}
 		ret = true;
 	}
 	else
 		ret = false;
+
+	for (std::vector<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end(); goIt++)
+	{
+		for (std::vector<GameObject*>::iterator childrengoIt = gameObjects.begin() + 1; childrengoIt != gameObjects.end(); childrengoIt++)
+		{
+			if ((*childrengoIt)->GetParentUUID() == (*goIt)->GetUUID())
+			{
+				(*goIt)->AddChild((*childrengoIt));
+			}
+		}
+	}
 
 	return ret;
 }
@@ -275,14 +303,9 @@ void Importer::Scene::Private::ImportMesh(const aiMesh* aimesh, GameObject* game
 {
 	R_Mesh* rmesh = new R_Mesh();
 
-	bool res;
-
-	//res = Importer::Mesh::Import(aimesh, rmesh);
+	bool res = Importer::Mesh::Import(aimesh, rmesh);
 
 	std::string path(MESHES_PATH + std::string(name) + ".DaVMesh");
-
-	//res = Importer::Mesh::Save(rmesh, path.c_str());
-	res = Importer::Mesh::Load(path.c_str(), rmesh);
 
 	if (res)
 	{
@@ -327,7 +350,6 @@ void Importer::Scene::Private::ImportTexture(const aiMaterial* aimaterial, C_Mat
 			compMaterial->SetTexturePath(finalPath.c_str());
 		}
 	}
-
 }
 
 bool Importer::Scene::Private::IsDummyNode(const aiNode& node)

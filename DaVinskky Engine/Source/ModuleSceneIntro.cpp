@@ -13,7 +13,7 @@ ModuleSceneIntro::ModuleSceneIntro():Module(),
 cullingCamera(nullptr)
 {
 	SetName("Scene");
-	sceneRoot = new GameObject();
+	sceneRoot = new GameObject(0, true);
 	sceneRoot->SetName("sceneRoot");
 	sceneRoot->SetParentUUID(sceneRoot->GetUUID());
 	selectedGameObj = sceneRoot;
@@ -32,8 +32,6 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 
 	Importer::Scene::Import("Assets/Models/BakerHouse.fbx", sceneGameObjects);
-	//ret = Importer::Scene::Save("SampleScene", sceneGameObjects);
-	//ret = Importer::Scene::Load("SampleScene", sceneGameObjects, sceneGameObjects[0]);
 	//Importer::Scene::Import("Assets/Models/warrior.fbx", sceneGameObjects);
 
 	LOG("Loading Intro assets");
