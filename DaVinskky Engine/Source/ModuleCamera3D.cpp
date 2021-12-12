@@ -60,11 +60,9 @@ update_status ModuleCamera3D::Update(float dt)
 		CastRay();
 	}
 
-	if (app->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_STATE::KEY_REPEAT)
-	{
-		WASDMovement(dt);
+	
+	WASDMovement(dt);
 
-	}
 
 	if (app->input->GetKey(SDL_SCANCODE_LALT) == KEY_STATE::KEY_REPEAT)
 	{
