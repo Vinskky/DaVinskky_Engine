@@ -129,6 +129,18 @@ bool ModuleSceneIntro::GameObjectIsInsideCullingCamera(GameObject* obj)
 	return intersects;
 }
 
+void ModuleSceneIntro::DeleteGameObjectFromVector(GameObject* toDelete)
+{
+	for (uint k = 0; k < sceneGameObjects.size(); ++k)
+	{
+		if (toDelete == sceneGameObjects[k])
+		{
+			sceneGameObjects.erase(sceneGameObjects.begin() + k);
+			break;
+		}
+	}
+}
+
 // Update: draw background
 update_status ModuleSceneIntro::Update(float dt)
 {

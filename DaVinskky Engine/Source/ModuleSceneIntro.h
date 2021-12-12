@@ -30,6 +30,7 @@ public:
 	void SetCullingCamera(C_Camera* cullingCamera);
 	bool GameObjectIsInsideCullingCamera(GameObject* obj);
 
+	void DeleteGameObjectFromVector(GameObject* toDelete);
 
 public:
 	std::vector<GameObject*> sceneGameObjects;

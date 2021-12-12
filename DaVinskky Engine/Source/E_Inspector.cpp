@@ -78,24 +78,24 @@ void E_Inspector::InspectorTransform(C_Transform* comp)
 			comp->GetOwner()->SetName(buffer);
 		}
 		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.0f, 0.0f, 0.25f));
-		if (ImGui::Button("Delete"))
+		if (comp->GetOwner() != app->sceneIntro->sceneRoot)
 		{
-			GameObject* go = comp->GetOwner();
-			go->Clear();
-			
-			//Clear from vector game object erased befor release memory
-			for (uint i = 0; i < app->sceneIntro->sceneGameObjects.size(); ++i)
+			if (ImGui::Button("Delete"))
 			{
-				if (app->sceneIntro->sceneGameObjects[i] == go)
-				{
-					app->sceneIntro->sceneGameObjects.erase(app->sceneIntro->sceneGameObjects.begin() + i);
-					break;
-				}
-			}
+				GameObject* go = comp->GetOwner();
+				go->Clear();
+				app->sceneIntro->DeleteGameObjectFromVector(go);
 
-			RELEASE(go);
+				RELEASE(go);
+
+				app->sceneIntro->selectedGameObj = app->sceneIntro->sceneRoot;
+
+			}
+			
 		}
+		
 		ImGui::PopStyleColor();
+
 		if (ImGui::Button("Add Children"))
 		{
 			comp->GetOwner()->CreateEmptyChild(comp->GetOwner());

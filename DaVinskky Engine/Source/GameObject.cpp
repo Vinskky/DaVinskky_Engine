@@ -192,6 +192,9 @@ void GameObject::DeleteChildren()
         {
             children[i]->parent = nullptr;
             //Recursive cleaning each child
+            //Erase from scenelist
+            app->sceneIntro->DeleteGameObjectFromVector(children[i]);
+
             children[i]->Clear(); 
             RELEASE(children[i]);
         }
