@@ -6,14 +6,15 @@ C++ 3D Game engine created with learning purposes.
 It has been coded from scratch in C and C++ along with the following libraries:
 
 - [Standard Template Library](<https://en.wikipedia.org/wiki/Standard_Template_Library>)
-- [OpenGL v4.6](<https://www.opengl.org/>)
+- [SDL v2.0.12](<https://www.libsdl.org/index.php>)
+- [OpenGL v3.1](<https://www.opengl.org/>)
 - [Glew v2.1.0](<http://glew.sourceforge.net/>)
-- [ImGui v1.83 (Docking Branch)](<https://github.com/ocornut/imgui/tree/docking>)
-- [MatGeoLib v1.5](<https://github.com/juj/MathGeoLib>)
+- [ImGui v1.85 (Docking Branch)](<https://github.com/ocornut/imgui/tree/docking>)
+- [Assimp v3.3.0](<http://www.assimp.org/index.php/downloads>)
+- [DevIL v1.7.8](<http://openil.sourceforge.net/download.php>)
+- [MatGeoLib v2.0](<https://github.com/juj/MathGeoLib>)
 - [PhysFS v3.0.2](<https://icculus.org/physfs/>)
-- [Assimp v3.1.1](<http://www.assimp.org/index.php/downloads>)
-- [DevIL v1.8.0](<http://openil.sourceforge.net/download.php>)
-- [JSON for Modern C++ version 3.10.4(Single Include)](https://github.com/nlohmann/json/tree/develop/single_include/nlohmann)
+- [JSON for Modern C++ version 3.10.4 (Single Include)](https://github.com/nlohmann/json/tree/develop/single_include/nlohmann)
 
 
 ****
