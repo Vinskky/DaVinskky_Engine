@@ -52,7 +52,7 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 	JsonFile sceneJson;
 	// We start setting gameobjects, including the object for the root scene:
 	sceneJson.file["Game Objects"] = json::array(); // Start filling the array for it (as the slides explain)
-	for (std::vector<GameObject*>::iterator goIt = gameObjects.begin() + 1; goIt != gameObjects.end(); goIt++)
+	for (std::vector<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end(); goIt++)
 	{
 		json jsonGO;
 		jsonGO["name"] = (*goIt)->GetName();
@@ -123,10 +123,15 @@ bool Importer::Scene::Load(const char* nameScene, std::vector<GameObject*>& game
 	std::string path = SCENES_PATH + std::string(nameScene) + ".json";
 	sceneJson.Load(path.c_str());
 
-	gameObjects[0]->SetName(nameScene);
-
 	if (!sceneJson.file.is_null())
 	{
+		for (std::vector<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end(); goIt++)
+		{
+			(*goIt)->Clear();
+			RELEASE((*goIt));
+		}
+		app->sceneIntro->sceneGameObjects.clear();
+
 		json jsonGameObjects = sceneJson.file["Game Objects"];
 
 		for (auto goIt = jsonGameObjects.begin(); goIt != jsonGameObjects.end(); ++goIt)
@@ -139,7 +144,17 @@ bool Importer::Scene::Load(const char* nameScene, std::vector<GameObject*>& game
 
 			GameObject* gameObj = new GameObject(uuid, active);
 
-			gameObj->SetName(name.c_str());
+			if (uuid == 0)
+			{
+				gameObj->SetName(nameScene);
+				gameObj->SetParentUUID(parentUUID);
+				app->sceneIntro->sceneRoot = gameObj;
+				app->sceneIntro->selectedGameObj = app->sceneIntro->sceneRoot;
+			}
+			else
+			{
+				gameObj->SetName(name.c_str());
+			}
 
 			gameObj->SetParentUUID(parentUUID);
 
@@ -211,21 +226,20 @@ bool Importer::Scene::Load(const char* nameScene, std::vector<GameObject*>& game
 			}
 			gameObjects.push_back(gameObj);
 		}
+		for (std::vector<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end(); goIt++)
+		{
+			for (std::vector<GameObject*>::iterator childrengoIt = gameObjects.begin(); childrengoIt != gameObjects.end(); childrengoIt++)
+			{
+				if ((*childrengoIt)->GetParentUUID() == (*goIt)->GetUUID() && (*childrengoIt)->GetUUID() != 0)
+				{
+					(*goIt)->AddChild((*childrengoIt));
+				}
+			}
+		}
 		ret = true;
 	}
 	else
 		ret = false;
-
-	for (std::vector<GameObject*>::iterator goIt = gameObjects.begin(); goIt != gameObjects.end(); goIt++)
-	{
-		for (std::vector<GameObject*>::iterator childrengoIt = gameObjects.begin() + 1; childrengoIt != gameObjects.end(); childrengoIt++)
-		{
-			if ((*childrengoIt)->GetParentUUID() == (*goIt)->GetUUID() && (*childrengoIt)->GetUUID() != 0)
-			{
-				(*goIt)->AddChild((*childrengoIt));
-			}
-		}
-	}
 
 	return ret;
 }

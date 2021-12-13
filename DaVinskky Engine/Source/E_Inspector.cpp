@@ -83,13 +83,13 @@ void E_Inspector::InspectorTransform(C_Transform* comp)
 			if (ImGui::Button("Delete"))
 			{
 				GameObject* go = comp->GetOwner();
+
+				app->sceneIntro->selectedGameObj = app->sceneIntro->sceneRoot;
+
 				go->Clear();
 				app->sceneIntro->DeleteGameObjectFromVector(go);
 
 				RELEASE(go);
-
-				app->sceneIntro->selectedGameObj = app->sceneIntro->sceneRoot;
-
 			}
 			
 		}

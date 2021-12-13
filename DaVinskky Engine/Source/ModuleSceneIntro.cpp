@@ -81,8 +81,6 @@ GameObject* ModuleSceneIntro::CreateGameObject(const char* name, GameObject* par
 	return gameObject;
 }
 
-
-
 void ModuleSceneIntro::CreateSceneCamera(const char* cameraName)
 {
 	int winWidth;
