@@ -2,6 +2,7 @@
 #define _C_TRANSFORM_H_
 
 #include "Component.h"
+#include "JsonFile.h"
 #include "External/MathGeoLib/include/MathGeoLib.h"
 
 //component transform class
@@ -15,6 +16,9 @@ public:
 	void Update()override;
 	void Disable()override;
 	bool CleanUp()override;
+
+	void Save(json& jsonComp) const;
+	void Load(json& jsonComp);
 
 	float3 GetPosition()const;
 	Quat GetRotation()const;

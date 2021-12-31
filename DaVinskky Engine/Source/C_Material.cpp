@@ -4,6 +4,7 @@
 
 #include "External/mmgr/include/mmgr.h"
 
+using json = nlohmann::ordered_json;
 
 C_Material::C_Material(GameObject* owner, bool debugTextEnabled): Component(owner,COMPONENT_TYPE::MATERIAL)
 {
@@ -33,6 +34,27 @@ bool C_Material::CleanUp()
 	RELEASE(rtexture);
 	rtexture = nullptr;
 	return true;
+}
+
+void C_Material::Save(json& jsonComp)
+{
+	jsonComp["type"] = "Material";
+	jsonComp["color"] = { GetMaterialColour().r, GetMaterialColour().g, GetMaterialColour().b, GetMaterialColour().a };
+	jsonComp["path"] = GetTexturePath();
+}
+
+void C_Material::Load(json& jsonComp)
+{
+	rmaterial = new R_Material();
+
+	jsonComp.at("color")[0].get_to(rmaterial->diffuseColor.r);
+	jsonComp.at("color")[1].get_to(rmaterial->diffuseColor.g);
+	jsonComp.at("color")[2].get_to(rmaterial->diffuseColor.b);
+	jsonComp.at("color")[3].get_to(rmaterial->diffuseColor.a);
+
+	jsonComp.at("path").get_to(_path);
+
+	rtexture = new R_Texture();
 }
 
 void C_Material::SetMaterial(R_Material* rmaterial)

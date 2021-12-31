@@ -4,6 +4,7 @@
 #include "Component.h"
 #include "Globals.h"
 #include "Color.h"
+#include "JsonFile.h"
 
 #include <string>
 
@@ -20,6 +21,9 @@ public:
 	void Update()override;
 	void Disable()override;
 	bool CleanUp()override;
+
+	void Save(json& jsonComp);
+	void Load(json& jsonComp);
 
 	void SetMaterial(R_Material* rmaterial);
 	void SetTexture(R_Texture* rtexture);

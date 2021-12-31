@@ -5,6 +5,8 @@
 
 #include "External/mmgr/include/mmgr.h"
 
+using json = nlohmann::ordered_json;
+
 C_Transform::C_Transform(GameObject* owner): Component(owner, COMPONENT_TYPE::TRANSFORM)
 {
 	updateWorld = false;
@@ -35,6 +37,30 @@ void C_Transform::Disable()
 bool C_Transform::CleanUp()
 {
 	return true;
+}
+
+void C_Transform::Save(json& jsonComp) const
+{
+	jsonComp["type"] = "Transform";
+	jsonComp["position"] = { position.x, position.y, position.z };
+	jsonComp["rotation"] = { rotation.x, rotation.y, rotation.z, rotation.w };
+	jsonComp["scale"] = { scale.x, scale.y, scale.z };
+}
+
+void C_Transform::Load(json& jsonComp)
+{
+	jsonComp.at("position")[0].get_to(position.x);
+	jsonComp.at("position")[1].get_to(position.y);
+	jsonComp.at("position")[2].get_to(position.z);
+
+	jsonComp.at("rotation")[0].get_to(rotation.x);
+	jsonComp.at("rotation")[1].get_to(rotation.y);
+	jsonComp.at("rotation")[2].get_to(rotation.z);
+	jsonComp.at("rotation")[3].get_to(rotation.w);
+
+	jsonComp.at("scale")[0].get_to(scale.x);
+	jsonComp.at("scale")[1].get_to(scale.y);
+	jsonComp.at("scale")[2].get_to(scale.z);
 }
 
 float3 C_Transform::GetPosition() const

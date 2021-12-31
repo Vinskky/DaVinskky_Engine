@@ -2,6 +2,7 @@
 #define _C_MESH_H_
 
 #include "Component.h"
+#include "JsonFile.h"
 class R_Mesh;
 
 class C_Mesh: public Component
@@ -9,6 +10,9 @@ class C_Mesh: public Component
 public:
 	C_Mesh(GameObject* owner);
 	~C_Mesh();
+
+	void Save(json& jsonComp) const;
+	void Load(json& jsonComp);
 
 	void Enable()override;
 	void Update()override;

@@ -77,17 +77,13 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 			case COMPONENT_TYPE::TRANSFORM:
 			{
 				C_Transform transformComp = *(C_Transform*)component;
-				jsonComp["type"] = "Transform";
-				jsonComp["position"] = { transformComp.GetPosition().x, transformComp.GetPosition().y, transformComp.GetPosition().z };
-				jsonComp["rotation"] = { transformComp.GetRotation().x, transformComp.GetRotation().y, transformComp.GetRotation().z, transformComp.GetRotation().w };
-				jsonComp["scale"] = { transformComp.GetScale().x, transformComp.GetScale().y, transformComp.GetScale().z };
+				transformComp.Save(jsonComp);
 			}
 			break;
 			case COMPONENT_TYPE::MESH:
 			{
 				C_Mesh meshComp = *(C_Mesh*)component;
-				jsonComp["type"] = "Mesh";
-				jsonComp["path"] = meshComp.GetMeshPath();
+				meshComp.Save(jsonComp);
 
 				std::string path(MESHES_PATH + std::string(name) + ".DaVMesh");
 				Importer::Mesh::Save(meshComp.GetMesh(), path.c_str());
@@ -96,9 +92,7 @@ bool Importer::Scene::Save(const char* name, std::vector<GameObject*> gameObject
 			case COMPONENT_TYPE::MATERIAL:
 			{
 				C_Material materialComp = *(C_Material*)component;
-				jsonComp["type"] = "Material";
-				jsonComp["color"] = { materialComp.GetMaterialColour().r, materialComp.GetMaterialColour().g, materialComp.GetMaterialColour().b, materialComp.GetMaterialColour().a };
-				jsonComp["path"] = materialComp.GetTexturePath();
+				materialComp.Save(jsonComp);
 			}
 			break;
 			default:
@@ -169,59 +163,23 @@ bool Importer::Scene::Load(const char* nameScene, std::vector<GameObject*>& game
 
 				if (strType == "Transform")
 				{
-					float posX = (*componentIt)["position"][0];
-					float posY = (*componentIt)["position"][1];
-					float posZ = (*componentIt)["position"][2];
-					gameObj->transform->SetPosition(posX, posY, posZ);
-					float rotX = (*componentIt)["rotation"][0];
-					float rotY = (*componentIt)["rotation"][1];
-					float rotZ = (*componentIt)["rotation"][2];
-					float rotW = (*componentIt)["rotation"][3];
-					gameObj->transform->SetRotation(rotX, rotY, rotZ, rotW);
-					float scaleX = (*componentIt)["scale"][0];
-					float scaleY = (*componentIt)["scale"][1];
-					float scaleZ = (*componentIt)["scale"][2];
-					gameObj->transform->SetScale(scaleX, scaleY, scaleZ);
+					gameObj->transform->Load(*componentIt);
 				}
 				if (strType == "Mesh")
 				{
-					std::string path = (*componentIt)["path"];
+					C_Mesh* compMesh = (C_Mesh*)gameObj->CreateComponent(COMPONENT_TYPE::MESH);
 
-					R_Mesh* rmesh = new R_Mesh();
-
-					bool res = Importer::Mesh::Load(path.c_str(), rmesh);
-
-					if (res)
-					{
-						C_Mesh* compMesh = (C_Mesh*)gameObj->CreateComponent(COMPONENT_TYPE::MESH);
-						compMesh->SetMesh(rmesh);
-						compMesh->SetMeshPath(path.c_str());
-					}
+					compMesh->Load(*componentIt);
+					
+					ret = Importer::Mesh::Load(compMesh->GetMeshPath(), compMesh->GetMesh());
 				}
 				if (strType == "Material")
 				{
-					R_Material* rmat = new R_Material();
-
-					float r = (*componentIt)["color"][0];
-					float g = (*componentIt)["color"][1];
-					float b = (*componentIt)["color"][2];
-					float a = (*componentIt)["color"][3];
-					rmat->diffuseColor = { r,g, b, a };
-
-					std::string path = (*componentIt)["path"];
-
 					C_Material* compMaterial = (C_Material*)gameObj->CreateComponent(COMPONENT_TYPE::MATERIAL);
-					compMaterial->SetMaterial(rmat);
 
-					R_Texture* rtexture = new R_Texture();
-					bool ret = Importer::Texture::Import(path.c_str(), rtexture);
+					compMaterial->Load(*componentIt);
 
-					if (ret)
-					{
-						compMaterial->SetTexture(rtexture);
-						compMaterial->SetTexturePath(path.c_str());
-					}
-
+					ret = Importer::Texture::Import(compMaterial->GetTexturePath(), compMaterial->GetTexture());
 				}
 			}
 			gameObjects.push_back(gameObj);

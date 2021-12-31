@@ -5,6 +5,8 @@
 #include "C_Mesh.h"
 #include "C_Material.h"
 
+using json = nlohmann::ordered_json;
+
 C_Mesh::C_Mesh(GameObject* owner): Component(owner, COMPONENT_TYPE::MESH)
 {
 }
@@ -31,6 +33,19 @@ bool C_Mesh::CleanUp()
 	RELEASE(rmesh);
 	rmesh = nullptr;
 	return true;
+}
+
+void C_Mesh::Save(json& jsonComp) const
+{
+	jsonComp["type"] = "Mesh";
+	jsonComp["path"] = GetMeshPath();
+}
+
+void C_Mesh::Load(json& jsonComp)
+{
+	jsonComp.at("path").get_to(_path);
+
+	rmesh = new R_Mesh();
 }
 
 void C_Mesh::SetMesh(R_Mesh* rmesh)
