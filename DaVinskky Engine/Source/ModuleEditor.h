@@ -17,6 +17,7 @@ class E_Save;
 class E_Load;
 class E_Hierarchy;
 class E_Inspector;
+class E_TextEditor;
 
 
 class ModuleEditor : public Module
@@ -68,6 +69,7 @@ public:
 	E_Load* loadPanel = nullptr;
 	E_Hierarchy* hierarchy = nullptr;
 	E_Inspector* inspector = nullptr;
+	E_TextEditor* textEdit = nullptr;
 
 	bool hoveringEditor = false;
 };

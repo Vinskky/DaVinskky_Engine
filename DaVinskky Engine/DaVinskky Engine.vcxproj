@@ -92,10 +92,12 @@
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\AssimpInc.h" />
     <ClInclude Include="Source\Component.h" />
+    <ClInclude Include="Source\External\ImGui\ColorTextEditor\TextEditor.h" />
     <ClInclude Include="Source\External\mmgr\include\mmgr.h" />
     <ClInclude Include="Source\External\mmgr\include\nommgr.h" />
     <ClInclude Include="Source\E_Load.h" />
     <ClInclude Include="Source\E_Save.h" />
+    <ClInclude Include="Source\E_TextEditor.h" />
     <ClInclude Include="Source\JsonFile.h" />
     <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\C_Camera.h" />
@@ -238,9 +240,11 @@
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Color.cpp" />
     <ClCompile Include="Source\C_Camera.cpp" />
+    <ClCompile Include="Source\External\ImGui\ColorTextEditor\TextEditor.cpp" />
     <ClCompile Include="Source\External\mmgr\include\mmgr.cpp" />
     <ClCompile Include="Source\E_Load.cpp" />
     <ClCompile Include="Source\E_Save.cpp" />
+    <ClCompile Include="Source\E_TextEditor.cpp" />
     <ClCompile Include="Source\JsonFile.cpp" />
     <ClCompile Include="Source\C_Material.cpp" />
     <ClCompile Include="Source\C_Mesh.cpp" />

@@ -225,8 +225,8 @@ const aiNode* Importer::Scene::Private::ImportTransform(const aiNode* ainode, Ga
 	aiTransform aiT;
 	mathTransform maT;
 
-	//if (strcmp(ainode->mName.C_Str(), "Object010_$AssimpFbx$_Translation") == 0)
-		//LOG("AAAA");
+	if (strcmp(ainode->mName.C_Str(), "Object010_$AssimpFbx$_Translation") == 0)
+		LOG("AAAA");
 
 	ainode->mTransformation.Decompose(aiT.scale, aiT.rotation, aiT.position);
 

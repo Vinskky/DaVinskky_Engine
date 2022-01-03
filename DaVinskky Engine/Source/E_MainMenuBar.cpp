@@ -2,6 +2,7 @@
 #include "Globals.h"
 #include "ModuleEditor.h"
 #include "ModuleSceneIntro.h"
+#include "E_TextEditor.h"
 #include "E_Console.h"
 #include "E_MainMenuBar.h"
 #include "E_Configuration.h"
@@ -42,6 +43,7 @@ bool E_MainMenuBar::Draw(ImGuiIO& io)
 	ViewMenu();
 	HelpMenu();
 	CreateMenu();
+	TextEditorMenuTest();
 
 	ImGui::EndMainMenuBar();
 	
@@ -71,6 +73,11 @@ bool E_MainMenuBar::GetSaveWindowState() const
 bool E_MainMenuBar::GetLoadWindowState() const
 {
 	return loadWindow;
+}
+
+bool E_MainMenuBar::GetTextEditorState() const
+{
+	return showTextEditor;
 }
 
 bool E_MainMenuBar::FileMenu()
@@ -202,6 +209,31 @@ bool E_MainMenuBar::CreateMenu()
 			//Creating a game object empty means that only will have Component transform.
 			//We should keep in mind the parent. (rootscene or game object selected?)
 			app->sceneIntro->CreateGameObject("Empty", app->sceneIntro->sceneRoot);
+		}
+		ImGui::EndMenu();
+	}
+
+	return ret;
+}
+
+bool E_MainMenuBar::TextEditorMenuTest()
+{
+	bool ret = true;
+
+	if (ImGui::BeginMenu("Text Editor test"))
+	{
+		if (ImGui::MenuItem("Open Text editor", "", showTextEditor, true))
+		{
+			if (aboutWindow)
+			{
+				app->editor->textEdit->Disable();
+			}
+			else
+			{
+				app->editor->textEdit->Enable();
+
+			}
+			showTextEditor = !showTextEditor;
 		}
 		ImGui::EndMenu();
 	}

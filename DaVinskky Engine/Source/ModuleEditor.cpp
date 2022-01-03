@@ -15,6 +15,7 @@
 #include "E_Load.h"
 #include "E_Hierarchy.h"
 #include "E_Inspector.h"
+#include "E_TextEditor.h"
 
 #include "imgui.h"
 #include "imgui_internal.h"
@@ -31,7 +32,8 @@ aboutPanel(new E_About("About")),
 savePanel(new E_Save("Save Scene")),
 loadPanel(new E_Load("Load Scene")),
 hierarchy(new E_Hierarchy("Hierarchy")),
-inspector(new E_Inspector("Inspector"))
+inspector(new E_Inspector("Inspector")),
+textEdit(new E_TextEditor("Text Editor"))
 {
     SetName("Editor");
     //AddEditorPanel(testPanel);
@@ -43,6 +45,7 @@ inspector(new E_Inspector("Inspector"))
     AddEditorPanel(loadPanel);
     AddEditorPanel(hierarchy);
     AddEditorPanel(inspector);
+    AddEditorPanel(textEdit);
 }
 
 ModuleEditor::~ModuleEditor()
