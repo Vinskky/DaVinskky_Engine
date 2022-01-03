@@ -213,7 +213,7 @@ void Importer::Scene::Private::ProcessNode(const aiScene* aiscene, const aiNode*
 	gameObj->SetName(node->mName.C_Str());
 	LOG("ProcessNode node name: %s", gameObj->GetName());
 	gameObjects.push_back(gameObj);
-
+	
 	for (uint i = 0; i < node->mNumChildren; ++i)
 	{
 		Importer::Scene::Private::ProcessNode(aiscene, node->mChildren[i], gameObjects, gameObj);
@@ -224,6 +224,9 @@ const aiNode* Importer::Scene::Private::ImportTransform(const aiNode* ainode, Ga
 {
 	aiTransform aiT;
 	mathTransform maT;
+
+	//if (strcmp(ainode->mName.C_Str(), "Object010_$AssimpFbx$_Translation") == 0)
+		//LOG("AAAA");
 
 	ainode->mTransformation.Decompose(aiT.scale, aiT.rotation, aiT.position);
 
@@ -250,8 +253,7 @@ const aiNode* Importer::Scene::Private::ImportTransform(const aiNode* ainode, Ga
 	
 	gameObj->transform->SetPosition(maT.position.x, maT.position.y, maT.position.z);
 	gameObj->transform->SetRotation(maT.rotation.x, maT.rotation.y, maT.rotation.z, maT.rotation.w);
-	gameObj->transform->SetScale(maT.position.x, maT.position.y, maT.position.z);
-
+	gameObj->transform->SetScale(maT.scale.x, maT.scale.y, maT.scale.z);
 
 	return ainode;
 }
@@ -305,6 +307,11 @@ void Importer::Scene::Private::ImportMaterial(const aiMesh* aimesh, const aiScen
 		if (res)
 		{
 			C_Material* compMaterial = (C_Material*)gameObj->CreateComponent(COMPONENT_TYPE::MATERIAL);
+			if (compMaterial == nullptr)
+			{
+				compMaterial = gameObj->GetComponent<C_Material>();
+			}
+
 			compMaterial->SetMaterial(rmat);
 
 			//Componet Material Has materials and textures inside.

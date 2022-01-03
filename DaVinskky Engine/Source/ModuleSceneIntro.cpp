@@ -34,7 +34,7 @@ bool ModuleSceneIntro::Start()
 {
 	bool ret = true;
 
-	Importer::Scene::Import("Assets/Models/BakerHouse.fbx", sceneGameObjects);
+	Importer::Scene::Import("Assets/Models/street2.FBX", sceneGameObjects);
 	//Importer::Scene::Import("Assets/Models/warrior.fbx", sceneGameObjects);
 
 	LOG("Loading Intro assets");
