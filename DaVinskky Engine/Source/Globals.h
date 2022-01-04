@@ -38,8 +38,9 @@ void log(const char file[], int line, const char* format, ...);
 #define RADTODEG 57.295779513082320876f
 #define HAVE_M_PI
 
-typedef unsigned int uint;
 typedef unsigned __int64 uint64;
+typedef unsigned __int32 uint32;
+typedef unsigned int uint;
 
 enum update_status
 {
@@ -67,6 +68,7 @@ enum update_status
 #define SCENES_PATH "Library/Scenes/"
 #define ASSETS_MODELS_PATH "Assets/Models/"
 #define ASSETS_TEXTURES_PATH "Assets/Textures/"
+#define ASSETS_SHADERS_PATH "Assets/Shaders/"
 
 // ImGui Globals
 #define IMGUI_BLACK ImVec4(0.0f,0.0f,0.0f,1.f)
