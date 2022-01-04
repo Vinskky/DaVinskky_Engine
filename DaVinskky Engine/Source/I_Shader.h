@@ -23,6 +23,8 @@ namespace Importer
 
 		void Recompile(R_Shader* shader);
 
+		bool CheckUniformName(std::string name);
+
 		//Save&Load???
 	}
 }

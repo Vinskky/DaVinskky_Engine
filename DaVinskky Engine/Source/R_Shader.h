@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-enum class UniformType
+enum class UNIFORM_TYPE
 {
 	INT,
 	FLOAT,
@@ -28,7 +28,7 @@ enum class UniformType
 
 struct Uniform
 {
-	UniformType uniformType = UniformType::NONE;
+	UNIFORM_TYPE uniformType = UNIFORM_TYPE::NONE;
 	std::string name;
 	GLenum GLtype;
 
@@ -67,6 +67,7 @@ public:
 
 	void SetUniform1f(std::string name, GLfloat value);
 	void SetUniform1i(std::string name, GLint value);
+
 
 public:
 	uint32 shaderProgramID;
