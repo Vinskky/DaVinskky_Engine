@@ -98,6 +98,7 @@
     <ClInclude Include="Source\E_Load.h" />
     <ClInclude Include="Source\E_Save.h" />
     <ClInclude Include="Source\E_TextEditor.h" />
+    <ClInclude Include="Source\I_Shader.h" />
     <ClInclude Include="Source\JsonFile.h" />
     <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\C_Camera.h" />
@@ -221,6 +222,7 @@
     <ClInclude Include="Source\MathGeoInc.h" />
     <ClInclude Include="Source\R_Material.h" />
     <ClInclude Include="Source\R_Mesh.h" />
+    <ClInclude Include="Source\R_Shader.h" />
     <ClInclude Include="Source\R_Texture.h" />
     <ClInclude Include="Source\Light.h" />
     <ClInclude Include="Source\Module.h" />
@@ -245,6 +247,7 @@
     <ClCompile Include="Source\E_Load.cpp" />
     <ClCompile Include="Source\E_Save.cpp" />
     <ClCompile Include="Source\E_TextEditor.cpp" />
+    <ClCompile Include="Source\I_Shader.cpp" />
     <ClCompile Include="Source\JsonFile.cpp" />
     <ClCompile Include="Source\C_Material.cpp" />
     <ClCompile Include="Source\C_Mesh.cpp" />
@@ -313,6 +316,7 @@
     <ClCompile Include="Source\I_Texture.cpp" />
     <ClCompile Include="Source\R_Material.cpp" />
     <ClCompile Include="Source\R_Mesh.cpp" />
+    <ClCompile Include="Source\R_Shader.cpp" />
     <ClCompile Include="Source\R_Texture.cpp" />
     <ClCompile Include="Source\Light.cpp" />
     <ClCompile Include="Source\log.cpp" />

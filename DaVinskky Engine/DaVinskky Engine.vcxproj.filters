@@ -522,6 +522,12 @@
     <ClInclude Include="Source\E_TextEditor.h">
       <Filter>Sources\2. Editor</Filter>
     </ClInclude>
+    <ClInclude Include="Source\R_Shader.h">
+      <Filter>Sources\5. Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\I_Shader.h">
+      <Filter>Sources\3. Importers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -790,6 +796,12 @@
     </ClCompile>
     <ClCompile Include="Source\E_TextEditor.cpp">
       <Filter>Sources\2. Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\R_Shader.cpp">
+      <Filter>Sources\5. Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\I_Shader.cpp">
+      <Filter>Sources\3. Importers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

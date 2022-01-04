@@ -70,6 +70,10 @@ enum update_status
 #define ASSETS_TEXTURES_PATH "Assets/Textures/"
 #define ASSETS_SHADERS_PATH "Assets/Shaders/"
 
+//Shaders
+#define VERTEX_SHADER "__Vertex_Shader__"
+#define FRAGMENT_SHADER "__Fragment_Shader__"
+
 // ImGui Globals
 #define IMGUI_BLACK ImVec4(0.0f,0.0f,0.0f,1.f)
 #define IMGUI_LIGHT_GREY ImVec4(0.8f,0.8f,0.8f,1.f)
