@@ -325,10 +325,17 @@ void Importer::Scene::Private::ImportTexture(const aiMaterial* aimaterial, C_Mat
 	aiString textPath;
 	if (aimaterial->GetTexture(aiTextureType_DIFFUSE, 0, &textPath) == AI_SUCCESS)
 	{
+		std::string textP = textPath.C_Str();
+		
+		std::size_t found =  textP.find_last_of("/\\");
+
+		textP = textP.substr(found + 1);
+
 		R_Texture* rtexture = new R_Texture();
 
 		std::string finalPath = ASSETS_TEXTURES_PATH;
-		finalPath += textPath.C_Str();
+		
+		finalPath += textP;
 		bool ret = Importer::Texture::Import(finalPath.c_str(), rtexture);
 		
 		if (ret)

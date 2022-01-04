@@ -67,7 +67,6 @@ bool M_FileSystem::CleanUp()
 void M_FileSystem::CreateLibraryDirectories()
 {
 	CreateDir(LIBRARY_PATH);
-	CreateDir(TEXTURES_PATH);
 	CreateDir(MESHES_PATH);
 }
 
