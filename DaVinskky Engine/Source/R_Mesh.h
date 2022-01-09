@@ -17,7 +17,7 @@ public:
 
 	void CleanUp();
 
-	//LoadBuffer to been able to draw
+	// LoadBuffer to been able to draw
 	void LoadBuffers();
 
 	void SetAABB();
@@ -34,11 +34,11 @@ public:
 	std::vector<float> mTextureCoords;
 	std::vector<uint> mIndex;
 
-	//OpenGL buffers parameters
-	uint VBO;						//Vertix Buffer Object	
-	uint NBO;						//Normal Buffer Object
-	uint TBO;						//Texture Buffer Object
-	uint IBO;						//Index Buffer Object
+	// OpenGL buffers parameters
+	uint VBO;						// Vertex Buffer Object	
+	uint NBO;						// Normal Buffer Object
+	uint TBO;						// Texture Buffer Object
+	uint IBO;						// Index Buffer Object
 
 	//AABB
 	AABB aabb;

@@ -48,15 +48,19 @@ public:
 	R_Shader(const char* path);
 	~R_Shader();
 
+	void CreateDefaultShader();
+	void LinkShaderProgram();
+	const char* LogShader(uint shaderObject);
+
 	void SetNameShader(const char* name);
 	const char* GetNameShader() const;
 
 	void SetPathShader(const char* name);
 	const char* GetPathShader()const;
 
-public:
-	//Functionality to be able to save/modify data of Shader
+	// Functionality to be able to save/modify data of Shader
 	void SetUniformMatrix4(std::string name, GLfloat* value);
+
 	void SetUniformVec2f(std::string name, GLfloat* value);
 	void SetUniformVec3f(std::string name, GLfloat* value);
 	void SetUniformVec4f(std::string name, GLfloat* value);
@@ -68,11 +72,10 @@ public:
 	void SetUniform1f(std::string name, GLfloat value);
 	void SetUniform1i(std::string name, GLint value);
 
-
 public:
-	uint32 shaderProgramID;
-	uint32 vertexID;
-	uint32 fragmentID;
+	uint shaderProgramID;
+	uint vertexID;
+	uint fragmentID;
 
 	std::vector<Uniform> uniforms;
 
@@ -82,7 +85,4 @@ private:
 
 };
 
-
-
 #endif // !_R_Shader_H_
-

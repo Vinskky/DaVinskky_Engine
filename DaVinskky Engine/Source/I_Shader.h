@@ -11,10 +11,10 @@ namespace Importer
 	{
 		void Import(const char* path, R_Shader* shader);
 
-		//Read file vertex part
+		// Read file vertex part
 		int ImportVertexShader(std::string shaderFile, R_Shader* shader);
 
-		//Read file fragment part
+		// Read file fragment part
 		int ImportFragmentShader(std::string shaderFile, R_Shader* shader);
 
 		void GetShaderUniforms(R_Shader* shader);
@@ -30,4 +30,3 @@ namespace Importer
 }
 
 #endif // !_I_SHADER_H_
-
