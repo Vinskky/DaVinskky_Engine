@@ -30,11 +30,11 @@ void Importer::Shader::Import(const char* wholePath, R_Shader* shader)
 	std::string file(buffer);
 	if (file.find(VERTEX_SHADER) != std::string::npos)
 	{
-		shader->vertexID = (GLuint)ImportVertexShader(file, shader);
+		shader->vertexID = (GLuint)ImportVertexShader(file);
 	}
 	if (file.find(FRAGMENT_SHADER) != std::string::npos)
 	{
-		shader->fragmentID = (GLuint)ImportFragmentShader(file, shader);
+		shader->fragmentID = (GLuint)ImportFragmentShader(file);
 	}
 
 	delete[] buffer;
@@ -47,29 +47,34 @@ void Importer::Shader::Import(const char* wholePath, R_Shader* shader)
 		glAttachShader(shader->shaderProgramID, shader->fragmentID);
 		glLinkProgram(shader->shaderProgramID);
 
+		// Check linking errors
 		glGetProgramiv(shader->shaderProgramID, GL_LINK_STATUS, &outcome);
 		if (outcome == 0)
 		{
 			GLchar info[512];
 			glGetProgramInfoLog(shader->shaderProgramID, 512, NULL, info);
+			glDeleteProgram(shader->shaderProgramID);
+			glDeleteShader(shader->vertexID);
+			glDeleteShader(shader->fragmentID);
 			LOG("Shader compiling error: %s", info);
 		}
 		else if (shader->uniforms.size() == 0)
 		{
 			GetShaderUniforms(shader);
 		}
+		glDetachShader(shader->shaderProgramID, shader->vertexID);
+		glDetachShader(shader->shaderProgramID, shader->fragmentID);
 
 		glDeleteShader(shader->vertexID);
 		glDeleteShader(shader->fragmentID);
-		glDeleteShader(shader->shaderProgramID);
 	}
 	else
 	{
-		LOG("Vertex shader: %d or Fragment shader: %d are not correctly compiled.", shader->vertexID, shader->fragmentID);
+		LOG("Vertex Shader: %d or Fragment Shader: %d are not correctly compiled.", shader->vertexID, shader->fragmentID);
 	}
 }
 
-int Importer::Shader::ImportVertexShader(std::string shaderFile, R_Shader* shader)
+int Importer::Shader::ImportVertexShader(std::string shaderFile)
 {
 	std::string vertexFile = std::string("#version 330 core\r\n") +
 		std::string("#define ") +
@@ -79,24 +84,24 @@ int Importer::Shader::ImportVertexShader(std::string shaderFile, R_Shader* shade
 	GLuint vertexShader;
 	vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	const GLchar* source = (const GLchar*)vertexFile.c_str();
-	glShaderSource(vertexShader, 1, &source, nullptr);
+	glShaderSource(vertexShader, 1, &source, NULL);
 	glCompileShader(vertexShader);
 
+	// Check vertex compilation errors
 	GLint outcome;
 	GLchar info[512];
 	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &outcome);
-	if (outcome == 0)
+	if (outcome == GL_FALSE)
 	{
 		glGetShaderInfoLog(vertexShader, 512, NULL, info);
-		LOG("Vertex shader compilation error (%s)", info);
+		glDeleteShader(vertexShader);
+		LOG("Vertex Shader compilation error (%s)", info);
 	}
-
-
 
 	return (outcome != 0) ? vertexShader : -1;
 }
 
-int Importer::Shader::ImportFragmentShader(std::string shaderFile, R_Shader* shader)
+int Importer::Shader::ImportFragmentShader(std::string shaderFile)
 {
 	std::string fragmentFile = std::string("#version 330 core\r\n") +
 		std::string("#define ") +
@@ -106,7 +111,7 @@ int Importer::Shader::ImportFragmentShader(std::string shaderFile, R_Shader* sha
 	GLuint fragmentShader;
 	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 	const GLchar* source = (const GLchar*)fragmentFile.c_str();
-	glShaderSource(fragmentShader, 1, &source, nullptr);
+	glShaderSource(fragmentShader, 1, &source, NULL);
 	glCompileShader(fragmentShader);
 
 	GLint outcome;
@@ -115,9 +120,9 @@ int Importer::Shader::ImportFragmentShader(std::string shaderFile, R_Shader* sha
 	if (outcome == 0)
 	{
 		glGetShaderInfoLog(fragmentShader, 512, NULL, info);
-		LOG("Vertex shader compilation error (%s)", info);
+		glDeleteShader(fragmentShader);
+		LOG("Fragment Shader compilation error (%s)", info);
 	}
-
 
 	return (outcome != 0) ? fragmentShader : -1;
 }
@@ -260,6 +265,5 @@ bool Importer::Shader::CheckUniformName(std::string name)
 	else
 	{
 		return false;
-	}
-		
+	}		
 }

@@ -49,9 +49,6 @@ public:
 	~R_Shader();
 
 	void UseShader();
-
-	void CreateDefaultShader();
-	void LinkShaderProgram();
 	const char* LogShader(uint shaderObject);
 
 	void SetNameShader(const char* name);

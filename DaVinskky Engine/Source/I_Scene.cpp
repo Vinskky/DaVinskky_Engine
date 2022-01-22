@@ -11,6 +11,7 @@
 #include "I_Mesh.h"
 #include "I_Material.h"
 #include "I_Texture.h"
+#include "I_Shader.h"
 #include "R_Mesh.h"
 #include "R_Material.h"
 #include "R_Texture.h"
@@ -319,8 +320,8 @@ void Importer::Scene::Private::ImportMaterial(const aiMesh* aimesh, const aiScen
 			ImportTexture(aimat, compMaterial);
 
 			R_Shader* rshader = new R_Shader();
-			rshader->CreateDefaultShader();
-			rshader->LinkShaderProgram();
+			std::string path(ASSETS_SHADERS_PATH + std::string("defaultShader.DavShader"));
+			Importer::Shader::Import(path.c_str(), rshader);
 			compMaterial->SetShader(rshader);
 		}
 	}
