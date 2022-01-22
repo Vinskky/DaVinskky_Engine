@@ -35,12 +35,13 @@ public:
 	std::vector<uint> mIndex;
 
 	// OpenGL buffers parameters
+	uint VAO;						// Vertex Array Object
 	uint VBO;						// Vertex Buffer Object	
 	uint NBO;						// Normal Buffer Object
 	uint TBO;						// Texture Buffer Object
 	uint IBO;						// Index Buffer Object
 
-	//AABB
+	// AABB
 	AABB aabb;
 };
 

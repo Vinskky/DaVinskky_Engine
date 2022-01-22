@@ -1,6 +1,7 @@
 #include "C_Material.h"
 #include "R_Material.h"
 #include "R_Texture.h"
+#include "R_Shader.h"
 
 #include "External/mmgr/include/mmgr.h"
 
@@ -33,6 +34,9 @@ bool C_Material::CleanUp()
 	rmaterial = nullptr;
 	RELEASE(rtexture);
 	rtexture = nullptr;
+	RELEASE(rshader);
+	rshader = nullptr;
+
 	return true;
 }
 
@@ -65,6 +69,11 @@ void C_Material::SetMaterial(R_Material* rmaterial)
 void C_Material::SetTexture(R_Texture* rtexture)
 {
 	this->rtexture = rtexture;
+}
+
+void C_Material::SetShader(R_Shader* rshader)
+{
+	this->rshader = rshader;
 }
 
 R_Texture* C_Material::GetTexture() const
@@ -109,4 +118,9 @@ void C_Material::SetTexturePath(const char* path)
 const char* C_Material::GetTexturePath() const
 {
 	return _path.c_str();
+}
+
+R_Shader* C_Material::GetShader() const
+{
+	return rshader;
 }

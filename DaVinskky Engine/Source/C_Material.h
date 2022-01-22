@@ -10,6 +10,7 @@
 
 class R_Texture;
 class R_Material;
+class R_Shader;
 
 class C_Material : public Component
 {
@@ -27,6 +28,7 @@ public:
 
 	void SetMaterial(R_Material* rmaterial);
 	void SetTexture(R_Texture* rtexture);
+	void SetShader(R_Shader* rshader);
 
 	R_Texture* GetTexture()const;
 	bool UseDefaultTexture();
@@ -37,11 +39,14 @@ public:
 	void SetTexturePath(const char* path);
 	const char* GetTexturePath() const;
 
+	R_Shader* GetShader() const;
+
 	static inline COMPONENT_TYPE GetType() { return COMPONENT_TYPE::MATERIAL; }
 private:
 	
 	R_Material* rmaterial = nullptr;
 	R_Texture* rtexture = nullptr;
+	R_Shader* rshader = nullptr;
 	bool debugTextEnabled;
 	std::string _path;
 };

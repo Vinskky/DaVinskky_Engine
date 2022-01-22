@@ -1,42 +1,82 @@
 #include "R_Shader.h"
 
-R_Shader::R_Shader(const char* path):shaderProgramID(0),vertexID(0),fragmentID(0)
+R_Shader::R_Shader() :shaderProgramID(0), vertexID(0), fragmentID(0)
 {
 }
 
 R_Shader::~R_Shader()
 {
+	glDeleteProgram(shaderProgramID);
 	glDeleteShader(vertexID);
 	glDeleteShader(fragmentID);
 }
 
+void R_Shader::UseShader()
+{
+	glUseProgram(shaderProgramID);
+}
+
 void R_Shader::CreateDefaultShader()
 {
-	const char* vertexShaderSource = "#version 330 core\n"
-		"layout (location = 0) in vec3 aPos;\n"
+	const GLchar* vertexShaderSource = "#version 330 core\n"
+		"layout (location = 0) in vec3 position;\n"
+		"layout (location = 1) in vec3 color;\n"
+		"layout (location = 2) in vec2 texCoord;\n"
+		"out vec4 ourColor;\n"
+		"out vec2 TexCoord;\n"
+		"uniform vec4 inColor;\n"
+		"uniform mat4 model_matrix;\n"
+		"uniform mat4 view;\n"
+		"uniform mat4 projection;\n"
 		"void main()\n"
 		"{\n"
-		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+		"   gl_Position = projection * view * model_matrix * vec4(position, 1.0f);\n"
+		"   ourColor = inColor;\n"
+		"   TexCoord = texCoord;\n"
 		"}\0";
 
-	const char* fragmentShaderSource = "#version 330 core/n"
-		"out vec4 FragColor;\n"
+	const GLchar* fragmentShaderSource = "#version 330 core\n"
+		"in vec4 ourColor;\n"
+		"in vec2 TexCoord;\n"
+		"out vec4 color;\n"
+		"uniform bool hasTexture;\n"
+		"uniform sampler2D ourTexture;\n"
 		"void main()\n"
 		"{\n"
-		"   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+		"   vec4 texColor = (hasTexture) ? texture(ourTexture, TexCoord) : vec4(0.5f,0.5f,0.5f,1.0f);\n"
+		"   color = texColor * ourColor;\n"
 		"}\0";
 
 	vertexID = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertexID, 1, &vertexShaderSource, NULL);
 	glCompileShader(vertexID);
 
-	LOG(LogShader(vertexID));
+	// Check vertex compilation errors
+	GLint success = 0;
+	char infoLog[512];
+
+	glGetShaderiv(vertexID, GL_COMPILE_STATUS, &success);
+	if (success == GL_FALSE)
+	{
+		glGetShaderInfoLog(vertexID, 512, NULL, infoLog);
+		glDeleteShader(vertexID);
+
+		LOG("Shader compilation error : %s", infoLog);
+	}
 
 	fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragmentID, 1, &fragmentShaderSource, NULL);
 	glCompileShader(fragmentID);
 
-	LOG(LogShader(fragmentID));
+	glGetShaderiv(fragmentID, GL_COMPILE_STATUS, &success);
+	if (success == GL_FALSE)
+	{
+		glGetShaderInfoLog(fragmentID, 512, NULL, infoLog);
+		glDeleteShader(fragmentID);
+		glDeleteShader(vertexID);
+
+		LOG("Shader compilation error : %s", infoLog);
+	}
 }
 
 void R_Shader::LinkShaderProgram()
@@ -47,15 +87,24 @@ void R_Shader::LinkShaderProgram()
 	glLinkProgram(shaderProgramID);
 
 	// Check linking errors
-	int success;
+	int success = 0;
 	char infoLog[512];
 
 	glGetProgramiv(shaderProgramID, GL_LINK_STATUS, &success);
 	if (!success)
 	{
 		glGetProgramInfoLog(shaderProgramID, 512, NULL, infoLog);
+		glDeleteProgram(shaderProgramID);
+		glDeleteShader(vertexID);
+		glDeleteShader(fragmentID);
+
 		LOG("Shader linking error : %s", infoLog);
 	}
+	glDetachShader(shaderProgramID, vertexID);
+	glDetachShader(shaderProgramID, fragmentID);
+
+	glDeleteShader(vertexID);
+	glDeleteShader(fragmentID);
 }
 
 const char* R_Shader::LogShader(uint shaderObject)
@@ -148,4 +197,10 @@ void R_Shader::SetUniform1i(std::string name, GLint value)
 {
 	uint uinformLoc = glGetUniformLocation(shaderProgramID, name.c_str());
 	glUniform1i(uinformLoc, value);
+}
+
+void R_Shader::SetBool(std::string name, bool value)
+{
+	uint uinformLoc = glGetUniformLocation(shaderProgramID, name.c_str());
+	glUniform1i(uinformLoc, (GLint)value);
 }

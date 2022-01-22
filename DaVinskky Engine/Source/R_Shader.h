@@ -45,8 +45,10 @@ struct Uniform
 class R_Shader
 {
 public:
-	R_Shader(const char* path);
+	R_Shader();
 	~R_Shader();
+
+	void UseShader();
 
 	void CreateDefaultShader();
 	void LinkShaderProgram();
@@ -71,6 +73,7 @@ public:
 
 	void SetUniform1f(std::string name, GLfloat value);
 	void SetUniform1i(std::string name, GLint value);
+	void SetBool(std::string name, bool value);
 
 public:
 	uint shaderProgramID;
@@ -82,7 +85,6 @@ public:
 private:
 	std::string name;
 	std::string path;
-
 };
 
 #endif // !_R_Shader_H_

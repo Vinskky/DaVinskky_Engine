@@ -14,6 +14,7 @@
 #include "R_Mesh.h"
 #include "R_Material.h"
 #include "R_Texture.h"
+#include "R_Shader.h"
 #include "JsonFile.h"
 
 #include <string>
@@ -316,6 +317,11 @@ void Importer::Scene::Private::ImportMaterial(const aiMesh* aimesh, const aiScen
 
 			//Componet Material Has materials and textures inside.
 			ImportTexture(aimat, compMaterial);
+
+			R_Shader* rshader = new R_Shader();
+			rshader->CreateDefaultShader();
+			rshader->LinkShaderProgram();
+			compMaterial->SetShader(rshader);
 		}
 	}
 }

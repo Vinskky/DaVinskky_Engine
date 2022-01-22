@@ -26,8 +26,6 @@ bool E_Inspector::Draw(ImGuiIO& io)
 {
 	bool ret = true;
 
-	
-
 	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_None);
 	
 	//Checks hover to avoid unnecesary inputs
@@ -123,38 +121,42 @@ void E_Inspector::InspectorTransform(C_Transform* comp)
 
 void E_Inspector::InspectorMesh(C_Mesh* comp)
 {
-	uint nVertices;
-	uint nNormals;
-	uint nTexCoords;
-	uint nIndices;
-	comp->GetMeshData(nVertices, nNormals, nTexCoords, nIndices);
-
-	if (ImGui::CollapsingHeader("Geometry", ImGuiTreeNodeFlags_DefaultOpen))
+	if (comp->GetMesh() != nullptr)
 	{
-		bool active = comp->IsActive(); 
-		if (ImGui::Checkbox("Enable Mesh", &active))
-		{
-			comp->SetIsActive(active);
-		}
-		ImGui::Separator();
+		uint nVertices;
+		uint nNormals;
+		uint nTexCoords;
+		uint nIndices;
+		comp->GetMeshData(nVertices, nNormals, nTexCoords, nIndices);
 
-		ImGui::Text("Triangles: %i",nVertices/3);
-		ImGui::Text("Indices: %i",nIndices);
-		ImGui::Text("Vertices: %i",nVertices);
-
-		ImGui::Separator();
-		//checkers: show vertex && normals.
-		bool debug = comp->GetDrawNormals();
-		if (ImGui::Checkbox("Draw Normals", &debug))
+		if (ImGui::CollapsingHeader("Geometry", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			comp->SetDrawNormals(debug);
-		}
+			bool active = comp->IsActive();
+			if (ImGui::Checkbox("Enable Mesh", &active))
+			{
+				comp->SetIsActive(active);
+			}
+			ImGui::Separator();
 
-		ImGui::Separator();
-		bool drawBoundingBox = comp->GetOwner()->showBoundingBoxes;
-		if (ImGui::Checkbox("Draw BoundingBox", &drawBoundingBox))
-		{
-			comp->GetOwner()->showBoundingBoxes = drawBoundingBox;
+			ImGui::Text("Triangles: %i", nVertices / 3);
+			ImGui::Text("Indices: %i", nIndices);
+			ImGui::Text("Vertices: %i", nVertices);
+
+			ImGui::Separator();
+
+			//checkers: show vertex && normals.
+			bool debug = comp->GetDrawNormals();
+			if (ImGui::Checkbox("Draw Normals", &debug))
+			{
+				comp->SetDrawNormals(debug);
+			}
+
+			ImGui::Separator();
+			bool drawBoundingBox = comp->GetOwner()->showBoundingBoxes;
+			if (ImGui::Checkbox("Draw BoundingBox", &drawBoundingBox))
+			{
+				comp->GetOwner()->showBoundingBoxes = drawBoundingBox;
+			}
 		}
 	}
 }
@@ -163,13 +165,17 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 {
 	if (ImGui::CollapsingHeader("Material", ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		if (comp->GetTexture() != nullptr)
+		{
+			ImGui::Text("Texture Path: %s", comp->GetTexturePath());
+		}
+
 		//check default texture
 		bool dftText = comp->UseDefaultTexture();
 		if(ImGui::Checkbox("Default Text", &dftText))
 		{
 			comp->SetDefaultTexture(dftText);
 		}
-		
 	}
 }
 
@@ -252,7 +258,7 @@ void E_Inspector::AddComponentComboBox(GameObject* selectedObj)
 
 	if ((ImGui::Button("ADD")))
 	{
-		if (componentType != (int)COMPONENT_TYPE::NONE)
+		if (componentType != (int)COMPONENT_TYPE::NONE && componentType != (int)COMPONENT_TYPE::MESH)
 		{
 			selectedObj->CreateComponent((COMPONENT_TYPE)componentType);
 		}

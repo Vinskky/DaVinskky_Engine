@@ -4,7 +4,6 @@
 #include "Globals.h"
 #include <vector>
 
-
 struct aiScene;
 struct aiMesh;
 struct aiNode;
@@ -39,6 +38,4 @@ namespace Importer
 	}
 }
 
-
 #endif // !_I_SCENE_H_
-

@@ -23,7 +23,6 @@ bool E_TextEditor::Draw(ImGuiIO& io)
 
 	TextEditorWindow();
 
-
 	return ret;
 }
 
@@ -38,7 +37,6 @@ bool E_TextEditor::TextEditorWindow()
 	{
 		if (ImGui::Begin("Text Editor", &show_texteditor_window, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoCollapse))
 		{
-			
 			//Update
 			auto cpos = editor.GetCursorPosition();
 			if (ImGui::BeginMenuBar())

@@ -4,6 +4,7 @@
 #include "ModuleEditor.h"
 #include "I_Texture.h"
 #include "R_Mesh.h"
+#include "R_Shader.h"
 #include "C_Material.h"
 #include "C_Transform.h"
 #include "C_Camera.h"
@@ -45,16 +46,15 @@ bool ModuleRenderer3D::Init()
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
-	//Create context
+	// Create context
 	context = SDL_GL_CreateContext(app->window->window);
-	if(context == NULL)
+	if (context == NULL)
 	{
 		LOG("OpenGL context could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
-	
 
-	if(ret == true)
+	if (ret == true)
 	{
 		GLenum err = glewInit();
 
@@ -69,65 +69,65 @@ bool ModuleRenderer3D::Init()
 			LOG("Renderer: %s", glGetString(GL_RENDERER));
 			LOG("OpenGL version supported %s", glGetString(GL_VERSION));
 			LOG("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
-
 		}
-		//Use Vsync
-		if(VSYNC && SDL_GL_SetSwapInterval(1) < 0)
+
+		// Use Vsync
+		if (VSYNC && SDL_GL_SetSwapInterval(1) < 0)
 			LOG("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
 
-		//Initialize Projection Matrix
+		// Initialize Projection Matrix
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 
-		//Check for error
+		// Check for error
 		GLenum error = glGetError();
-		if(error != GL_NO_ERROR)
+		if (error != GL_NO_ERROR)
 		{
 			LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
 			ret = false;
 		}
 
-		//Initialize Modelview Matrix
+		// Initialize Modelview Matrix
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-		//Check for error
+		// Check for error
 		error = glGetError();
-		if(error != GL_NO_ERROR)
+		if (error != GL_NO_ERROR)
 		{
 			LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
 			ret = false;
 		}
-		
+
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 		glClearDepth(1.0f);
-		
-		//Initialize clear color
+
+		// Initialize clear color
 		glClearColor(0.f, 0.f, 0.f, 1.f);
 
-		//Check for error
+		// Check for error
 		error = glGetError();
-		if(error != GL_NO_ERROR)
+		if (error != GL_NO_ERROR)
 		{
 			LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
 			ret = false;
 		}
-		
-		GLfloat LightModelAmbient[] = {0.0f, 0.0f, 0.0f, 1.0f};
+
+		GLfloat LightModelAmbient[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LightModelAmbient);
-		
+
 		lights[0].ref = GL_LIGHT0;
 		lights[0].ambient.Set(0.25f, 0.25f, 0.25f, 1.0f);
 		lights[0].diffuse.Set(0.75f, 0.75f, 0.75f, 1.0f);
 		lights[0].SetPos(0.0f, 0.0f, 2.5f);
 		lights[0].Init();
-		
-		GLfloat MaterialAmbient[] = {1.0f, 1.0f, 1.0f, 1.0f};
+
+		GLfloat MaterialAmbient[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, MaterialAmbient);
 
-		GLfloat MaterialDiffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
+		GLfloat MaterialDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, MaterialDiffuse);
-		
+
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_CULL_FACE);
 		lights[0].Active(true);
@@ -151,7 +151,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
-	
+
 	C_Camera* currentCam = app->camera->GetCurrentCamera();
 	if (currentCam != nullptr)
 	{
@@ -168,7 +168,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	float3 camPosition = (app->camera->GetCurrentCamera() != nullptr) ? app->camera->GetPosition() : float3(0.0f, 20.0f, 0.0f);
 	lights[0].SetPos(camPosition.x, camPosition.y, camPosition.z);
 
-	for(uint i = 0; i < MAX_LIGHTS; ++i)
+	for (uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
 
 	return UPDATE_CONTINUE;
@@ -184,17 +184,16 @@ update_status ModuleRenderer3D::Update(float dt)
 	{
 		wireframe = !wireframe;
 
-		LOG("Wireframe:  % s", wireframe?"Activated":"Deactivated");
+		LOG("Wireframe:  %s", wireframe ? "Activated" : "Deactivated");
 		
-		if (wireframe)//activate wireframe mode
+		if (wireframe) // Activate wireframe mode
 		{
-			//Turn on wiremode
+			// Turn on wiremode
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
 		}
 		else
 		{
-			//Turn off wiremode
+			// Turn off wiremode
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		}
 	}
@@ -205,18 +204,14 @@ update_status ModuleRenderer3D::Update(float dt)
 // PostUpdate present buffer to screen
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
-	
-	
 	SDL_GL_SwapWindow(app->window->window);
 	
-
 	return UPDATE_CONTINUE;
 }
 
 // Called before quitting
 bool ModuleRenderer3D::CleanUp()
 {
-	
 	LOG("Destroying 3D Renderer");
 
 	Importer::Texture::CleanUp();
@@ -233,7 +228,6 @@ void ModuleRenderer3D::OnResize()
 	
 	app->window->GetWindowsSize(app->window->window, winWidth, winHeight);
 
-
 	glViewport(0, 0, (GLsizei)winWidth, (GLsizei)winHeight);
 
 	if (app->camera->GetCurrentCamera() != nullptr)
@@ -246,7 +240,6 @@ void ModuleRenderer3D::OnResize()
 	}
 
 	RecalculateProjectionMatrix();
-
 }
 
 void ModuleRenderer3D::DrawMesh(C_Mesh* mesh, C_Material* cmaterial)
@@ -258,10 +251,9 @@ void ModuleRenderer3D::DrawMesh(C_Mesh* mesh, C_Material* cmaterial)
 		return;
 	}
 
-	glPushMatrix();
+	//glPushMatrix();
 	
-	glMultMatrixf((GLfloat*) mesh->GetOwner()->GetComponent<C_Transform>()->GetWorldTransform().Transposed().ptr());
-
+	//glMultMatrixf((GLfloat*) mesh->GetOwner()->GetComponent<C_Transform>()->GetWorldTransform().Transposed().ptr());
 
 	if (cmaterial != nullptr)
 	{
@@ -282,40 +274,51 @@ void ModuleRenderer3D::DrawMesh(C_Mesh* mesh, C_Material* cmaterial)
 		{
 			glBindTexture(GL_TEXTURE_2D, cmaterial->GetTextureID());                                    // Binding the texture_id in the Texture Resource of the Material Component.
 		}
+
+		cmaterial->GetShader()->UseShader();
+
+		cmaterial->GetTextureID() ? cmaterial->GetShader()->SetUniform1i("hasTexture", (GLint)true) : cmaterial->GetShader()->SetUniform1i("hasTexture", (GLint)false);
+		cmaterial->GetShader()->SetUniformVec4f("inColor", (GLfloat*)&cmaterial->GetMaterialColour());
+		cmaterial->GetShader()->SetUniformMatrix4("model_matrix", mesh->GetOwner()->GetComponent<C_Transform>()->GetWorldTransform().Transposed().ptr());
+		cmaterial->GetShader()->SetUniformMatrix4("view", app->camera->masterCamera->GetComponent<C_Camera>()->GetOpenGLViewMatrix());
+		cmaterial->GetShader()->SetUniformMatrix4("projection", app->camera->masterCamera->GetComponent<C_Camera>()->GetOpenGLProjectionMatrix());
 	}
 
+	glBindVertexArray(rmesh->VAO);
 
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_NORMAL_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	//glEnableClientState(GL_VERTEX_ARRAY);
+	//glEnableClientState(GL_NORMAL_ARRAY);
+	//glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-	glBindBuffer(GL_ARRAY_BUFFER, rmesh->TBO);
-	glTexCoordPointer(2, GL_FLOAT, 0, nullptr);
+	//glBindBuffer(GL_ARRAY_BUFFER, rmesh->TBO);
+	//glTexCoordPointer(2, GL_FLOAT, 0, nullptr);
 
-	glBindBuffer(GL_ARRAY_BUFFER, rmesh->NBO);
-	glNormalPointer(GL_FLOAT, 0, nullptr);
+	//glBindBuffer(GL_ARRAY_BUFFER, rmesh->NBO);
+	//glNormalPointer(GL_FLOAT, 0, nullptr);
 
-	glBindBuffer(GL_ARRAY_BUFFER, rmesh->VBO);
-	glVertexPointer(3, GL_FLOAT, 0, nullptr);
+	//glBindBuffer(GL_ARRAY_BUFFER, rmesh->VBO);
+	//glVertexPointer(3, GL_FLOAT, 0, nullptr);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, rmesh->IBO);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, rmesh->IBO);
 	glDrawElements(GL_TRIANGLES, rmesh->mIndex.size(), GL_UNSIGNED_INT, nullptr);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindVertexArray(0);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	glUseProgram(0);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	//glBindBuffer(GL_ARRAY_BUFFER, 0);
+	//glBindTexture(GL_TEXTURE_2D, 0);
 
-	glDisableClientState(GL_VERTEX_ARRAY);
-	glDisableClientState(GL_NORMAL_ARRAY);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	//glDisableClientState(GL_VERTEX_ARRAY);
+	//glDisableClientState(GL_NORMAL_ARRAY);
+	//glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
-	//Debug Draw Normals
+	// Debug Draw Normals
 	if (mesh->GetDrawNormals())
 	{
 		DebugDrawNormals(rmesh);
 	}
-	glPopMatrix();
-
+	//glPopMatrix();
 }
 
 void ModuleRenderer3D::DebugDrawNormals(R_Mesh* mesh)
@@ -452,5 +455,3 @@ void ModuleRenderer3D::DrawCuboid(float3* vertex, Color color)
 	glLineWidth(2.0f);
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }
-
-
