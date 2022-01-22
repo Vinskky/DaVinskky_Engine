@@ -21,7 +21,6 @@ public:
 	R_Texture(uint id, uint width, uint height, uint depth, uint bpp, uint bytes, TEXTURE_FORMAT format, bool compressed);
 	~R_Texture();
 
-	
 	void CleanUp();
 
 	uint CreateTexture();
@@ -29,7 +28,7 @@ public:
 	void SetTextureData(uint id, uint width, uint height, uint depth, uint bpp, uint bytes, TEXTURE_FORMAT format, bool compressed = true);
 
 public:
-	//Get Private parameters
+	// Get Private parameters
 	uint GetTextureID() const;
 	uint GetTextureWidth() const;
 	uint GetTextureHeight() const;
@@ -48,8 +47,6 @@ private:
 	uint bytes;
 	TEXTURE_FORMAT format;
 	bool compressed;		//indicator for the use of filters dds
-
-	
 };
 
 

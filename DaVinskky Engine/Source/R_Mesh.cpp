@@ -25,17 +25,17 @@ R_Mesh::~R_Mesh()
 void R_Mesh::CleanUp()
 {
 	// Deleting buffers
-	glDeleteBuffers(1, (GLuint*)&VAO);
-	glDeleteBuffers(1, (GLuint*)&TBO);
+	glDeleteVertexArrays(1, (GLuint*)&VAO);
 	glDeleteBuffers(1, (GLuint*)&VBO);
-	glDeleteBuffers(1, (GLuint*)&NBO);
 	glDeleteBuffers(1, (GLuint*)&IBO);
+	glDeleteBuffers(1, (GLuint*)&NBO);
+	glDeleteBuffers(1, (GLuint*)&TBO);
 
 	// Clear all vectors
 	mVertices.clear();
+	mIndex.clear();
 	mNormals.clear();
 	mTextureCoords.clear();
-	mIndex.clear();
 }
 
 void R_Mesh::LoadBuffers()

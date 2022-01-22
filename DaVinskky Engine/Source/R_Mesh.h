@@ -25,25 +25,24 @@ public:
 public:
 	
 	unsigned vertexSizeBytes;
-	unsigned normalSizeBytes;
 	unsigned indexSizeBytes;
+	unsigned normalSizeBytes;
 	unsigned textCoordSizeBytes;
 
 	std::vector<float> mVertices;
+	std::vector<uint> mIndex;
 	std::vector<float> mNormals;
 	std::vector<float> mTextureCoords;
-	std::vector<uint> mIndex;
 
 	// OpenGL buffers parameters
 	uint VAO;						// Vertex Array Object
-	uint VBO;						// Vertex Buffer Object	
+	uint VBO;						// Vertex Buffer Object
+	uint IBO;						// Index Buffer Object
 	uint NBO;						// Normal Buffer Object
 	uint TBO;						// Texture Buffer Object
-	uint IBO;						// Index Buffer Object
 
 	// AABB
 	AABB aabb;
 };
 
-#endif // !_I_MESH_H_
-
+#endif // !_R_MESH_H_

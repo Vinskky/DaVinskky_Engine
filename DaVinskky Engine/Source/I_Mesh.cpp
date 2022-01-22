@@ -40,9 +40,9 @@ bool Importer::Mesh::Save(const R_Mesh* rmesh, const char* path)
 		myMeshFile.write((char*)rmesh, NUM_HEADER_CATEGORIES * sizeof(unsigned));
 
 		myMeshFile.write((char*)rmesh->mVertices.data(), rmesh->vertexSizeBytes);
+		myMeshFile.write((char*)rmesh->mIndex.data(), rmesh->indexSizeBytes);
 		myMeshFile.write((char*)rmesh->mNormals.data(), rmesh->normalSizeBytes);
 		myMeshFile.write((char*)rmesh->mTextureCoords.data(), rmesh->textCoordSizeBytes);
-		myMeshFile.write((char*)rmesh->mIndex.data(), rmesh->indexSizeBytes);
 
 		myMeshFile.close();
 		ret = true;
@@ -72,17 +72,22 @@ bool Importer::Mesh::Load(const char* path, R_Mesh* rmesh)
 		rmesh->mVertices.resize(bufferSize);
 		myMeshFile.read((char*)&rmesh->mVertices[0], rmesh->vertexSizeBytes);
 
+		bufferSize = rmesh->indexSizeBytes / sizeof(uint);
+		rmesh->mIndex.resize(bufferSize);
+		myMeshFile.read((char*)&rmesh->mIndex[0], rmesh->indexSizeBytes);
+
 		bufferSize = rmesh->normalSizeBytes / sizeof(float);
 		rmesh->mNormals.resize(bufferSize);
 		myMeshFile.read((char*)&rmesh->mNormals[0], rmesh->normalSizeBytes);
 
-		bufferSize = rmesh->textCoordSizeBytes / sizeof(float);
-		rmesh->mTextureCoords.resize(bufferSize);
-		myMeshFile.read((char*)&rmesh->mTextureCoords[0], rmesh->textCoordSizeBytes);
-
-		bufferSize = rmesh->indexSizeBytes / sizeof(uint);
-		rmesh->mIndex.resize(bufferSize);
-		myMeshFile.read((char*)&rmesh->mIndex[0], rmesh->indexSizeBytes);
+		if (rmesh->textCoordSizeBytes != 0)
+		{
+			bufferSize = rmesh->textCoordSizeBytes / sizeof(float);
+			rmesh->mTextureCoords.resize(bufferSize);
+			myMeshFile.read((char*)&rmesh->mTextureCoords[0], rmesh->textCoordSizeBytes);
+		}
+		else
+			rmesh->mTextureCoords.empty();
 
 		myMeshFile.close();
 		ret = true;

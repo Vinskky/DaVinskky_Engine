@@ -2,6 +2,14 @@
 
 R_Texture::R_Texture()
 {
+	id = -1;
+	width = -1;
+	height = -1;
+	depth = -1;
+	bpp = -1;
+	bytes = -1;
+	format = TEXTURE_FORMAT::UNKNOWN;
+	compressed = false;
 }
 
 R_Texture::R_Texture(uint id, uint width, uint height, uint depth, uint bpp, uint bytes, TEXTURE_FORMAT format, bool compressed) :
@@ -13,11 +21,9 @@ R_Texture::~R_Texture()
 {
 }
 
-
 void R_Texture::CleanUp()
 {
 }
-
 
 uint R_Texture::CreateTexture()
 {

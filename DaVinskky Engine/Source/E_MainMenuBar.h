@@ -34,7 +34,6 @@ private:
 	bool showConsole = true;
 	bool showConfig = true;
 	bool showTextEditor = false;
-
 };
 
 

@@ -127,6 +127,16 @@ int Importer::Shader::ImportFragmentShader(std::string shaderFile)
 	return (outcome != 0) ? fragmentShader : -1;
 }
 
+//bool Importer::Shader::Save(const R_Shader* rmesh, const char* path)
+//{
+//
+//}
+//
+//bool Importer::Shader::Load(const char* path, R_Shader* rmesh)
+//{
+//
+//}
+
 void Importer::Shader::GetShaderUniforms(R_Shader* shader)
 {
 	GLint activeUniforms;

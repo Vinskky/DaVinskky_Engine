@@ -176,6 +176,12 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 		{
 			comp->SetDefaultTexture(dftText);
 		}
+
+		if (comp->GetShader() != nullptr)
+		{
+			ImGui::Separator();
+			ImGui::Text("Shader Path: %s", comp->GetShaderPath());
+		}
 	}
 }
 

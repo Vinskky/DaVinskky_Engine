@@ -31,24 +31,30 @@ public:
 	void SetShader(R_Shader* rshader);
 
 	R_Texture* GetTexture()const;
-	bool UseDefaultTexture();
-	void SetDefaultTexture(bool text);
-	Color GetMaterialColour();
 	uint GetTextureID();
-
-	void SetTexturePath(const char* path);
 	const char* GetTexturePath() const;
+	void SetTexturePath(const char* path);
 
 	R_Shader* GetShader() const;
+	const char* GetShaderPath() const;
+	void SetShaderPath(const char* path);
+
+	void SetDefaultTexture(bool text);
+	bool UseDefaultTexture();
+
+	Color GetMaterialColour();
 
 	static inline COMPONENT_TYPE GetType() { return COMPONENT_TYPE::MATERIAL; }
+
 private:
-	
 	R_Material* rmaterial = nullptr;
 	R_Texture* rtexture = nullptr;
 	R_Shader* rshader = nullptr;
+
 	bool debugTextEnabled;
-	std::string _path;
+
+	std::string texturePath;
+	std::string shaderPath;
 };
 
 

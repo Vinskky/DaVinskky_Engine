@@ -13,5 +13,4 @@ public:
 	Color diffuseColor;
 };
 
-
 #endif // _R_MATERIAL_H_

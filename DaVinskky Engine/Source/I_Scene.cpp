@@ -182,6 +182,7 @@ bool Importer::Scene::Load(const char* nameScene, std::vector<GameObject*>& game
 					compMaterial->Load(*componentIt);
 
 					ret = Importer::Texture::Import(compMaterial->GetTexturePath(), compMaterial->GetTexture());
+					Importer::Shader::Import(compMaterial->GetShaderPath(), compMaterial->GetShader());
 				}
 			}
 			gameObjects.push_back(gameObj);
@@ -322,6 +323,7 @@ void Importer::Scene::Private::ImportMaterial(const aiMesh* aimesh, const aiScen
 			R_Shader* rshader = new R_Shader();
 			std::string path(ASSETS_SHADERS_PATH + std::string("defaultShader.DavShader"));
 			Importer::Shader::Import(path.c_str(), rshader);
+			compMaterial->SetShaderPath(path.c_str());
 			compMaterial->SetShader(rshader);
 		}
 	}

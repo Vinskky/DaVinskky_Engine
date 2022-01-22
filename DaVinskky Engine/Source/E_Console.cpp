@@ -17,7 +17,6 @@ bool E_Console::Draw(ImGuiIO& io)
 
 	//Checks hover to avoid unnecesary inputs
 	
-
 	ImGui::Begin(GetName(), nullptr, ImGuiWindowFlags_None);
 	
 	if (app->editor->hoveringEditor == false)

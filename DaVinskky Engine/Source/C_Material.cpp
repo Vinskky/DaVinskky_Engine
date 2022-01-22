@@ -44,7 +44,8 @@ void C_Material::Save(json& jsonComp)
 {
 	jsonComp["type"] = "Material";
 	jsonComp["color"] = { GetMaterialColour().r, GetMaterialColour().g, GetMaterialColour().b, GetMaterialColour().a };
-	jsonComp["path"] = GetTexturePath();
+	jsonComp["texture_path"] = GetTexturePath();
+	jsonComp["shader_path"] = GetShaderPath();
 }
 
 void C_Material::Load(json& jsonComp)
@@ -56,9 +57,11 @@ void C_Material::Load(json& jsonComp)
 	jsonComp.at("color")[2].get_to(rmaterial->diffuseColor.b);
 	jsonComp.at("color")[3].get_to(rmaterial->diffuseColor.a);
 
-	jsonComp.at("path").get_to(_path);
+	jsonComp.at("texture_path").get_to(texturePath);
+	jsonComp.at("shader_path").get_to(shaderPath);
 
 	rtexture = new R_Texture();
+	rshader = new R_Shader();
 }
 
 void C_Material::SetMaterial(R_Material* rmaterial)
@@ -81,14 +84,48 @@ R_Texture* C_Material::GetTexture() const
 	return rtexture;
 }
 
-bool C_Material::UseDefaultTexture()
+uint C_Material::GetTextureID()
 {
-	return debugTextEnabled;
+	if (rtexture != nullptr)
+	{
+		return rtexture->GetTextureID();
+	}
+	return 0;
+}
+
+const char* C_Material::GetTexturePath() const
+{
+	return texturePath.c_str();
+}
+
+void C_Material::SetTexturePath(const char* path)
+{
+	texturePath = path;
+}
+
+R_Shader* C_Material::GetShader() const
+{
+	return rshader;
+}
+
+const char* C_Material::GetShaderPath() const
+{
+	return shaderPath.c_str();
+}
+
+void C_Material::SetShaderPath(const char* path)
+{
+	shaderPath = path;
 }
 
 void C_Material::SetDefaultTexture(bool text)
 {
 	debugTextEnabled = text;
+}
+
+bool C_Material::UseDefaultTexture()
+{
+	return debugTextEnabled;
 }
 
 Color C_Material::GetMaterialColour()
@@ -98,29 +135,4 @@ Color C_Material::GetMaterialColour()
 		return rmaterial->diffuseColor;
 	}
 	return Color();
-}
-
-uint C_Material::GetTextureID()
-{
-	if (rtexture != nullptr)
-	{
-		return rtexture->GetTextureID();
-	}
-	
-	return 0;
-}
-
-void C_Material::SetTexturePath(const char* path)
-{
-	_path = path;
-}
-
-const char* C_Material::GetTexturePath() const
-{
-	return _path.c_str();
-}
-
-R_Shader* C_Material::GetShader() const
-{
-	return rshader;
 }
