@@ -48,7 +48,6 @@ public:
 	~R_Shader();
 
 	void UseShader();
-	const char* LogShader(uint shaderObject);
 
 	const char* GetShaderPath() const;
 	void SetShaderPath(const char* name);

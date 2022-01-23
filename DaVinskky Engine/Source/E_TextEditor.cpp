@@ -60,24 +60,37 @@ bool E_TextEditor::TextEditorWindow()
 {
 	if (ImGui::Begin("Text Editor", &show_texteditor_window, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoCollapse))
 	{
+		if (ImGui::Button("COMPILE", ImVec2(100,50)))
+		{
+			std::string textToSave = editor.GetText();
+			if (Importer::Shader::CompileText(textToSave))
+			{
+				app->fileSystem->Save(fileToEdit.c_str(), textToSave.c_str(), editor.GetText().size());
+
+				Importer::Shader::Recompile(cmaterial->GetShader());
+			}
+			else
+			{
+
+			}
+		}
 		//Update
 		auto cpos = editor.GetCursorPosition();
 		if (ImGui::BeginMenuBar())
 		{
-			if (ImGui::BeginMenu("File"))
-			{
-				if (ImGui::MenuItem("Save"))
-				{
-					std::string textToSave = editor.GetText();
+			//if (ImGui::BeginMenu("File"))
+			//{
+			//	if (ImGui::MenuItem("Save"))
+			//	{
+			//		std::string textToSave = editor.GetText();
 
-					//app->fileSystem->Remove(fileToEdit.c_str());
-					app->fileSystem->Save(fileToEdit.c_str(), textToSave.c_str(), editor.GetText().size());
+			//		app->fileSystem->Save(fileToEdit.c_str(), textToSave.c_str(), editor.GetText().size());
 
-					Importer::Shader::Recompile(cmaterial->GetShader());
-				}
+			//		Importer::Shader::Recompile(cmaterial->GetShader());
+			//	}
 
-				ImGui::EndMenu();
-			}
+			//	ImGui::EndMenu();
+			//}
 			if (ImGui::BeginMenu("Edit"))
 			{
 				bool ro = editor.IsReadOnly();

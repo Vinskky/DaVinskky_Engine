@@ -228,18 +228,17 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 			R_Shader* rshader = comp->GetShader();
 			for (uint i = 0; i < rshader->uniforms.size(); i++)
 			{
-				Uniform uniformIt = rshader->uniforms[i];
 				switch (rshader->uniforms[i].uniformType)
 				{
-				case	UNIFORM_TYPE::INT:			ImGui::DragInt(uniformIt.name.c_str(), &uniformIt.integer, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
-				case	UNIFORM_TYPE::FLOAT:		ImGui::DragFloat(uniformIt.name.c_str(), &uniformIt.floatNumber, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
-				case	UNIFORM_TYPE::INT_VEC2:		ImGui::DragInt2(uniformIt.name.c_str(), (int*)&uniformIt.vec2, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
-				case	UNIFORM_TYPE::INT_VEC3:		ImGui::DragInt3(uniformIt.name.c_str(), (int*)&uniformIt.vec3, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
-				case	UNIFORM_TYPE::INT_VEC4:		ImGui::DragInt4(uniformIt.name.c_str(), (int*)&uniformIt.vec4, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
-				case	UNIFORM_TYPE::FLOAT_VEC2:	ImGui::DragFloat2(uniformIt.name.c_str(), (float*)&uniformIt.vec2, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
-				case	UNIFORM_TYPE::FLOAT_VEC3:	ImGui::DragFloat3(uniformIt.name.c_str(), (float*)&uniformIt.vec3, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
-				case	UNIFORM_TYPE::FLOAT_VEC4:	ImGui::DragFloat4(uniformIt.name.c_str(), (float*)&uniformIt.vec4, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
-				case	UNIFORM_TYPE::MATRIX4:		ImGui::DragFloat4(uniformIt.name.c_str(), uniformIt.matrix4.ToEulerXYZ().ptr(), 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::INT:			ImGui::DragInt(rshader->uniforms[i].name.c_str(), &rshader->uniforms[i].integer, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::FLOAT:		ImGui::DragFloat(rshader->uniforms[i].name.c_str(), &rshader->uniforms[i].floatNumber, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::INT_VEC2:		ImGui::DragInt2(rshader->uniforms[i].name.c_str(), (int*)&rshader->uniforms[i].vec2, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::INT_VEC3:		ImGui::DragInt3(rshader->uniforms[i].name.c_str(), (int*)&rshader->uniforms[i].vec3, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::INT_VEC4:		ImGui::DragInt4(rshader->uniforms[i].name.c_str(), (int*)&rshader->uniforms[i].vec4, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::FLOAT_VEC2:	ImGui::DragFloat2(rshader->uniforms[i].name.c_str(), (float*)&rshader->uniforms[i].vec2, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::FLOAT_VEC3:	ImGui::DragFloat3(rshader->uniforms[i].name.c_str(), (float*)&rshader->uniforms[i].vec3, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::FLOAT_VEC4:	ImGui::DragFloat4(rshader->uniforms[i].name.c_str(), (float*)&rshader->uniforms[i].vec4, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::MATRIX4:		ImGui::DragFloat4(rshader->uniforms[i].name.c_str(), rshader->uniforms[i].matrix4.ToEulerXYZ().ptr(), 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
 				}
 			}
 			//if (!comp->GetShader()->uniforms.empty())

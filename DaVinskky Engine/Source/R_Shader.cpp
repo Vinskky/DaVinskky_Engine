@@ -14,24 +14,6 @@ void R_Shader::UseShader()
 	glUseProgram(shaderProgramID);
 }
 
-const char* R_Shader::LogShader(uint shaderObject)
-{
-	// Check compilation errors
-	GLint success;
-	char infoLog[512];
-
-	glGetShaderiv(shaderObject, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-		glGetShaderInfoLog(shaderObject, 512, NULL, infoLog);
-		LOG("Shader compilation error : %s", infoLog);
-		glDeleteShader(shaderObject);
-	}
-
-	return infoLog;
-}
-
 const char* R_Shader::GetShaderPath() const
 {
 	return path.c_str();

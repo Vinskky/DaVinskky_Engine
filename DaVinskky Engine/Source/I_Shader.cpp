@@ -39,7 +39,7 @@ void Importer::Shader::Import(const char* wholePath, R_Shader* shader)
 
 	delete[] buffer;
 
-	if (shader->vertexID != 0 && shader->fragmentID != 0)
+	if (shader->vertexID != -1 && shader->fragmentID != -1)
 	{
 		GLint outcome;
 		shader->shaderProgramID = glCreateProgram();
@@ -260,6 +260,57 @@ void Importer::Shader::Recompile(R_Shader* shader)
 	shader->uniforms.shrink_to_fit();
 
 	Importer::Shader::Import(shader->GetShaderPath(), shader);
+}
+
+bool Importer::Shader::CompileText(std::string fileStr)
+{
+	bool ret = false;
+
+	uint tmpVertexID = 0, tmpFragmentID = 0, tmpProgramID = 0;
+	if (fileStr.find(VERTEX_SHADER) != std::string::npos)
+	{
+		tmpVertexID = (GLuint)ImportVertexShader(fileStr);
+	}
+	if (fileStr.find(FRAGMENT_SHADER) != std::string::npos)
+	{
+		tmpFragmentID = (GLuint)ImportFragmentShader(fileStr);
+	}
+
+	if (tmpVertexID != -1 && tmpFragmentID != -1)
+	{
+		ret = true;
+
+		GLint outcome;
+		tmpProgramID = glCreateProgram();
+		glAttachShader(tmpProgramID, tmpVertexID);
+		glAttachShader(tmpProgramID, tmpFragmentID);
+		glLinkProgram(tmpProgramID);
+
+		// Check linking errors
+		glGetProgramiv(tmpProgramID, GL_LINK_STATUS, &outcome);
+		if (outcome == GL_FALSE)
+		{
+			ret = false;
+
+			GLchar info[512];
+			glGetProgramInfoLog(tmpProgramID, 512, NULL, info);
+			glDeleteProgram(tmpProgramID);
+			glDeleteShader(tmpVertexID);
+			glDeleteShader(tmpFragmentID);
+			LOG("Shader compiling error: %s", info);
+		}
+		glDetachShader(tmpProgramID, tmpVertexID);
+		glDetachShader(tmpProgramID, tmpFragmentID);
+		glDeleteProgram(tmpProgramID);
+		glDeleteShader(tmpVertexID);
+		glDeleteShader(tmpFragmentID);
+	}
+	else
+	{
+		ret = false;
+		LOG("Vertex Shader: %d or Fragment Shader: %d are not correctly compiled.", tmpVertexID, tmpFragmentID);
+	}
+	return ret;
 }
 
 bool Importer::Shader::CheckUniformName(std::string name)
