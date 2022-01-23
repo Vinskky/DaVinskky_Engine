@@ -153,6 +153,7 @@ update_status ModuleSceneIntro::Update(float dt)
 				//Take into consideration that if the gameobject should keep being updated it wont update if it's not 
 				//inside the Frustum Culling
 				(*gameobjs)->Update();
+
 			}
 		}
 	}

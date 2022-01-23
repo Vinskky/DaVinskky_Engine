@@ -96,6 +96,7 @@
     <ClInclude Include="Source\External\mmgr\include\mmgr.h" />
     <ClInclude Include="Source\External\mmgr\include\nommgr.h" />
     <ClInclude Include="Source\E_Load.h" />
+    <ClInclude Include="Source\E_PlayPauseMenu.h" />
     <ClInclude Include="Source\E_Save.h" />
     <ClInclude Include="Source\E_TextEditor.h" />
     <ClInclude Include="Source\I_Shader.h" />
@@ -236,6 +237,7 @@
     <ClInclude Include="Source\OpenGL.h" />
     <ClInclude Include="Source\PathNode.h" />
     <ClInclude Include="Source\Primitive.h" />
+    <ClInclude Include="Source\GameTime.h" />
     <ClInclude Include="Source\Timer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +247,7 @@
     <ClCompile Include="Source\External\ImGui\ColorTextEditor\TextEditor.cpp" />
     <ClCompile Include="Source\External\mmgr\include\mmgr.cpp" />
     <ClCompile Include="Source\E_Load.cpp" />
+    <ClCompile Include="Source\E_PlayPauseMenu.cpp" />
     <ClCompile Include="Source\E_Save.cpp" />
     <ClCompile Include="Source\E_TextEditor.cpp" />
     <ClCompile Include="Source\I_Shader.cpp" />
@@ -329,6 +332,7 @@
     <ClCompile Include="Source\ModuleSceneIntro.cpp" />
     <ClCompile Include="Source\ModuleWindow.cpp" />
     <ClCompile Include="Source\Primitive.cpp" />
+    <ClCompile Include="Source\GameTime.cpp" />
     <ClCompile Include="Source\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -13,14 +13,24 @@ public:
 
 	void Start();
 	void Stop();
+	void Resume();
+	void Pause();
+	void Restart();
+
+	float ReadSec() const;
 
 	Uint32 Read();
 
-private:
 
 	bool	running;
 	Uint32	started_at;
 	Uint32	stopped_at;
+	Uint32	paused_at;
+	Uint32	resumed_at;
+	Uint32	time;
+
+private:
+
 };
 
 #endif //__TIMER_H__

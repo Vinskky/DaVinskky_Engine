@@ -16,6 +16,7 @@
 #include "E_Hierarchy.h"
 #include "E_Inspector.h"
 #include "E_TextEditor.h"
+#include "E_PlayPauseMenu.h"
 
 #include "imgui.h"
 #include "imgui_internal.h"
@@ -33,7 +34,8 @@ savePanel(new E_Save("Save Scene")),
 loadPanel(new E_Load("Load Scene")),
 hierarchy(new E_Hierarchy("Hierarchy")),
 inspector(new E_Inspector("Inspector")),
-textEdit(new E_TextEditor("Text Editor"))
+textEdit(new E_TextEditor("Text Editor")),
+playPauseMenu(new E_PlayPauseMenu("Play Pause Menu"))
 {
     SetName("Editor");
     //AddEditorPanel(testPanel);
@@ -46,6 +48,7 @@ textEdit(new E_TextEditor("Text Editor"))
     AddEditorPanel(hierarchy);
     AddEditorPanel(inspector);
     AddEditorPanel(textEdit);
+    AddEditorPanel(playPauseMenu);
 }
 
 ModuleEditor::~ModuleEditor()

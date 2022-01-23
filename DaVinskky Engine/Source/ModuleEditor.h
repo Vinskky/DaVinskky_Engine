@@ -18,6 +18,7 @@ class E_Load;
 class E_Hierarchy;
 class E_Inspector;
 class E_TextEditor;
+class E_PlayPauseMenu;
 
 
 class ModuleEditor : public Module
@@ -70,6 +71,7 @@ public:
 	E_Hierarchy* hierarchy = nullptr;
 	E_Inspector* inspector = nullptr;
 	E_TextEditor* textEdit = nullptr;
+	E_PlayPauseMenu* playPauseMenu = nullptr;
 
 	bool hoveringEditor = false;
 };

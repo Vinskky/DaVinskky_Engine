@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "Timer.h"
 
 #include <vector>
 #include <External/MathGeoLib/include/Math/Reinterpret.h>
@@ -38,6 +39,11 @@ public:
 	GameObject* selectedGameObj;
 
 	C_Camera* cullingCamera;
+
+
+	float gameTime;
+	Timer msGameTimer;
+
 };
 
 #endif // !_MODULE_SCENE_INTRO_H_

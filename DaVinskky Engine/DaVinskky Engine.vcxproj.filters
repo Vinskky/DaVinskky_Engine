@@ -528,6 +528,12 @@
     <ClInclude Include="Source\I_Shader.h">
       <Filter>Sources\3. Importers</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GameTime.h">
+      <Filter>Sources\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\E_PlayPauseMenu.h">
+      <Filter>Sources\2. Editor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\log.cpp">
@@ -802,6 +808,12 @@
     </ClCompile>
     <ClCompile Include="Source\I_Shader.cpp">
       <Filter>Sources\3. Importers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameTime.cpp">
+      <Filter>Sources\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\E_PlayPauseMenu.cpp">
+      <Filter>Sources\2. Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
