@@ -16,12 +16,13 @@ public:
 	bool Draw(ImGuiIO& io)override;
 	bool CleanUp()override;
 
-	void InitTextEditor(C_Material* cmaterial);
+	void InitTextEditor(C_Material* cmaterial, bool newShader);
 
 	bool TextEditorWindow();
 
 public:
 	bool show_texteditor_window; 
+	bool IsNewShader;
 	TextEditor editor;
 	std::string fileToEdit;
 

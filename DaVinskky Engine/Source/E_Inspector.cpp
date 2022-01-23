@@ -196,9 +196,6 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 
 		if (comp->GetShader() != nullptr)
 		{
-			
-			//ImGui::Text("Shader Path: %s", comp->GetShaderPath());
-			
 			ImGui::Separator();
 
 			FillShaderList();
@@ -218,10 +215,13 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 				ImGui::EndCombo();
 			}
 			
-
 			if (ImGui::Button("Edit Shader"))
 			{
-				app->editor->textEdit->InitTextEditor(comp);
+				app->editor->textEdit->InitTextEditor(comp, false);
+			}
+			if (ImGui::Button("Create Shader"))
+			{
+				app->editor->textEdit->InitTextEditor(comp, true);
 			}
 
 			ImGui::Separator();
@@ -241,10 +241,6 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 				case	UNIFORM_TYPE::MATRIX4:		ImGui::DragFloat4(rshader->uniforms[i].name.c_str(), rshader->uniforms[i].matrix4.ToEulerXYZ().ptr(), 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
 				}
 			}
-			//if (!comp->GetShader()->uniforms.empty())
-			//{
-
-			//}
 		}
 	}
 }

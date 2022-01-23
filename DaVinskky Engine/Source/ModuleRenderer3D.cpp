@@ -1,5 +1,6 @@
 #include "Globals.h"
 #include "Application.h"
+#include "ModuleSceneIntro.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleEditor.h"
 #include "I_Texture.h"
@@ -283,6 +284,7 @@ void ModuleRenderer3D::DrawMesh(C_Mesh* mesh, C_Material* cmaterial)
 		cmaterial->GetShader()->SetUniformMatrix4("model_matrix", mesh->GetOwner()->GetComponent<C_Transform>()->GetWorldTransform().Transposed().ptr());
 		cmaterial->GetShader()->SetUniformMatrix4("view", app->camera->masterCamera->GetComponent<C_Camera>()->GetOpenGLViewMatrix());
 		cmaterial->GetShader()->SetUniformMatrix4("projection", app->camera->masterCamera->GetComponent<C_Camera>()->GetOpenGLProjectionMatrix());
+		cmaterial->GetShader()->SetUniformMatrix4("time", (GLfloat*)&app->sceneIntro->gameTime);
 
 		Importer::Shader::SetShaderUniforms(cmaterial->GetShader());
 	}

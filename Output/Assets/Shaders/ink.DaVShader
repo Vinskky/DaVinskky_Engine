@@ -6,9 +6,10 @@ layout(location = 2) in vec2 texCoord;
 
 out vec4 ourColor;
 out vec2 TexCoord;
+out vec4 fragInk;
 
 uniform vec4 inColor;
-uniform vec4 patata;
+uniform vec4 ink;
 
 uniform mat4 model_matrix;
 uniform mat4 view;
@@ -17,8 +18,9 @@ uniform mat4 projection;
 void main()
 {
     gl_Position = projection * view * model_matrix * vec4(position, 1.0f);
+    ourColor = inColor;
     TexCoord = texCoord;
-    ourColor = patata;
+    fragInk = ink;
 }
 
 #endif
@@ -29,6 +31,7 @@ void main()
 
 in vec4 ourColor;
 in vec2 TexCoord;
+in vec4 fragInk;
 
 out vec4 color;
 
@@ -38,12 +41,8 @@ uniform sampler2D ourTexture;
 void main()
 {
    vec4 texColor = (hasTexture) ? texture(ourTexture, TexCoord) : vec4(0.5f,0.5f,0.5f,1.0f);
-   color = texColor * ourColor;
+   color = texColor * ourColor * fragInk;
 }
 
 #endif
-
-
-
-
 

@@ -14,9 +14,7 @@ Timer::Timer()
 	, resumed_at(0)
 	, time(0)
 {
-	Start();
 }
-
 
 // ---------------------------------------------
 void Timer::Start()

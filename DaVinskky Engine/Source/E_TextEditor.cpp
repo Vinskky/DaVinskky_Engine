@@ -9,8 +9,8 @@
 #include <fstream>
 
 
-E_TextEditor::E_TextEditor(const char* name, bool isActive): Editor("Text Editor"),
-show_texteditor_window(false)
+E_TextEditor::E_TextEditor(const char* name, bool isActive) : Editor("Text Editor"),
+show_texteditor_window(false), IsNewShader(false)
 {
 }
 
@@ -36,21 +36,30 @@ bool E_TextEditor::CleanUp()
 	return false;
 }
 
-void E_TextEditor::InitTextEditor(C_Material* cmaterial)
+void E_TextEditor::InitTextEditor(C_Material* cmaterial, bool newShader)
 {
 	this->cmaterial = cmaterial;
+	IsNewShader = newShader;
 
-	fileToEdit = this->cmaterial->GetShaderPath();
-
-	// Only Handles GLSL
-	TextEditor::LanguageDefinition lang = TextEditor::LanguageDefinition::GLSL();
-	editor.SetShowWhitespaces(false);
-
-	std::ifstream t(fileToEdit.c_str());
-	if (t.good())
+	if (IsNewShader)
 	{
-		std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
-		editor.SetText(str);
+		fileToEdit = std::string(ASSETS_SHADERS_PATH + std::string("newShader.DaVShader"));
+		editor.SetText("");
+	}
+	else
+	{
+		fileToEdit = this->cmaterial->GetShaderPath();
+
+		// Only Handles GLSL
+		TextEditor::LanguageDefinition lang = TextEditor::LanguageDefinition::GLSL();
+		editor.SetShowWhitespaces(false);
+
+		std::ifstream t(fileToEdit.c_str());
+		if (t.good())
+		{
+			std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
+			editor.SetText(str);
+		}
 	}
 
 	show_texteditor_window = true;
@@ -70,27 +79,29 @@ bool E_TextEditor::TextEditorWindow()
 				Importer::Shader::Recompile(cmaterial->GetShader());
 			}
 			else
-			{
-
-			}
+				LOG("There are some errors with the Shader! %s", fileToEdit.c_str());
 		}
-		//Update
+		if (IsNewShader)
+		{
+			ImGui::Spacing();
+			ImGui::Spacing();
+			ImGui::Separator();
+
+			std::string shaderName;
+			char buffer[128];
+			strcpy_s(buffer, fileToEdit.c_str());
+			if (ImGui::InputText("Name (.DaVShader)", buffer, IM_ARRAYSIZE(buffer), ImGuiInputTextFlags_EnterReturnsTrue))
+			{
+				shaderName = buffer;
+				fileToEdit = shaderName;
+			}
+			ImGui::Spacing();
+			ImGui::Spacing();
+		}
+		// Update
 		auto cpos = editor.GetCursorPosition();
 		if (ImGui::BeginMenuBar())
 		{
-			//if (ImGui::BeginMenu("File"))
-			//{
-			//	if (ImGui::MenuItem("Save"))
-			//	{
-			//		std::string textToSave = editor.GetText();
-
-			//		app->fileSystem->Save(fileToEdit.c_str(), textToSave.c_str(), editor.GetText().size());
-
-			//		Importer::Shader::Recompile(cmaterial->GetShader());
-			//	}
-
-			//	ImGui::EndMenu();
-			//}
 			if (ImGui::BeginMenu("Edit"))
 			{
 				bool ro = editor.IsReadOnly();

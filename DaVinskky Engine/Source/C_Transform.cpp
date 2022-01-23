@@ -52,15 +52,18 @@ void C_Transform::Load(json& jsonComp)
 	jsonComp.at("position")[0].get_to(position.x);
 	jsonComp.at("position")[1].get_to(position.y);
 	jsonComp.at("position")[2].get_to(position.z);
+	SetPosition(position.x, position.y, position.z);
 
 	jsonComp.at("rotation")[0].get_to(rotation.x);
 	jsonComp.at("rotation")[1].get_to(rotation.y);
 	jsonComp.at("rotation")[2].get_to(rotation.z);
 	jsonComp.at("rotation")[3].get_to(rotation.w);
+	SetRotation(rotation.x, rotation.y, rotation.z, rotation.w);
 
 	jsonComp.at("scale")[0].get_to(scale.x);
 	jsonComp.at("scale")[1].get_to(scale.y);
 	jsonComp.at("scale")[2].get_to(scale.z);
+	SetScale(scale.x, scale.y, scale.z);
 }
 
 float3 C_Transform::GetPosition() const
