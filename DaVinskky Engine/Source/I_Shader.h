@@ -11,9 +11,6 @@ namespace Importer
 	{
 		void Import(const char* path, R_Shader* shader);
 
-		//bool Save(const R_Shader* rmesh, const char* path);
-		//bool Load(const char* path, R_Shader* rmesh);
-
 		// Read file vertex part
 		int ImportVertexShader(std::string shaderFile);
 

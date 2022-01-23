@@ -127,16 +127,6 @@ int Importer::Shader::ImportFragmentShader(std::string shaderFile)
 	return (outcome != 0) ? fragmentShader : -1;
 }
 
-//bool Importer::Shader::Save(const R_Shader* rmesh, const char* path)
-//{
-//
-//}
-//
-//bool Importer::Shader::Load(const char* path, R_Shader* rmesh)
-//{
-//
-//}
-
 void Importer::Shader::GetShaderUniforms(R_Shader* shader)
 {
 	GLint activeUniforms;
@@ -168,7 +158,7 @@ void Importer::Shader::GetShaderUniforms(R_Shader* shader)
 				break;
 			case GL_BOOL:
 				uniform.uniformType = UNIFORM_TYPE::BOOL;
-				
+				glGetUniformiv(shader->shaderProgramID, uinformLoc, (GLint*)&uniform.boolean);
 				break;
 			case GL_INT_VEC2:
 				uniform.uniformType = UNIFORM_TYPE::INT_VEC2;
@@ -206,7 +196,6 @@ void Importer::Shader::GetShaderUniforms(R_Shader* shader)
 				break;
 
 			default: uniform.uniformType = UNIFORM_TYPE::NONE; break;
-
 			}
 
 			if (uniform.uniformType != UNIFORM_TYPE::NONE) shader->uniforms.push_back(uniform);
@@ -235,6 +224,9 @@ void Importer::Shader::SetShaderUniforms(R_Shader* shader)
 		case UNIFORM_TYPE::FLOAT_VEC4:
 			shader->SetUniformVec4f(shader->uniforms[i].name.c_str(), shader->uniforms[i].vec4.ptr());
 			break;
+		case UNIFORM_TYPE::BOOL:
+			shader->SetUniform1i(shader->uniforms[i].name.c_str(), (GLint)shader->uniforms[i].boolean);
+			break;
 		case UNIFORM_TYPE::INT:
 			shader->SetUniform1i(shader->uniforms[i].name.c_str(), shader->uniforms[i].integer);
 			break;
@@ -261,14 +253,19 @@ void Importer::Shader::Recompile(R_Shader* shader)
 	glDetachShader(shader->shaderProgramID, shader->vertexID);
 	glDetachShader(shader->shaderProgramID, shader->fragmentID);
 	glDeleteProgram(shader->shaderProgramID);
+	glDeleteShader(shader->vertexID);
+	glDeleteShader(shader->fragmentID);
 
-	Importer::Shader::Import(shader->GetPathShader(), shader);
+	shader->uniforms.clear();
+	shader->uniforms.shrink_to_fit();
+
+	Importer::Shader::Import(shader->GetShaderPath(), shader);
 }
 
 bool Importer::Shader::CheckUniformName(std::string name)
 {
-	if (name != "inColor" && name != "time" && name != "modelMatrix" &&
-		name != "viewMatrix" && name != "projectionMatrix" && name != "cameraPosition")
+	if (name != "inColor" && name != "time" && name != "model_matrix" &&
+		name != "view" && name != "projection" && name != "cameraPosition")
 	{
 		return true;
 	}

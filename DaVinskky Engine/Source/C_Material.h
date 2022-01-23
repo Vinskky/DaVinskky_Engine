@@ -57,5 +57,4 @@ private:
 	std::string shaderPath;
 };
 
-
 #endif // !_C_MATERIALS_H_

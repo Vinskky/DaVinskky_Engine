@@ -39,7 +39,6 @@ struct Uniform
 	float3 vec3;
 	float4 vec4;
 	float4x4 matrix4 = float4x4::zero;
-
 };
 
 class R_Shader
@@ -51,11 +50,8 @@ public:
 	void UseShader();
 	const char* LogShader(uint shaderObject);
 
-	void SetNameShader(const char* name);
-	const char* GetNameShader() const;
-
-	void SetPathShader(const char* name);
-	const char* GetPathShader()const;
+	const char* GetShaderPath() const;
+	void SetShaderPath(const char* name);
 
 	// Functionality to be able to save/modify data of Shader
 	void SetUniformMatrix4(std::string name, GLfloat* value);
@@ -80,7 +76,6 @@ public:
 	std::vector<Uniform> uniforms;
 
 private:
-	std::string name;
 	std::string path;
 };
 

@@ -116,6 +116,7 @@ const char* C_Material::GetShaderPath() const
 void C_Material::SetShaderPath(const char* path)
 {
 	shaderPath = path;
+	rshader->SetShaderPath(path);
 }
 
 void C_Material::SetDefaultTexture(bool text)

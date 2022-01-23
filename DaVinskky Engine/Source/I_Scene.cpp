@@ -127,6 +127,7 @@ bool Importer::Scene::Load(const char* nameScene, std::vector<GameObject*>& game
 			RELEASE((*goIt));
 		}
 		app->sceneIntro->sceneGameObjects.clear();
+		app->sceneIntro->sceneGameObjects.shrink_to_fit();
 
 		json jsonGameObjects = sceneJson.file["Game Objects"];
 
@@ -323,8 +324,8 @@ void Importer::Scene::Private::ImportMaterial(const aiMesh* aimesh, const aiScen
 			R_Shader* rshader = new R_Shader();
 			std::string path(ASSETS_SHADERS_PATH + std::string("defaultShader.DavShader"));
 			Importer::Shader::Import(path.c_str(), rshader);
-			compMaterial->SetShaderPath(path.c_str());
 			compMaterial->SetShader(rshader);
+			compMaterial->SetShaderPath(path.c_str());
 		}
 	}
 }

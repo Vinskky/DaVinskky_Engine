@@ -7,8 +7,6 @@ R_Shader::R_Shader() :shaderProgramID(0), vertexID(0), fragmentID(0)
 R_Shader::~R_Shader()
 {
 	glDeleteProgram(shaderProgramID);
-	glDeleteShader(vertexID);
-	glDeleteShader(fragmentID);
 }
 
 void R_Shader::UseShader()
@@ -34,24 +32,14 @@ const char* R_Shader::LogShader(uint shaderObject)
 	return infoLog;
 }
 
-void R_Shader::SetNameShader(const char* name)
-{
-	this->name = name;
-}
-
-const char* R_Shader::GetNameShader() const
-{
-	return name.c_str();
-}
-
-void R_Shader::SetPathShader(const char* name)
-{
-	this->path = name;
-}
-
-const char* R_Shader::GetPathShader() const
+const char* R_Shader::GetShaderPath() const
 {
 	return path.c_str();
+}
+
+void R_Shader::SetShaderPath(const char* name)
+{
+	this->path = name;
 }
 
 void R_Shader::SetUniformMatrix4(std::string name, GLfloat* value)
