@@ -3,6 +3,8 @@
 #include "ModuleFileSystem.h"
 #include "ModuleEditor.h"
 #include "E_Inspector.h"
+#include "C_Material.h"
+#include "I_Shader.h"
 
 #include <fstream>
 
@@ -23,7 +25,7 @@ bool E_TextEditor::Draw(ImGuiIO& io)
 	if (app->editor->hoveringEditor == false)
 		app->editor->hoveringEditor = ImGui::IsWindowHovered();
 
-	if(show_texteditor_window)
+	if (show_texteditor_window)
 		TextEditorWindow();
 
 	return ret;
@@ -34,10 +36,13 @@ bool E_TextEditor::CleanUp()
 	return false;
 }
 
-void E_TextEditor::InitTextEditor(const char* text)
+void E_TextEditor::InitTextEditor(C_Material* cmaterial)
 {
-	fileToEdit = text;
-	//Only Handles GLSL
+	this->cmaterial = cmaterial;
+
+	fileToEdit = this->cmaterial->GetShaderPath();
+
+	// Only Handles GLSL
 	TextEditor::LanguageDefinition lang = TextEditor::LanguageDefinition::GLSL();
 	editor.SetShowWhitespaces(false);
 
@@ -53,7 +58,6 @@ void E_TextEditor::InitTextEditor(const char* text)
 
 bool E_TextEditor::TextEditorWindow()
 {
-	
 	if (ImGui::Begin("Text Editor", &show_texteditor_window, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoCollapse))
 	{
 		//Update
@@ -66,14 +70,10 @@ bool E_TextEditor::TextEditorWindow()
 				{
 					std::string textToSave = editor.GetText();
 
-					app->fileSystem->Remove(fileToEdit.c_str());
+					//app->fileSystem->Remove(fileToEdit.c_str());
 					app->fileSystem->Save(fileToEdit.c_str(), textToSave.c_str(), editor.GetText().size());
 
-					//glDetachShader(shaderToRecompile->shaderProgramID, shaderToRecompile->vertexID);
-					//glDetachShader(shaderToRecompile->shaderProgramID, shaderToRecompile->fragmentID);
-					//glDeleteProgram(shaderToRecompile->shaderProgramID);
-					//
-					//Importer::ShaderImporter::Import(shaderToRecompile->assetsFile.c_str(), shaderToRecompile);
+					Importer::Shader::Recompile(cmaterial->GetShader());
 				}
 
 				ImGui::EndMenu();
@@ -85,7 +85,7 @@ bool E_TextEditor::TextEditorWindow()
 					editor.SetReadOnly(ro);
 				ImGui::Separator();
 
-				if (ImGui::MenuItem("Undo", "ALT-Backspace", nullptr, !ro && editor.CanUndo()))
+				if (ImGui::MenuItem("Undo", "Ctrl-Z", nullptr, !ro && editor.CanUndo()))
 					editor.Undo();
 				if (ImGui::MenuItem("Redo", "Ctrl-Y", nullptr, !ro && editor.CanRedo()))
 					editor.Redo();

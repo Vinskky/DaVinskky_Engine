@@ -8,6 +8,7 @@
 #include "C_Mesh.h"
 #include "C_Material.h"
 #include "C_Camera.h"
+#include "R_Shader.h"
 
 #include "External/mmgr/include/mmgr.h"
 
@@ -185,8 +186,31 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 
 			if (ImGui::Button("Edit Shader"))
 			{
-				app->editor->textEdit->InitTextEditor(comp->GetShaderPath());
+				app->editor->textEdit->InitTextEditor(comp);
 			}
+
+			ImGui::Separator();
+			R_Shader* rshader = comp->GetShader();
+			for (uint i = 0; i < rshader->uniforms.size(); i++)
+			{
+				Uniform uniformIt = rshader->uniforms[i];
+				switch (rshader->uniforms[i].uniformType)
+				{
+				case	UNIFORM_TYPE::INT:			ImGui::DragInt(uniformIt.name.c_str(), &uniformIt.integer, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::FLOAT:		ImGui::DragFloat(uniformIt.name.c_str(), &uniformIt.floatNumber, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::INT_VEC2:		ImGui::DragInt2(uniformIt.name.c_str(), (int*)&uniformIt.vec2, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::INT_VEC3:		ImGui::DragInt3(uniformIt.name.c_str(), (int*)&uniformIt.vec3, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::INT_VEC4:		ImGui::DragInt4(uniformIt.name.c_str(), (int*)&uniformIt.vec4, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::FLOAT_VEC2:	ImGui::DragFloat2(uniformIt.name.c_str(), (float*)&uniformIt.vec2, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::FLOAT_VEC3:	ImGui::DragFloat3(uniformIt.name.c_str(), (float*)&uniformIt.vec3, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::FLOAT_VEC4:	ImGui::DragFloat4(uniformIt.name.c_str(), (float*)&uniformIt.vec4, 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				case	UNIFORM_TYPE::MATRIX4:		ImGui::DragFloat4(uniformIt.name.c_str(), uniformIt.matrix4.ToEulerXYZ().ptr(), 0.02f, 0.0f, 0.0f, "%.2f", ImGuiSliderFlags_None); break;
+				}
+			}
+			//if (!comp->GetShader()->uniforms.empty())
+			//{
+
+			//}
 		}
 	}
 }

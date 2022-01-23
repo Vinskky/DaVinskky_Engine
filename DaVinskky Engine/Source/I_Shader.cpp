@@ -49,7 +49,7 @@ void Importer::Shader::Import(const char* wholePath, R_Shader* shader)
 
 		// Check linking errors
 		glGetProgramiv(shader->shaderProgramID, GL_LINK_STATUS, &outcome);
-		if (outcome == 0)
+		if (outcome == GL_FALSE)
 		{
 			GLchar info[512];
 			glGetProgramInfoLog(shader->shaderProgramID, 512, NULL, info);
@@ -117,7 +117,7 @@ int Importer::Shader::ImportFragmentShader(std::string shaderFile)
 	GLint outcome;
 	GLchar info[512];
 	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &outcome);
-	if (outcome == 0)
+	if (outcome == GL_FALSE)
 	{
 		glGetShaderInfoLog(fragmentShader, 512, NULL, info);
 		glDeleteShader(fragmentShader);
@@ -265,7 +265,7 @@ void Importer::Shader::Recompile(R_Shader* shader)
 bool Importer::Shader::CheckUniformName(std::string name)
 {
 	if (name != "inColor" && name != "time" && name != "model_matrix" &&
-		name != "view" && name != "projection" && name != "cameraPosition")
+		name != "view" && name != "projection" && name != "hasTexture" && name != "cameraPosition")
 	{
 		return true;
 	}

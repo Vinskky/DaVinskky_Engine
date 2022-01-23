@@ -5,6 +5,8 @@
 #include <string>
 #include "External/ImGui/ColorTextEditor/TextEditor.h"
 
+class C_Material;
+
 class E_TextEditor : public Editor
 {
 public:
@@ -14,18 +16,16 @@ public:
 	bool Draw(ImGuiIO& io)override;
 	bool CleanUp()override;
 
-
-	void InitTextEditor(const char* text);
-
-private:
+	void InitTextEditor(C_Material* cmaterial);
 
 	bool TextEditorWindow();
-
 
 public:
 	bool show_texteditor_window; 
 	TextEditor editor;
 	std::string fileToEdit;
+
+	C_Material* cmaterial;
 };
 
 
