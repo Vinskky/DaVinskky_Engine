@@ -36,8 +36,6 @@ It has been coded from scratch in C and C++ along with the following libraries:
 * Image Import
 * Drag & Drop Models and textures from a directory (Specifically those inside the Assets folder).
 * GameObject and Components structure
-
-**New**
 * You can Edit Values of GameObjects in the Inspector
 * Use of Hierarchy: You are able to delete, reparent, create empty and create children of the current Game Object
 * Use of Transform: translate, rotate and scale Game Objects.
@@ -46,12 +44,22 @@ It has been coded from scratch in C and C++ along with the following libraries:
 * Meshes are saved as our own format (.DavMesh for meshes) under “Library/Meshes” folder
 * Serialization: You can Save And Load the Scene, It is Saved as a serialized Json File
 
+**New**
+* Shaders: The engine uses a shader pipeline to draw geometry. 
+* The whole Scene is drawn with shaders by default.
+* New shaders can be applied to materials with the editor. 
+* New Shaders can be created.
+* Editing a shader in-engine automatically compiles and applies the changes.
+* Uniform values can be edited from the inspector.
+* Internal text editor that ca show Logs and compilation errors from the shader in the engine console
+
 **Engine Features**
 * **Main Menu Toolbar:** Allows to show/hide some editor panels, go to URL links, and close the application.
 * **Configuration Panel:** Allow us to modify some parameters from existing modules.
 * **Hierarchy Panel:** Shows all GameObjects on the scene with the parenting working as an ImGui TreeNode.
 * **Console Panel:** Help us to identify what is going on in the engine through messages.
 * **Inspector Panel:** Once selected a GameObject on the Hierarchy panel, allow us to see if the GameObject selected has certain components. (For the moment is only visual)
+* **Time Manage Panel:** To control the internal game timer
 
 ****
 
