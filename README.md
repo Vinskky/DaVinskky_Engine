@@ -1,7 +1,7 @@
 # DaVinskky_Engine
 C++ 3D Game engine created with learning purposes.
 
-![ScreenShot](https://github.com/Vinskky/DaVinskky_Engine/blob/main/Docs/Screenshot_V1.PNG?raw=true)
+![ScreenShot](https://github.com/Vinskky/DaVinskky_Engine/blob/main/Docs/Screenshot_V2.PNG?raw=true)
 
 It has been coded from scratch in C and C++ along with the following libraries:
 
