@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "GameObject.h"
 #include "ModuleSceneIntro.h"
+#include "E_TextEditor.h"
 #include "C_Transform.h"
 #include "C_Mesh.h"
 #include "C_Material.h"
@@ -181,6 +182,11 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 		{
 			ImGui::Separator();
 			ImGui::Text("Shader Path: %s", comp->GetShaderPath());
+
+			if (ImGui::Button("Edit Shader"))
+			{
+				app->editor->textEdit->InitTextEditor(comp->GetShaderPath());
+			}
 		}
 	}
 }

@@ -14,6 +14,9 @@ public:
 	bool Draw(ImGuiIO& io)override;
 	bool CleanUp()override;
 
+
+	void InitTextEditor(const char* text);
+
 private:
 
 	bool TextEditorWindow();

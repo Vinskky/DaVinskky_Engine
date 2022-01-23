@@ -18,6 +18,8 @@ public:
 	bool Draw(ImGuiIO& io)override;
 	bool CleanUp()override;
 
+
+
 private:
 	void InspectorTransform(C_Transform* comp);
 	void InspectorMesh(C_Mesh* comp);

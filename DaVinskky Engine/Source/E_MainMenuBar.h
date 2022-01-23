@@ -15,14 +15,13 @@ public:
 	bool GetAboutWindowState()const;
 	bool GetSaveWindowState()const;
 	bool GetLoadWindowState()const;
-	bool GetTextEditorState()const;
+
 
 private:
 	bool FileMenu();
 	bool ViewMenu();
 	bool HelpMenu();
 	bool CreateMenu();
-	bool TextEditorMenuTest();
 
 public:
 	bool saveWindow = false;
@@ -33,7 +32,6 @@ private:
 	bool aboutWindow = false;
 	bool showConsole = true;
 	bool showConfig = true;
-	bool showTextEditor = false;
 };
 
 

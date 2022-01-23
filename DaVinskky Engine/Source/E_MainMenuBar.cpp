@@ -43,7 +43,6 @@ bool E_MainMenuBar::Draw(ImGuiIO& io)
 	ViewMenu();
 	HelpMenu();
 	CreateMenu();
-	TextEditorMenuTest();
 
 	ImGui::EndMainMenuBar();
 	
@@ -75,10 +74,7 @@ bool E_MainMenuBar::GetLoadWindowState() const
 	return loadWindow;
 }
 
-bool E_MainMenuBar::GetTextEditorState() const
-{
-	return showTextEditor;
-}
+
 
 bool E_MainMenuBar::FileMenu()
 {
@@ -216,27 +212,3 @@ bool E_MainMenuBar::CreateMenu()
 	return ret;
 }
 
-bool E_MainMenuBar::TextEditorMenuTest()
-{
-	bool ret = true;
-
-	if (ImGui::BeginMenu("Text Editor test"))
-	{
-		if (ImGui::MenuItem("Open Text editor", "", showTextEditor, true))
-		{
-			if (aboutWindow)
-			{
-				app->editor->textEdit->Disable();
-			}
-			else
-			{
-				app->editor->textEdit->Enable();
-
-			}
-			showTextEditor = !showTextEditor;
-		}
-		ImGui::EndMenu();
-	}
-
-	return ret;
-}
