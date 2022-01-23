@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "GameObject.h"
 #include "ModuleSceneIntro.h"
+#include "I_Shader.h"
 #include "E_TextEditor.h"
 #include "C_Transform.h"
 #include "C_Mesh.h"
@@ -18,6 +19,7 @@ componentType(0)
 	position = float3::zero;
 	rotation = float3::zero;
 	scale = float3::one;
+	
 }
 
 E_Inspector::~E_Inspector()
@@ -65,6 +67,19 @@ bool E_Inspector::CleanUp()
 {
 	bool ret = true;
 	return ret;
+}
+
+void E_Inspector::FillShaderList()
+{
+	if (shaderList.empty())
+	{
+		app->fileSystem->GetAllFilesWithExtension(ASSETS_SHADERS_PATH, "DaVShader", shaderList);
+	}
+	else
+	{
+		shaderList.clear();
+		app->fileSystem->GetAllFilesWithExtension(ASSETS_SHADERS_PATH, "DaVShader", shaderList);
+	}
 }
 
 void E_Inspector::InspectorTransform(C_Transform* comp)
@@ -181,8 +196,28 @@ void E_Inspector::InspectorMaterialTexture(C_Material* comp)
 
 		if (comp->GetShader() != nullptr)
 		{
+			
+			//ImGui::Text("Shader Path: %s", comp->GetShaderPath());
+			
 			ImGui::Separator();
-			ImGui::Text("Shader Path: %s", comp->GetShaderPath());
+
+			FillShaderList();
+
+			if (ImGui::BeginCombo("Shaders", comp->GetShaderPath(), ImGuiComboFlags_PopupAlignLeft))
+			{
+				for (int i = 0; i < shaderList.size(); ++i)
+				{
+					if (ImGui::Selectable(shaderList[i].c_str()))
+					{
+						//Reset path of shader and recompile it
+						std::string path(ASSETS_SHADERS_PATH + shaderList[i]);
+						comp->SetShaderPath(path.c_str());
+						Importer::Shader::Recompile(comp->GetShader());
+					}
+				}
+				ImGui::EndCombo();
+			}
+			
 
 			if (ImGui::Button("Edit Shader"))
 			{

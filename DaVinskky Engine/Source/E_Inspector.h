@@ -2,6 +2,8 @@
 #define _E_INSPECTOR_H_
 #include "Editor.h"
 #include "External/MathGeoLib/include/Math/float3.h"
+#include <string>
+#include <vector>
 
 class C_Transform;
 class C_Mesh;
@@ -18,7 +20,7 @@ public:
 	bool Draw(ImGuiIO& io)override;
 	bool CleanUp()override;
 
-
+	void FillShaderList();
 
 private:
 	void InspectorTransform(C_Transform* comp);
@@ -32,6 +34,8 @@ public:
 	float3 position;
 	float3 rotation;
 	float3 scale;
+
+	std::vector<std::string> shaderList;
 
 private:
 	int componentType;
